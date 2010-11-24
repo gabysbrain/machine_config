@@ -1,0 +1,8 @@
+:set ai
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
+:set showmode
+:syntax on
+:colorscheme proton
+:set guifont=DejaVu\ Sans\ Mono\ 9
