@@ -1,0 +1,7 @@
+[ui]
+username = Thomas Torsney-Weir <tom@tanto>
+
+[extensions]
+fetch =
+hgext.convert =
+
