@@ -1,0 +1,12 @@
+# Base hook to reset account variables to known state before activating new ones
+account-hook . 'unset preconnect imap_user imap_pass imap_authenticators; set ssl_starttls=ask-yes'
+
+# gmail
+account-hook imaps://imap.gmail.com/ 'set imap_user=torsneyt@gmail.com imap_pass=<password>'
+folder-hook imaps://imap.gmail.com/ 'set folder=imaps://imap.gmail.com/INBOX record=+Sent from="Thomas Torsney-Weir <torsneyt@gmail.com>"'
+
+#account-hook imaps://imap.gmail.com/ 'set imap_user=user2 imap_pass=pass2 imap_authenticators=digest-md5'
+#folder-hook imaps://imap.gmail.com/ 'set folder=imaps://imap.gmail.com/mail record=+Sent from="Devil <user2@server2.com>"'
+
+set folder=imaps://imap.gmail.com/INBOX
+
