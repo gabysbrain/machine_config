@@ -6,3 +6,4 @@
 :syntax on
 :colorscheme proton
 :set guifont=DejaVu\ Sans\ Mono\ 9
+:set colorcolumn=78
