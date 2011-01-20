@@ -1,12 +1,17 @@
-# Base hook to reset account variables to known state before activating new ones
+
 account-hook . 'unset preconnect imap_user imap_pass imap_authenticators; set ssl_starttls=ask-yes'
 
 # gmail
 account-hook imaps://imap.gmail.com/ 'set imap_user=torsneyt@gmail.com imap_pass=<password>'
-folder-hook imaps://imap.gmail.com/ 'set folder=imaps://imap.gmail.com/INBOX record=+Sent from="Thomas Torsney-Weir <torsneyt@gmail.com>"'
+folder-hook imaps://imap.gmail.com/ 'set folder=imaps://imap.gmail.com/INBOX postponed=+[GMAIL]/Drafts record=+[GMAIL]/Sent\ Mail from="Tom Torsney-Weir <torsneyt@gmail.com>"'
 
-#account-hook imaps://imap.gmail.com/ 'set imap_user=user2 imap_pass=pass2 imap_authenticators=digest-md5'
-#folder-hook imaps://imap.gmail.com/ 'set folder=imaps://imap.gmail.com/mail record=+Sent from="Devil <user2@server2.com>"'
+# sfu
+account-hook imaps://imap.sfu.ca/ 'set imap_user=ttorsney imap_pass=<password>'
+folder-hook imaps://imap.sfu.ca/ 'set folder=imaps://imap.sfu.ca/INBOX postponed=Drafts record=+Sent from="Tom Torsney-Weir <ttorsney@sfu.ca>"'
 
-set folder=imaps://imap.gmail.com/INBOX
+set imap_check_subscribed
+set header_cache = ~/.mutt/hcache
+
+set imap_keepalive = 300
+set mail_check = 120
 
