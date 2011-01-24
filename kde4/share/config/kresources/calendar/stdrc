@@ -1,0 +1,27 @@
+[$Version]
+update_info=kolab-resource.upd:kolab-calendar-resource-rename
+
+[General]
+PassiveResourceKeys=
+ResourceKeys=ypPpA06yjb,wFg7jlprfz
+Standard=ypPpA06yjb
+
+[Resource_wFg7jlprfz]
+Alarm=true
+AlarmDays=0
+Categories=
+ResourceIdentifier=wFg7jlprfz
+ResourceIsActive=true
+ResourceIsReadOnly=true
+ResourceName=Birthdays
+ResourceType=birthdays
+UseCategories=false
+
+[Resource_ypPpA06yjb]
+CalendarURL[$e]=file://$HOME/.kde4/share/apps/korganizer/std.ics
+Format=ical
+ResourceIdentifier=ypPpA06yjb
+ResourceIsActive=true
+ResourceIsReadOnly=false
+ResourceName=Default Calendar
+ResourceType=file
