@@ -4,6 +4,7 @@ account-hook . 'unset preconnect imap_user imap_pass imap_authenticators; set ss
 account-hook imaps://imap.gmail.com 'set imap_user=torsneyt@gmail.com imap_pass=<password>'
 folder-hook imaps://imap.gmail.com 'set folder=imaps://imap.gmail.com/'
 folder-hook imaps://imap.gmail.com 'set smtp_url="smtps://torsneyt@smtp.gmail.com"'
+folder-hook imaps://imap.gmail.com 'set smtp_pass=<password>'
 folder-hook imaps://imap.gmail.com 'set postponed=+[GMAIL]/Drafts'
 folder-hook imaps://imap.gmail.com 'set trash=+[GMAIL]/Trash'
 folder-hook imaps://imap.gmail.com 'unset record' # gmail does this automatically
