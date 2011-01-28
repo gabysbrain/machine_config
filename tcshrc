@@ -19,7 +19,7 @@ set path = ( $path . )
 setenv PAGER less
 
 # Set the EDITOR
-setenv EDITOR vi
+setenv EDITOR vim
 
 # Shell Variables
 set addsuffix	
