@@ -13,6 +13,8 @@ folder-hook imaps://imap.gmail.com 'set from="Tom Torsney-Weir <torsneyt@gmail.c
 # sfu
 account-hook imaps://imap.sfu.ca 'set imap_user=ttorsney imap_pass=<password>'
 folder-hook imaps://imap.sfu.ca 'set folder=imaps://imap.sfu.ca/'
+folder-hook imaps://imap.sfu.ca 'set smtp_url="smtps://ttorsney@mailgate.sfu.ca"'
+folder-hook imaps://imap.sfu.ca 'set smtp_pass=<password>'
 folder-hook imaps://imap.sfu.ca 'set postponed=Drafts'
 folder-hook imaps://imap.sfu.ca 'set record=+Sent'
 folder-hook imaps://imap.sfu.ca 'set from="Tom Torsney-Weir <ttorsney@sfu.ca>"'
