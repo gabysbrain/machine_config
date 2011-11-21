@@ -1,3 +1,8 @@
+:set nocompatible
+:syntax enable
+:filetype plugin on
+":filetype indent on
+
 :set ai
 :set tabstop=4
 :set shiftwidth=4
@@ -5,5 +10,14 @@
 :set showmode
 :set textwidth=78
 :set formatoptions-=t
-:syntax on
 :colorscheme proton
+
+:let vimrplugin_term = "screen"
+:let vimrplugin_screenplugin = 0
+:let vimrplugin_conqueplugin = 0
+:let vimrplugin_applescript = 1
+:let vimrplugin_underscore = 0
+
+" marked preview screen
+:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+
