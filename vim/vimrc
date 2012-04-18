@@ -1,9 +1,18 @@
-call pathogen#infect()
 
+" 100% pure vim
 :set nocompatible
+
+" use pathogen for all the plugins
+:call pathogen#infect()
+
+" turn on syntax highlighting
 :syntax enable
 :filetype plugin on
-":filetype indent on
+
+" quickly edit/reload the vimrc file
+" from http://nvie.com/posts/how-i-boosted-my-vim/
+:nmap <silent> <leader>ev :e $MYVIMRC<CR>
+:nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 :set ai
 :set tabstop=4
@@ -14,6 +23,10 @@ call pathogen#infect()
 :set formatoptions-=t
 :colorscheme proton
 
+" hide buffers instead of closing them
+:set hidden
+
+" setup for vim r plugin
 :let vimrplugin_term = "screen"
 :let vimrplugin_screenplugin = 0
 :let vimrplugin_conqueplugin = 0
