@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/tom/Projects/tuner.newfeatures/src/main/scala/tuner/project'
-let g:netrw_dirhist_2='/Users/tom/Desktop/shader_demo'
-let g:netrw_dirhist_3='/Users/tom/Test.app/Contents/Resources'
-let g:netrw_dirhist_4='/Users/tom/Projects/tuner.swt/swt_scala/src/main/scala/gabysbrain/swt/event'
-let g:netrw_dirhist_5='/Users/tom/Projects/drawing/.hg'
-let g:netrw_dirhist_6='/Users/tom/Projects/highd_shader_rendering/initial_experiments'
