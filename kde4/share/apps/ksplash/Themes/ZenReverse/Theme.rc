@@ -1,8 +1,0 @@
-[KSplash Theme: ZenReverse]
-Name = Zen Reverse Splash Screen for KDE.
-Description = Zen Reverse Splash Screen
-Version = 1.0
-Author = Thomas Torsney-Weir <aristarh@o2.pl> (Background and Oxygen-icons by Nuno Pinheiro & Riccardo Iaconelli)
-
-# Theme behaviour settings.
-Engine = KSplashX

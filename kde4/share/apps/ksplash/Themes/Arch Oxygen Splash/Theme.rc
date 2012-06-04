@@ -1,8 +1,0 @@
-[KSplash Theme: Arch Oxygen]
-Name = KDE 4.4 Splash Screen
-Description = Arch splash based on Kubuntu Lucid Splash on Ubuntu colors
-Version = 0.1.0
-Author = Menacius Politis <menace82@gmail.com> original, Bill Ayala <bsdazs17@gmail.com> this remake
-
-# Theme behaviour settings.
-Engine = KSplashX

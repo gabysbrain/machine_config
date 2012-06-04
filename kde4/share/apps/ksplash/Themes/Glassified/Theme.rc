@@ -1,8 +1,0 @@
-[KSplash Theme: Glassified]
-Name = Glassified Splash Screen for KDE.
-Description = Glassified Splash Screen
-Version = 1.2.2
-Author = Marcel Nowaczyk <painkiller.kde@googlemail.com> (Background and Oxygen-icons by Nuno Pinheiro & Riccardo Iaconelli)
-
-# Theme behaviour settings.
-Engine = KSplashX

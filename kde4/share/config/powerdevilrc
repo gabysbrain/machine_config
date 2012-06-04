@@ -1,6 +1,0 @@
-[BatteryManagement]
-BatLowAction=4
-
-[Profiles]
-ACProfile=Performance
-BatteryProfile=Powersave
