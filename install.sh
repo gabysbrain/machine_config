@@ -1,6 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-MYDIR=`dirname $0`
+# get the absolute path to this script
+pushd `dirname $0` > /dev/null
+MYDIR=`pwd`
+popd > /dev/null
 
 IGNORE="install.sh"
 
@@ -9,9 +12,9 @@ for file in `ls -d ${MYDIR}/* | grep -v ${IGNORE}`; do
 
   # hard link shell config files and soft link everything else
   if [ ${file} == "${MYDIR}/tcshrc" ]; then
-    echo ln ${file} ${HOME}/.`basename ${file}`
+    ln ${file} ${HOME}/.`basename ${file}`
   else
-    echo ln -s ${file} ${HOME}/.`basename ${file}`
+    ln -s ${file} ${HOME}/.`basename ${file}`
   fi
 done
 
