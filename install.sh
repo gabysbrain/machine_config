@@ -11,7 +11,7 @@ IGNORE="install.sh"
 for file in `ls -d ${MYDIR}/* | grep -v ${IGNORE}`; do
 
   # hard link shell config files and soft link everything else
-  if [ ${file} == "${MYDIR}/tcshrc" ]; then
+  if [ ${file} == "${MYDIR}/zshrc" ]; then
     ln ${file} ${HOME}/.`basename ${file}`
   else
     ln -s ${file} ${HOME}/.`basename ${file}`
