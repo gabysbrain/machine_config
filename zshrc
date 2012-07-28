@@ -40,4 +40,4 @@ plugins=(git vi-mode rbenv)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/usr/texbin:/Applications/MacVim/
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/usr/texbin:/Applications/MacVim/
