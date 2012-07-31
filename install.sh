@@ -14,7 +14,7 @@ for file in `ls -d ${MYDIR}/* | grep -v ${IGNORE}`; do
   if [ ${file} == "${MYDIR}/zshrc" ]; then
     ln ${file} ${HOME}/.`basename ${file}`
   else
-    ln -s ${file} ${HOME}/.`basename ${file}`
+    ln -F -s ${file} ${HOME}/.`basename ${file}`
   fi
 done
 
