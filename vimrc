@@ -23,6 +23,9 @@
 :set formatoptions-=t
 :colorscheme proton
 
+" disable the f1 help key
+:nmap <F1> <nop>
+
 " hide buffers instead of closing them
 :set hidden
 
