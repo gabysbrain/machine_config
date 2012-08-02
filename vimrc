@@ -29,6 +29,9 @@
 " hide buffers instead of closing them
 :set hidden
 
+:set backupdir=/var/tmp/
+:set directory=/var/tmp/
+
 " setup for vim r plugin
 :let vimrplugin_term = "screen"
 :let vimrplugin_screenplugin = 0
