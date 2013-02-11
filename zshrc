@@ -17,6 +17,9 @@ export EDITOR=vim
 # Java's home
 export JAVA_HOME=/usr
 
+# R's home
+export R_HOME=/Library/Frameworks/R.framework/Resources
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
