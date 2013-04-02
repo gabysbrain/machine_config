@@ -21,7 +21,7 @@
 :set showmode
 :set textwidth=78
 :set formatoptions-=t
-:set nowrap
+:set wrap
 :colorscheme proton
 
 " disable the f1 help key
