@@ -51,3 +51,5 @@
 " Make vim recognize latex
 :let g:tex_flavor='latex'
 
+:let g:snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
+
