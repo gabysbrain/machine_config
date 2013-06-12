@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # get the absolute path to this script
 pushd `dirname $0` > /dev/null
