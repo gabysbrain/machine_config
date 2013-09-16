@@ -20,6 +20,9 @@ export JAVA_HOME=`/usr/libexec/java_home`
 # R's home
 export R_HOME=/Library/Frameworks/R.framework/Resources
 
+# Where jrebel lives
+export JREBEL_PATH=/Applications/jrebel/jrebel.jar
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
