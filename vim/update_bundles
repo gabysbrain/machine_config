@@ -11,8 +11,11 @@ git_bundles = [
   "git://github.com/vim-scripts/Processing.git",
   "git://github.com/rosstimson/scala-vim-support.git",
   "git://github.com/vim-scripts/Vim-R-plugin.git",
+  "git://github.com/rking/ag.vim.git",
+  "https://github.com/tpope/vim-fugitive",
   "git@github.com:torsneyt/snipmate-snippets.git",
   "git@github.com:torsneyt/vim-multimarkdown.git",
+  "git@github.com:torsneyt/sbt-vim.git",
 ]
 
 vim_org_scripts = [
