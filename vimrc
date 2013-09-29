@@ -5,6 +5,25 @@
 " use pathogen for all the plugins
 :call pathogen#infect()
 
+" set up vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" github plugins
+Bundle 'msanders/snipmate.vim'
+Bundle 'tristen/vim-sparkup'
+Bundle 'vim-scripts/LustyJuggler'
+Bundle 'thinca/vim-localrc'
+Bundle 'jcf/vim-latex'
+Bundle 'vim-scripts/Processing'
+Bundle 'rosstimson/scala-vim-support'
+Bundle 'vim-scripts/Vim-R-plugin'
+Bundle 'rking/ag.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'torsneyt/snipmate-snippets'
+Bundle 'torsneyt/vim-multimarkdown'
+Bundle 'torsneyt/sbt-vim'
+
 " turn on syntax highlighting
 :syntax enable
 :filetype plugin on
