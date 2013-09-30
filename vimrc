@@ -44,6 +44,18 @@ Bundle 'torsneyt/sbt-vim'
 :set wrap
 :colorscheme proton
 
+" use standard regex for searching
+nnoremap / /\v
+vnoremap / /\v
+
+" other search options
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+
 " disable the f1 help key
 :nmap <F1> <nop>
 
