@@ -1,0 +1,7 @@
+[user]
+	name = Thomas Torsney-Weir
+	email = torsneyt@gmail.com
+[core]
+	excludesfile = /Users/tom/.gitignore_global
+[push]
+	default = simple
