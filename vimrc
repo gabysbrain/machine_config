@@ -75,6 +75,11 @@ nnoremap <leader><space> :noh<cr>
 " marked preview screen
 :nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 
+" fugitive key mapping
+:nmap <leader>gs  :Gstatus<CR>
+:nmap <leader>gc  :Gcommit<CR>
+:nmap <leader>gmv :Gmove<CR>
+
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
