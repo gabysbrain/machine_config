@@ -90,3 +90,7 @@ nnoremap <leader><space> :noh<cr>
 
 :let g:snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
 
+" save/restore folds
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
