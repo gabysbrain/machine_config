@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.tomtorsneyweir.iftt_pocket</string>
+    <key>Program</key>
+    <string>/Users/tom/Projects/dotfiles/bin/ifttt-pocket_to_nvalt.rb</string>
+    <key>QueueDirectories</key>
+    <array>
+        <string>/Users/tom/Dropbox/IFTTT/nvALT</string>
+    </array>
+    <key>AbandonProcessGroup</key>
+    <true/>
+</dict>
+</plist>
+
