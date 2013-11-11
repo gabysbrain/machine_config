@@ -5,7 +5,7 @@ pushd `dirname $0` > /dev/null
 MYDIR=`pwd`
 popd > /dev/null
 
-IGNORE="install.sh"
+IGNORE="install.sh LaunchAgents"
 
 # add symlinks to add the dotfiles in my home directory
 for file in `ls -d ${MYDIR}/* | grep -v ${IGNORE}`; do
@@ -18,3 +18,7 @@ for file in `ls -d ${MYDIR}/* | grep -v ${IGNORE}`; do
   fi
 done
 
+# copy launchagents we need
+for file in `ls -d ${MYDIR}/LaunchAgents/*`; do
+  cp $file ~/Library/LaunchAgents/
+done
