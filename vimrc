@@ -91,12 +91,12 @@ nnoremap <leader><space> :noh<cr>
 :nmap <leader>gmv :Gmove<CR>
 
 " NerdTree config
-:nmap <C-n> :NERDTreeToggle<CR>
+:nmap <leader>n :NERDTreeToggle<CR>
 :autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 ":autocmd vimenter * if !argc() | NERDTree | endif
 
 " Tagbar comfig
-:nmap <C-t> :TagbarToggle<CR>
+:nmap <leader>b :TagbarToggle<CR>
 :let g:tagbar_type_scala = {
     \ 'ctagstype' : 'Scala',
     \ 'kinds'     : [
