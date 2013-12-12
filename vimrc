@@ -95,6 +95,9 @@ nnoremap <leader><space> :noh<cr>
 :autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 ":autocmd vimenter * if !argc() | NERDTree | endif
 
+" ctags config
+:set tags=./tags;
+
 " Tagbar comfig
 :nmap <leader>b :TagbarToggle<CR>
 :let g:tagbar_type_scala = {
