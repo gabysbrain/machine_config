@@ -11,7 +11,7 @@ call vundle#rc()
 
 " github plugins
 Bundle 'gmarik/vundle'
-"Bundle 'Command-T'
+Bundle 'kien/ctrlp.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'fholgado/minibufexpl.vim'
