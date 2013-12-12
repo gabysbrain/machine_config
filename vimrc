@@ -10,21 +10,30 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " github plugins
+Bundle 'gmarik/vundle'
+"Bundle 'Command-T'
 Bundle 'msanders/snipmate.vim'
-Bundle 'tristen/vim-sparkup'
-Bundle 'vim-scripts/LustyJuggler'
+Bundle 'majutsushi/tagbar'
+Bundle 'fholgado/minibufexpl.vim'
 Bundle 'thinca/vim-localrc'
-Bundle 'jcf/vim-latex'
-Bundle 'vim-scripts/Processing'
 Bundle 'rosstimson/scala-vim-support'
 Bundle 'vim-scripts/Vim-R-plugin'
 Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'torsneyt/snipmate-snippets'
 Bundle 'torsneyt/vim-multimarkdown'
 Bundle 'torsneyt/sbt-vim'
+Bundle 'torsneyt/sbt-vim'
+
+" These plugins need more exploration
+"Bundle 'tristen/vim-sparkup'
+"Bundle 'vim-scripts/Processing'
+"Bundle 'jcf/vim-latex'
+"Bundle 'tpope/vim-haml'
+"Bundle 'vim-scripts/LustyJuggler'
 
 " turn on syntax highlighting
 :syntax enable
@@ -80,6 +89,29 @@ nnoremap <leader><space> :noh<cr>
 :nmap <leader>gs  :Gstatus<CR>
 :nmap <leader>gc  :Gcommit<CR>
 :nmap <leader>gmv :Gmove<CR>
+
+" NerdTree config
+:nmap <C-n> :NERDTreeToggle<CR>
+:autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+":autocmd vimenter * if !argc() | NERDTree | endif
+
+" Tagbar comfig
+:nmap <C-t> :TagbarToggle<CR>
+:let g:tagbar_type_scala = {
+    \ 'ctagstype' : 'Scala',
+    \ 'kinds'     : [
+        \ 'p:packages:1',
+        \ 'V:values',
+        \ 'v:variables',
+        \ 'T:types',
+        \ 't:traits',
+        \ 'o:objects',
+        \ 'a:aclasses',
+        \ 'c:classes',
+        \ 'r:cclasses',
+        \ 'm:methods'
+    \ ]
+\ }
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
