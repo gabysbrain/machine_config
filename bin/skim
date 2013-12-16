@@ -1,0 +1,187 @@
+#!/bin/tcsh -f
+#(ie run the tshell on this but don't read the .cshrc or .tcshrc)
+
+echo version = 1.18 of skim 2013 Jun 27
+# 2013 Jun 27, 1.18: improve documentation
+# 2013 Feb 10, 1.17: improve documentation
+# 2013 Feb 07, 1.16: improve documentation
+# 2012 Nov 14, 1.15: current defaults
+# 2012 May 31, 1.14: update documentaton
+# 2011 Sep 03, 1.13: update documentaton
+# 2011 May 31, 1.12: update address
+# 2011 Apr 15, 1.11: report autoreload better
+# 2011 Mar 22, 1.10: improve documentation
+# 2011 Jan 27, 1.09: clean up so open -g is always used
+# 2011 Jan 26, 1.08: try open -g skim'
+#      -g  Do not bring the application to the foreground.
+# 2010 May 18, 1.07: fix documentation
+# 2010 May 18, 1.06: don't allow parameter setting if not on Mac OS X.
+# 2010 May 06, 1.05: allow '-' inside pdf name
+# 2010 Apr 22, 1.04: upgrade documentation
+# 2010 Apr 19, 1.03: -unsetauto deletes
+# 2010 Apr 19, 1.02: -unsetauto -read
+# 2010 Apr 19, 1.01: -setauto
+# 2010 Apr 18, 1.00: origin 
+
+if ($#argv == 0) then
+  echo 'usage: skim [pdf file OR ps file OR -setauto -unsetauto -read] [-bg]'
+  echo 'Launch Skim PDF reader and set auto controls'
+  echo ''
+  echo 'Skim is an open source PDF reader that can be set'
+  echo 'to automatically reload when the file changes.'
+  echo 'This is useful for displaying PDF files produced from LaTeX.'
+  echo 'The advantage over xdvi is that postscript files are properly'
+  echo 'displayed.'
+
+  echo ''
+  echo 'This script allows one to call Skim from the command line.'
+  echo 'and to set the hidden parameter to allow auto-reload.'
+
+  echo ''
+  echo 'To set up Skim to refresh when the file is changed, call it as:'
+  echo '  skim -setauto'
+  echo 'This alters a hidden parameter of the program.'
+  echo 'To see the status of the parameters, use -read.'
+  echo 'To undo the -setauto, use -unsetauto.'
+  echo ''
+  echo 'NOTE: You ALSO need to set a preference in skim!'
+  echo 'open Skim/preferences/Sync and put a check mark on'
+  echo '"Check for file changes"'
+  echo 'WARNING: If you do this, any changes you make to the file using Skim'
+  echo 'can be LOST.  This set up is for using Skim entirely as an output'
+  echo 'device as, for example, a display for LaTeX.'
+  echo ''
+  echo 'If you don'"'"'t set auto, Skim will pop up a new window each time'
+  echo 'instead of refreshing the current one.'
+  echo 'These parameters can only be set on Mac OS X.'
+
+  echo ''
+  echo 'If there is a second argument, -bg, then Skim is not'
+  echo 'brought to the foreground when opened.'
+
+  echo ''
+  echo '* The source for Skim is:'
+  echo 'http://skim-app.sourceforge.net/'
+  echo '* The source for this script is:'
+  echo 'http://alum.mit.edu/www/toms/ftp/skim'
+  echo '* Automation of LaTeX by the atchange script is described at:'
+  echo 'http://alum.mit.edu/www/toms/atchange.html'
+
+  echo ''
+  echo 'For the technical details, see:'
+  echo 'google: SKAutoReloadFileUpdate'
+  echo 'http://www.tug.org/pipermail/macostex-archives/2008-December/038126.html'
+  echo 'http://www.imada.sdu.dk/~ehmsen/skim.php'
+  echo 'http://quote.ucsd.edu/blogs/rogblog/category/technical/'
+  echo ''
+  echo 'To set the current page view (eg page size on the screen)'
+  echo 'you can adjust the settings in Skim by using the pulldown menu PDF'
+  echo 'and then click on "Use Current View Settings as Default".  That is:'
+  echo '  PDF > "Use Current View Settings as Default"'
+  echo 'Current default settings can be obtained from the command line'
+  echo 'with the command:'
+  echo '  defaults read -app Skim SKDefaultPDFDisplaySettings'
+  echo 'Example of my current (nice) setup:'
+
+cat << EOF
+% defaults read -app Skim SKDefaultPDFDisplaySettings
+{
+    autoScales = 1;
+    displayBox = 1;
+    displayMode = 0;
+    displaysAsBook = 1;
+    displaysPageBreaks = 1;
+    scaleFactor = "1.5425";
+}
+EOF
+
+  echo ''
+  echo 'see also:'
+  echo 'https://sourceforge.net/apps/mediawiki/skim-app/index.php?title=AppleScript#User-Contributed_Scripts'
+
+  exit
+endif
+
+# Thomas D. Schneider, Ph.D.
+# National Institutes of Health
+# schneidt@mail.nih.gov
+# http://alum.mit.edu/www/toms (permanent)
+
+if (`uname` != "Darwin") then
+    echo "The -setauto, -unsetauto and -read options"
+    echo "are only available on Mac OSX."
+    open skim $1 &
+    exit
+endif
+
+# if (("$1" == '-setauto')|| ("$1" == '-setauto')) then
+if (`echo "$1"|grep '^-'|wc -l` > 0)then
+     # http://www.imada.sdu.dk/~ehmsen/skim.php
+     # defaults write -app Skim RegisteredDefaults -dict-add SKAutoReloadFileUpdate -bool TRUE
+
+     # http://quote.ucsd.edu/blogs/rogblog/category/technical/
+
+     if ("$1" == '-setauto') then
+        defaults write -app Skim SKAutoReloadFileUpdate -boolean true
+     endif
+
+     if ("$1" == '-unsetauto') then
+        # defaults write -app Skim SKAutoReloadFileUpdate -boolean false
+        defaults delete -app Skim SKAutoReloadFileUpdate
+     endif
+
+     if ("$1" == '-read') then
+        # This shows the defaults for Skim:
+        defaults read -app Skim
+     endif
+     echo
+     echo "--- current state of SKAutoReloadFileUpdate: ---"
+     defaults read -app Skim | grep SKAutoReloadFileUpdate
+else
+   # Mac OS X 'open' man page says:
+   # -g  Do not bring the application to the foreground.
+   # allow any argument though it should be '-bg'
+   open -g -a /Applications/Skim.app $1
+endif
+
+exit
+
+********************************************************************************
+
+See:
+   man defaults
+
+defaults domains gives three:
+net.sourceforge.skim-app.skim
+net.sourceforge.skim-app.skim.LSSharedFileList
+net.sourceforge.skim-app.skim.bookmarks
+
+defaults read net.sourceforge.skim-app.skim
+gives the current defaults
+
+% defaults read net.sourceforge.skim-app.skim > before
+% defaults write -app Skim SKAutoReloadFileUpdate -boolean true
+then
+% defaults read net.sourceforge.skim-app.skim > after
+% diff before after
+6a7
+>     SKAutoReloadFileUpdate = 1;
+
+success!
+
+
+********************************************************************************
+
+2010 Jul 06
+
+Crashes from Skim on Mac OS X.
+http://sourceforge.net/tracker/index.php?func=detail&aid=3009694&group_id=192583&atid=941981
+
+I'm getting similar effects.  When I start skim I quickly run out of memory, it does not use VM and then my machine (Mac OS X 10.6.4) crashes.  Skim 1.3.6 (54).
+The Activity Monitor shows Free memory being used up.  The Mac OS X leaks program does not report
+any leaks, however.
+
+I am using:
+defaults write -app Skim SKAutoReloadFileUpdate -boolean true
+so that skim will update when I replace the PDF with one generated by LaTeX.
+Perhaps it doesn't clear the memory when it does the refresh?
