@@ -22,10 +22,10 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
-Bundle 'torsneyt/vim-multimarkdown'
-Bundle 'torsneyt/sbt-vim'
-Bundle 'torsneyt/sbt-vim'
 Bundle 'SirVer/ultisnips'
+"Bundle 'honza/vim-snippets'
+Bundle 'gabysbrain/vim-multimarkdown'
+Bundle 'gabysbrain/sbt-vim'
 
 " These plugins need more exploration
 "Bundle 'tristen/vim-sparkup'
@@ -91,13 +91,13 @@ nnoremap <leader><space> :noh<cr>
 
 " NerdTree config
 :nmap <leader>n :NERDTreeToggle<CR>
-:autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+":autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 ":autocmd vimenter * if !argc() | NERDTree | endif
 
 " ctags config
 :set tags=./tags;
 
-" Tagbar comfig
+" Tagbar config
 :nmap <leader>b :TagbarToggle<CR>
 :let g:tagbar_type_scala = {
     \ 'ctagstype' : 'Scala',
