@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>346</string>
+	<string>381</string>
 	<key>AMApplicationVersion</key>
-	<string>2.3</string>
+	<string>2.4</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -680,8 +680,6 @@
 						<string>8</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -786,8 +784,6 @@
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -856,26 +852,24 @@
 				</array>
 				<key>arguments</key>
 				<dict/>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 			</dict>
 		</dict>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>50D0C139-A53F-44BA-A0E3-3821905CC21E</key>
-		<dict>
-			<key>from</key>
-			<string>5336E548-F098-484A-B7BD-483EE713ED39 - 5336E548-F098-484A-B7BD-483EE713ED39</string>
-			<key>to</key>
-			<string>5A067978-C77C-4ABB-9F63-90625A506F1C - 5A067978-C77C-4ABB-9F63-90625A506F1C</string>
-		</dict>
-		<key>F817D970-E64D-438B-9886-976806D78CEA</key>
+		<key>A105EA30-733E-478C-95CB-4563DFD0097D</key>
 		<dict>
 			<key>from</key>
 			<string>BA2AF86A-DF2D-47CF-A691-E9F9939F0D84 - BA2AF86A-DF2D-47CF-A691-E9F9939F0D84</string>
 			<key>to</key>
 			<string>5336E548-F098-484A-B7BD-483EE713ED39 - 5336E548-F098-484A-B7BD-483EE713ED39</string>
+		</dict>
+		<key>A988DD1E-CCF5-4C3A-8923-2A570E6EAD6B</key>
+		<dict>
+			<key>from</key>
+			<string>5336E548-F098-484A-B7BD-483EE713ED39 - 5336E548-F098-484A-B7BD-483EE713ED39</string>
+			<key>to</key>
+			<string>5A067978-C77C-4ABB-9F63-90625A506F1C - 5A067978-C77C-4ABB-9F63-90625A506F1C</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
