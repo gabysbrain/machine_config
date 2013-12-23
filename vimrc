@@ -12,7 +12,6 @@ call vundle#rc()
 " github plugins
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
-Bundle 'msanders/snipmate.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'thinca/vim-localrc'
@@ -23,10 +22,10 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
-Bundle 'torsneyt/snipmate-snippets'
 Bundle 'torsneyt/vim-multimarkdown'
 Bundle 'torsneyt/sbt-vim'
 Bundle 'torsneyt/sbt-vim'
+Bundle 'SirVer/ultisnips'
 
 " These plugins need more exploration
 "Bundle 'tristen/vim-sparkup'
@@ -124,7 +123,7 @@ nnoremap <leader><space> :noh<cr>
 " Make vim recognize latex
 :let g:tex_flavor='latex'
 
-:let g:snippets_dir='~/.vim/bundle/snipmate-snippets/snippets'
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
 
 " save/restore folds
 au BufWinLeave * mkview
