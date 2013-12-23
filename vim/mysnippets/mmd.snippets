@@ -1,0 +1,27 @@
+extends markdown
+
+snippet rcode
+<!--begin.rcode ${1},cache=TRUE,dependson='${2}'
+${3}
+end.rcode-->
+endsnippet
+
+snippet rfig
+<!--begin.rcode ${1},cache=TRUE,dependson='${2}',fig.width=${3:12},fig.height=${4:12},dev='png'
+${5}
+end.rcode-->
+endsnippet
+
+snippet eq
+\\(${1}\\)
+endsnippet
+
+snippet align
+\\[
+\begin{align}
+${1}
+\end{align}
+\\]
+endsnippet
+
+
