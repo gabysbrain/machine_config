@@ -1,6 +1,3 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
-	url = git@github.com:torsneyt/oh-my-zsh.git
-[submodule "Applications/slogger"]
-	path = Applications/slogger
-	url = https://github.com/ttscoff/Slogger.git
+	url = git@github.com:gabysbrain/oh-my-zsh.git
