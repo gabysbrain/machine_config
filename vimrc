@@ -24,16 +24,11 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'SirVer/ultisnips'
-"Bundle 'honza/vim-snippets'
 Bundle 'gabysbrain/vim-multimarkdown'
 Bundle 'gabysbrain/sbt-vim'
 
 " These plugins need more exploration
-"Bundle 'tristen/vim-sparkup'
-"Bundle 'vim-scripts/Processing'
 "Bundle 'jcf/vim-latex'
-"Bundle 'tpope/vim-haml'
-"Bundle 'vim-scripts/LustyJuggler'
 
 " turn on syntax highlighting
 :syntax enable
