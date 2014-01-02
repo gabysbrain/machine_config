@@ -10,6 +10,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " github plugins
+Bundle 'vimwiki/vimwiki'
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
@@ -93,6 +94,11 @@ nnoremap <leader><space> :noh<cr>
 :nmap <leader>n :NERDTreeToggle<CR>
 ":autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 ":autocmd vimenter * if !argc() | NERDTree | endif
+
+" VimWiki config
+:let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
 
 " ctags config
 :set tags=./tags;
