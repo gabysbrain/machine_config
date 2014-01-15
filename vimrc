@@ -10,6 +10,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " github plugins
+"Bundle 'vim-scripts/wc.vim--jcline'
 Bundle 'vimwiki/vimwiki'
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
@@ -26,6 +27,7 @@ Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'SirVer/ultisnips'
 Bundle 'gabysbrain/vim-multimarkdown'
 Bundle 'gabysbrain/sbt-vim'
+Bundle 'gabysbrain/wc.vim--jcline'
 
 " These plugins need more exploration
 "Bundle 'jcf/vim-latex'
