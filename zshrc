@@ -48,3 +48,6 @@ plugins=(git vi-mode rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
+
+# added by travis gem
+[ -f /Users/tom/.travis/travis.sh ] && source /Users/tom/.travis/travis.sh
