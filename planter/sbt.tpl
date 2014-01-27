@@ -1,0 +1,10 @@
+src
+  main
+    resources
+    scala
+    java
+  test
+    resources
+    scala
+    java
+build.sbt
