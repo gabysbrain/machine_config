@@ -11,6 +11,8 @@ ZSH_THEME="alanpeabody"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias mm="bundle exec middleman"
+
 # Use the vim editor
 export EDITOR=vim
 
