@@ -32,6 +32,8 @@ Bundle 'gabysbrain/wc.vim--jcline'
 " These plugins need more exploration
 "Bundle 'jcf/vim-latex'
 
+set guifont=Anonymous\ Pro:h12
+
 " turn on syntax highlighting
 :syntax enable
 :filetype plugin on
