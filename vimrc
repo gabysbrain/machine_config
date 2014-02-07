@@ -129,6 +129,9 @@ nnoremap <leader><space> :noh<cr>
 :let g:tex_flavor='latex'
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " save/restore folds
 au BufWinLeave * mkview
