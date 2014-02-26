@@ -77,11 +77,10 @@ nnoremap <leader><space> :noh<cr>
 :set directory=/var/tmp/
 
 " setup for vim r plugin
-:let vimrplugin_term = "screen"
-:let vimrplugin_screenplugin = 0
+:let vimrplugin_term_cmd = "/Applications/iTerm.app/Contents/MacOS/iTerm -t R"
 :let vimrplugin_conqueplugin = 0
 :let vimrplugin_applescript = 1
-:let vimrplugin_underscore = 0
+:let vimrplugin_assign = 0
 
 " marked preview screen
 :nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
