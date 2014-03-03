@@ -6,6 +6,9 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="alanpeabody"
+#ZSH_THEME="gozilla"
+#ZSH_THEME="josh"
+#ZSH_THEME="jreese"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -47,7 +50,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/b
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode rbenv)
+plugins=(git vi-mode rbenv osx history sbt brew)
 
 source $ZSH/oh-my-zsh.sh
 
