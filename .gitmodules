@@ -4,3 +4,7 @@
 [submodule "middleman/zurb-foundation"]
 	path = middleman/zurb-foundation
 	url = https://github.com/axyz/middleman-zurb-foundation.git
+[submodule "grunt-init/vis"]
+	path = grunt-init/vis
+	url = git@github.com:gabysbrain/vis-paper-template.git
+	branch = grunt-init
