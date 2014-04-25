@@ -37,8 +37,14 @@ exports.template = function(grunt, init, done) {
     // Actually copy (and process) files.
     init.copyAndProcess(files, props);
 
-    // Generate package.json file.
-    //init.writePackageJSON('package.json', props);
+    // Create the scala directories
+    grunt.file.mkdir('src/main/java');
+    grunt.file.mkdir('src/main/scala');
+    grunt.file.mkdir('src/main/resources');
+    grunt.file.mkdir('src/test/java');
+    grunt.file.mkdir('src/test/scala');
+    grunt.file.mkdir('src/test/resources');
+    grunt.file.mkdir('lib');
 
     // All done!
     done();
