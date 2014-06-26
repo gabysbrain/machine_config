@@ -10,7 +10,8 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " github plugins
-"Bundle 'vim-scripts/wc.vim--jcline'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'tfnico/vim-gradle'
 Bundle 'vimwiki/vimwiki'
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
