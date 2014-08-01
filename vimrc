@@ -12,6 +12,7 @@ call vundle#rc()
 " github plugins
 Bundle 'digitaltoad/vim-jade'
 Bundle 'tfnico/vim-gradle'
+Bundle 'vim-scripts/groovy.vim'
 Bundle 'vimwiki/vimwiki'
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
@@ -84,7 +85,7 @@ nnoremap <leader><space> :noh<cr>
 :let vimrplugin_assign = 0
 
 " marked preview screen
-:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+:nnoremap <leader>m :silent !open -a "Marked 2.app" '%:p'<cr>
 
 " fugitive key mapping
 :nmap <leader>gs  :Gstatus<CR>
