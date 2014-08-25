@@ -31,6 +31,7 @@ Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'vim-pandoc/vim-pandoc-syntax'
 Bundle 'vim-pandoc/vim-pandoc'
+Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'gabysbrain/sbt-vim'
 Bundle 'gabysbrain/wc.vim--jcline'
 
