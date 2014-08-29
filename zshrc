@@ -54,6 +54,9 @@ plugins=(git vi-mode rbenv osx history sbt brew)
 
 source $ZSH/oh-my-zsh.sh
 
+# customize prompt
+PROMPT="${user} %{$fg[blue]%}%4(c:...:)%2c%{$reset_color%}$ "
+
 
 # added by travis gem
 [ -f /Users/tom/.travis/travis.sh ] && source /Users/tom/.travis/travis.sh
