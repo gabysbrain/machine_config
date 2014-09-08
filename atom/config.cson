@@ -1,0 +1,31 @@
+'exception-reporting':
+  'userId': '1468a15c-ad8c-c309-95cc-8cad7251eeea'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': 'c2b75717c9cfe8e224c0c8d9ed66d25f3f7ed185'
+'editor':
+  'fontSize': 12
+  'invisibles': {}
+  'fontFamily': 'Anonymous Pro'
+  'showIndentGuide': true
+  'softWrapAtPreferredLineLength': true
+'core':
+  'themes': [
+    'seti-ui'
+    'zenburn'
+  ]
+  'disabledPackages': [
+    'symbols-view'
+  ]
+'minimap':
+  'autoToggle': true
+'build': {}
+'vim-mode': {}
+'autocomplete-plus':
+  'enableAutoActivation': false
+'atom-ctags': {}
+'bracket-matcher':
+  'autocompleteBrackets': false
+  'autocompleteSmartQuotes': false
+'run-command': {}
