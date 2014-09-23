@@ -15,7 +15,7 @@ ZSH_THEME="alanpeabody"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias mm="bundle exec middleman"
-alias marked="open -a Marked"
+alias marked="open -a 'Marked 2'"
 
 # Use the vim editor
 export EDITOR=vim
