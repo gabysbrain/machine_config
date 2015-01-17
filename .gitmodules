@@ -10,4 +10,4 @@
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "prezto"]
 	path = prezto
-	url = https://github.com/sorin-ionescu/prezto.git
+	url = https://github.com/gabysbrain/prezto.git
