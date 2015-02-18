@@ -5,6 +5,3 @@
 	path = grunt-init/vis
 	url = git@github.com:gabysbrain/vis-paper-template.git
 	branch = grunt-init
-[submodule "prezto"]
-	path = prezto
-	url = https://github.com/gabysbrain/prezto.git
