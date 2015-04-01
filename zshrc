@@ -54,6 +54,15 @@ source $ZSH/oh-my-zsh.sh
 # customize prompt
 #PROMPT="${user} %{$fg[blue]%}%4(c:...:)%2c%{$reset_color%}$ "
 
+function light() {
+  if [ -z "$2" ]
+    then src="pbpaste"
+  else
+    src="cat $2"
+  fi
+  eval ${src} | highlight -O rtf --syntax $1 --font "Anonymous Pro" --style zenburn --font-size 18 | pbcopy
+}
+
 
 # added by travis gem
 [ -f /Users/tom/.travis/travis.sh ] && source /Users/tom/.travis/travis.sh
