@@ -47,13 +47,18 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/b
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode rbenv nvm osx history sbt brew)
+plugins=(git vi-mode rbenv osx history sbt brew)
 
 source $ZSH/oh-my-zsh.sh
 
 # customize prompt
 #PROMPT="${user} %{$fg[blue]%}%4(c:...:)%2c%{$reset_color%}$ "
 
+# nvm through homebrew is special
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# Code highlighting
 function light() {
   if [ -z "$2" ]
     then src="pbpaste"
