@@ -9,12 +9,13 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My plugins
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'weynhamz/vim-plugin-minibufexpl'
+"NeoBundle 'weynhamz/vim-plugin-minibufexpl'
 NeoBundle 'jnurmine/Zenburn'
 
 " done with plugins
@@ -28,6 +29,7 @@ NeoBundleCheck
 "set guifont=Anonymous\ Pro:h12
 set guifont=Anonymice\ Powerline:h12
 colors zenburn
+set noshowmode
 
 " quickly edit/reload the vimrc file
 " from http://nvie.com/posts/how-i-boosted-my-vim/
@@ -41,8 +43,9 @@ set directory=/var/tmp/
 " always show airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_detect_whitespace=0
-let g:airline_enable_bufferline=1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " NerdTree config
 nmap <leader>n :NERDTreeToggle<CR>
@@ -60,4 +63,7 @@ set textwidth=78
 set nowrap
 
 set number
+
+" F5 to switch buffers fast
+nnoremap <F5> :buffers<CR>:buffer<Space>
 
