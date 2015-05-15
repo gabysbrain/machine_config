@@ -15,7 +15,6 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'tpope/vim-fugitive'
-"NeoBundle 'weynhamz/vim-plugin-minibufexpl'
 NeoBundle 'jnurmine/Zenburn'
 
 " done with plugins
@@ -26,7 +25,6 @@ filetype plugin indent on " required
 NeoBundleCheck
 
 " appearance
-"set guifont=Anonymous\ Pro:h12
 set guifont=Anonymice\ Powerline:h12
 colors zenburn
 set noshowmode
