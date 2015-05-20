@@ -9,6 +9,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My plugins
+NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'scrooloose/nerdcommenter'
@@ -68,4 +69,30 @@ set number
 
 " F5 to switch buffers fast
 nnoremap <F5> :buffers<CR>:buffer<Space>
+
+" ctrl-P config
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
+let g:ctrlp_working_path_mode = 'r'
+nmap <leader>p :CtrlP<cr>
+
+" Buffergator config
+" let g:buffergator_viewport_split_policy = 'R'
+
+" I want my own keymappings...
+"let g:buffergator_suppress_keymaps = 1
+
+" Looper buffers
+"let g:buffergator_mru_cycle_loop = 1
+
+" Go to the previous buffer open
+"nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+
+" Go to the next buffer open
+"nmap <leader>kk :BuffergatorMruCycleNext<cr>
+
+" View the entire list of buffers open
+"nmap <leader>bl :BuffergatorOpen<cr>
 
