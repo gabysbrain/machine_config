@@ -62,11 +62,9 @@ nmap <F1> <nop>
 set expandtab
 set tabstop=2
 set shiftwidth=2
-set textwidth=78
-"set formatoptions+=t
-"set wrap linebreak nolist " softwrap lines
-set nowrap
+set wrap linebreak nolist " softwrap lines
 
+" show numbers in margin
 set number
 
 " F5 to switch buffers fast
