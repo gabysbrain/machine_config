@@ -18,6 +18,8 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'tfnico/vim-gradle'
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jnurmine/Zenburn'
 
 " done with plugins
