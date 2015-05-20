@@ -30,7 +30,9 @@ NeoBundleCheck
 set guifont=Anonymice\ Powerline:h12
 colors zenburn
 set noshowmode
-execute "set colorcolumn=" . join(range(81,335), ',')
+set cursorline " color current line
+" set the gutter color
+execute "set colorcolumn=" . join(range(79,335), ',') 
 
 " quickly edit/reload the vimrc file
 " from http://nvie.com/posts/how-i-boosted-my-vim/
