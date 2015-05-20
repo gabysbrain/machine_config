@@ -11,6 +11,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My plugins
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'raichoo/haskell-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
@@ -20,6 +21,7 @@ NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tfnico/vim-gradle'
+NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jnurmine/Zenburn'
 
@@ -99,4 +101,9 @@ nmap <leader>p :CtrlP<cr>
 
 " View the entire list of buffers open
 "nmap <leader>bl :BuffergatorOpen<cr>
+
+" hdevtools config
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 
