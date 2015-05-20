@@ -27,7 +27,7 @@ export R_HOME=/Library/Frameworks/R.framework/Resources
 export JREBEL_PATH=/Applications/jrebel/jrebel.jar
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/usr/texbin:~/Projects/dotfiles/bin/
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/usr/texbin:~/.cabal/bin:~/Projects/dotfiles/bin/
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
