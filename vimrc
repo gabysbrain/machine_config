@@ -11,6 +11,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My plugins
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'guicolorscheme.vim'
 NeoBundle 'raichoo/haskell-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'scrooloose/nerdcommenter'
@@ -37,6 +38,7 @@ set guifont=Anonymice\ Powerline:h12
 colors zenburn
 set noshowmode
 set cursorline " color current line
+syntax on " syntax highlighting
 " set the gutter color
 execute "set colorcolumn=" . join(range(79,335), ',') 
 
@@ -106,4 +108,8 @@ nmap <leader>p :CtrlP<cr>
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+
+" syntastic config
+let g:syntastic_always_populate_loc_list=1
+
 
