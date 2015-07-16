@@ -1,10 +1,6 @@
 [submodule "middleman/zurb-foundation"]
 	path = middleman/zurb-foundation
 	url = https://github.com/axyz/middleman-zurb-foundation.git
-[submodule "grunt-init/vis"]
-	path = grunt-init/vis
-	url = git@github.com:gabysbrain/vis-paper-template.git
-	branch = grunt-init
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
