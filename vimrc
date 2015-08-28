@@ -40,6 +40,7 @@ set noshowmode
 set cursorline " color current line
 syntax on " syntax highlighting
 " set the gutter color
+" TODO: look into matchadd though to only highlight extended lines
 execute "set colorcolumn=" . join(range(79,335), ',') 
 
 " quickly edit/reload the vimrc file
@@ -112,4 +113,6 @@ au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 " syntastic config
 let g:syntastic_always_populate_loc_list=1
 
+" Marked integration
+nmap <leader>m :silent !open -a 'Marked 2.app' '%:p'<CR>
 
