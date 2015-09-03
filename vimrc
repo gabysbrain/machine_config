@@ -9,7 +9,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My plugins
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'guicolorscheme.vim'
 NeoBundle 'raichoo/haskell-vim'
@@ -25,6 +25,15 @@ NeoBundle 'tfnico/vim-gradle'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jnurmine/Zenburn'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
 " done with plugins
 call neobundle#end()
@@ -79,13 +88,13 @@ set number
 " F5 to switch buffers fast
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
-" ctrl-P config
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
-\}
-let g:ctrlp_working_path_mode = 'r'
-nmap <leader>p :CtrlP<cr>
+" unite.vim config
+call unite#custom#profile('default', 'context', {
+\ 'start_insert': 1
+\ })
+
+" unite.vim ctrl-P config
+nnoremap <C-p> :Unite file_rec/async<cr>
 
 " Buffergator config
 " let g:buffergator_viewport_split_policy = 'R'
