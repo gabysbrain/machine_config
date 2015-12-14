@@ -27,7 +27,7 @@ export R_HOME=/Library/Frameworks/R.framework/Resources
 export JREBEL_PATH=/Applications/jrebel/jrebel.jar
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/Library/TeX/texbin/:~/.cabal/bin:~/Projects/dotfiles/bin/
+export PATH=~/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/Library/TeX/texbin/:~/Projects/dotfiles/bin/
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -47,9 +47,12 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/b
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode rbenv osx history npm sbt brew)
+plugins=(git vi-mode rbenv osx history npm sbt brew virutalenv)
 
 source $ZSH/oh-my-zsh.sh
+
+# need zmv for moving many things
+autoload -U zmv
 
 # customize prompt
 #PROMPT="${user} %{$fg[blue]%}%4(c:...:)%2c%{$reset_color%}$ "
@@ -57,6 +60,11 @@ source $ZSH/oh-my-zsh.sh
 # nvm through homebrew is special
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+
+# function to activate virtualenv
+function activate() {
+  source ./$1/bin/activate
+}
 
 # Code highlighting
 function light() {
