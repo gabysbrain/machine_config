@@ -12,6 +12,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'guicolorscheme.vim'
+NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'raichoo/haskell-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'scrooloose/nerdcommenter'
@@ -121,6 +122,7 @@ au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 
 " syntastic config
 let g:syntastic_always_populate_loc_list=1
+let g:syntastic_disabled_filetypes=['haskell']
 
 " Marked integration
 nmap <leader>m :silent !open -a 'Marked 2.app' '%:p'<CR>
