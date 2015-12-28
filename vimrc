@@ -9,7 +9,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My plugins
-NeoBundle 'Shougo/unite.vim'
+NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'guicolorscheme.vim'
 NeoBundle 'eagletmt/ghcmod-vim'
@@ -88,14 +88,6 @@ set number
 
 " F5 to switch buffers fast
 nnoremap <F5> :buffers<CR>:buffer<Space>
-
-" unite.vim config
-call unite#custom#profile('default', 'context', {
-\ 'start_insert': 1
-\ })
-
-" unite.vim ctrl-P config
-nnoremap <C-p> :Unite file_rec/async<cr>
 
 " Buffergator config
 " let g:buffergator_viewport_split_policy = 'R'
