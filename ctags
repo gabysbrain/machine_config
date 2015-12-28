@@ -1,3 +1,9 @@
+# Basic options
+--recurse=yes
+--tag-relative=yes
+--exclude=.git
+
+# scala tags
 --langdef=Scala
 --langmap=Scala:.scala
 --regex-Scala=/^[ \t]*class[ \t]*([a-zA-Z0-9_]+)/\1/c,classes/
@@ -12,6 +18,7 @@
 --regex-Scala=/^[ \t]*import[ \t]*([a-zA-Z0-9_{}., \t=>]+$)/\1/i,includes/
 --regex-Scala=/^[ \t]*package[ \t]*([a-zA-Z0-9_.]+$)/\1/p,packages/
 
+# Latex tags
 --langdef=latex
 --langmap=latex:.tex
 --regex-latex=/^\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/s,part/
