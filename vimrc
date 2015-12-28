@@ -12,8 +12,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'guicolorscheme.vim'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'raichoo/haskell-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
@@ -23,7 +21,6 @@ NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tfnico/vim-gradle'
-NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jnurmine/Zenburn'
 NeoBundle 'Shougo/vimproc.vim', {
@@ -35,6 +32,13 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+
+" Haskell stuff
+NeoBundle 'neovimhaskell/haskell-vim'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'bitc/vim-hdevtools'
+NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'Twinside/vim-hoogle'
 
 " done with plugins
 call neobundle#end()
