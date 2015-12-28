@@ -23,6 +23,7 @@ NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tfnico/vim-gradle'
+NeoBundle 'elzr/vim-json'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jnurmine/Zenburn'
 NeoBundle 'Shougo/vimproc.vim', {
