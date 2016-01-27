@@ -15,8 +15,10 @@ NeoBundle 'guicolorscheme.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'raichoo/purescript-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 "NeoBundle 'xolox/vim-easytags'
@@ -161,4 +163,8 @@ let g:tagbar_type_haskell = {
         \ 'type'   : 't'
     \ }
 \ }
+
+" vim-json config
+let g:vim_json_syntax_conceal = 0
+
 
