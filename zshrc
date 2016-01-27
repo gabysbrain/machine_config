@@ -61,8 +61,10 @@ autoload -U zmv
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
+
+
 # function to activate virtualenv
-function activate() {
+function pyvenv() {
   source ./$1/bin/activate
 }
 
