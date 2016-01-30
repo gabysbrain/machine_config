@@ -27,7 +27,7 @@ export R_HOME=/Library/Frameworks/R.framework/Resources
 export JREBEL_PATH=/Applications/jrebel/jrebel.jar
 
 # Customize to your needs...
-export PATH=~/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/Library/TeX/texbin/:~/Projects/dotfiles/bin/
+export PATH=~/.playground/bin:~/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/Library/TeX/texbin/:~/Projects/dotfiles/bin/
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -60,8 +60,6 @@ autoload -U zmv
 # nvm through homebrew is special
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-
-
 
 # function to activate virtualenv
 function pyvenv() {
