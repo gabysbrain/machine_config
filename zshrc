@@ -27,7 +27,7 @@ export R_HOME=/Library/Frameworks/R.framework/Resources
 export JREBEL_PATH=/Applications/jrebel/jrebel.jar
 
 # Customize to your needs...
-export PATH=~/.playground/bin:~/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/Library/TeX/texbin/:~/Projects/dotfiles/bin/
+export PATH=~/.playground/bin:~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/Library/TeX/texbin/:~/Projects/dotfiles/bin/
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -47,7 +47,7 @@ export PATH=~/.playground/bin:~/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode rbenv osx history npm sbt brew virutalenv)
+plugins=(git vi-mode rbenv osx history npm sbt brew virutalenv stack)
 
 source $ZSH/oh-my-zsh.sh
 
