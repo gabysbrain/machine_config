@@ -9,6 +9,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My plugins
+NeoBundle 'ervandew/supertab'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'guicolorscheme.vim'
@@ -18,7 +19,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'raichoo/purescript-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 "NeoBundle 'xolox/vim-easytags'
@@ -28,6 +28,7 @@ NeoBundle 'tfnico/vim-gradle'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jnurmine/Zenburn'
+NeoBundle 'godlygeek/tabular'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -39,11 +40,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 
 " Haskell stuff
-NeoBundle 'neovimhaskell/haskell-vim'
 NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'Twinside/vim-hoogle'
 
 " done with plugins
 call neobundle#end()
@@ -98,29 +96,6 @@ set number
 " F5 to switch buffers fast
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
-" Buffergator config
-" let g:buffergator_viewport_split_policy = 'R'
-
-" I want my own keymappings...
-"let g:buffergator_suppress_keymaps = 1
-
-" Looper buffers
-"let g:buffergator_mru_cycle_loop = 1
-
-" Go to the previous buffer open
-"nmap <leader>jj :BuffergatorMruCyclePrev<cr>
-
-" Go to the next buffer open
-"nmap <leader>kk :BuffergatorMruCycleNext<cr>
-
-" View the entire list of buffers open
-"nmap <leader>bl :BuffergatorOpen<cr>
-
-" hdevtools config
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
-
 " syntastic config
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_disabled_filetypes=['haskell']
@@ -167,4 +142,28 @@ let g:tagbar_type_haskell = {
 " vim-json config
 let g:vim_json_syntax_conceal = 0
 
+" supertab for haskell
+" http://www.stephendiehl.com/posts/vim_2016.html
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+
+if has("gui_running")
+  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+else " no gui
+  if has("unix")
+    inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+  endif
+endif
+
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+" ctrl-p
+let g:ctrlp_custom_ignore = '\v[\/]dist$'
+
+" tablular
+let g:haskell_tabular = 1
+
+vmap a= :Tabularize /=<CR>
+vmap a; :Tabularize /::<CR>
+vmap a- :Tabularize /-><CR>
 
