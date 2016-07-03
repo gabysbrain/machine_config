@@ -9,6 +9,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My plugins
+NeoBundle 'godlygeek/tabular'
+"NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'vim-pandoc/vim-criticmarkup'
 NeoBundle 'chrisbra/csv.vim'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'kien/ctrlp.vim'
@@ -90,6 +93,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set wrap linebreak nolist " softwrap lines
+set autoindent
 
 " show numbers in margin
 set number
@@ -167,4 +171,7 @@ let g:haskell_tabular = 1
 vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
+
+" vim markdown config
+let g:vim_markdown_folding_disabled = 1
 
