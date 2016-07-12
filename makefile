@@ -17,5 +17,5 @@ $(HOME)/.zshrc: zshrc
 	ln $< $@
 
 $(HOME)/.%: %
-	ln -F -s $< $@
+	ln -F -s $(realpath $<) $@
 
