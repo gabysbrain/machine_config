@@ -6,7 +6,12 @@ DSTDOTFILES=$(SRCDOTFILES:./%=$(HOME)/.%)
 
 .PHONY: all clean
 
-all: $(HOME)/.zshrc $(DSTDOTFILES)
+all: $(HOME)/.zshrc $(HOME)/.oh-my-zsh $(DSTDOTFILES)
+
+$(HOME)/.oh-my-zsh:
+	git submodule init
+	git submodule update
+	ln -s -F $(realpath oh-my-zsh) $@
 
 $(HOME)/.zshrc: zshrc
 	ln $< $@
