@@ -19,3 +19,7 @@ $(HOME)/.zshrc: zshrc
 $(HOME)/.%: %
 	ln -F -s $(realpath $<) $@
 
+vim/bundle: vim/install_neobundle.sh
+	$<
+
+
