@@ -1,5 +1,5 @@
 [submodule "middleman/zurb-foundation"]
-	path = middleman/zurb-foundation
+	path = dotfiles/middleman/zurb-foundation
 	url = https://github.com/axyz/middleman-zurb-foundation.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh

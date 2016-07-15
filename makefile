@@ -1,8 +1,8 @@
 
 IGNORE="install.sh LaunchAgents"
 
-SRCDOTFILES=$(shell ls -d ./* | grep -v -e "LaunchAgents" -e "makefile" -e "zshrc")
-DSTDOTFILES=$(SRCDOTFILES:./%=$(HOME)/.%)
+SRCDOTFILES=$(shell ls -d ./dotfiles/* | grep -v -e "zshrc")
+DSTDOTFILES=$(SRCDOTFILES:./dotfiles/%=$(HOME)/.%)
 
 .PHONY: all clean
 
@@ -14,10 +14,10 @@ $(HOME)/.oh-my-zsh:
 	git submodule update
 	ln -s -F $(realpath oh-my-zsh) $@
 
-$(HOME)/.zshrc: zshrc
+$(HOME)/.zshrc: dotfiles/zshrc
 	ln $< $@
 
-$(HOME)/.%: %
+$(HOME)/.%: dotfiles/%
 	ln -F -s $(realpath $<) $@
 
 vim/bundle: vim/install_neobundle.sh
