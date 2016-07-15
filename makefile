@@ -7,6 +7,7 @@ DSTDOTFILES=$(SRCDOTFILES:./dotfiles/%=$(HOME)/.%)
 .PHONY: all clean
 
 all: $(HOME)/.zshrc $(HOME)/.oh-my-zsh $(DSTDOTFILES) dotfiles/vim/bundle
+	make -f brew.mk
 	make -f haskell.mk
 
 $(HOME)/.oh-my-zsh:
