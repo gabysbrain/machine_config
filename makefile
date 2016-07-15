@@ -7,6 +7,7 @@ DSTDOTFILES=$(SRCDOTFILES:./%=$(HOME)/.%)
 .PHONY: all clean
 
 all: $(HOME)/.zshrc $(HOME)/.oh-my-zsh $(DSTDOTFILES)
+	make -f haskell.mk
 
 $(HOME)/.oh-my-zsh:
 	git submodule init
