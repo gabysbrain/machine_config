@@ -1,0 +1,32 @@
+import XMonad
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.EZConfig(additionalKeys)
+import Graphics.X11.ExtraTypes.XF86
+import System.IO
+
+myManagementHooks :: [ManageHook]
+myManagementHooks = [
+  resource =? "stalonetray" --> doIgnore
+  ]
+
+main = do
+    --xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmobarrc"
+    xmonad $ defaultConfig
+        { terminal = "st"
+        , manageHook = manageDocks <+> manageHook defaultConfig <+> composeAll myManagementHooks
+        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        --, logHook = dynamicLogWithPP xmobarPP
+                        --{ ppOutput = hPutStrLn xmproc
+                        --, ppTitle = xmobarColor "green" "" . shorten 50
+                        --}
+        , modMask = mod4Mask
+        } --`additionalKeys`
+           --[ ((mod4Mask, xK_p), spawn "dmenu_run") -- dmenu
+           --]
+		--[ ((0 , xF86XK_AudioLowerVolume), spawn "amixer set Master on && amixer set Headphone on && amixer set Master 2-"),
+		  --((0 , xF86XK_AudioRaiseVolume), spawn "amixer set Master on && amixer set Headphone on && amixer set Master 2+"),
+		  --((0 , xF86XK_AudioMute), spawn "amixer set Master toggle && amixer set Headphone toggle"),
+		  --((mod4Mask .|. controlMask, xK_l), spawn "gnome-screensaver-command --lock")
+		--]
