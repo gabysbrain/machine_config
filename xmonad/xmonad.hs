@@ -180,7 +180,7 @@ myKeys x  = M.union (M.fromList (newKeys x)) (keys defaultConfig x)
 --{{{ Keybindings
 --    Add new and/or redefine key bindings
 newKeys conf@(XConfig {XMonad.modMask = modm}) = [
-  ((modm, xK_u), spawn "dmenu_run -nb '#222222' -nf '#aaaaaa' -sb '#93d44f' -sf '#222222'"),  --Uses a colourscheme with dmenu
+  ((modm, xK_p), spawn "dmenu_run -nb '#222222' -nf '#aaaaaa' -sb '#93d44f' -sf '#222222'"),  --Uses a colourscheme with dmenu
   ((modm, xK_b), spawn "firefox"),
   ((modm, xK_c), spawn "chromium --app='https://calendar.google.com'"),
   ((modm, xK_f), spawn "st -e mc"),
@@ -198,7 +198,7 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((0, xF86XK_AudioPrev), spawn "exaile -p"),
   ((modm, xK_y), sendMessage ToggleStruts),
   ((modm, xK_comma), sendMessage MirrorShrink),
-  ((modm, xK_p), sendMessage MirrorExpand),
+  ((modm, xK_u), sendMessage MirrorExpand),
   ((modm, xK_z), spawn "chromium --app='http://www.evernote.com/Home.action'"),
   ((modm, xK_s), goToSelected defaultGSConfig),
   ((modm, xK_o), spawn $ XMonad.terminal conf),
