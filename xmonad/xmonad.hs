@@ -61,7 +61,7 @@ main = do
    myStatusBarPipe <- spawnPipe myStatusBar
    conkyBar <- spawnPipe myConkyBar
    xmonad $ myUrgencyHook $ defaultConfig
-      { terminal = "urxvtc"
+      { terminal = "st"
       , normalBorderColor  = myInactiveBorderColor
       , focusedBorderColor = myActiveBorderColor
       , borderWidth = myBorderWidth
@@ -183,7 +183,7 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((modm, xK_u), spawn "dmenu_run -nb '#222222' -nf '#aaaaaa' -sb '#93d44f' -sf '#222222'"),  --Uses a colourscheme with dmenu
   ((modm, xK_b), spawn "firefox"),
   ((modm, xK_c), spawn "chromium --app='https://calendar.google.com'"),
-  ((modm, xK_f), spawn "urxvt -e mc"),
+  ((modm, xK_f), spawn "st -e mc"),
   ((modm, xK_m), spawn "chromium --app='https://mail.google.com'"),
   ((modm, xK_n), spawn "chromium --app='https://simple-note.appspot.com'"),
   ((modm, xK_g), spawn "chromium --app='https://app.nirvanahq.com'"),
@@ -205,7 +205,7 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((modm, xK_a), windows W.swapMaster),
   ((modm, xK_apostrophe), sendMessage Shrink),
   ((modm, xK_y), sendMessage Expand),
-  ((modm, xK_e), scratchpadSpawnActionTerminal "urxvtc"),
+  ((modm, xK_e), scratchpadSpawnActionTerminal "st"),
   ((modm, xK_Tab), sendMessage NextLayout),
   ((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
   ((modm, xK_period), sendMessage (IncMasterN (-1)))
