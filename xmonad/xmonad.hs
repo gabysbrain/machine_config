@@ -78,7 +78,7 @@ main = do
 --{{{ Theme
 
 --Font
-myFont = "Terminus-6"
+myFont = "Anonymous Pro-8"
 
 -- Colors
 
@@ -181,14 +181,14 @@ myKeys x  = M.union (M.fromList (newKeys x)) (keys defaultConfig x)
 --    Add new and/or redefine key bindings
 newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((modm, xK_p), spawn "dmenu_run -nb '#222222' -nf '#aaaaaa' -sb '#93d44f' -sf '#222222'"),  --Uses a colourscheme with dmenu
-  ((modm, xK_b), spawn "firefox"),
-  ((modm, xK_c), spawn "chromium --app='https://calendar.google.com'"),
-  ((modm, xK_f), spawn "st -e mc"),
-  ((modm, xK_m), spawn "chromium --app='https://mail.google.com'"),
-  ((modm, xK_n), spawn "chromium --app='https://simple-note.appspot.com'"),
-  ((modm, xK_g), spawn "chromium --app='https://app.nirvanahq.com'"),
+  ((modm, xK_b), spawn "chromium"),
+  --((modm, xK_c), spawn "chromium --app='https://calendar.google.com'"),
+  --((modm, xK_f), spawn "st -e mc"),
+  --((modm, xK_m), spawn "chromium --app='https://mail.google.com'"),
+  --((modm, xK_n), spawn "chromium --app='https://simple-note.appspot.com'"),
+  --((modm, xK_g), spawn "chromium --app='https://app.nirvanahq.com'"),
   ((0, xK_Print), spawn "scrot"),
-  ((modm, xK_v), spawn "VirtualBox"),
+  --((modm, xK_v), spawn "VirtualBox"),
   ((0, xF86XK_AudioMute), spawn "amixer -q set PCM toggle"),
   ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set PCM 2+"),
   ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set PCM 2-"),
@@ -199,14 +199,14 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((modm, xK_y), sendMessage ToggleStruts),
   ((modm, xK_comma), sendMessage MirrorShrink),
   ((modm, xK_u), sendMessage MirrorExpand),
-  ((modm, xK_z), spawn "chromium --app='http://www.evernote.com/Home.action'"),
+  --((modm, xK_z), spawn "chromium --app='http://www.evernote.com/Home.action'"),
   ((modm, xK_s), goToSelected defaultGSConfig),
   ((modm, xK_o), spawn $ XMonad.terminal conf),
   ((modm, xK_a), windows W.swapMaster),
   ((modm, xK_apostrophe), sendMessage Shrink),
   ((modm, xK_y), sendMessage Expand),
   ((modm, xK_e), scratchpadSpawnActionTerminal "st"),
-  ((modm, xK_Tab), sendMessage NextLayout),
+  --((modm, xK_Tab), sendMessage NextLayout),
   ((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
   ((modm, xK_period), sendMessage (IncMasterN (-1)))
    ]
