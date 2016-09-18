@@ -155,11 +155,9 @@ myUrgencyHook = withUrgencyHook dzenUrgencyHook
 
 --{{{ Hook for managing windows
 myManageHook = (composeAll
-   [ resource  =? "Do"               --> doIgnore,              -- Ignore GnomeDo
-     className =? "Pidgin"           --> doShift " 4 im ",      -- Shift Pidgin to im desktop
-     className =? "Chrome"           --> doShift " 3 www ",     -- Shift Chromium to www
+   [ className =? "Pidgin"           --> doShift " 4 im ",      -- Shift Pidgin to im desktop
+     className =? "chromium-browser" --> doShift " 3 www ",     -- Shift Chromium to www
      className =? "Firefox"          --> doShift " 3 www ",     -- Shift Firefox to www
-     className =? "Emacs"            --> doShift " 2 ed ",      -- Shift emacs to ed workspace
      className =? "Gvim"	     --> doShift " 2 ed ",      -- shift gvim to ed workspace
      className =? "Wicd-client.py"   --> doFloat,                -- Float Wicd window
      isFullscreen 		     --> (doF W.focusDown <+> doFullFloat)
@@ -181,7 +179,7 @@ myKeys x  = M.union (M.fromList (newKeys x)) (keys defaultConfig x)
 --    Add new and/or redefine key bindings
 newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((modm, xK_p), spawn "dmenu_run -nb '#222222' -nf '#aaaaaa' -sb '#93d44f' -sf '#222222'"),  --Uses a colourscheme with dmenu
-  ((modm, xK_b), spawn "chromium"),
+  ((modm, xK_b), spawn "chromium-browser"),
   --((modm, xK_c), spawn "chromium --app='https://calendar.google.com'"),
   --((modm, xK_f), spawn "st -e mc"),
   --((modm, xK_m), spawn "chromium --app='https://mail.google.com'"),
