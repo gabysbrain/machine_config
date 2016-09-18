@@ -61,7 +61,7 @@ main = do
    myStatusBarPipe <- spawnPipe myStatusBar
    conkyBar <- spawnPipe myConkyBar
    xmonad $ myUrgencyHook $ defaultConfig
-      { terminal = "st"
+      { terminal = "urxvt"
       , normalBorderColor  = myInactiveBorderColor
       , focusedBorderColor = myActiveBorderColor
       , borderWidth = myBorderWidth
@@ -205,7 +205,7 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((modm, xK_a), windows W.swapMaster),
   ((modm, xK_apostrophe), sendMessage Shrink),
   ((modm, xK_y), sendMessage Expand),
-  ((modm, xK_e), scratchpadSpawnActionTerminal "st"),
+  ((modm, xK_e), scratchpadSpawnActionTerminal "urxvt"),
   --((modm, xK_Tab), sendMessage NextLayout),
   ((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
   ((modm, xK_period), sendMessage (IncMasterN (-1)))
