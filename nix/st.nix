@@ -9,9 +9,9 @@ st.override {
      *
      * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
      */
-    static char font[] = "Liberation Mono:pixelsize=12:antialias=false:autohint=false";
+    static char font[] = "Anonymous Pro:pixelsize=12:antialias=false:autohint=false";
     static int borderpx = 2;
-    static char shell[] = "/bin/sh";
+    static char shell[] = "/run/current-system/sw/bin/zsh";
     static char *utmp = NULL;
     static char stty_args[] = "stty raw -echo -iexten echonl";
 
