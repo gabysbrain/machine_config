@@ -133,8 +133,8 @@ myWorkspaces =
       " 1 sh ",
       " 2 ed ",
       " 3 www ",
-      " 4 im ",
-      " 5 vm ",
+      " 4 mail ",
+      " 5 im ",
       " 6 doc ",
       " 7 ",
       " . "
