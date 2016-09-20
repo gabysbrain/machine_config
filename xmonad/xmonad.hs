@@ -200,8 +200,8 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   --((modm, xK_apostrophe), sendMessage Shrink),
   --((modm, xK_y), sendMessage Expand),
   --((modm, xK_Tab), sendMessage NextLayout),
-  ((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
-  ((modm, xK_period), sendMessage (IncMasterN (-1)))
+  --((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
+  --((modm, xK_period), sendMessage (IncMasterN (-1))),
    ]
 --}}}
 
