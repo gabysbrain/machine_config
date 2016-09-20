@@ -198,11 +198,9 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((modm, xK_u), sendMessage MirrorExpand),
   --((modm, xK_z), spawn "chromium --app='http://www.evernote.com/Home.action'"),
   ((modm, xK_s), goToSelected defaultGSConfig),
-  ((modm, xK_o), spawn $ XMonad.terminal conf),
   ((modm, xK_a), windows W.swapMaster),
   --((modm, xK_apostrophe), sendMessage Shrink),
   --((modm, xK_y), sendMessage Expand),
-  ((modm, xK_e), scratchpadSpawnActionTerminal "urxvt"),
   --((modm, xK_Tab), sendMessage NextLayout),
   ((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
   ((modm, xK_period), sendMessage (IncMasterN (-1)))
