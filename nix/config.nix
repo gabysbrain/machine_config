@@ -132,16 +132,19 @@ pkgs: {
       vimrcConfig.vam.knownPlugins = pkgs.vimPlugins;
       vimrcConfig.vam.pluginDictionaries = [
         { names = [
-	    "Syntastic"
-	    "Tagbar"
-	    "ctrlp"
-	    "vim-addon-nix"
-      "zenburn"
-	]; }
+	        "Syntastic"
+	        "Tagbar"
+          "Tabular"
+          "The_NERD_Commenter"
+          "The_NERD_tree"
+	        "ctrlp"
+	        "vim-addon-nix"
+          "zenburn"
+	      ]; }
       ];
 #        " My plugins
-#        NeoBundle 'godlygeek/tabular'
 #        "NeoBundle 'plasticboy/vim-markdown'
+# "github:raichoo/purescript-vim"
 #        NeoBundle 'vim-pandoc/vim-criticmarkup'
 #        NeoBundle 'chrisbra/csv.vim'
 #        NeoBundle 'ervandew/supertab'
@@ -149,10 +152,6 @@ pkgs: {
 #        NeoBundle 'mattn/emmet-vim'
 #        NeoBundle 'guicolorscheme.vim'
 #        NeoBundle 'othree/html5.vim'
-#        NeoBundle 'scrooloose/nerdcommenter'
-#        NeoBundle 'scrooloose/nerdtree'
-#        NeoBundle 'raichoo/purescript-vim'
-#        NeoBundle 'scrooloose/syntastic'
 #        NeoBundle 'majutsushi/tagbar'
 #        NeoBundle 'vim-airline/vim-airline'
 #        NeoBundle 'vim-airline/vim-airline-themes'
@@ -162,7 +161,6 @@ pkgs: {
 #        NeoBundle 'tfnico/vim-gradle'
 #        NeoBundle 'elzr/vim-json'
 #        NeoBundle 'derekwyatt/vim-scala'
-#        NeoBundle 'jnurmine/Zenburn'
 #        NeoBundle 'godlygeek/tabular'
 #        NeoBundle 'Shougo/vimproc.vim', {
 #        \ 'build' : {
