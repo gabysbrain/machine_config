@@ -77,3 +77,6 @@ function light() {
 }
 
 
+# Path to your oh-my-zsh installation.
+ZSH=/nix/store/bvpfxbghckbahiy667jyhh8pv0zk8y83-oh-my-zsh-git-2016-08-01/share/oh-my-zsh/
+
