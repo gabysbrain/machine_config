@@ -202,6 +202,7 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   --((modm, xK_Tab), sendMessage NextLayout),
   --((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
   --((modm, xK_period), sendMessage (IncMasterN (-1))),
+  ((modm, xK_q), spawn "if type xmonad; then xmonad --recompile && xmonad --restart && killall dzen2 && killall conky; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"), -- %! Restart xmonad
    ]
 --}}}
 
