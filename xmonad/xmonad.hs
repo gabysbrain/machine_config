@@ -154,9 +154,7 @@ myUrgencyHook = withUrgencyHook dzenUrgencyHook
 
 --{{{ Hook for managing windows
 myManageHook = (composeAll
-   [ className =? "Pidgin"           --> doShift " 4 im ",      -- Shift Pidgin to im desktop
-     className =? "chromium-browser" --> doShift " 3 www ",     -- Shift Chromium to www
-     className =? "Firefox"          --> doShift " 3 www ",     -- Shift Firefox to www
+   [ className =? "chromium-browser" --> doShift " 3 www ",     -- Shift Chromium to www
      className =? "Gvim"	     --> doShift " 2 ed ",      -- shift gvim to ed workspace
      className =? "Wicd-client.py"   --> doFloat,                -- Float Wicd window
      isFullscreen 		     --> (doF W.focusDown <+> doFullFloat)
