@@ -181,9 +181,25 @@ pkgs: {
       name = "all";
       paths = [
         my_vim
+        powerline-fonts
         git
         dropbox
         oh-my-zsh
+        anonymousPro
+        cabal-install
+        conky
+        dzen2
+        ghc
+        gnumake
+        mutt
+        stalonetray
+        nodejs
+        nodePackages.bower
+        nodePackages.bower2nix
+        rxvt_unicode-with-plugins
+        haskellPackages.purescript
+        stack
+        tetex
       ];
     };
   };
