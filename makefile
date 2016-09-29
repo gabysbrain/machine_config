@@ -11,9 +11,7 @@ all: $(HOME)/.zshrc $(HOME)/.oh-my-zsh $(DSTDOTFILES) dotfiles/vim/bundle
 	make -f haskell.mk
 
 $(HOME)/.oh-my-zsh:
-	git submodule init
-	git submodule update
-	ln -s -F $(realpath oh-my-zsh) $@
+	sh -c "`curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh`"
 
 $(HOME)/.zshrc: dotfiles/zshrc
 	ln $< $@
