@@ -41,7 +41,7 @@ export JREBEL_PATH=/Applications/jrebel/jrebel.jar
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode rbenv osx history npm sbt brew virutalenv stack)
+plugins=(git vi-mode rbenv osx history npm sbt virutalenv stack)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,10 +49,6 @@ source $ZSH/oh-my-zsh.sh
 autoload -U zmv
 
 # customize prompt
-
-# nvm through homebrew is special
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
 #PROMPT="''${user} %{$fg[blue]%}%4(c:...:)%2c%{$reset_color%}$ "
 
 # function to activate virtualenv
