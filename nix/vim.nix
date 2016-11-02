@@ -149,24 +149,12 @@ let
       ]; }
     ];
 #    " My plugins
-#    "NeoBundle 'plasticboy/vim-markdown'
 #    NeoBundle 'vim-pandoc/vim-criticmarkup'
 #    NeoBundle 'chrisbra/csv.vim'
 #    NeoBundle 'mattn/emmet-vim'
 #    NeoBundle 'guicolorscheme.vim'
 #    NeoBundle 'jeetsukumaran/vim-buffergator'
-#    NeoBundle 'tfnico/vim-gradle'
 #    NeoBundle 'elzr/vim-json'
-#    NeoBundle 'derekwyatt/vim-scala'
-#    NeoBundle 'Shougo/vimproc.vim', {
-#    \ 'build' : {
-#    \     'windows' : 'tools\\update-dll-mingw',
-#    \     'cygwin' : 'make -f make_cygwin.mak',
-#    \     'mac' : 'make -f make_mac.mak',
-#    \     'linux' : 'make',
-#    \     'unix' : 'gmake',
-#    \    },
-#    \ }
   };
 
   custom_vim = pkgs.vim_configurable.customize customization;
