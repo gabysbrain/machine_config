@@ -12,7 +12,7 @@ alias marked="open -a 'Marked 2'"
 export EDITOR=vim
 
 # Java's home
-export JAVA_HOME=`/usr/libexec/java_home`
+#export JAVA_HOME=`/usr/libexec/java_home`
 
 # R's home
 export R_HOME=/Library/Frameworks/R.framework/Resources
