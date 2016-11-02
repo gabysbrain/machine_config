@@ -54,7 +54,7 @@ wrapIcon icon = "^p(5)^i(" ++ icons ++ icon ++ ")^p(5)"
 --}}}
 
 --{{{ Path variables
-icons = "/home/david/.icons/"
+icons = "/home/tom/.icons/xbm/"
 --}}}
 
 main = do
@@ -114,10 +114,10 @@ myUrgencyHintBgColor = "#ff6565"
 myDzenGenOpts = "-fg '" ++ myFgColor ++ "' -bg '" ++ myBgColor ++ "' -h '18'" ++ " -e 'onstart=lower' -fn '" ++ myFont ++ "'"
 
 -- Status Bar
-myStatusBar = "dzen2 -w 1600 -ta l " ++ myDzenGenOpts
+myStatusBar = "dzen2 -w 1400 -ta l " ++ myDzenGenOpts
 
 -- Conky Bar
-myConkyBar = "conky -c ~/.conky_bar | dzen2 -x 1600 -y 0 -w 400  -ta c " ++ myDzenGenOpts
+myConkyBar = "conky -c ~/.conky_bar | dzen2 -x 1400 -y 0 -w 600  -ta c " ++ myDzenGenOpts
 
 -- Layouts
 myLayoutHook = avoidStruts $ onWorkspace " 4 im " imLayout $ standardLayouts
@@ -220,9 +220,9 @@ myDzenPP h = defaultPP {
   ppTitle = (\x -> "  " ++ wrapFg myTitleFgColor x),
   ppLayout  = dzenColor myFgColor"" .
                 (\x -> case x of
-                    "ResizableTall" -> wrapIcon "dzen_bitmaps/tall.xbm"
-                    "Mirror ResizableTall" -> wrapIcon "dzen_bitmaps/mtall.xbm"
-                    "Full" -> wrapIcon "dzen_bitmaps/full.xbm"
+                    "ResizableTall" -> wrapIcon "tall.xbm"
+                    "Mirror ResizableTall" -> wrapIcon "mtall.xbm"
+                    "Full" -> wrapIcon "full.xbm"
                 ) . stripIM
   }
   where
