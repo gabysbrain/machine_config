@@ -9,7 +9,7 @@ own_window_type desktop
 update_interval 30
 
 TEXT
-^i(.icons/xbm/ac_01.xbm) ^fg(\#8CD0D3)${battery_short BAT0} ^fg() \
+^i(.icons/xbm/ac_01.xbm) ^fg(\#8CD0D3)${battery_short BAT0} ${battery_time BAT0} ^fg() \
 ^i(.icons/xbm/clock.xbm) ^fg(\#F0DFAF)[${time %a %e/%m %H:%M}] ^fg() \
-^i(.icons/xbm/wifi_01.xbm) ^fg(\#8CD0D3)${wireless_essid wlp1s0}^fg() 
+^i(.icons/xbm/wifi_01.xbm) ^fg(\#8CD0D3)${wireless_essid wlp1s0} ^fg()
 
