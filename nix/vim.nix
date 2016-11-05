@@ -12,7 +12,7 @@ let
       filetype plugin indent on " required
       
       " appearance
-      set guifont=Anonymice\ Powerline:h12
+      set guifont=Anonymous\ Pro\ for\ Powerline\ 12
       colors zenburn
       set noshowmode
       set cursorline " color current line
