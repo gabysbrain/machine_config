@@ -28,11 +28,11 @@ import XMonad.Hooks.UrgencyHook
 
 import XMonad.Layout
 import XMonad.Layout.Grid
-import XMonad.Layout.IM
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.StackTile
+import XMonad.Layout.Accordion
 
 import XMonad.Prompt
 import XMonad.Prompt.Man
@@ -124,7 +124,7 @@ myLayoutHook = avoidStruts $ onWorkspace " 3 www " wwwLayout
                            -- $ onWorkspace " 4 im "  imLayout 
                            $ standardLayouts
                where standardLayouts = tiled ||| Mirror tiled ||| Full
-                     wwwLayout = Full
+                     wwwLayout = Full ||| Accordion
                      --imLayout = withIM (2/10) (Role "buddy_list") (standardLayouts)
                      tiled = ResizableTall nmaster delta ratio []
                      nmaster = 1
