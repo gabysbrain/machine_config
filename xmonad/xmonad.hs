@@ -120,9 +120,12 @@ myStatusBar = "dzen2 -w 1400 -ta l " ++ myDzenGenOpts
 myConkyBar = "conky -c ~/.conky_bar | dzen2 -x 1400 -y 0 -w 600  -ta c " ++ myDzenGenOpts
 
 -- Layouts
-myLayoutHook = avoidStruts $ onWorkspace " 4 im " imLayout $ standardLayouts
+myLayoutHook = avoidStruts $ onWorkspace " 3 www " wwwLayout 
+                           -- $ onWorkspace " 4 im "  imLayout 
+                           $ standardLayouts
                where standardLayouts = tiled ||| Mirror tiled ||| Full
-                     imLayout = withIM (2/10) (Role "buddy_list") (standardLayouts)
+                     wwwLayout = Full
+                     --imLayout = withIM (2/10) (Role "buddy_list") (standardLayouts)
                      tiled = ResizableTall nmaster delta ratio []
                      nmaster = 1
                      delta = 0.03
@@ -184,9 +187,9 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   --((modm, xK_g), spawn "chromium --app='https://app.nirvanahq.com'"),
   ((0, xK_Print), spawn "scrot"),
   --((modm, xK_v), spawn "VirtualBox"),
-  ((0, xF86XK_AudioMute), spawn "amixer -q set PCM toggle"),
-  ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set PCM 2+"),
-  ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set PCM 2-"),
+  ((0, xF86XK_AudioMute), spawn "amixer -q set Master toggle"),
+  ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set Master 2+"),
+  ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set Master 2-"),
   ((0, xF86XK_AudioPlay), spawn "exaile -t"),
   ((0, xF86XK_AudioStop), spawn "exaile -s"),
   ((0, xF86XK_AudioNext), spawn "exaile -n"),
