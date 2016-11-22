@@ -205,7 +205,7 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   --((modm, xK_Tab), sendMessage NextLayout),
   --((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
   --((modm, xK_period), sendMessage (IncMasterN (-1))),
-  ((modm, xK_q), spawn "if type xmonad; then xmonad --recompile && xmonad --restart && killall dzen2 && killall conky; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"), -- %! Restart xmonad
+  ((modm, xK_q), spawn "if type xmonad; then xmonad --recompile && xmonad --restart && pkill -x dzen2 && pkill -x conky; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"), -- %! Restart xmonad
   ((modm, xK_e), scratchpadSpawnActionTerminal "urxvt"),
   --((0, xF86XK_Rotate), spawn "./rotate_screen.sh")
   ((modm, xK_r), spawn "/home/tom/Projects/dotfiles/xmonad/screen_rotate.sh")
