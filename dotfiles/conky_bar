@@ -8,8 +8,13 @@ own_window yes
 own_window_type desktop
 update_interval 30
 
+#^i(.icons/phones.xbm) ^fg(\#8CD0D3)${exec amixer -c 0 get Master | grep Mono:} ^fg() \
 TEXT
-^i(.icons/xbm/ac_01.xbm) ^fg(\#8CD0D3)${battery_short BAT0} ${battery_time BAT0} ^fg() \
-^i(.icons/xbm/clock.xbm) ^fg(\#F0DFAF)[${time %a %e/%m %H:%M}] ^fg() \
-^i(.icons/xbm/wifi_01.xbm) ^fg(\#8CD0D3)${wireless_essid wlp1s0} ^fg()
+^i(.icons/ac_01.xbm) ^fg(\#8CD0D3)${battery_short BAT0} ${battery_time BAT0} ^fg() \
+^i(.icons/clock.xbm) ^fg(\#F0DFAF)[${time %a %e/%m %H:%M}] ^fg() \
+^fg(\#007ee5) ^i(.icons/dropbox.xbm) \
+              ^fg(\#FFFF00) ${execi 6 $HOME/.xmonad/dropbox-files.sh} ^fg()\
+              ^fg(\#8888FF) ^i(.icons/net_down_03.xbm) ${execi 6 $HOME/.xmonad/dropbox-down.sh} ^fg() / \
+              ^fg(\#AA0000) ^i(.icons/net_up_03.xbm) ${execi 6 $HOME/.xmonad/conky_scripts/dropbox-up.sh} ^fg() \
+^i(.icons/wifi_01.xbm) ^fg(\#8CD0D3)${wireless_essid wlp1s0} ^fg()
 
