@@ -11,3 +11,4 @@ download_speed="${BASH_REMATCH[1]}"
 if [[ $download_speed != "" ]] ; then
   echo "$download_speed KB/sec"
 fi
+
