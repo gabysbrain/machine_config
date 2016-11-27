@@ -133,6 +133,7 @@ let
         "Syntastic"
         "Tagbar"
         "Tabular"
+        "vim-buffergator"
         "The_NERD_Commenter"
         "The_NERD_tree"
         "fugitive"
@@ -153,17 +154,16 @@ let
 #    NeoBundle 'chrisbra/csv.vim'
 #    NeoBundle 'mattn/emmet-vim'
 #    NeoBundle 'guicolorscheme.vim'
-#    NeoBundle 'jeetsukumaran/vim-buffergator'
 #    NeoBundle 'elzr/vim-json'
   };
 
   custom_vim = pkgs.vim_configurable.customize customization;
 
-  vim = lib.overrideDerivation custom_vim (o: {
+  myvim = lib.overrideDerivation custom_vim (o: {
     gui = true;
   });
 
 in [
-  vim
+  myvim
 ]
 
