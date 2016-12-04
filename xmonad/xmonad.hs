@@ -54,7 +54,7 @@ wrapIcon icon = "^p(5)^i(" ++ icons ++ icon ++ ")^p(5)"
 --}}}
 
 --{{{ Path variables
-icons = "/home/tom/.icons/xbm/"
+icons = "/home/tom/.icons/"
 --}}}
 
 main = do
