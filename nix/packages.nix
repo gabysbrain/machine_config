@@ -21,6 +21,7 @@ in
       gnumake
 
       git
+      silver-searcher
       mutt
       rxvt_unicode-with-plugins
       myvim
