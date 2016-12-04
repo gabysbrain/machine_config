@@ -1,8 +1,10 @@
 --
--- David Beckingsale's xmonad config
+-- Tom Torsney-Weir's xmonad config
+-- 
+-- started as David Beckingsale's xmonad config
 -- from https://github.com/davidbeckingsale/xmonad-config
 --
--- Started out as avandael's xmonad.hs
+-- which started out as avandael's xmonad.hs
 -- Also uses stuff from pbrisbin.com:8080/
 --
 
