@@ -224,7 +224,7 @@ myDzenPP h = defaultPP {
   ppHidden = wrapFg myHiddenWsFgColor . noScratchPad,
   ppHiddenNoWindows = wrapFg myHiddenEmptyWsFgColor,
   ppUrgent = wrapBg myUrgentWsBgColor,
-  ppTitle = (\x -> "  " ++ wrapFg myTitleFgColor x),
+  ppTitle = (\x -> " " ++ wrapFg myTitleFgColor x),
   ppLayout  = dzenColor myFgColor"" .
                 (\x -> case x of
                     "ResizableTall" -> wrapIcon "tall.xbm"
