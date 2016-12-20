@@ -42,8 +42,8 @@
   # };
 
   # Set your time zone.
-  #time.timeZone = "Europe/Vienna";
-  time.timeZone = "US/Eastern";
+  time.timeZone = "Europe/Vienna"; # hmoe time zone
+  #time.timeZone = "US/Eastern"; # alternate time zone
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -61,12 +61,39 @@
     dmenu
     networkmanagerapplet
     gnome3.dconf
-    dropbox
     rxvt_unicode-with-plugins
+
+    powerline-fonts
+    anonymousPro
+
+    cabal-install
+    ghc
+    stack
+    nodejs
+    haskellPackages.purescript
+
+    gnumake
+
+    git
+    silver-searcher
+    mutt
+    rxvt_unicode-with-plugins
+    #myvim
+    #zshrc
+    dropbox-cli
+    evince
     dzen2
     conky
+    #texlive-combined-full-2016
   ];
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    interactiveShellInit = ''
+      cat << EOF > $HOME/.zshrc
+        . ${import /home/tom/Projects/dotfiles/nix/zsh-config.nix}
+      EOF
+    '';
+  };
 
   # List services that you want to enable:
 
@@ -93,7 +120,9 @@
 
     # Enable slim with xmonad
     displayManager = {
-      lightdm.enable = true;
+      #lightdm.enable = true;
+      #sddm.enable = true;
+      slim.enable = true;
     };
     #desktopManager.kde5.enable = true;
     desktopManager.xterm.enable = false;
