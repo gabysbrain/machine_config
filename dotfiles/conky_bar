@@ -6,7 +6,7 @@ double_buffer yes
 out_to_console yes
 own_window yes
 own_window_type desktop
-update_interval 30
+update_interval 10
 
 #^i(.icons/phones.xbm) ^fg(\#8CD0D3)${exec amixer -c 0 get Master | grep Mono:} ^fg() \
 
