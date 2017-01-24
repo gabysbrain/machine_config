@@ -63,9 +63,6 @@
     gnome3.dconf
     rxvt_unicode-with-plugins
 
-    powerline-fonts
-    anonymousPro
-
     cabal-install
     ghc
     stack
@@ -93,6 +90,18 @@
         . ${import /home/tom/Projects/dotfiles/nix/zsh-config.nix}
       EOF
     '';
+  };
+	
+  # font config
+  fonts = {
+		enableFontDir = true;
+		enableGhostscriptFonts = true;
+		fonts = with pkgs; [
+		  corefonts  # Micrsoft free fonts
+		  unifont # some international languages
+      powerline-fonts
+      anonymousPro
+		];
   };
 
   # List services that you want to enable:
