@@ -12,8 +12,11 @@
 
   # Use the systemd-boot EFI boot loader.
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      grub.splashImage = "${pkgs.nixos-artwork}/common/grub2-background/grub-nixos-3.png";
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
     #blacklistedKernelModules =[ "i2c_designware_core" "i2c_designware_platform" ];
     kernelPackages = pkgs.linuxPackages_4_8;
     kernelModules = [
@@ -164,4 +167,5 @@
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.09";
+  #system.stateVersion = "unstable";
 }

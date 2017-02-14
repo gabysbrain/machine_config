@@ -3,12 +3,13 @@ with import <nixpkgs> {};
 let
   myvim = import ./vim.nix;
   gdrive = import ./gdrive.nix;
-  zshrc = import ./zsh-config.nix;
+  #zshrc = import ./zsh-config.nix;
   bower = nodePackages.bower;
   ps = haskellPackages.purescript;
 
 in
-  { inherit
+  { 
+    inherit
       powerline-fonts
       anonymousPro
 
@@ -25,7 +26,11 @@ in
       mutt
       rxvt_unicode-with-plugins
       myvim
-      zshrc
-      gdrive
+      #zshrc
+      dropbox-cli
+      evince
+      dzen2
+      conky
+      #texlive-combined-full-2016
       ;
   }
