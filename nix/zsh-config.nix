@@ -7,6 +7,7 @@ ZSH_THEME="kolo"
 
 alias mm="bundle exec middleman"
 alias marked="open -a 'Marked 2'"
+alias gvim="vim -g"
 
 # Use the vim editor
 export EDITOR=vim
