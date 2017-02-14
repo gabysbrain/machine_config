@@ -18,7 +18,7 @@
       efi.canTouchEfiVariables = true;
     };
     #blacklistedKernelModules =[ "i2c_designware_core" "i2c_designware_platform" ];
-    kernelPackages = pkgs.linuxPackages_4_8;
+    kernelPackages = pkgs.linuxPackages;
     kernelModules = [
       "hid-sensor-trigger"
       "hid-sensor-hub"
