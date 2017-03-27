@@ -4,6 +4,7 @@
 
 { config, pkgs, ... }:
 
+  #myvim = import /home/tom/Projects/dotfiles/nix/vim.nix;
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -59,7 +60,7 @@
   environment.systemPackages = with pkgs; [
     nox
     chromium
-    vim
+    #vim
     git
     dmenu
     networkmanagerapplet
@@ -70,7 +71,7 @@
     ghc
     stack
     nodejs
-    haskellPackages.purescript
+    #haskellPackages.purescript
 
     gnumake
 
@@ -78,9 +79,11 @@
     silver-searcher
     mutt
     rxvt_unicode-with-plugins
+    (import /home/tom/Projects/dotfiles/nix/vim.nix)
     #myvim
     #zshrc
     dropbox-cli
+    owncloud-client
     evince
     dzen2
     conky

@@ -163,7 +163,7 @@ let
     gui = true;
   });
 
-in [
+in 
   myvim
-]
+
 
