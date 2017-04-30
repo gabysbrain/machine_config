@@ -176,6 +176,9 @@
     shell = "/run/current-system/sw/bin/zsh";
   };
 
+  # keep a backup of the configuration
+  system.copySystemConfiguration = true;
+
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.09";
 }
