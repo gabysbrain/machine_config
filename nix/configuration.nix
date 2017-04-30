@@ -87,7 +87,9 @@
     evince
     dzen2
     conky
-    #texlive-combined-full-2016
+    texlive.combined.scheme-full
+    bibtool
+    pandoc
   ];
   programs.zsh = {
     enable = true;
