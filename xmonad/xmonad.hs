@@ -61,15 +61,24 @@ icons = "/home/tom/.icons/"
 
 main = do
    myStatusBarPipe <- spawnPipe myStatusBar
-   conkyBar <- spawnPipe myConkyBar
-   xmonad $ myUrgencyHook $ defaultConfig
+   --conkyBar <- spawnPipe myConkyBar
+   xmonad $ defaultConfig
+   --xmonad $ myUrgencyHook $ defaultConfig
       { terminal = "urxvt"
       , normalBorderColor  = myInactiveBorderColor
       , focusedBorderColor = myActiveBorderColor
       , borderWidth = myBorderWidth
       , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
       , layoutHook = smartBorders $ avoidStruts $ myLayoutHook
-      , logHook = dynamicLogWithPP $ myDzenPP myStatusBarPipe
+      , handleEventHook = mconcat
+                          [ docksEventHook
+                          , handleEventHook defaultConfig
+                          ]
+      --, logHook = dynamicLogWithPP $ myDzenPP myStatusBarPipe
+      , logHook = dynamicLogWithPP xmobarPP
+                    { ppOutput = hPutStrLn myStatusBarPipe
+                    , ppTitle = xmobarColor "green" "" . shorten 50
+                    }
       , modMask = mod4Mask
       , keys = myKeys
       , XMonad.Core.workspaces = myWorkspaces
@@ -116,7 +125,8 @@ myUrgencyHintBgColor = "#ff6565"
 myDzenGenOpts = "-fg '" ++ myFgColor ++ "' -bg '" ++ myBgColor ++ "' -h '18'" ++ " -e 'onstart=lower' -fn '" ++ myFont ++ "'"
 
 -- Status Bar
-myStatusBar = "dzen2 -w 1200 -ta l " ++ myDzenGenOpts
+--myStatusBar = "dzen2 -w 1200 -ta l " ++ myDzenGenOpts
+myStatusBar = "xmobar"
 
 -- Conky Bar
 myConkyBar = "conky -c ~/.conky_bar | dzen2 -x 1200 -y 0 -w 800  -ta c " ++ myDzenGenOpts
@@ -146,6 +156,7 @@ myWorkspaces =
    ]
 
 -- Urgency hint configuration
+{-
 myUrgencyHook = withUrgencyHook dzenUrgencyHook
     {
       args = [
@@ -156,6 +167,7 @@ myUrgencyHook = withUrgencyHook dzenUrgencyHook
          "-fn", "" ++ myFont ++ ""
          ]
     }
+-}
 
 --{{{ Hook for managing windows
 myManageHook = (composeAll
@@ -207,7 +219,7 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   --((modm, xK_Tab), sendMessage NextLayout),
   --((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
   --((modm, xK_period), sendMessage (IncMasterN (-1))),
-  ((modm, xK_q), spawn "if type xmonad; then xmonad --recompile && xmonad --restart && pkill -x dzen2 && pkill -x conky; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"), -- %! Restart xmonad
+  ((modm, xK_q), spawn "if type xmonad; then xmonad --recompile && xmonad --restart && pkill -x xmobar; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"), -- %! Restart xmonad
   ((modm, xK_e), scratchpadSpawnActionTerminal "urxvt"),
   --((0, xF86XK_Rotate), spawn "./rotate_screen.sh")
   ((modm, xK_r), spawn "/home/tom/Projects/dotfiles/xmonad/screen_rotate.sh")
