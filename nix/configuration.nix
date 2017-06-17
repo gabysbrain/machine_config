@@ -71,10 +71,10 @@
     ghc
     stack
     nodejs
+    #haskellPackages.purescript
 
     gnumake
 
-    haskellPackages.xmobar
     git
     silver-searcher
     mutt
