@@ -1,256 +1,163 @@
---
--- Tom Torsney-Weir's xmonad config
--- 
--- started as David Beckingsale's xmonad config
--- from https://github.com/davidbeckingsale/xmonad-config
---
--- which started out as avandael's xmonad.hs
--- Also uses stuff from pbrisbin.com:8080/
---
-
---{{{ Imports
-import Data.List
-
-import Graphics.X11.ExtraTypes.XF86
-import Graphics.X11.Xlib
-
-import System.IO
-
 import XMonad
-
-import XMonad.Actions.GridSelect
-
-import XMonad.Core
+import Data.Monoid
+import System.Exit
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
-import XMonad.Hooks.UrgencyHook
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Actions.UpdatePointer
 
-import XMonad.Layout
-import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
-import XMonad.Layout.PerWorkspace
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.StackTile
-import XMonad.Layout.Accordion
+import XMonad.Layout.Spacing
 
-import XMonad.Prompt
-import XMonad.Prompt.Man
-import XMonad.Prompt.Shell
+import XMonad.Util.Run(spawnPipe)
+import System.IO(hPutStrLn)
 
-import XMonad.StackSet as W
-
-import XMonad.Util.EZConfig
-import XMonad.Util.Run
-import XMonad.Util.Scratchpad
-
+import qualified XMonad.StackSet as W
 import qualified Data.Map as M
---}}}
 
---{{{ Helper Functions
-stripIM s = if ("IM " `isPrefixOf` s) then drop (length "IM ") s else s
+myTerminal :: String
+myTerminal = "urxvt"
 
-wrapIcon icon = "^p(5)^i(" ++ icons ++ icon ++ ")^p(5)"
---}}}
+myFocusFollowsMouse :: Bool
+myFocusFollowsMouse = True
 
---{{{ Path variables
-icons = "/home/tom/.icons/"
---}}}
+myModMask = mod4Mask
 
-main = do
-   myStatusBarPipe <- spawnPipe myStatusBar
-   --conkyBar <- spawnPipe myConkyBar
-   xmonad $ defaultConfig
-   --xmonad $ myUrgencyHook $ defaultConfig
-      { terminal = "urxvt"
-      , normalBorderColor  = myInactiveBorderColor
-      , focusedBorderColor = myActiveBorderColor
-      , borderWidth = myBorderWidth
-      , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
-      , layoutHook = smartBorders $ avoidStruts $ myLayoutHook
-      , handleEventHook = mconcat
-                          [ docksEventHook
-                          , handleEventHook defaultConfig
-                          ]
-      --, logHook = dynamicLogWithPP $ myDzenPP myStatusBarPipe
-      , logHook = dynamicLogWithPP xmobarPP
-                    { ppOutput = hPutStrLn myStatusBarPipe
-                    , ppTitle = xmobarColor "green" "" . shorten 50
-                    }
-      , modMask = mod4Mask
-      , keys = myKeys
-      , XMonad.Core.workspaces = myWorkspaces
-      , startupHook = setWMName "LG3D"
-      , focusFollowsMouse = False
-     }
+myWorkspaces = ["1 sh","2 ed","3 www","4 mail", "5 doc"]
+myMainColor = "#333333"
+myBgColor = "#FEFEFE"
+myTextcolor = "#282828"
+myLowColor = "#999999"
 
---{{{ Theme
+myBorderWidth = 0
+myNormalBorderColor = myTextcolor
+myFocusedBorderColor = myNormalBorderColor
 
---Font
-myFont = "Anonymous Pro-8"
+-- Key bindings. Add, modify or remove key bindings here.
+-------------------------------------------------------------------------------
+myKeys x = M.union (M.fromList (customKeys x)) (keys defaultConfig x)
 
--- Colors
+customKeys conf@(XConfig {XMonad.modMask = modm}) = 
 
---- Main Colours
-myFgColor = "#aaaaaa"
-myBgColor = "#222222"
-myHighlightedFgColor = myFgColor
-myHighlightedBgColor = "#93d44f"
+    -- launch a terminal
+    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
---- Borders
-myActiveBorderColor = myCurrentWsBgColor
-myInactiveBorderColor = "#555753"
-myBorderWidth = 2
+    -- close focused window
+    , ((modm .|. shiftMask, xK_c), kill)
 
---- Ws Stuff
-myCurrentWsFgColor = "#222222"
-myCurrentWsBgColor = myHighlightedBgColor
-myVisibleWsFgColor = myBgColor
-myVisibleWsBgColor = "#c8e7a8"
-myHiddenWsFgColor = "#FFFFFF"
-myHiddenEmptyWsFgColor = "#8F8F8F"
-myUrgentWsBgColor = "#ff6565"
-myTitleFgColor = myFgColor
+     -- Rotate through the available layout algorithms
+    , ((modm, xK_space ), sendMessage NextLayout)
 
+    -- Swap the focused window and the master window
+    , ((modm, xK_Return), windows W.swapMaster)
 
---- Urgency
-myUrgencyHintFgColor = "#000000"
-myUrgencyHintBgColor = "#ff6565"
+    -- Shrink the master area
+    , ((modm, xK_h), sendMessage Shrink)
 
--- }}}
+    -- Expand the master area
+    , ((modm, xK_l), sendMessage Expand)
 
--- dzen general options
-myDzenGenOpts = "-fg '" ++ myFgColor ++ "' -bg '" ++ myBgColor ++ "' -h '18'" ++ " -e 'onstart=lower' -fn '" ++ myFont ++ "'"
+    -- Shrink a window
+    , ((modm, xK_u), sendMessage MirrorShrink)
 
--- Status Bar
---myStatusBar = "dzen2 -w 1200 -ta l " ++ myDzenGenOpts
-myStatusBar = "xmobar"
+    -- Expand a window
+    , ((modm, xK_i), sendMessage MirrorExpand)
 
--- Conky Bar
-myConkyBar = "conky -c ~/.conky_bar | dzen2 -x 1200 -y 0 -w 800  -ta c " ++ myDzenGenOpts
+    -- Push window back into tiling
+    , ((modm, xK_t), withFocused $ windows . W.sink)
+
+    -- Increment the number of windows in the master area
+    , ((modm .|. shiftMask, xK_h), sendMessage (IncMasterN 1))
+
+    -- Deincrement the number of windows in the master area
+    , ((modm .|. shiftMask, xK_l), sendMessage (IncMasterN (-1)))
+
+    -- Volume
+    , ((modm .|. controlMask , xK_j), spawn "amixer -q set Master 5- unmute")
+    , ((modm .|. controlMask , xK_k), spawn "amixer -q set Master 5+ unmute")
+    , ((modm .|. controlMask , xK_m), spawn "amixer set Master toggle")
+
+    -- Cover the status bar gap
+    , ((modm, xK_b), sendMessage ToggleStruts)
+
+    -- Programs
+    , ((modm, xK_w), spawn "chromium-browser")
+
+    -- Restart xmonad
+    , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+    ]
 
 -- Layouts
-myLayoutHook = avoidStruts $ onWorkspace " 3 www " wwwLayout 
-                           -- $ onWorkspace " 4 im "  imLayout 
-                           $ standardLayouts
-               where standardLayouts = tiled ||| Mirror tiled ||| Full
-                     wwwLayout = Full ||| Accordion
-                     --imLayout = withIM (2/10) (Role "buddy_list") (standardLayouts)
-                     tiled = ResizableTall nmaster delta ratio []
-                     nmaster = 1
-                     delta = 0.03
-                     ratio = 0.5
--- Workspaces
-myWorkspaces =
-   [
-      " 1 sh ",
-      " 2 ed ",
-      " 3 www ",
-      " 4 mail ",
-      " 5 im ",
-      " 6 doc ",
-      " 7 ",
-      " . "
-   ]
-
--- Urgency hint configuration
-{-
-myUrgencyHook = withUrgencyHook dzenUrgencyHook
-    {
-      args = [
-         "-x", "0", "-y", "1180", "-h", "20", "-w", "1920",
-         "-ta", "c",
-         "-fg", "" ++ myUrgencyHintFgColor ++ "",
-         "-bg", "" ++ myUrgencyHintBgColor ++ "",
-         "-fn", "" ++ myFont ++ ""
-         ]
-    }
--}
-
---{{{ Hook for managing windows
-myManageHook = (composeAll
-   [ className =? "Chromium-browser" --> doShift " 3 www ",     -- Shift Chromium to www
-     className =? "Gvim"	     --> doShift " 2 ed ",      -- shift gvim to ed workspace
-     className =? "Wicd-client.py"   --> doFloat,                -- Float Wicd window
-     isFullscreen 		     --> (doF W.focusDown <+> doFullFloat)
-    , className =? "Tilda"          --> doFloat
-   ]) <+> manageScratchpad
-
-manageScratchpad = scratchpadManageHook (W.RationalRect l t w h)
+------------------------------------------------------------------------
+myLayout = avoidStruts $ smartSpacing 2 $ tiled ||| Mirror tiled ||| Full
   where
-    h = 0.2
-    w = 1
-    t = 1 - h
-    l = 1 - w
---}}}
+    tiled = ResizableTall 1 0.03 0.5 []
 
--- Union default and new key bindings
-myKeys x  = M.union (M.fromList (newKeys x)) (keys defaultConfig x)
+-- Window rules:
+-- > xprop | grep WM_CLASS
+-------------------------------------------------------------------------------
+myManageHook = manageDocks <+> composeAll
+    [ isFullscreen --> doFullFloat
+    , className =? "Chromium-browser" --> doShift "3 www"
+    , className =? "Gvim" --> doShift "2 ed"
+    ]
 
---{{{ Keybindings
---    Add new and/or redefine key bindings
-newKeys conf@(XConfig {XMonad.modMask = modm}) = [
-  ((modm, xK_p), spawn "dmenu_run -nb '#222222' -nf '#aaaaaa' -sb '#93d44f' -sf '#222222'"),  --Uses a colourscheme with dmenu
-  ((modm, xK_b), spawn "chromium-browser"),
-  --((modm, xK_c), spawn "chromium --app='https://calendar.google.com'"),
-  --((modm, xK_f), spawn "st -e mc"),
-  --((modm, xK_m), spawn "chromium --app='https://mail.google.com'"),
-  --((modm, xK_n), spawn "chromium --app='https://simple-note.appspot.com'"),
-  --((modm, xK_g), spawn "chromium --app='https://app.nirvanahq.com'"),
-  ((0, xK_Print), spawn "scrot"),
-  --((modm, xK_v), spawn "VirtualBox"),
-  ((0, xF86XK_AudioMute), spawn "amixer -q set Master toggle"),
-  ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set Master 2+"),
-  ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set Master 2-"),
-  ((0, xF86XK_AudioPlay), spawn "exaile -t"),
-  ((0, xF86XK_AudioStop), spawn "exaile -s"),
-  ((0, xF86XK_AudioNext), spawn "exaile -n"),
-  ((0, xF86XK_AudioPrev), spawn "exaile -p"),
-  ((modm, xK_y), sendMessage ToggleStruts),
-  --((modm, xK_comma), sendMessage MirrorShrink),
-  --((modm, xK_u), sendMessage MirrorExpand),
-  --((modm, xK_z), spawn "chromium --app='http://www.evernote.com/Home.action'"),
-  --((modm, xK_s), goToSelected defaultGSConfig),
-  --((modm, xK_a), windows W.swapMaster),
-  ((modm, xK_semicolon), sendMessage Shrink),
-  ((modm, xK_apostrophe), sendMessage Expand),
-  --((modm, xK_Tab), sendMessage NextLayout),
-  --((modm .|. controlMask, xK_period ), sendMessage (IncMasterN 1)),
-  --((modm, xK_period), sendMessage (IncMasterN (-1))),
-  ((modm, xK_q), spawn "if type xmonad; then xmonad --recompile && xmonad --restart && pkill -x xmobar; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"), -- %! Restart xmonad
-  ((modm, xK_e), scratchpadSpawnActionTerminal "urxvt"),
-  --((0, xF86XK_Rotate), spawn "./rotate_screen.sh")
-  ((modm, xK_r), spawn "/home/tom/Projects/dotfiles/xmonad/screen_rotate.sh")
-   ]
---}}}
+-- Event handling
+-------------------------------------------------------------------------------
+myEventHook = mconcat
+  [ docksEventHook -- this is needed to properly get xmobar struts working
+  , handleEventHook defaultConfig
+  ]
 
----{{{ Dzen Config
-myDzenPP h = defaultPP {
-  ppOutput = hPutStrLn h,
-  ppSep = (wrapFg myHighlightedBgColor "|"),
-  ppWsSep = "",
-  ppCurrent = wrapFgBg myCurrentWsFgColor myCurrentWsBgColor,
-  ppVisible = wrapFgBg myVisibleWsFgColor myVisibleWsBgColor,
-  ppHidden = wrapFg myHiddenWsFgColor . noScratchPad,
-  ppHiddenNoWindows = wrapFg myHiddenEmptyWsFgColor,
-  ppUrgent = wrapBg myUrgentWsBgColor,
-  ppTitle = (\x -> " " ++ wrapFg myTitleFgColor x),
-  ppLayout  = dzenColor myFgColor"" .
-                (\x -> case x of
-                    "ResizableTall" -> wrapIcon "tall.xbm"
-                    "Mirror ResizableTall" -> wrapIcon "mtall.xbm"
-                    "Full" -> wrapIcon "full.xbm"
-                ) . stripIM
-  }
-  where
-    wrapFgBg fgColor bgColor content= wrap ("^fg(" ++ fgColor ++ ")^bg(" ++ bgColor ++ ")") "^fg()^bg()" content
-    wrapFg color content = wrap ("^fg(" ++ color ++ ")") "^fg()" content
-    wrapBg color content = wrap ("^bg(" ++ color ++ ")") "^bg()" content
-    noScratchPad ws = if ws == "NSP" then "" else ws
---}}}
+-- Status bars and logging
+-------------------------------------------------------------------------------
+addPad = wrap " " " "
 
---{{{ GridSelect
+myPP statusPipe = xmobarPP {
+    ppOutput = hPutStrLn statusPipe
+    , ppCurrent = xmobarColor myMainColor myBgColor . addPad
+    , ppHiddenNoWindows = xmobarColor myLowColor "" . addPad
+    , ppHidden = xmobarColor myTextcolor "" . addPad
+    , ppTitle = xmobarColor myTextcolor ""
+    , ppSep = xmobarColor myMainColor myBgColor "  |  "
+}
 
+myLogHook pipe = dynamicLogWithPP (myPP pipe)  -- >> updatePointer (Relative 0.5 0.5)
+
+-- Startup hook
+-------------------------------------------------------------------------------
+myStartupHook = setWMName "LG3D"
+
+-- Configuration structure
+-------------------------------------------------------------------------------
+defaults statusPipe = ewmh defaultConfig {
+    -- simple stuff
+    terminal           = myTerminal,
+    focusFollowsMouse  = myFocusFollowsMouse,
+    borderWidth        = myBorderWidth,
+    modMask            = myModMask,
+    workspaces         = myWorkspaces,
+    normalBorderColor  = myNormalBorderColor,
+    focusedBorderColor = myFocusedBorderColor,
+
+    -- bindings
+    keys               = myKeys,
+
+    -- hooks, layouts
+    layoutHook         = myLayout,
+    manageHook         = myManageHook,
+    handleEventHook    = myEventHook,
+    logHook            = myLogHook statusPipe,
+    startupHook        = myStartupHook
+}
+
+-- Run xmonad with the settings specified. No need to modify this.
+-------------------------------------------------------------------------------
+main = do
+    statusPipe <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
+    xmonad $ defaults statusPipe
 
