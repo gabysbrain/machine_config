@@ -37,9 +37,9 @@ myBgColor = "#FEFEFE"
 myTextcolor = "#282828"
 myLowColor = "#999999"
 
-myBorderWidth = 0
+myBorderWidth = 1
 myNormalBorderColor = myTextcolor
-myFocusedBorderColor = myNormalBorderColor
+myFocusedBorderColor = "#75b92d"
 
 -- Key bindings. Add, modify or remove key bindings here.
 -------------------------------------------------------------------------------
@@ -97,7 +97,7 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
 
 -- Layouts
 ------------------------------------------------------------------------
-myLayout = avoidStruts $ smartSpacing 2 $ tiled ||| Mirror tiled ||| Full
+myLayout = smartBorders $ avoidStruts $ smartSpacing 2 $ tiled ||| Mirror tiled ||| Full
   where
     tiled = ResizableTall 1 0.03 0.5 []
 
