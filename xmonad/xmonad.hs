@@ -19,6 +19,10 @@ import System.IO(hPutStrLn)
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
+---
+--- derived from https://gist.github.com/Tzbob/7362371
+---
+
 myTerminal :: String
 myTerminal = "urxvt"
 
@@ -43,53 +47,53 @@ myKeys x = M.union (M.fromList (customKeys x)) (keys defaultConfig x)
 
 customKeys conf@(XConfig {XMonad.modMask = modm}) = 
 
-    -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+  -- launch a terminal
+  [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- close focused window
-    , ((modm .|. shiftMask, xK_c), kill)
+  -- close focused window
+  , ((modm .|. shiftMask, xK_c), kill)
 
-     -- Rotate through the available layout algorithms
-    , ((modm, xK_space ), sendMessage NextLayout)
+   -- Rotate through the available layout algorithms
+  , ((modm, xK_space ), sendMessage NextLayout)
 
-    -- Swap the focused window and the master window
-    , ((modm, xK_Return), windows W.swapMaster)
+  -- Swap the focused window and the master window
+  , ((modm, xK_Return), windows W.swapMaster)
 
-    -- Shrink the master area
-    , ((modm, xK_h), sendMessage Shrink)
+  -- Shrink the master area
+  , ((modm, xK_h), sendMessage Shrink)
 
-    -- Expand the master area
-    , ((modm, xK_l), sendMessage Expand)
+  -- Expand the master area
+  , ((modm, xK_l), sendMessage Expand)
 
-    -- Shrink a window
-    , ((modm, xK_u), sendMessage MirrorShrink)
+  -- Shrink a window
+  , ((modm, xK_u), sendMessage MirrorShrink)
 
-    -- Expand a window
-    , ((modm, xK_i), sendMessage MirrorExpand)
+  -- Expand a window
+  , ((modm, xK_i), sendMessage MirrorExpand)
 
-    -- Push window back into tiling
-    , ((modm, xK_t), withFocused $ windows . W.sink)
+  -- Push window back into tiling
+  , ((modm, xK_t), withFocused $ windows . W.sink)
 
-    -- Increment the number of windows in the master area
-    , ((modm .|. shiftMask, xK_h), sendMessage (IncMasterN 1))
+  -- Increment the number of windows in the master area
+  , ((modm .|. shiftMask, xK_h), sendMessage (IncMasterN 1))
 
-    -- Deincrement the number of windows in the master area
-    , ((modm .|. shiftMask, xK_l), sendMessage (IncMasterN (-1)))
+  -- Deincrement the number of windows in the master area
+  , ((modm .|. shiftMask, xK_l), sendMessage (IncMasterN (-1)))
 
-    -- Volume
-    , ((modm .|. controlMask , xK_j), spawn "amixer -q set Master 5- unmute")
-    , ((modm .|. controlMask , xK_k), spawn "amixer -q set Master 5+ unmute")
-    , ((modm .|. controlMask , xK_m), spawn "amixer set Master toggle")
+  -- Volume
+  , ((modm .|. controlMask , xK_j), spawn "amixer -q set Master 5- unmute")
+  , ((modm .|. controlMask , xK_k), spawn "amixer -q set Master 5+ unmute")
+  , ((modm .|. controlMask , xK_m), spawn "amixer set Master toggle")
 
-    -- Cover the status bar gap
-    , ((modm, xK_b), sendMessage ToggleStruts)
+  -- Cover the status bar gap
+  , ((modm, xK_b), sendMessage ToggleStruts)
 
-    -- Programs
-    , ((modm, xK_w), spawn "chromium-browser")
+  -- Programs
+  , ((modm, xK_w), spawn "chromium-browser")
 
-    -- Restart xmonad
-    , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
-    ]
+  -- Restart xmonad
+  , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+  ]
 
 -- Layouts
 ------------------------------------------------------------------------
