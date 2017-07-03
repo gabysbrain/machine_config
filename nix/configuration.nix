@@ -75,6 +75,7 @@
     gnumake
 
     haskellPackages.xmobar
+    nitrogen
     git
     silver-searcher
     mutt
@@ -137,17 +138,11 @@
 
     # Enable slim with xmonad
     displayManager = {
-      #lightdm.enable = true;
+      lightdm.enable = true;
       #sddm.enable = true;
-      slim = {
-        enable = true;
-        theme = pkgs.fetchurl {
-          url = "https://github.com/edwtjo/nixos-black-theme/archive/v1.0.tar.gz";
-          sha256 = "13bm7k3p6k7yq47nba08bn48cfv536k4ipnwwp1q1l2ydlp85r9d";
-        };
-      };
+      sessionCommands = "~/.xmonad/xmonad-session-rc";
     };
-    #desktopManager.kde5.enable = true;
+
     desktopManager.xterm.enable = false;
     desktopManager.default = "none";
     windowManager.xmonad = {
