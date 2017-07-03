@@ -8,10 +8,10 @@ Config
       Run Battery ["-t", "<left>"] 100
     , Run MultiCpu ["-t", "<total0>"] 30
     , Run Date "%_d %#B %Y <fc=#333333>|</fc> %H:%M" "date" 600
-    , Run Com "alsavolume" [] "volume" 10
+    , Run Volume "default" "Master" ["-t", "<volume>% <status>"] 10
     , Run StdinReader
     ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = " %StdinReader% }{<fc=#333333>cpu</fc> %multicpu% <fc=#333333>vol</fc> %volume% <fc=#333333>bat</fc> %battery% <fc=#333333>|</fc> %date% "
+  , template = " %StdinReader% }{<fc=#333333>cpu</fc> %multicpu% <fc=#333333>vol</fc> %default:Master% <fc=#333333>bat</fc> %battery% <fc=#333333>|</fc> %date% "
   }
