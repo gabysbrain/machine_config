@@ -1,0 +1,9 @@
+#!/bin/sh
+
+nm-applet &
+dropbox start
+
+#feh  --bg-scale '/home/tom/Dropbox/Wallpapers/bird.jpg' 
+
+nitrogen --set-scaled /home/tom/Dropbox/Wallpapers/bird.jpg
+
