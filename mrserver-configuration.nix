@@ -41,11 +41,16 @@
     allowUnfree = true;
   };
   environment.systemPackages = with pkgs; [
-    vim
+    (import ./vim.nix)
     git
   ];
   programs.zsh = {
     enable = true;
+    interactiveShellInit = ''
+      cat << EOF > $HOME/.zshrc
+        . ${import ./zsh-config.nix}
+      EOF
+    '';
   };
 
   # root only has ssh login
