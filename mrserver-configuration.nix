@@ -4,13 +4,33 @@
   imports = [
     ../hardware-configuration.nix
     ../networking.nix # generated at runtime by nixos-infect
-    
+    ./nextcloud/nextcloud.nix
   ];
 
   boot.cleanTmpDir = true;
   networking.hostName = "mrserver";
   networking.firewall.allowPing = true;
-  services.openssh.enable = true;
+  services = {
+    openssh.enable = true;
+    nginx = {
+      enable = true;
+      virtualHosts = {
+        "localhost" = {
+          serverName = "localhost";
+	  default = false;
+	  enableSSL = false;
+	  forceSSL = false;
+	  locations = {
+	    "/" = {
+	      root = "/var/www";
+	      index = "index.html";
+	      extraConfig = "autoindex on;";
+	    };
+	  };
+	};
+      };
+    };
+  };
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
