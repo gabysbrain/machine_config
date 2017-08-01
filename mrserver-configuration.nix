@@ -9,7 +9,10 @@
 
   boot.cleanTmpDir = true;
   networking.hostName = "mrserver";
-  networking.firewall.allowPing = true;
+  networking.firewall = {
+    allowPing = true;
+    allowedTCPPorts = [ 80 ];
+  };
   services = {
     openssh.enable = true;
     nginx = {
