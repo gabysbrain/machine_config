@@ -18,19 +18,19 @@
     nginx = {
       enable = true;
       virtualHosts = {
-        "localhost" = {
-          serverName = "localhost";
-	  default = false;
-	  enableSSL = false;
-	  forceSSL = false;
-	  locations = {
-	    "/" = {
-	      root = "/var/www";
-	      index = "index.html";
-	      extraConfig = "autoindex on;";
-	    };
-	  };
-	};
+        "website" = {
+          serverName = "website";
+          default = false;
+          enableSSL = false;
+          forceSSL = false;
+          locations = {
+            "/" = {
+              root = "/home/tom/site/";
+              index = "index.html";
+              extraConfig = "autoindex on;";
+            };
+          };
+        };
       };
     };
   };
@@ -73,3 +73,4 @@
     shell = "/run/current-system/sw/bin/zsh";
   };
 }
+
