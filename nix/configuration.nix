@@ -64,6 +64,7 @@
     git
     dmenu
     networkmanagerapplet
+    alsaUtils
     gnome3.dconf
     rxvt_unicode-with-plugins
 
@@ -113,7 +114,7 @@
 		];
   };
 
-  # List services that you want to enable:
+  # List services that you want to enable
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -138,7 +139,9 @@
 
     # Enable slim with xmonad
     displayManager = {
-      lightdm.enable = true;
+      lightdm = {
+        enable = true;
+      };
       #sddm.enable = true;
       sessionCommands = "~/.xmonad/xmonad-session-rc";
     };
