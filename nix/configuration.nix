@@ -8,7 +8,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ../hardware-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -80,7 +80,7 @@
     silver-searcher
     mutt
     rxvt_unicode-with-plugins
-    (import /home/tom/Projects/dotfiles/nix/vim.nix)
+    (import ./vim.nix)
     #myvim
     #zshrc
     dropbox-cli
@@ -96,7 +96,7 @@
     enable = true;
     interactiveShellInit = ''
       cat << EOF > $HOME/.zshrc
-        . ${import /home/tom/Projects/dotfiles/nix/zsh-config.nix}
+        . ${import ./zsh-config.nix}
       EOF
     '';
   };
