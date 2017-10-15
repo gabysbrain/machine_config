@@ -132,9 +132,17 @@
     xkbOptions = "eurosign:e";
 
     # synaptics
-    synaptics = {
+    #synaptics = {
+      #enable = true;
+      #twoFingerScroll = true;
+    #};
+    libinput = {
       enable = true;
-      twoFingerScroll = true;
+      accelProfile = "adaptive";
+      accelSpeed = "0.8";
+      naturalScrolling = true;
+      scrollMethod = "twofinger";
+      tapping = false;
     };
 
     # Enable slim with xmonad
