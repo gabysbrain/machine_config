@@ -81,9 +81,9 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
   , ((modm .|. shiftMask, xK_l), sendMessage (IncMasterN (-1)))
 
   -- Volume
-  , ((modm .|. controlMask , xK_j), spawn "amixer -q set Master 5- unmute")
-  , ((modm .|. controlMask , xK_k), spawn "amixer -q set Master 5+ unmute")
-  , ((modm .|. controlMask , xK_m), spawn "amixer set Master toggle")
+  , ((0                 , 0x1008ff11), spawn "amixer -q set Master 5- unmute")
+  , ((0                 , 0x1008ff13), spawn "amixer -q set Master 5+ unmute")
+  , ((0                 , 0x1008ff12), spawn "amixer set Master toggle")
 
   -- Cover the status bar gap
   , ((modm, xK_b), sendMessage ToggleStruts)
