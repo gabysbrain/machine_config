@@ -86,10 +86,10 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
   , ((0                 , 0x1008ff12), spawn "amixer set Master toggle")
 
   -- Cover the status bar gap
-  , ((modm, xK_b), sendMessage ToggleStruts)
+  , ((modm, xK_w), sendMessage ToggleStruts)
 
   -- Programs
-  , ((modm, xK_w), spawn "chromium-browser")
+  , ((modm, xK_b), spawn "chromium-browser")
 
   -- Restart xmonad
   , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
