@@ -8,7 +8,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ../hardware-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -64,6 +64,7 @@
     git
     dmenu
     networkmanagerapplet
+    alsaUtils
     gnome3.dconf
     rxvt_unicode-with-plugins
 
@@ -82,7 +83,7 @@
     offlineimap
     msmtp
     rxvt_unicode-with-plugins
-    (import /home/tom/Projects/dotfiles/nix/vim.nix)
+    (import ./vim.nix)
     #myvim
     #zshrc
     dropbox-cli
@@ -98,7 +99,11 @@
     enable = true;
     interactiveShellInit = ''
       cat << EOF > $HOME/.zshrc
+<<<<<<< HEAD
         . ${import /home/tom/Projects/dotfiles/nix/zsh-config.nix}
+=======
+        . ${import ./zsh-config.nix}
+>>>>>>> 8e39fff65aa06765447a2821a1a5ff6c8b5922fe
       EOF
     '';
   };
@@ -115,7 +120,7 @@
 		];
   };
 
-  # List services that you want to enable:
+  # List services that you want to enable
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -133,14 +138,24 @@
     xkbOptions = "eurosign:e";
 
     # synaptics
-    synaptics = {
+    #synaptics = {
+      #enable = true;
+      #twoFingerScroll = true;
+    #};
+    libinput = {
       enable = true;
-      twoFingerScroll = true;
+      accelProfile = "adaptive";
+      accelSpeed = "0.8";
+      naturalScrolling = true;
+      scrollMethod = "twofinger";
+      tapping = false;
     };
 
     # Enable slim with xmonad
     displayManager = {
-      lightdm.enable = true;
+      lightdm = {
+        enable = true;
+      };
       #sddm.enable = true;
       sessionCommands = "~/.xmonad/xmonad-session-rc";
     };
@@ -177,5 +192,5 @@
   system.copySystemConfiguration = true;
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "16.09";
+  system.stateVersion = "17.03";
 }
