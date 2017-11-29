@@ -1,0 +1,69 @@
+[general]
+ui = ttyui
+accounts = Personal,Work
+#maxsyncaccounts = 2
+fsync = False
+
+[Account Personal]
+localrepository = Personal-local
+remoterepository = Personal-remote
+
+[Account Work]
+localrepository = Work-local
+remoterepository = Work-remote
+
+[Repository Personal-local]
+type = Maildir
+localfolders = ~/.mail/personal
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                           }.get(folder, folder)
+
+[Repository Personal-remote]
+#maxconnections = 1
+type = Gmail
+remoteuser = torsneyt@gmail.com
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts': 'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred': 'flagged',
+                            '[Gmail]/Trash': 'trash',
+                            '[Gmail]/All Mail': 'archive'
+                           }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Important']
+oauth2_client_id = 1016081500448-v9jqu0gl8nb4d1ggpj234ant1vld403o.apps.googleusercontent.com
+oauth2_client_secret = -0noNhzyFYbwc53yzRKOTS9x
+#oauth2_access_token = ya29.GlsTBUqc2Sn3XWIO-jelbttQMY1c7tvAmA5g6Cge9FJpj2Fh01XMx3EvvZQUjPyKRyuW8l5e7WqigEvPESErJi6AJo_1J6oNlPvXPDaFnZJ9JEjwIes4V526ahnp
+oauth2_request_url = https://accounts.google.com/o/oauth2/token
+oauth2_refresh_token = 1/PmBworRlNV08GhVtL9uIhhKjXagZUUdSn9ps-SbU7V0
+oauth2_client_id_eval = get_client_id("accountname")
+oauth2_client_secret_eval = get_client_secret("accountname")
+#oauth2_access_token_eval = get_access_token("accountname")
+oauth2_refresh_token_eval = get_refresh_token("accountname")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Repository Work-local]
+type = Maildir
+localfolders = ~/.mail/work
+nametrans = lambda folder: {'drafts':  'INBOX.Drafts',
+                            'sent':    'INBOX.Sent',
+                            'trash':   'INBOX.Trash',
+                            'archive': 'INBOX.Archive',
+                            'INBOX': 'INBOX'
+                           }.get(folder, 'INBOX.' + folder)
+
+[Repository Work-remote]
+type = IMAP
+remoteuser = torsnet6
+remotehost = imap.univie.ac.at
+nametrans = lambda folder: {'INBOX.Drafts': 'drafts',
+                            'INBOX.Sent': 'sent',
+                            'INBOX.Trash': 'trash',
+                            'INBOX.Archive': 'archive',
+                            'INBOX': 'INBOX'
+                           }.get(folder, re.sub('^INBOX\.', '', folder))
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
