@@ -99,11 +99,7 @@
     enable = true;
     interactiveShellInit = ''
       cat << EOF > $HOME/.zshrc
-<<<<<<< HEAD
-        . ${import /home/tom/Projects/dotfiles/nix/zsh-config.nix}
-=======
         . ${import ./zsh-config.nix}
->>>>>>> 8e39fff65aa06765447a2821a1a5ff6c8b5922fe
       EOF
     '';
   };
