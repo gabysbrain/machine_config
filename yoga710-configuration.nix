@@ -85,6 +85,7 @@
     urlview
     notmuch
     notmuch-mutt
+    w3m
     rxvt_unicode-with-plugins
     (import ./vim.nix)
     #myvim
