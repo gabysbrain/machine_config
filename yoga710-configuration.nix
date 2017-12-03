@@ -82,6 +82,7 @@
     mutt
     offlineimap
     msmtp
+    urlview
     notmuch
     notmuch-mutt
     rxvt_unicode-with-plugins
