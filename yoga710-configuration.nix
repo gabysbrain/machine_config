@@ -82,6 +82,8 @@
     mutt
     offlineimap
     msmtp
+    notmuch
+    notmuch-mutt
     rxvt_unicode-with-plugins
     (import ./vim.nix)
     #myvim
