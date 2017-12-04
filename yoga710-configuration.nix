@@ -68,6 +68,8 @@
     gnome3.dconf
     rxvt_unicode-with-plugins
     shared_mime_info
+    kinit
+    plasma-workspace
 
     cabal-install
     ghc
