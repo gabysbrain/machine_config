@@ -85,7 +85,7 @@
     mutt
     offlineimap
     msmtp
-    (import ./vdirsyncer/default.nix)
+    (import ./vdirsyncer.nix)
     ppl-address-book
     khal
     urlview
