@@ -67,6 +67,7 @@
     alsaUtils
     gnome3.dconf
     rxvt_unicode-with-plugins
+    shared_mime_info
 
     cabal-install
     ghc
@@ -93,12 +94,14 @@
     dropbox-cli
     owncloud-client
     evince
+    okular
     dzen2
     conky
     texlive.combined.scheme-full
     bibtool
     pandoc
   ];
+  environment.pathsToLink = [ "/share" ];
   programs.zsh = {
     enable = true;
     interactiveShellInit = ''
