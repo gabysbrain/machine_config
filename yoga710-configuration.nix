@@ -86,6 +86,7 @@
     offlineimap
     msmtp
     (import ./vdirsyncer.nix)
+    (import ./terminal-velocity.nix)
     ppl-address-book
     khal
     urlview
@@ -94,8 +95,6 @@
     w3m
     rxvt_unicode-with-plugins
     (import ./vim.nix)
-    #myvim
-    #zshrc
     dropbox-cli
     owncloud-client
     evince
