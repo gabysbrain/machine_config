@@ -85,8 +85,8 @@
     mutt
     offlineimap
     msmtp
-    (import ./vdirsyncer.nix)
-    (import ./terminal-velocity.nix)
+    (import ./pkgs/vdirsyncer.nix)
+    (import ./pkgs/terminal-velocity.nix)
     ppl-address-book
     khal
     urlview
@@ -94,7 +94,7 @@
     notmuch-mutt
     w3m
     rxvt_unicode-with-plugins
-    (import ./vim.nix)
+    (import ./pkgs/vim.nix)
     dropbox-cli
     owncloud-client
     evince
@@ -110,7 +110,7 @@
     enable = true;
     interactiveShellInit = ''
       cat << EOF > $HOME/.zshrc
-        . ${import ./zsh-config.nix}
+        . ${import ./pkgs/zsh-config.nix}
       EOF
     '';
   };
