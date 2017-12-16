@@ -7,10 +7,12 @@ fsync = False
 [Account Personal]
 localrepository = Personal-local
 remoterepository = Personal-remote
+postsynchook = notmuch new
 
 [Account Work]
 localrepository = Work-local
 remoterepository = Work-remote
+postsynchook = notmuch new
 
 [Repository Personal-local]
 type = Maildir

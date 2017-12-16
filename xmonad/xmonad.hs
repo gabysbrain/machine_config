@@ -31,7 +31,7 @@ myFocusFollowsMouse = True
 
 myModMask = mod4Mask
 
-myWorkspaces = ["1 sh","2 ed","3 www","4 mail", "5 doc"]
+myWorkspaces = ["1 sh","2 ed","3 www","4 mail", "5 doc", "6 ."]
 myMainColor = "#333333"
 myBgColor = "#FEFEFE"
 myTextcolor = "#282828"
@@ -111,6 +111,7 @@ myManageHook = manageDocks <+> composeAll
     [ isFullscreen --> doFullFloat
     , className =? "Chromium-browser" --> doShift "3 www"
     , className =? "Gvim" --> doShift "2 ed"
+    , className =? "okular" --> doShift "5 doc"
     ]
 
 -- Event handling
