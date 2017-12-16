@@ -1,19 +1,19 @@
 { pkgs, ... }:
 {
-  /*xsession = {*/
-    /*enable = true;*/
-    /*initExtra = ''*/
-      /*nitrogen --set-scaled /home/tom/Dropbox/Wallpapers/bird.jpg*/
-      /*dropbox start*/
-    /*'';*/
-    /*windowManager.command = */
-      /*let*/
-        /*xmonad = pkgs.xmonad-with-packages.override {*/
-          /*packages = self: [ self.xmonad-contrib ];*/
-        /*};*/
-      /*in*/
-        /*"${xmonad}/bin/xmonad";*/
-  /*};*/
+  xsession = {
+    enable = true;
+    initExtra = ''
+      nitrogen --set-scaled /home/tom/Dropbox/Wallpapers/bird.jpg
+      dropbox start
+    '';
+    windowManager.command = 
+      let
+        xmonad = pkgs.xmonad-with-packages.override {
+          packages = self: [ self.xmonad-contrib ];
+        };
+      in
+        "${xmonad}/bin/xmonad";
+  };
   xresources.properties = {
     "!URxvt.font" = "xft:Terminus:pixelsize=12";
     "URxvt*transparent" = true;
