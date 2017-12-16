@@ -18,7 +18,6 @@
     };
   };
   home.file = {
-    ".zshrc".source = ~/Projects/dotfiles/dotfiles/dot-zshrc;
     ###############################
     # Email/calendar/contacts sync
     ###############################
