@@ -9,7 +9,7 @@
   };
 
   networking = {
-    networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
+    wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
 
   # Select internationalisation properties.
@@ -28,7 +28,6 @@
     };
   };
   environment.systemPackages = with pkgs; [
-    networkmanagerapplet
     alsaUtils
     gnome3.dconf
     rxvt_unicode-with-plugins
