@@ -7,12 +7,13 @@ ZSH_THEME="kolo"
 
 alias mm="bundle exec middleman"
 alias marked="open -a 'Marked 2'"
+alias gvim="vim -g"
 
 # Use the vim editor
 export EDITOR=vim
 
 # Java's home
-export JAVA_HOME=`/usr/libexec/java_home`
+#export JAVA_HOME=`/usr/libexec/java_home`
 
 # R's home
 export R_HOME=/Library/Frameworks/R.framework/Resources
@@ -21,7 +22,7 @@ export R_HOME=/Library/Frameworks/R.framework/Resources
 export JREBEL_PATH=/Applications/jrebel/jrebel.jar
 
 # Customize to your needs...
-export PATH=~/.playground/bin:~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/Library/TeX/texbin/:~/Projects/dotfiles/bin/
+#export PATH=~/.playground/bin:~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/X11/bin:/opt/local/bin:/Library/TeX/texbin/:~/Projects/dotfiles/bin/
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -41,7 +42,7 @@ export PATH=~/.playground/bin:~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode rbenv osx history npm sbt brew virutalenv stack)
+plugins=(git vi-mode rbenv osx history npm sbt virutalenv stack)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,11 +50,7 @@ source $ZSH/oh-my-zsh.sh
 autoload -U zmv
 
 # customize prompt
-#PROMPT="${user} %{$fg[blue]%}%4(c:...:)%2c%{$reset_color%}$ "
-
-# nvm through homebrew is special
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+#PROMPT="''${user} %{$fg[blue]%}%4(c:...:)%2c%{$reset_color%}$ "
 
 # function to activate virtualenv
 function pyvenv() {
@@ -67,7 +64,7 @@ function light() {
   else
     src="cat $2"
   fi
-  eval ${src} | highlight -O rtf --syntax $1 --font "Anonymous Pro" --style zenburn --font-size 18 | pbcopy
+  eval ''${src} | highlight -O rtf --syntax $1 --font "Anonymous Pro" --style zenburn --font-size 18 | pbcopy
 }
 
 ''
