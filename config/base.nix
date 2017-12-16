@@ -15,11 +15,6 @@
 
   programs.zsh = {
     enable = true;
-    interactiveShellInit = ''
-      cat << EOF > $HOME/.zshrc
-        . ${import ../pkgs/zsh-config.nix}
-      EOF
-    '';
   };
 	
   # font config

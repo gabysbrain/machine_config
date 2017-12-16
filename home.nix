@@ -1,5 +1,16 @@
 {
   programs = {
+    zsh = {
+      enable = true;
+      oh-my-zsh = {
+        enable = true;
+        theme = "kolo";
+        plugins = [ "git" ];
+      };
+      shellAliases = {
+        gvim = "vim -g";
+      };
+    };
     git = {
       enable = true;
       userName = "Thomas Torsney-Weir";
@@ -7,7 +18,7 @@
     };
   };
   home.file = {
-    #".zshrc".source = ~/Projects/dotfiles/dotfiles/dot-zshrc;
+    ".zshrc".source = ~/Projects/dotfiles/dotfiles/dot-zshrc;
     ###############################
     # Email/calendar/contacts sync
     ###############################
