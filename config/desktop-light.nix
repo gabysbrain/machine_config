@@ -45,7 +45,7 @@
     msmtp
     (import ../pkgs/vdirsyncer.nix)
     (import ../pkgs/terminal-velocity.nix)
-    ppl-address-book
+    khard
     khal
     urlview
     notmuch
