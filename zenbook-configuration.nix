@@ -12,7 +12,7 @@
       ./config/base.nix
       ./config/dev.nix
       ./config/writing.nix
-      ./config/desktop-light.nix
+      ./config/desktop-full.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
