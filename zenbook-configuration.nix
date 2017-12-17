@@ -4,15 +4,14 @@
 
 { config, pkgs, ... }:
 
-  #myvim = import /home/tom/Projects/dotfiles/nix/vim.nix;
 {
   imports =
     [ # Include the results of the hardware scan.
-      ../hardware-configuration.nix
-      ./config/base.nix
-      ./config/dev.nix
-      ./config/writing.nix
-      ./config/desktop-full.nix
+      ./hardware-configuration.nix
+      ./nixcfg/config/base.nix
+      ./nixcfg/config/dev.nix
+      ./nixcfg/config/writing.nix
+      ./nixcfg/config/desktop-full.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -20,6 +19,20 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      grub.enable = true;
+      grub.device = "nodev";
+      grub.efiSupport = true;
+      grub.enableCryptodisk = true;
+    };
+    initrd = {
+      luks.devices = [
+        {
+          name = "root";
+          device = "/dev/disk/by-uuid/ac271696-4909-4b21-8731-77a3bc1f5392";
+          preLVM = true;
+          allowDiscards = true;
+        }
+      ];
     };
   };
 
