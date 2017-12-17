@@ -53,7 +53,7 @@
       oh-my-zsh = {
         enable = true;
         theme = "kolo";
-        plugins = [ "vi-mode" "history" "git" "npm" "stack" ];
+        plugins = [ "vi-mode" "history" "git" "stack" ];
       };
       shellAliases = {
         gvim = "vim -g";
