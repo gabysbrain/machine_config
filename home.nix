@@ -53,7 +53,7 @@
       oh-my-zsh = {
         enable = true;
         theme = "kolo";
-        plugins = [ "git" ];
+        plugins = [ "vi-mode" "history" "git" "npm" "stack" ];
       };
       shellAliases = {
         gvim = "vim -g";
@@ -64,6 +64,9 @@
       userName = "Thomas Torsney-Weir";
       userEmail = "torsneyt@gmail.com";
     };
+  };
+  home.sessionVariables = {
+    EDITOR = "vim";
   };
   home.file = {
     ###############################
