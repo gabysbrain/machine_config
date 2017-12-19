@@ -40,6 +40,9 @@
     hostName = "philadelphia"; # Define your hostname.
   };
 
+  # turn on bluetooth
+  hardware.bluetooth.enable = true;
+
   # Select internationalisation properties.
   # i18n = {
   #   consoleFont = "Lat2-Terminus16";
