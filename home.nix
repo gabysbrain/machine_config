@@ -65,6 +65,7 @@
       userEmail = "torsneyt@gmail.com";
     };
   };
+  home.sessionVariableSetter = "zsh";
   home.sessionVariables = {
     EDITOR = "vim";
   };
