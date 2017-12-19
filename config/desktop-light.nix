@@ -1,13 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # Use the systemd-boot EFI boot loader.
-  boot = {
-    loader = {
-      grub.splashImage = "${pkgs.nixos-artwork}/common/grub2-background/grub-nixos-3.png";
-    };
-  };
-
   networking = {
     wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
