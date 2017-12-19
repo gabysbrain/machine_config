@@ -6,9 +6,7 @@
     ghc
     stack
     nodejs
+    node2nix
     gnumake
-    texlive.combined.scheme-full
-    bibtool
-    pandoc
   ];
 }
