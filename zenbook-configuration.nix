@@ -7,11 +7,11 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./nixcfg/config/base.nix
-      ./nixcfg/config/dev.nix
-      ./nixcfg/config/writing.nix
-      ./nixcfg/config/desktop-full.nix
+      ../hardware-configuration.nix
+      ./config/base.nix
+      ./config/dev.nix
+      ./config/writing.nix
+      ./config/desktop-full.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
