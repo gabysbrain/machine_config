@@ -87,6 +87,10 @@
     ###############################
     ".xmonad/xmonad.hs".source = ~/Projects/dotfiles/xmonad/xmonad.hs;
     ".xmonad/xmobar.hs".source = ~/Projects/dotfiles/xmonad/xmobar.hs;
+    ".xmonad/wireless.sh" = {
+      source = ~/Projects/dotfiles/xmonad/wireless.sh;
+      executable = true;
+    };
   };
   programs.home-manager.enable = true;
   programs.home-manager.path = https://github.com/rycee/home-manager/archive/release-17.09.tar.gz;
