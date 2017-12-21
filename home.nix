@@ -3,7 +3,7 @@
   xsession = {
     enable = true;
     initExtra = ''
-      nitrogen --set-scaled /home/tom/Dropbox/Wallpapers/bird.jpg
+      feh --scale-bg /home/tom/Dropbox/Wallpapers/bird.jpg
       dropbox start
     '';
     windowManager.command = 

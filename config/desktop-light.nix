@@ -32,7 +32,7 @@
     conky
     dmenu
 
-    nitrogen
+    feh
     mutt
     offlineimap
     msmtp
