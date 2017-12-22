@@ -3,7 +3,7 @@
   xsession = {
     enable = true;
     initExtra = ''
-      feh --scale-bg /home/tom/Dropbox/Wallpapers/bird.jpg
+      feh --bg-scale /home/tom/Dropbox/Wallpapers/future_past_japan.jpg
       dropbox start
     '';
     windowManager.command = 
@@ -77,7 +77,7 @@
     ".offlineimaprc".source = ~/Projects/dotfiles/dotfiles/dot-offlineimaprc;
     ".muttrc".source = ~/Projects/dotfiles/dotfiles/dot-muttrc;
     ".mutt".source = ~/Projects/dotfiles/dotfiles/dot-mutt;
-    ".msmtprc".source = ~/Projects/dotfiles/dotfiles/dot-msmtprc;
+    #".msmtprc".source = ~/Projects/dotfiles/dotfiles/dot-msmtprc;
     ".notmuch-config".source = ~/Projects/dotfiles/dotfiles/dot-notmuch;
     ".khal/config".source = ~/Projects/dotfiles/dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ~/Projects/dotfiles/dotfiles/dot-khard;
