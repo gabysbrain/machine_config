@@ -64,6 +64,10 @@
       userName = "Thomas Torsney-Weir";
       userEmail = "torsneyt@gmail.com";
     };
+    browserpass = {
+      enable = true;
+      browsers = [ "chromium" "firefox" ];
+    };
   };
   home.sessionVariableSetter = "zsh";
   home.sessionVariables = {
@@ -92,6 +96,53 @@
       executable = true;
     };
   };
+  systemd.user = {
+    services = {
+      offlineimap = {
+        Unit = {
+          Description = "sync email servers";
+        };
+        Service = {
+          ExecStart = "${pkgs.offlineimap}/bin/offlineimap";
+        };
+      };
+      vdirsyncer = {
+        Unit = {
+          Description="sync vcard/vcal servers";
+        };
+        Service = {
+          ExecStart = "${pkgs.vdirsyncer}/bin/vdirsyncer sync";
+        };
+      };
+    };
+    timers = {
+      offlineimap = {
+        Unit = {
+          Description = "sync email servers";
+        };
+        Timer = {
+          OnBootSec = "2m";
+          OnUnitInactiveSec = "15m";
+        };
+        Install = {
+          WantedBy = ["timers.target"];
+        };
+      };
+      vdirsyncer = {
+        Unit = {
+          Description="sync vcard/vcal servers";
+        };
+        Timer = {
+          OnBootSec = "2m";
+          OnUnitInactiveSec = "15m";
+        };
+        Install = {
+          WantedBy = ["timers.target"];
+        };
+      };
+    };
+  };
+
   programs.home-manager.enable = true;
   programs.home-manager.path = https://github.com/rycee/home-manager/archive/release-17.09.tar.gz;
 }
