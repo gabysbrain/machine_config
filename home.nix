@@ -86,6 +86,7 @@
     ".khal/config".source = ~/Projects/dotfiles/dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ~/Projects/dotfiles/dotfiles/dot-khard;
     ".urlview".source = ~/Projects/dotfiles/dotfiles/dot-urlview;
+
     ###############################
     # Xmonad, etc
     ###############################
@@ -95,6 +96,11 @@
       source = ~/Projects/dotfiles/xmonad/wireless.sh;
       executable = true;
     };
+
+    ###############################
+    # Other stuff
+    ###############################
+    ".tvrc".source = ~/Projects/dotfiles/dotfiles/dot-tvrc;
   };
   systemd.user = {
     services = {
