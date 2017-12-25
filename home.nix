@@ -2,8 +2,10 @@
 {
   xsession = {
     enable = true;
+
+    # run something like the first time: feh --bg-scale /home/tom/Dropbox/Wallpapers/future_past_japan.jpg
     initExtra = ''
-      feh --bg-scale /home/tom/Dropbox/Wallpapers/future_past_japan.jpg
+      ~/.fehbg
       dropbox start
     '';
     windowManager.command = 
