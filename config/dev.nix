@@ -6,7 +6,7 @@
     ghc
     stack
     nodejs
-    node2nix
+    nodePackages.node2nix
     gnumake
   ];
 }
