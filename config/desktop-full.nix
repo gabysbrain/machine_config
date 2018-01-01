@@ -5,10 +5,18 @@
     ./desktop-light.nix
   ];
 
+  hardware.pulseaudio = {
+    enable = true;
+  };
+  nixpkgs.config.pulseaudio = true;
+
   environment.systemPackages = with pkgs; [
     firefox
+    libreoffice
     slack
     spotify
-    #skype
+    skype
+    jabref
+    meld
   ];
 }
