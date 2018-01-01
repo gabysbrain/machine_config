@@ -11,6 +11,10 @@
     git
     silver-searcher
     (import ../pkgs/vim.nix)
+
+    # password storage
+    pass
+    gnupg
   ];
 
   programs.zsh = {
