@@ -49,6 +49,7 @@
     owncloud-client
 
     chromium
+    browserpass
 
     okular
   ];
