@@ -14,8 +14,15 @@
       ./config/desktop-full.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
   boot = {
+    kernelParams = [
+      "pcie_aspm=force"
+      #"drm.vblankoffdelay=1"
+      #"i915.semaphores=1"
+      #"i915.enable_psr=0"
+      #"i915.enable_rc6=0"
+    ];
+    # Use the systemd-boot EFI boot loader.
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -43,6 +50,10 @@
   # turn on bluetooth
   hardware.bluetooth.enable = true;
 
+  # need to fix the sound config
+  sound.extraConfig = ''
+  '';
+
   # Select internationalisation properties.
   # i18n = {
   #   consoleFont = "Lat2-Terminus16";
@@ -60,6 +71,16 @@
   #];
 
   # List services that you want to enable
+
+  services.xserver = {
+    xrandrHeads = [
+      #{output="DP1-1";}
+      #{output="DP1-2";}
+      {output="eDP1"; primary=true;}
+    ];
+  };
+
+  services.fprintd.enable = true;
 
   # disable various buttons, like the power key!
   #services.logind.extraConfig = ''
