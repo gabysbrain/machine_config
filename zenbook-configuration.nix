@@ -17,10 +17,10 @@
   boot = {
     kernelParams = [
       "pcie_aspm=force"
-      #"drm.vblankoffdelay=1"
-      #"i915.semaphores=1"
-      #"i915.enable_psr=0"
-      #"i915.enable_rc6=0"
+      "drm.vblankoffdelay=1"
+      "i915.semaphores=1"
+      "i915.enable_psr=0"
+      "i915.enable_rc6=0"
     ];
     # Use the systemd-boot EFI boot loader.
     loader = {
