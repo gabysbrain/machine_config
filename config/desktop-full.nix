@@ -20,5 +20,7 @@
     skype
     jabref
     meld
+    inkscape
+    gimp
   ];
 }
