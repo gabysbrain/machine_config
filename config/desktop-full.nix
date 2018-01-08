@@ -11,6 +11,8 @@
   nixpkgs.config.pulseaudio = true;
 
   environment.systemPackages = with pkgs; [
+    blueman
+
     firefox
     libreoffice
     slack
