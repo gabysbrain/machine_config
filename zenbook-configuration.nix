@@ -80,6 +80,8 @@
     ];
   };
 
+  services.printing.enable = true;
+
   services.fprintd.enable = true;
 
   # disable various buttons, like the power key!
