@@ -131,11 +131,11 @@ addPad = wrap " " " "
 
 myPP statusPipe = xmobarPP {
     ppOutput = hPutStrLn statusPipe
-    , ppCurrent = xmobarColor myMainColor myBgColor . addPad
-    , ppHiddenNoWindows = xmobarColor myLowColor "" . addPad
-    , ppHidden = xmobarColor myTextcolor "" . addPad
-    , ppTitle = xmobarColor myTextcolor ""
-    , ppSep = xmobarColor myMainColor myBgColor "  |  "
+  , ppCurrent = xmobarColor myMainColor myBgColor . addPad
+  , ppHiddenNoWindows = xmobarColor myLowColor "" . addPad
+  , ppHidden = xmobarColor myTextcolor "" . addPad
+  , ppTitle = xmobarColor myTextcolor ""
+  , ppSep = xmobarColor myMainColor myBgColor "  |  "
 }
 
 myLogHook pipe = dynamicLogWithPP (myPP pipe)  -- >> updatePointer (Relative 0.5 0.5)
@@ -146,30 +146,30 @@ myStartupHook = setWMName "LG3D"
 
 -- Configuration structure
 -------------------------------------------------------------------------------
-defaults statusPipe = ewmh defaultConfig {
-    -- simple stuff
-    terminal           = myTerminal,
-    focusFollowsMouse  = myFocusFollowsMouse,
-    borderWidth        = myBorderWidth,
-    modMask            = myModMask,
-    workspaces         = myWorkspaces,
-    normalBorderColor  = myNormalBorderColor,
-    focusedBorderColor = myFocusedBorderColor,
+myConfig statusPipe = defaultConfig {
+  -- simple stuff
+  terminal           = myTerminal,
+  focusFollowsMouse  = myFocusFollowsMouse,
+  borderWidth        = myBorderWidth,
+  modMask            = myModMask,
+  workspaces         = myWorkspaces,
+  normalBorderColor  = myNormalBorderColor,
+  focusedBorderColor = myFocusedBorderColor,
 
-    -- bindings
-    keys               = myKeys,
+  -- bindings
+  keys               = myKeys,
 
-    -- hooks, layouts
-    layoutHook         = myLayout,
-    manageHook         = myManageHook,
-    handleEventHook    = myEventHook,
-    logHook            = myLogHook statusPipe,
-    startupHook        = myStartupHook
+  -- hooks, layouts
+  layoutHook         = myLayout,
+  manageHook         = myManageHook,
+  handleEventHook    = myEventHook,
+  logHook            = myLogHook statusPipe,
+  startupHook        = myStartupHook
 }
 
 -- Run xmonad with the settings specified. No need to modify this.
 -------------------------------------------------------------------------------
 main = do
-    statusPipe <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
-    xmonad $ defaults statusPipe
+  statusPipe <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
+  xmonad . ewmh $ myConfig statusPipe
 
