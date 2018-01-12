@@ -109,9 +109,13 @@ myLayout = smartBorders $ avoidStruts $ smartSpacing 2 $ tiled ||| Mirror tiled 
 -------------------------------------------------------------------------------
 myManageHook = manageDocks <+> composeAll
     [ isFullscreen --> doFullFloat
+    -- special desktops
     , className =? "Chromium-browser" --> doShift "3 www"
     , className =? "Gvim" --> doShift "2 ed"
     , className =? "okular" --> doShift "5 doc"
+
+    -- floating windows
+    , className =? "Pinentry" --> doFloat
     ]
 
 -- Event handling
