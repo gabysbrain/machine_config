@@ -89,7 +89,7 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
   , ((modm, xK_F5), spawn "/home/tom/.xmonad/screen_rotate.sh")
 
   -- Cover the status bar gap
-  , ((modm, xK_w), sendMessage ToggleStruts)
+  , ((modm, xK_y), sendMessage ToggleStruts)
 
   -- Programs
   , ((modm, xK_b), spawn "chromium-browser")
