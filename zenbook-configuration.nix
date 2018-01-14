@@ -73,16 +73,23 @@
   # List services that you want to enable
 
   services.xserver = {
-    xrandrHeads = [
-      #{output="DP1-1";}
-      #{output="DP1-2";}
-      {output="eDP1"; primary=true;}
-    ];
+    /*xrandrHeads = [*/
+      /*#{output="DP1-1";}*/
+      /*#{output="DP1-2";}*/
+      /*{output="eDP1"; primary=true;}*/
+    /*];*/
+    xkbOptions = "compose:menu";
   };
 
   services.printing.enable = true;
 
   services.fprintd.enable = true;
+
+  services.devmon.enable = true;
+
+  # power/temp management
+  services.thermald.enable = true;
+  #services.tlp.enable = true;
 
   # disable various buttons, like the power key!
   #services.logind.extraConfig = ''
