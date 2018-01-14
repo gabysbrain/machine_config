@@ -24,5 +24,7 @@
     inkscape
     gimp
     imagemagick
+
+    rstudio
   ];
 }
