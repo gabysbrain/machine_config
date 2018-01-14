@@ -62,7 +62,7 @@
     autorun = true;
     enable = true;
     layout = "us";
-    xkbOptions = "eurosign:e";
+    #xkbOptions = "eurosign:e";
 
     # synaptics
     #synaptics = {
