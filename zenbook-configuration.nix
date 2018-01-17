@@ -95,7 +95,7 @@
 
   # power/temp management
   services.thermald.enable = true;
-  #services.tlp.enable = true;
+  services.tlp.enable = true;
 
   # disable various buttons, like the power key!
   #services.logind.extraConfig = ''
