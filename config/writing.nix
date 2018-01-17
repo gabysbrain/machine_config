@@ -6,5 +6,6 @@
     texlive.combined.scheme-full
     bibtool
     pandoc
+    pandoc-citeproc
   ];
 }

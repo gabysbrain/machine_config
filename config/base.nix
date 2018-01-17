@@ -10,6 +10,7 @@
     nox
     git
     silver-searcher
+    unzip
     (import ../pkgs/vim.nix)
 
     # password storage

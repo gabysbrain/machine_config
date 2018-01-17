@@ -14,6 +14,12 @@
       ./config/desktop-full.nix
     ];
 
+  environment.systemPackages = with pkgs; [
+    blueman
+    pavucontrol
+  ];
+
+  # Use the systemd-boot EFI boot loader.
   boot = {
     kernelParams = [
       "pcie_aspm=force"
