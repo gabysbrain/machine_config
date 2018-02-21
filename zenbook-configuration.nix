@@ -17,10 +17,12 @@
   environment.systemPackages = with pkgs; [
     blueman
     pavucontrol
+    psensor
   ];
 
   # Use the systemd-boot EFI boot loader.
   boot = {
+    kernelModules = [ "coretemp" ];
     kernelParams = [
       "pcie_aspm=force"
       "drm.vblankoffdelay=1"
@@ -79,11 +81,6 @@
   # List services that you want to enable
 
   services.xserver = {
-    /*xrandrHeads = [*/
-      /*#{output="DP1-1";}*/
-      /*#{output="DP1-2";}*/
-      /*{output="eDP1"; primary=true;}*/
-    /*];*/
     xkbOptions = "compose:menu";
   };
 
