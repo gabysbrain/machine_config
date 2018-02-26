@@ -22,6 +22,13 @@
     enable = true;
   };
 	
+  services.syncthing = {
+    enable = true;
+    user = "tom";
+    dataDir = "/home/tom/.config/syncthing";
+    openDefaultPorts = true;
+  };
+
   # font config
   fonts = {
 		enableFontDir = true;
