@@ -90,6 +90,11 @@
 
   services.devmon.enable = true;
 
+  services.syncthing = {
+    user = "tom";
+    dataDir = "/home/tom/.config/syncthing";
+  };
+
   # power/temp management
   services.thermald.enable = true;
   services.tlp.enable = true;

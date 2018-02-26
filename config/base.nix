@@ -24,8 +24,8 @@
 	
   services.syncthing = {
     enable = true;
-    user = "tom";
-    dataDir = "/home/tom/.config/syncthing";
+    #user = "tom";
+    #dataDir = "/home/tom/.config/syncthing";
     openDefaultPorts = true;
   };
 
