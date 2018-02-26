@@ -146,6 +146,7 @@ vim_configurable.customize {
       "ghcmod"
       "neco-ghc"
       "purescript-vim"
+      "haskell-vim"
     ]; }
   ];
 }
