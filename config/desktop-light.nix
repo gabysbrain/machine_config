@@ -45,7 +45,7 @@
     notmuch-mutt
     w3m
 
-    dropbox-cli
+    #dropbox-cli
     owncloud-client
 
     chromium
