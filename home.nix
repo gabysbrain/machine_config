@@ -6,7 +6,6 @@
     # run something like the first time: feh --bg-scale /home/tom/Dropbox/Wallpapers/future_past_japan.jpg
     initExtra = ''
       ~/.fehbg
-      dropbox start &
     '';
     windowManager.command = 
       let
@@ -71,7 +70,6 @@
       browsers = [ "chromium" "firefox" ];
     };
   };
-  home.sessionVariableSetter = "zsh";
   home.sessionVariables = {
     EDITOR = "vim";
   };
@@ -85,7 +83,7 @@
     ".mutt".source = ~/Projects/dotfiles/dotfiles/dot-mutt;
     #".msmtprc".source = ~/Projects/dotfiles/dotfiles/dot-msmtprc;
     ".notmuch-config".source = ~/Projects/dotfiles/dotfiles/dot-notmuch;
-    ".khal/config".source = ~/Projects/dotfiles/dotfiles/dot-khal;
+    ".config/khal/config".source = ~/Projects/dotfiles/dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ~/Projects/dotfiles/dotfiles/dot-khard;
     ".urlview".source = ~/Projects/dotfiles/dotfiles/dot-urlview;
 
