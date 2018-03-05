@@ -12,7 +12,7 @@
   networking.hostName = "mrserver";
   networking.firewall = {
     allowPing = true;
-    allowedTCPPorts = [ 80 443 ];
+    allowedTCPPorts = [ 80 443 8384 ];
   };
   services = {
     openssh.enable = true;
