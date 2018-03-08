@@ -55,6 +55,15 @@
   ];
   environment.pathsToLink = [ "/share" ];
 
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      corefonts
+      emojione
+    ];
+  };
+
   # List services that you want to enable
 
   # Enable the X11 windowing system.
