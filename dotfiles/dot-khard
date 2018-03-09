@@ -11,7 +11,7 @@ path = ~/.contacts/card/
 debug = no
 default_action = list
 editor = vim
-merge_editor = vim
+merge_editor = meld
 
 [contact table]
 # display names by first or last name: first_name / last_name
