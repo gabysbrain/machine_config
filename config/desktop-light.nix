@@ -40,7 +40,7 @@
     (import ../pkgs/terminal-velocity.nix)
     khard
     khal
-    urlview
+    urlscan
     notmuch
     notmuch-mutt
     w3m
