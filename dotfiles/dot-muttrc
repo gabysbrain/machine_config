@@ -108,7 +108,7 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
 # Reading conveniences
-macro pager \Cu "|urlview<enter>" "call urlview to open links"
+macro pager \Cu "|urlscan<enter>" "call urlview to open links"
 
 # file type readers
 auto_view text/html
