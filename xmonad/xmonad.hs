@@ -111,6 +111,7 @@ myManageHook = manageDocks <+> composeAll
     [ isFullscreen --> doFullFloat
     -- special desktops
     , className =? "Chromium-browser" --> doShift "3 www"
+    , className =? "Firefox" --> doShift "3 www"
     , className =? "Gvim" --> doShift "2 ed"
     , className =? "okular" --> doShift "5 doc"
 
