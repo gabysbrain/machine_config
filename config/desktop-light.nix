@@ -32,6 +32,7 @@
     conky
     dmenu
 
+    mc
     feh
     mutt
     offlineimap

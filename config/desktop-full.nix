@@ -25,6 +25,7 @@
     inkscape
     gimp
     imagemagick
+    shotcut
 
     rstudio
   ];
