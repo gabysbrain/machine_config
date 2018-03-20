@@ -92,7 +92,7 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
   , ((modm, xK_y), sendMessage ToggleStruts)
 
   -- Programs
-  , ((modm, xK_b), spawn "chromium-browser")
+  , ((modm, xK_b), spawn "firefox")
 
   -- Restart xmonad
   , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
