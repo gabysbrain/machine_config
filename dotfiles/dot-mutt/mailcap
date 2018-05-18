@@ -6,14 +6,15 @@ text/html; w3m -I %{charset} -T text/html; copiousoutput;
 application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
 
 # Images
-image/jpg; ~/.mutt/view_attachment.sh %s jpg
-image/jpeg; ~/.mutt/view_attachment.sh %s jpg
-image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
-image/png; ~/.mutt/view_attachment.sh %s png
-image/gif; ~/.mutt/view_attachment.sh %s gif
+image/jpg; feh %s
+image/jpeg; feh %s
+image/pjpeg; feh %s
+image/png; feh %s
+image/gif; feh %s
 
 # PDFs
-application/pdf; ~/.mutt/view_attachment.sh %s pdf
+application/pdf; okular %s
 
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
+
