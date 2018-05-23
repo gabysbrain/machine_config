@@ -63,6 +63,7 @@
     fonts = with pkgs; [
       corefonts
       emojione
+      helvetica-neue-lt-std
     ];
   };
 
