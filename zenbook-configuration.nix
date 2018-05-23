@@ -18,6 +18,8 @@
     blueman
     pavucontrol
     psensor
+    linuxPackages.cpupower
+    cpufrequtils
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -91,13 +93,29 @@
   services.devmon.enable = true;
 
   services.syncthing = {
+    enable = true;
     user = "tom";
     dataDir = "/home/tom/.config/syncthing";
   };
 
+  services.dsmc = {
+    enable = true;
+  };
+
   # power/temp management
   services.thermald.enable = true;
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    extraConfig = ''
+      CPU_HWP_ON_AC=balance_power
+      CPU_HWP_ON_BAT=power
+
+      ENERGY_PERF_POLICY_ON_AC=balance-performance
+    '';
+  };
+  services.upower.enable = true;
+  
+  powerManagement.enable = true;
 
   # disable various buttons, like the power key!
   #services.logind.extraConfig = ''
