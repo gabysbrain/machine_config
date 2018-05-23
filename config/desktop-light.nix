@@ -32,6 +32,7 @@
     conky
     dmenu
 
+    xclip
     mc
     feh
     mutt
