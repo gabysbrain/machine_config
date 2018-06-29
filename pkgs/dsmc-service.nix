@@ -3,7 +3,7 @@
 
 let 
   cfg = config.services.dsmc;
-  dsmc = import ./dsmc/default.nix {
+  dsmc = import ./dsmc.nix {
     inherit lib;
     inherit pkgs;
     stdenv = pkgs.stdenv;
