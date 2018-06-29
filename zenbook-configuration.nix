@@ -117,8 +117,9 @@
   
   powerManagement.enable = true;
 
-  # disable various buttons, like the power key!
-  #services.logind.extraConfig = ''
+  # change power button configs
+  services.logind.extraConfig = ''
     #HandlePowerKey = ignore
-  #'';
+    HandleSuspendKey = hibernate
+  '';
 }
