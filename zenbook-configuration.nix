@@ -103,6 +103,7 @@
   # univie tivoli backup
   services.dsmc = {
     enable = true;
+    interval = "Mon..Fri 12:00";
     nodename = "PHILADELPHIA.CS.UNIVIE.AC.AT";
     serverName = "BACKUPX0";
     serverAddress = "BACKUPX0.UNIVIE.AC.AT";
