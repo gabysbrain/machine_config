@@ -1,4 +1,5 @@
-with import <nixpkgs> {};
+{config, lib, pkgs, stdenv, ...}:
+#with import <nixpkgs> {};
 
 let 
 srcDeb = pkgs.fetchurl {
@@ -14,7 +15,6 @@ gskit = stdenv.mkDerivation rec {
   dontBuild = true;
   #dontPatchELF = true;
   dontStrip = true;
-
   nativeBuildInputs = [ pkgs.dpkg pkgs.makeWrapper ];
 
   unpackCmd = ''
@@ -43,11 +43,20 @@ in stdenv.mkDerivation rec {
   buildInputs = [ pkgs.dpkg pkgs.makeWrapper pkgs.jre ];
   #nativeBuildInputs = [ pkgs.dpkg pkgs.makeWrapper ];
 
-  #sysCfg = pkgs.writeText "dsm.sys" ''
-    #test here
-  #'';
-  sysCfg = ./dsm.sys;
-  optCfg = ./dsm.opt;
+  sysCfg = pkgs.writeText "dsm.sys" ''
+    SERVERNAME ${config.serverName}
+    NODENAME ${config.nodename}
+    TCPSERVERADDRESS ${config.serverAddress}
+    ${lib.concatMapStringsSep "\n" (x: "EXCLUDE " + x) config.excludes}
+    ${lib.concatMapStringsSep "\n" (x: "EXCLUDE.DIR " + x) config.excludeDirs}
+  '';
+  optCfg = pkgs.writeText "dsm.opt" ''
+    SERVERNAME ${config.serverName}
+    PASSWORD ${config.password}
+  '';
+    #${lib.optionalString (config.password != null) ("PASSWORD " + config.password)}
+  #sysCfg = ./dsm.sys;
+  #optCfg = ./dsm.opt;
 
   unpackCmd = ''
     mkdir root
@@ -73,14 +82,15 @@ in stdenv.mkDerivation rec {
                --set-rpath ${libPath}:$out/lib \
         $out/opt/tivoli/tsm/client/ba/bin/$exec
       wrapProgram $out/opt/tivoli/tsm/client/ba/bin/$exec \
-        --set DSM_DIR $out/opt/tivoli/tsm/client/ba/bin
+        --set DSM_DIR $out/opt/tivoli/tsm/client/ba/bin \
+        --set DSM_LOG /var/log
       ln -s $out/opt/tivoli/tsm/client/ba/bin/$exec $out/bin/$exec
     done
 
-    ln -s $out/opt/tivoli/tsm/client/ba/bin/dsmj $out/bin/dsmj
 
     cp ${sysCfg} $out/opt/tivoli/tsm/client/ba/bin/dsm.sys
     cp ${optCfg} $out/opt/tivoli/tsm/client/ba/bin/dsm.opt
   '';
+    #ln -s $out/opt/tivoli/tsm/client/ba/bin/dsmj $out/bin/dsmj
 }
 
