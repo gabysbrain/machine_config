@@ -8,10 +8,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ../hardware-configuration.nix
+      ../secure.nix
       ./config/base.nix
       ./config/dev.nix
       ./config/writing.nix
       ./config/desktop-full.nix
+      ./pkgs/dsmc-service.nix
     ];
 
   environment.systemPackages = with pkgs; [
@@ -98,8 +100,30 @@
     dataDir = "/home/tom/.config/syncthing";
   };
 
+  # univie tivoli backup
   services.dsmc = {
     enable = true;
+    nodename = "PHILADELPHIA.CS.UNIVIE.AC.AT";
+    serverName = "BACKUPX0";
+    serverAddress = "BACKUPX0.UNIVIE.AC.AT";
+    #password = "";
+    excludes = [
+      "/.../dsmsched.log"
+      "/.../dsmprune.log" 
+      "/.../dsmerror.log" 
+      "/.../dsmj.log" 
+    ];
+    excludeDirs = [
+      "/boot" 
+      "/private" 
+      "/nix" 
+      "/tmp" 
+      "/proc" 
+      "/home/tom/.cache" 
+      "/home/tom/ownCloud"
+      "/home/tom/Dropbox"
+      "/var/tmp/"
+    ];
   };
 
   # power/temp management
