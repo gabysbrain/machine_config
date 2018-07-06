@@ -74,6 +74,15 @@ macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to s
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/Personal<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/Work<enter><change-folder>!<enter>'
 
+# "Open with..." command in attachment mode to read things
+macro attach O \
+"\
+<enter-command>unset wait_key<enter>\
+<shell-escape>rm -f /tmp/mutt-attach<enter>\
+<save-entry><kill-line>/tmp/mutt-attach<enter>\
+<shell-escape> /tmp/mutt-attach &^A\
+"
+
 # Compose View Options -------------------------------
 set editor = "vim"
 set realname = "Thomas Torsney-Weir" # who am i?
