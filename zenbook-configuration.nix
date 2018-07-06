@@ -121,6 +121,7 @@
       "/tmp" 
       "/proc" 
       "/home/tom/.cache" 
+      "/home/tom/.mozilla" 
       "/home/tom/ownCloud"
       "/home/tom/Dropbox"
       "/var/tmp/"
