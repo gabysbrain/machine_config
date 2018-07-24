@@ -22,6 +22,8 @@
     psensor
     linuxPackages.cpupower
     cpufrequtils
+    acpi
+    lm_sensors
   ];
 
   # Use the systemd-boot EFI boot loader.
