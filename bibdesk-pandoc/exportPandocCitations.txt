@@ -1,4 +1,0 @@
-[@<$publications>
-<$citeKey/><?$publications>
-; @</$publications>
-]

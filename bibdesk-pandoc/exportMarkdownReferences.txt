@@ -1,6 +1,0 @@
-<$fileName/>
-
-[@<$publications>
-<$citeKey/><?$publications>
-; @</$publications>
-]
