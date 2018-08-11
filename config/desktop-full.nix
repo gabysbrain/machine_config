@@ -20,7 +20,8 @@
     libreoffice
     slack
     spotify
-    skype
+    #skypeforlinux
+    #skype
     jabref
     meld
 
