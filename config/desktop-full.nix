@@ -14,6 +14,7 @@
   environment.systemPackages = with pkgs; [
     blueman
     wicd
+    wpa_supplicant_gui
 
     firefox
     libreoffice
