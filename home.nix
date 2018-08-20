@@ -16,6 +16,7 @@
         "${xmonad}/bin/xmonad";
   };
   xresources.properties = {
+    "URxvt.perl-ext-common" = "default,matcher,tabbedex";
     "!URxvt.font" = "xft:Terminus:pixelsize=12";
     "URxvt*transparent" = true;
     "URxvt*shading" = 20;
@@ -47,6 +48,14 @@
     "URxvt*scrollTtyOutput" = false;
     "URxvt*scrollWithBuffer" = true;
     "URxvt*scrollTtyKeypress" = true;
+    "URxvt.keysym.Control-t" = "perl:tabbedex:new_tab";
+    "URxvt.keysym.Control-Tab" = "perl:tabbedex:next_tab";
+    "URxvt.keysym.Control-Shift-Tab" = "perl:tabbedex:prev_tab";
+    "URxvt.keysym.Control-Shift-Left" = "perl:tabbedex:move_tab_left";
+    "URxvt.keysym.Control-Shift-Right" = "perl:tabbedex:move_tab_right";
+    "URxvt.keysym.Control-Shift-R" = "perl:tabbedex:rename_tab";
+    "URxvt.url-launcher" = "/usr/bin/xdg-open";
+    "URxvt.matcher.button" = "1";
   };
   programs = {
     zsh = {
