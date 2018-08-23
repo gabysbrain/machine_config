@@ -4,7 +4,6 @@
   imports = [
     ../hardware-configuration.nix
     ../networking.nix # generated at runtime by nixos-infect
-    ./nextcloud/nextcloud.nix
     ./config/base.nix
   ];
 
