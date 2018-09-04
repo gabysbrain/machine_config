@@ -14,6 +14,6 @@ Config
     ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = " %StdinReader% }{%wifi% <fc=#333333>cpu</fc> %multicpu% <fc=#333333>vol</fc> %default:Master% <fc=#333333>bat</fc> %battery% <fc=#333333>|</fc> %date% "
+  , template = " %StdinReader% }{<action=`connman-gtk`>%wifi%</action> <fc=#333333>cpu</fc> %multicpu% <fc=#333333>vol</fc> %default:Master% <fc=#333333>bat</fc> %battery% <fc=#333333>|</fc> %date% "
   }
 
