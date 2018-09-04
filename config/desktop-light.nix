@@ -3,6 +3,7 @@
 {
   networking = {
     wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    connman.enable = true;
   };
 
   # Select internationalisation properties.

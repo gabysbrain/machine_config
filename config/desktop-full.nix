@@ -13,8 +13,8 @@
 
   environment.systemPackages = with pkgs; [
     blueman
-    wicd
     wpa_supplicant_gui
+    connman-gtk
 
     firefox
     libreoffice
