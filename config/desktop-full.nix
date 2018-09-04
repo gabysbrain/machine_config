@@ -15,6 +15,7 @@
     blueman
     wpa_supplicant_gui
     connman-gtk
+    connman_dmenu
 
     firefox
     libreoffice
