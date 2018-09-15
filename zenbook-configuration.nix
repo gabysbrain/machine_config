@@ -59,6 +59,7 @@
 
   networking = {
     hostName = "philadelphia"; # Define your hostname.
+    #networkmanager.enable = true;
   };
 
   # turn on bluetooth
