@@ -85,6 +85,16 @@
   #environment.systemPackages = with pkgs; [
   #];
 
+  # shared filesystem mounts
+  fileSystems."/mnt/ds_homes" = {
+    device = "//10.0.0.2/homes";
+    fsType = "cifs";
+    options = let
+      # this line prevents hanging on network split
+      #automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,users,nounix,file_mode=0660,dir_mode=0770,gid=1";
+      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,file_mode=0660,dir_mode=0770,gid=1,nounix";
+      in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
+  };
   # List services that you want to enable
 
   services.xserver = {
@@ -129,6 +139,17 @@
       "/home/tom/Dropbox"
       "/var/tmp/"
     ];
+  };
+
+  # home backup
+  services.borgbackup.jobs = {
+    homeBackup = {
+      paths = "/home/tom";
+      repo = "/mnt/ds_homes/gabysbrain/backups/zenbook";
+      compression = "auto,lzma";
+      encryption.mode = "none";
+      startAt = "daily";
+    };
   };
 
   # power/temp management
