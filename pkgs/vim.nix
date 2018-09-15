@@ -34,6 +34,7 @@ vim_configurable.customize {
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#whitespace#enabled = 0
     let g:airline#extensions#bufferline#enabled = 1
+    let g:airline#extensions#ale#enabled = 1
     if has("gui_running") " tabline takes up too much space on the console
       let g:airline#extensions#tabline#enabled = 1
     endif
@@ -115,6 +116,11 @@ vim_configurable.customize {
     let g:haskellmode_completion_ghc = 1
     autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
+    " haskell type information 
+    nnoremap <Leader>ht :GhcModType<cr>
+    nnoremap <Leader>htc :GhcModTypeClear<cr>
+    autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
+
     " tablular
     let g:haskell_tabular = 1
 
@@ -129,7 +135,7 @@ vim_configurable.customize {
   vimrcConfig.vam.knownPlugins = pkgs.vimPlugins;
   vimrcConfig.vam.pluginDictionaries = [
     { names = [
-      "Syntastic"
+      #"Syntastic"
       "Tagbar"
       "Tabular"
       "vim-buffergator"
@@ -143,7 +149,9 @@ vim_configurable.customize {
       "zenburn"
       "vim-airline"
       "vim-airline-themes"
-      "ghcmod"
+      "ale"
+      "vimproc"
+      "ghc-mod-vim"
       "neco-ghc"
       "purescript-vim"
       "haskell-vim"
@@ -153,17 +161,5 @@ vim_configurable.customize {
 #    " My plugins
 #    NeoBundle 'vim-pandoc/vim-criticmarkup'
 #    NeoBundle 'chrisbra/csv.vim'
-#    NeoBundle 'mattn/emmet-vim'
-#    NeoBundle 'guicolorscheme.vim'
-#    NeoBundle 'elzr/vim-json'
-
-  #custom_vim = pkgs.vim_configurable.customize customization;
-
-  #myvim = lib.overrideDerivation custom_vim (o: {
-    #gui = true;
-  #});
-
-#in 
-  #myvim
 
 
