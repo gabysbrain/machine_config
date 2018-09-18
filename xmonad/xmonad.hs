@@ -117,6 +117,7 @@ myManageHook = manageDocks <+> composeAll
 
     -- floating windows
     , className =? "Pinentry" --> doFloat
+    , className =? "Qpdfview" --> doFloat
     ]
 
 -- Event handling
