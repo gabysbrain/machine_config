@@ -13,6 +13,7 @@
       ./config/dev.nix
       ./config/writing.nix
       ./config/desktop-full.nix
+      ./config/games.nix
       ./pkgs/dsmc-service.nix
     ];
 
