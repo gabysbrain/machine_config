@@ -1,0 +1,19 @@
+
+set spoolfile = "+work/INBOX"
+set from = "thomas.torsney-weir@univie.ac.at"
+set sendmail = "msmtp -a Work"
+set mbox = "+work/archive"
+set postponed = "+work/drafts"
+set trash="+work/trash"
+set record="+work/sent"
+
+color status cyan default
+
+macro index A \
+  "<save-message>+work/archive<enter>" \
+  "archive message"
+
+macro index S \
+  "<save-message>+work/spam<enter>" \
+  "mark message as spam"
+

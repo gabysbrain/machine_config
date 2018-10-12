@@ -1,0 +1,19 @@
+
+set spoolfile = "+personal/INBOX"
+set from = "torsneyt@gmail.com"
+set sendmail = "msmtp -a Personal"
+set mbox = "+personal/archive"
+set postponed = "+personal/drafts"
+set trash="+personal/trash"
+unset move
+
+color status green default
+
+macro index A \
+  "<save-message>+personal/archive<enter>" \
+  "archive message"
+
+macro index S \
+  "<save-message>+personal/spam<enter>" \
+  "mark message as spam"
+
