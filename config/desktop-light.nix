@@ -39,7 +39,7 @@
     mutt
     offlineimap
     msmtp
-    (import ../pkgs/vdirsyncer.nix)
+    vdirsyncer
     (import ../pkgs/terminal-velocity.nix)
     khard
     khal
