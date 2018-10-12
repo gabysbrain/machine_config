@@ -91,7 +91,7 @@
     ".offlineimaprc".source = ~/Projects/dotfiles/dotfiles/dot-offlineimaprc;
     ".muttrc".source = ~/Projects/dotfiles/dotfiles/dot-muttrc;
     ".mutt".source = ~/Projects/dotfiles/dotfiles/dot-mutt;
-    #".msmtprc".source = ~/Projects/dotfiles/dotfiles/dot-msmtprc;
+    ".msmtprc".source = ~/Projects/dotfiles/dotfiles/dot-msmtprc;
     ".notmuch-config".source = ~/Projects/dotfiles/dotfiles/dot-notmuch;
     ".config/khal/config".source = ~/Projects/dotfiles/dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ~/Projects/dotfiles/dotfiles/dot-khard;
