@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ../hardware-configuration.nix
-      ../secure.nix
+      #../secure.nix
       ./config/base.nix
       ./config/dev.nix
       ./config/writing.nix
@@ -50,7 +50,7 @@
       luks.devices = [
         {
           name = "root";
-          device = "/dev/disk/by-uuid/ac271696-4909-4b21-8731-77a3bc1f5392";
+          device = "/dev/disk/by-uuid/7f4647bd-7163-4335-9448-a37a3d610ade";
           preLVM = true;
           allowDiscards = true;
         }
