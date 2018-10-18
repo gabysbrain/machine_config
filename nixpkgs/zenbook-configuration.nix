@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ../hardware-configuration.nix
+      ../../hardware-configuration.nix
       #../secure.nix
       ./config/base.nix
       ./config/dev.nix
@@ -169,7 +169,7 @@
 
   # change power button configs
   services.logind.extraConfig = ''
-    #HandlePowerKey = ignore
+    HandlePowerKey = ignore
     HandleSuspendKey = hibernate
   '';
 }
