@@ -1,4 +1,0 @@
-#!/bin/sh
-
-highlight --syntax=$1 -O rtf "$2" --line-numbers --font "Anonymous Pro" --font-size 24 --style solarized-light | pbcopy
-
