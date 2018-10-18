@@ -87,30 +87,30 @@
     ###############################
     # Email/calendar/contacts sync
     ###############################
-    ".vdirsyncer/config".source = ~/Projects/dotfiles/dotfiles/dot-vdirsyncer;
-    ".offlineimaprc".source = ~/Projects/dotfiles/dotfiles/dot-offlineimaprc;
-    ".muttrc".source = ~/Projects/dotfiles/dotfiles/dot-muttrc;
-    ".mutt".source = ~/Projects/dotfiles/dotfiles/dot-mutt;
-    ".msmtprc".source = ~/Projects/dotfiles/dotfiles/dot-msmtprc;
-    ".notmuch-config".source = ~/Projects/dotfiles/dotfiles/dot-notmuch;
-    ".config/khal/config".source = ~/Projects/dotfiles/dotfiles/dot-khal;
-    ".config/khard/khard.conf".source = ~/Projects/dotfiles/dotfiles/dot-khard;
-    ".urlview".source = ~/Projects/dotfiles/dotfiles/dot-urlview;
+    ".vdirsyncer/config".source = ../dotfiles/dot-vdirsyncer;
+    ".offlineimaprc".source = ../dotfiles/dot-offlineimaprc;
+    ".muttrc".source = ../dotfiles/dot-muttrc;
+    ".mutt".source = ../dotfiles/dot-mutt;
+    ".msmtprc".source = ../dotfiles/dot-msmtprc;
+    ".notmuch-config".source = ../dotfiles/dot-notmuch;
+    ".config/khal/config".source = ../dotfiles/dot-khal;
+    ".config/khard/khard.conf".source = ../dotfiles/dot-khard;
+    ".urlview".source = ../dotfiles/dot-urlview;
 
     ###############################
     # Xmonad, etc
     ###############################
-    ".xmonad/xmonad.hs".source = ~/Projects/dotfiles/xmonad/xmonad.hs;
-    ".xmonad/xmobar.hs".source = ~/Projects/dotfiles/xmonad/xmobar.hs;
+    ".xmonad/xmonad.hs".source = ../xmonad/xmonad.hs;
+    ".xmonad/xmobar.hs".source = ../xmonad/xmobar.hs;
     ".xmonad/wireless.sh" = {
-      source = ~/Projects/dotfiles/xmonad/wireless.sh;
+      source = ../xmonad/wireless.sh;
       executable = true;
     };
 
     ###############################
     # Other stuff
     ###############################
-    ".tvrc".source = ~/Projects/dotfiles/dotfiles/dot-tvrc;
+    ".tvrc".source = ../dotfiles/dot-tvrc;
   };
   systemd.user = {
     services = {
