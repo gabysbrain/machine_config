@@ -1,7 +1,7 @@
 
 set spoolfile = "+work/INBOX"
 set from = "thomas.torsney-weir@univie.ac.at"
-set sendmail = "msmtp -a Work"
+set sendmail = "msmtp -a work"
 set mbox = "+work/archive"
 set postponed = "+work/drafts"
 set trash="+work/trash"
