@@ -57,6 +57,57 @@
     "URxvt.url-launcher" = "/usr/bin/xdg-open";
     "URxvt.matcher.button" = "1";
   };
+  accounts.email.accounts = {
+    home = {
+      primary = true;
+      realName = "Tom Torsney-Weir";
+      userName = "torsneyt@gmail.com";
+      address = "torsneyt@gmail.com";
+      flavor = "gmail.com";
+      offlineimap.enable = true;
+      msmtp.enable = true;
+      notmuch.enable = true;
+      imap = {
+        #host = "";
+        tls.enable = true;
+      };
+      smtp = {
+        #host = "";
+        tls.enable = true;
+      };
+      folders = {
+        #inbox = "";
+        drafts = "[Gmail]/Drafts";
+        sent = "[Gmail]/Sent Mail";
+        trash = "[Gmail]/Trash";
+        archive = "[Gmail]/All Mail";
+      };
+    };
+    work = {
+      realName = "Tom Torsney-Weir";
+      userName = "torsnet6";
+      address = "thomas.torsney-weir@univie.ac.at";
+      flavor = "plain";
+      offlineimap.enable = true;
+      msmtp.enable = true;
+      notmuch.enable = true;
+      imap = {
+        host = "imap.univie.ac.at";
+        tls.enable = true;
+      };
+      smtp = {
+        host = "mail.univie.ac.at";
+        tls.enable = true;
+      };
+      folders = {
+        inbox = "INBOX";
+        drafts = "INBOX.Drafts";
+        sent = "INBOX.Sent";
+        trash = "INBOX.Trash";
+        archive = "INBOX.Archive";
+      };
+    };
+  };
   programs = {
     zsh = {
       enable = true;
@@ -78,6 +129,7 @@
       enable = true;
       browsers = [ "chromium" "firefox" ];
     };
+    msmtp.enable = true;
   };
   home.sessionVariables = {
     EDITOR = "vim";
@@ -91,7 +143,6 @@
     ".offlineimaprc".source = ../dotfiles/dot-offlineimaprc;
     ".muttrc".source = ../dotfiles/dot-muttrc;
     ".mutt".source = ../dotfiles/dot-mutt;
-    ".msmtprc".source = ../dotfiles/dot-msmtprc;
     ".notmuch-config".source = ../dotfiles/dot-notmuch;
     ".config/khal/config".source = ../dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ../dotfiles/dot-khard;
