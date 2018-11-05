@@ -7,5 +7,6 @@
     bibtool
     pandoc
     haskellPackages.pandoc-citeproc
+    (import ../pkgs/remarker/default.nix {}).remarker
   ];
 }
