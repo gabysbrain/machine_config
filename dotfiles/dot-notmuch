@@ -11,7 +11,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=/home/tom/.mail
+path=/home/torsnet6cs/.mail
 
 # User configuration
 #
