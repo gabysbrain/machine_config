@@ -53,19 +53,6 @@
 
   hardware.enableAllFirmware = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.extraUsers.tom = {
-    name = "tom";
-    group = "users";
-    extraGroups = [
-      "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal"
-    ];
-    createHome = true;
-    uid = 1000;
-    home = "/home/tom";
-    shell = "/run/current-system/sw/bin/zsh";
-  };
-
   # keep a backup of the configuration
   system.copySystemConfiguration = true;
 

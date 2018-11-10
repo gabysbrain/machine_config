@@ -37,6 +37,19 @@
 
   system.autoUpgrade.enable = true;
 
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.extraUsers.tom = {
+    name = "tom";
+    group = "users";
+    extraGroups = [
+      "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal"
+    ];
+    createHome = true;
+    uid = 1000;
+    home = "/home/tom";
+    shell = "/run/current-system/sw/bin/zsh";
+  };
+
   # root only has ssh login
   /*users.users.root.openssh.authorizedKeys.keys = [*/
     /*"ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAwDPUjo80GFY2FO9bDH9cAXo7n7SiUKjXIHzfRMfsAqD9Rk/puV+W4QRvT0XOZSEZQf3gifcPM/raA35BVmAzAa2jYISWeUWIqYf+AcipFrMKKqS639Q9/GgJL2STr6Gh0EVHsGcFJpuJ8GO5eqnKR0ZYl3j9bpMO/WpgkAw7hUU= tom@katana"*/

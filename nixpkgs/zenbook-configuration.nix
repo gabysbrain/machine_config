@@ -172,4 +172,18 @@
     HandlePowerKey = ignore
     HandleSuspendKey = hibernate
   '';
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.extraUsers.torsnet6cs = {
+    name = "torsnet6cs";
+    group = "users";
+    extraGroups = [
+      "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal"
+    ];
+    createHome = true;
+    uid = 1000;
+    home = "/home/torsnet6cs";
+    shell = "/run/current-system/sw/bin/zsh";
+  };
+
 }
