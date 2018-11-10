@@ -87,7 +87,7 @@
 
   # shared filesystem mounts
   fileSystems."/mnt/ds_homes" = {
-    device = "//10.0.0.2/homes";
+    device = "//10.0.0.1/homes";
     fsType = "cifs";
     options = let
       # this line prevents hanging on network split
@@ -109,8 +109,8 @@
 
   services.syncthing = {
     enable = true;
-    user = "tom";
-    dataDir = "/home/tom/.config/syncthing";
+    user = "torsnet6cs";
+    dataDir = "/home/torsnet6cs/.config/syncthing";
   };
 
   # univie tivoli backup
@@ -133,10 +133,10 @@
       "/nix" 
       "/tmp" 
       "/proc" 
-      "/home/tom/.cache" 
-      "/home/tom/.mozilla" 
-      "/home/tom/ownCloud"
-      "/home/tom/Dropbox"
+      "/home/torsnet6cs/.cache" 
+      "/home/torsnet6cs/.mozilla" 
+      "/home/torsnet6cs/ownCloud"
+      "/home/torsnet6cs/Dropbox"
       "/var/tmp/"
     ];
   };
@@ -144,7 +144,7 @@
   # home backup
   services.borgbackup.jobs = {
     homeBackup = {
-      paths = "/home/tom";
+      paths = "/home/torsnet6cs";
       repo = "/mnt/ds_homes/gabysbrain/backups/zenbook";
       compression = "auto,lzma";
       encryption.mode = "none";
