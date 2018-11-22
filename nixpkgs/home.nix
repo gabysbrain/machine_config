@@ -155,6 +155,7 @@
       browsers = [ "chromium" "firefox" ];
     };
     msmtp.enable = true; # sendmail support
+    notmuch.enable = true; # index email
     mbsync = {
       enable = true; # imap mail sync support
       extraConfig = ''
@@ -262,10 +263,8 @@
     # Email/calendar/contacts sync
     ###############################
     ".vdirsyncer/config".source = ../dotfiles/dot-vdirsyncer;
-    #".offlineimaprc".source = ../dotfiles/dot-offlineimaprc;
     ".muttrc".source = ../dotfiles/dot-muttrc;
     ".mutt".source = ../dotfiles/dot-mutt;
-    #".notmuch-config".source = ../dotfiles/dot-notmuch;
     ".config/khal/config".source = ../dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ../dotfiles/dot-khard;
     ".urlview".source = ../dotfiles/dot-urlview;
