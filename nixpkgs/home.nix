@@ -58,15 +58,14 @@
     "URxvt.matcher.button" = "1";
   };
   accounts.email = {
-    maildirBasePath = "$HOME/Maildir";
+    maildirBasePath = ".mail";
     accounts = {
-      home = {
+      personal = {
         primary = true;
         realName = "Tom Torsney-Weir";
         userName = "torsneyt@gmail.com";
         address = "torsneyt@gmail.com";
         flavor = "gmail.com";
-        offlineimap.enable = true;
         msmtp.enable = true;
         notmuch.enable = true;
         imap = {
@@ -77,12 +76,25 @@
           #host = "";
           tls.enable = true;
         };
+        mbsync = {
+          enable = true;
+          create = "both";
+          expunge = "both";
+          flatten = ".";
+          patterns = [ 
+            "*" "INBOX"
+            "![Gmail]/All Mail" "![Gmail]/Sent" "![Gmail]/Trash" 
+            "![Gmail]/Drafts" "![Gmail]/Spam" 
+            "![Gmail]/*"
+          ];
+        };
+        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1";
         folders = {
-          #inbox = "";
-          drafts = "[Gmail]/Drafts";
-          sent = "[Gmail]/Sent Mail";
-          trash = "[Gmail]/Trash";
-          archive = "[Gmail]/All Mail";
+          inbox = "INBOX";
+          #drafts = "[Gmail]/Drafts";
+          #sent = "[Gmail]/Sent Mail";
+          #trash = "[Gmail]/Trash";
+          #archive = "[Gmail]/All Mail";
         };
       };
       work = {
@@ -90,9 +102,20 @@
         userName = "torsnet6";
         address = "thomas.torsney-weir@univie.ac.at";
         flavor = "plain";
-        offlineimap.enable = true;
+        #offlineimap.enable = true;
         msmtp.enable = true;
         notmuch.enable = true;
+        mbsync = {
+          enable = true;
+          create = "both";
+          expunge = "both";
+          flatten = ".";
+          patterns = [ 
+            "*" "INBOX"
+            "!Archive" "!Sent" "!Trash" "!Junk" "!Drafts"
+          ];
+        };
+        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/univie.ac.at.gpg | head -1";
         imap = {
           host = "imap.univie.ac.at";
           tls.enable = true;
@@ -103,9 +126,9 @@
         };
         folders = {
           inbox = "INBOX";
-          drafts = "INBOX.Drafts";
-          sent = "INBOX.Sent";
-          trash = "INBOX.Trash";
+          #drafts = "INBOX.Drafts";
+          #sent = "INBOX.Sent";
+          #trash = "INBOX.Trash";
         };
       };
     };
@@ -132,6 +155,103 @@
       browsers = [ "chromium" "firefox" ];
     };
     msmtp.enable = true; # sendmail support
+    mbsync = {
+      enable = true; # imap mail sync support
+      extraConfig = ''
+
+      Channel personal-archive
+      Master :personal-remote:"[Gmail]/All Mail"
+      Slave :personal-local:"archive"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel personal-drafts
+      Master :personal-remote:"[Gmail]/Drafts"
+      Slave :personal-local:"drafts"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel personal-sent
+      Master :personal-remote:"[Gmail]/Sent"
+      Slave :personal-local:"sent"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel personal-trash
+      Master :personal-remote:"[Gmail]/Trash"
+      Slave :personal-local:"trash"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel personal-spam
+      Master :personal-remote:"[Gmail]/Spam"
+      Slave :personal-local:"spam"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel work-archive
+      Master :work-remote:"Archive"
+      Slave :work-local:"archive"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel work-drafts
+      Master :work-remote:"Drafts"
+      Slave :work-local:"drafts"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel work-sent
+      Master :work-remote:"Sent"
+      Slave :work-local:"sent"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel work-trash
+      Master :work-remote:"Trash"
+      Slave :work-local:"trash"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel work-spam
+      Master :work-remote:"Junk"
+      Slave :work-local:"spam"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Group personal
+      Channel personal
+      Channel personal-archive
+      Channel personal-drafts
+      Channel personal-sent
+      Channel personal-trash
+      Channel personal-spam
+
+      Group work
+      Channel work
+      Channel work-archive
+      Channel work-drafts
+      Channel work-sent
+      Channel work-trash
+      Channel work-spam
+      '';
+      groups = {
+        inboxes = {
+          work     = ["INBOX"];
+          personal = ["INBOX"];
+        };
+      };
+    };
   };
   home.sessionVariables = {
     EDITOR = "vim";
@@ -142,10 +262,10 @@
     # Email/calendar/contacts sync
     ###############################
     ".vdirsyncer/config".source = ../dotfiles/dot-vdirsyncer;
-    ".offlineimaprc".source = ../dotfiles/dot-offlineimaprc;
+    #".offlineimaprc".source = ../dotfiles/dot-offlineimaprc;
     ".muttrc".source = ../dotfiles/dot-muttrc;
     ".mutt".source = ../dotfiles/dot-mutt;
-    ".notmuch-config".source = ../dotfiles/dot-notmuch;
+    #".notmuch-config".source = ../dotfiles/dot-notmuch;
     ".config/khal/config".source = ../dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ../dotfiles/dot-khard;
     ".urlview".source = ../dotfiles/dot-urlview;
