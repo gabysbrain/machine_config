@@ -294,14 +294,6 @@
   };
   systemd.user = {
     services = {
-      #mbsync = {
-        #Unit = {
-          #Description = "sync email servers";
-        #};
-        #Service = {
-          #ExecStart = "${pkgs.mbsync}/bin/mbsync work personal";
-        #};
-      #};
       vdirsyncer = {
         Unit = {
           Description="sync vcard/vcal servers";
@@ -312,18 +304,6 @@
       };
     };
     timers = {
-      #mbsync = {
-        #Unit = {
-          #Description = "sync email servers";
-        #};
-        #Timer = {
-          #OnBootSec = "2m";
-          #OnUnitInactiveSec = "15m";
-        #};
-        #Install = {
-          #WantedBy = ["timers.target"];
-        #};
-      #};
       vdirsyncer = {
         Unit = {
           Description="sync vcard/vcal servers";
