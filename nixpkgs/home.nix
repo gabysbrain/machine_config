@@ -83,11 +83,11 @@
           flatten = ".";
           patterns = [ 
             "*" "INBOX"
-            "![Gmail]/All Mail" 
+            #"![Gmail]/All Mail" 
             #"![Gmail]/Sent" 
-            "![Gmail]/Trash" 
-            "![Gmail]/Drafts" "![Gmail]/Spam" 
-            #"![Gmail]/*"
+            #"![Gmail]/Trash" 
+            #"![Gmail]/Drafts" "![Gmail]/Spam" 
+            "![Gmail]/*"
           ];
         };
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1";
@@ -177,7 +177,7 @@
       SyncState *
 
       Channel personal-sent
-      Master :personal-remote:"[Gmail]/Sent"
+      Master :personal-remote:"[Gmail]/Sent Mail"
       Slave :personal-local:"sent"
       Create Both
       Expunge Both
@@ -286,16 +286,22 @@
     ###############################
     ".tvrc".source = ../dotfiles/dot-tvrc;
   };
+  services = {
+    mbsync = {
+      enable = true;
+      frequency = "15m";
+    };
+  };
   systemd.user = {
     services = {
-      offlineimap = {
-        Unit = {
-          Description = "sync email servers";
-        };
-        Service = {
-          ExecStart = "${pkgs.offlineimap}/bin/offlineimap";
-        };
-      };
+      #mbsync = {
+        #Unit = {
+          #Description = "sync email servers";
+        #};
+        #Service = {
+          #ExecStart = "${pkgs.mbsync}/bin/mbsync work personal";
+        #};
+      #};
       vdirsyncer = {
         Unit = {
           Description="sync vcard/vcal servers";
@@ -306,18 +312,18 @@
       };
     };
     timers = {
-      offlineimap = {
-        Unit = {
-          Description = "sync email servers";
-        };
-        Timer = {
-          OnBootSec = "2m";
-          OnUnitInactiveSec = "15m";
-        };
-        Install = {
-          WantedBy = ["timers.target"];
-        };
-      };
+      #mbsync = {
+        #Unit = {
+          #Description = "sync email servers";
+        #};
+        #Timer = {
+          #OnBootSec = "2m";
+          #OnUnitInactiveSec = "15m";
+        #};
+        #Install = {
+          #WantedBy = ["timers.target"];
+        #};
+      #};
       vdirsyncer = {
         Unit = {
           Description="sync vcard/vcal servers";
