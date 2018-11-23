@@ -83,9 +83,11 @@
           flatten = ".";
           patterns = [ 
             "*" "INBOX"
-            "![Gmail]/All Mail" "![Gmail]/Sent" "![Gmail]/Trash" 
+            "![Gmail]/All Mail" 
+            #"![Gmail]/Sent" 
+            "![Gmail]/Trash" 
             "![Gmail]/Drafts" "![Gmail]/Spam" 
-            "![Gmail]/*"
+            #"![Gmail]/*"
           ];
         };
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1";

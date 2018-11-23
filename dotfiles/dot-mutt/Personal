@@ -1,7 +1,7 @@
 
 set spoolfile = "+personal/INBOX"
 set from = "torsneyt@gmail.com"
-set sendmail = "msmtp -a Personal"
+set sendmail = "msmtp -a personal"
 set mbox = "+personal/archive"
 set postponed = "+personal/drafts"
 set trash="+personal/trash"
