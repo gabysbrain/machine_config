@@ -63,8 +63,8 @@ macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuc
 macro index <F8> "<limit>all\n" "show all messages (undo limit)"
 
 # Sync email
-macro index O "<shell-escape>mbsync work personal<enter>" "run mbsync to sync all mail"
-macro index o "<shell-escape>mbsync inboxes<enter>"  "run mbsync to sync inbox"
+macro index O "<shell-escape>mbsync -a && notmuch new<enter>" "run mbsync to sync all mail"
+macro index o "<shell-escape>mbsync inboxes && notmuch new<enter>"  "run mbsync to sync inbox"
 
 # Saner copy/move dialogs
 #macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
