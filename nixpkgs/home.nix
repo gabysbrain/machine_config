@@ -80,14 +80,11 @@
           enable = true;
           create = "both";
           expunge = "both";
+          remove = "both";
           flatten = ".";
           patterns = [ 
             "*" "INBOX"
-            #"![Gmail]/All Mail" 
-            #"![Gmail]/Sent" 
-            #"![Gmail]/Trash" 
-            #"![Gmail]/Drafts" "![Gmail]/Spam" 
-            "![Gmail]/*"
+            "![Gmail]/*" "!sent"
           ];
         };
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1";
@@ -111,6 +108,7 @@
           enable = true;
           create = "both";
           expunge = "both";
+          remove = "both";
           flatten = ".";
           patterns = [ 
             "*" "INBOX"
