@@ -113,6 +113,7 @@
           patterns = [ 
             "*" "INBOX"
             "!Archive" "!Sent" "!Trash" "!Junk" "!Drafts"
+            "!archive" "!sent" "!trash" "!spam" "!drafts"
           ];
         };
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/univie.ac.at.gpg | head -1";
