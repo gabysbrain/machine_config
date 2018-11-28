@@ -19,7 +19,7 @@
 
     firefox
     libreoffice
-    slack
+    franz
     spotify
     skype
     jabref
