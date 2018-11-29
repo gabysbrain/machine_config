@@ -15,48 +15,6 @@
       in
         "${xmonad}/bin/xmonad";
   };
-  xresources.properties = {
-    "URxvt.perl-ext-common" = "default,matcher,tabbedex";
-    "!URxvt.font" = "xft:Terminus:pixelsize=12";
-    "URxvt*transparent" = true;
-    "URxvt*shading" = 20;
-    "URxvt*termName" = "rxvt-256color";
-    "URxvt*xftAntialias" = true;
-    "URxvt*background" = "#3f3f3f";
-    "!URxvt*depth" = 32;
-    "!URxvt*background" = "rgba:3f00/3f00/3f00/c800";
-    "URxvt*foreground" = "#dcdccc";
-    "URxvt*cursorColor" = "#aaaaaa";
-    "URxvt*colorUL" = "#366060";
-    "URxvt*underlineColor" = "#dfaf8f";
-    "URxvt*color0" = "#3f3f3f";
-    "URxvt*color1" = "#cc9393";
-    "URxvt*color2" = "#7f9f7f";
-    "URxvt*color3" = "#d0bf8f";
-    "URxvt*color4" = "#6ca0a3";
-    "URxvt*color5" = "#dc8cc3";
-    "URxvt*color6" = "#93e0e3";
-    "URxvt*color7" = "#dcdccc";
-    "URxvt*color8" = "#000000";
-    "URxvt*color9" = "#dca3a3";
-    "URxvt*color10" = "#bfebbf";
-    "URxvt*color11" = "#f0dfaf";
-    "URxvt*color12" = "#8cd0d3";
-    "URxvt*color13" = "#dc8cc3";
-    "URxvt*color14" = "#93e0e3";
-    "URxvt*color15" = "#ffffff";
-    "URxvt*scrollTtyOutput" = false;
-    "URxvt*scrollWithBuffer" = true;
-    "URxvt*scrollTtyKeypress" = true;
-    "URxvt.keysym.Control-t" = "perl:tabbedex:new_tab";
-    "URxvt.keysym.Control-Tab" = "perl:tabbedex:next_tab";
-    "URxvt.keysym.Control-Shift-Tab" = "perl:tabbedex:prev_tab";
-    "URxvt.keysym.Control-Shift-Left" = "perl:tabbedex:move_tab_left";
-    "URxvt.keysym.Control-Shift-Right" = "perl:tabbedex:move_tab_right";
-    "URxvt.keysym.Control-Shift-R" = "perl:tabbedex:rename_tab";
-    "URxvt.url-launcher" = "/usr/bin/xdg-open";
-    "URxvt.matcher.button" = "1";
-  };
   accounts.email = {
     maildirBasePath = ".mail";
     accounts = {
@@ -315,6 +273,59 @@
           WantedBy = ["timers.target"];
         };
       };
+    };
+  };
+
+  # urxvt config
+  programs.urxvt = {
+    enable = true;
+    fonts = [
+      "xft:Terminus:size=10"
+    ];
+    scroll = {
+      bar.enable = true;
+      scrollOnOutput = false;
+      scrollOnKeystroke = true;
+    };
+    keybindings = {
+      "Control-t" = "perl:tabbedex:new_tab";
+      "Control-Tab" = "perl:tabbedex:next_tab";
+      "Control-Shift-Tab" = "perl:tabbedex:prev_tab";
+      "Control-Shift-Left" = "perl:tabbedex:move_tab_left";
+      "Control-Shift-Right" = "perl:tabbedex:move_tab_right";
+      "Control-Shift-R" = "perl:tabbedex:rename_tab";
+    };
+
+    transparent = true;
+    shading = 20;
+
+    extraConfig = {
+      "perl-ext-common" = "default,matcher,tabbedex";
+      "xftAntialias" = true;
+      "depth" = 32;
+      "foreground" = "#dcdccc";
+      "background" = "#3f3f3f";
+      "cursorColor" = "#aaaaaa";
+      "colorUL" = "#366060";
+      "underlineColor" = "#dfaf8f";
+      "color0" = "#3f3f3f";
+      "color1" = "#cc9393";
+      "color2" = "#7f9f7f";
+      "color3" = "#d0bf8f";
+      "color4" = "#6ca0a3";
+      "color5" = "#dc8cc3";
+      "color6" = "#93e0e3";
+      "color7" = "#dcdccc";
+      "color8" = "#000000";
+      "color9" = "#dca3a3";
+      "color10" = "#bfebbf";
+      "color11" = "#f0dfaf";
+      "color12" = "#8cd0d3";
+      "color13" = "#dc8cc3";
+      "color14" = "#93e0e3";
+      "color15" = "#ffffff";
+      "url-launcher" = "/usr/bin/xdg-open";
+      "matcher.button" = "1";
     };
   };
 
