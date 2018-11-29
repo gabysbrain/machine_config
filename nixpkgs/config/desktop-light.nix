@@ -25,8 +25,8 @@
     alsaUtils
     gnome3.dconf
     rxvt_unicode-with-plugins
-    terminus-font
-    terminus-font-ttf
+    terminus_font
+    terminus_font_ttf
     shared_mime_info
     kinit
     plasma-workspace
