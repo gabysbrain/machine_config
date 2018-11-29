@@ -27,6 +27,7 @@
     rxvt_unicode-with-plugins
     terminus_font
     terminus_font_ttf
+    anonymousPro
     shared_mime_info
     kinit
     plasma-workspace

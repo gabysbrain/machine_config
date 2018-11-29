@@ -279,8 +279,10 @@
   # urxvt config
   programs.urxvt = {
     enable = true;
+    package = pkgs.rxvt_unicode-with-plugins;
     fonts = [
-      "xft:Terminus:size=10"
+      "xft:Anonymous Pro:size=11"
+      #"xft:Terminus:size=11"
     ];
     scroll = {
       bar.enable = true;
@@ -300,8 +302,9 @@
     shading = 20;
 
     extraConfig = {
+      #"letterSpace" = -1;
       "perl-ext-common" = "default,matcher,tabbedex";
-      "xftAntialias" = true;
+      #"xftAntialias" = true;
       "depth" = 32;
       "foreground" = "#dcdccc";
       "background" = "#3f3f3f";
