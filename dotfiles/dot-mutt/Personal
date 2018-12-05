@@ -5,6 +5,7 @@ set sendmail = "msmtp -a personal"
 set mbox = "+personal/archive"
 set postponed = "+personal/drafts"
 set trash="+personal/trash"
+set record="+personal/sent"
 unset move
 
 color status green default
