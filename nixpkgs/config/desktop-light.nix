@@ -25,8 +25,6 @@
     alsaUtils
     gnome3.dconf
     rxvt_unicode-with-plugins
-    terminus_font
-    terminus_font_ttf
     anonymousPro
     shared_mime_info
     kinit
@@ -37,7 +35,7 @@
     dmenu
 
     xclip
-    mc
+    ranger
     feh
     mutt
     offlineimap
@@ -46,6 +44,7 @@
     (import ../pkgs/terminal-velocity.nix)
     khard
     khal
+    calcurse
     urlscan
     notmuch
     notmuch-mutt
