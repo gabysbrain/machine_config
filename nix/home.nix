@@ -241,6 +241,9 @@
     ###############################
     # Other stuff
     ###############################
+    ".config/ranger/rifle.conf".source = ../dotfiles/dot-rifle.conf;
+    ".config/ranger/rc.conf".source = ../dotfiles/dot-ranger/rc.conf;
+    ".config/ranger/commands.py".source = ../dotfiles/dot-ranger/commands.py;
     ".tvrc".source = ../dotfiles/dot-tvrc;
   };
   services = {
