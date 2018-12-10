@@ -93,6 +93,9 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
 
   -- Programs
   , ((modm, xK_b), spawn "firefox")
+  , ((modm, xK_k), spawn "urxvt -e khal")
+  , ((modm, xK_m), spawn "urxvt -e mutt")
+  , ((modm, xK_r), spawn "urxvt -e ranger")
 
   -- Restart xmonad
   , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
