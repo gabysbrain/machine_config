@@ -24,6 +24,7 @@
     skype
     jabref
     meld
+    newsboat
 
     inkscape
     gimp

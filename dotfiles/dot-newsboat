@@ -1,0 +1,4 @@
+urls-source "oldreader"
+oldreader-login "torsneyt@gmail.com"
+oldreader-passwordeval "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/theoldreader.com/torsneyt@gmail.com.gpg | head -1"
+

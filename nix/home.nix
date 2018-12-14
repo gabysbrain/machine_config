@@ -245,6 +245,7 @@
     ".config/ranger/rc.conf".source = ../dotfiles/dot-ranger/rc.conf;
     ".config/ranger/commands.py".source = ../dotfiles/dot-ranger/commands.py;
     ".tvrc".source = ../dotfiles/dot-tvrc;
+    ".newsboat/config".source = ../dotfiles/dot-newsboat;
   };
   services = {
     mbsync = {
