@@ -25,7 +25,6 @@
     alsaUtils
     gnome3.dconf
     rxvt_unicode-with-plugins
-    anonymousPro
     shared_mime_info
     kinit
     plasma-workspace
