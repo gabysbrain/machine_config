@@ -12,6 +12,7 @@ import XMonad.Actions.UpdatePointer
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
+import XMonad.Layout.Grid
 
 import XMonad.Util.Run(spawnPipe)
 import System.IO(hPutStrLn)
@@ -85,9 +86,6 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
   , ((0, 0x1008ff13), spawn "amixer -q set Master 5+ unmute")
   , ((0, 0x1008ff12), spawn "amixer set Master toggle")
 
-  -- Rotate the screen
-  , ((modm, xK_F5), spawn "/home/tom/.xmonad/screen_rotate.sh")
-
   -- Cover the status bar gap
   , ((modm, xK_y), sendMessage ToggleStruts)
 
@@ -103,7 +101,7 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
 
 -- Layouts
 ------------------------------------------------------------------------
-myLayout = smartBorders $ avoidStruts $ smartSpacing 2 $ tiled ||| Mirror tiled ||| Full
+myLayout = smartBorders $ avoidStruts $ smartSpacing 2 $ tiled ||| Mirror tiled ||| Grid ||| Full
   where
     tiled = ResizableTall 1 0.03 0.5 []
 
