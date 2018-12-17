@@ -49,7 +49,7 @@
       luks.devices = [
         {
           name = "root";
-          device = "/dev/disk/by-uuid/7f4647bd-7163-4335-9448-a37a3d610ade";
+          device = "/dev/nvme0n1p2";
           preLVM = true;
           allowDiscards = true;
         }
