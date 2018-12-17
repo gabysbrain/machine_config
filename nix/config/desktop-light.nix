@@ -24,6 +24,7 @@
   environment.systemPackages = with pkgs; [
     alsaUtils
     gnome3.dconf
+    hicolor-icon-theme
     rxvt_unicode-with-plugins
     shared_mime_info
     kinit
