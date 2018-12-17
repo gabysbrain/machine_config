@@ -45,6 +45,13 @@
 
   # List services that you want to enable
 
+  # periodically run GC
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 10d";
+  };
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
