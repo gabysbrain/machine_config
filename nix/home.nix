@@ -247,6 +247,14 @@
     ".tvrc".source = ../dotfiles/dot-tvrc;
     ".newsboat/config".source = ../dotfiles/dot-newsboat;
   };
+  gtk = {
+    enable = true;
+    theme.name = "Arc";
+    theme.package = pkgs.arc-theme;
+    iconTheme.name = "Arc";
+    iconTheme.package = pkgs.arc-icon-theme;
+        #nixos.arc-icon-theme
+  };
   services = {
     mbsync = {
       enable = true;
