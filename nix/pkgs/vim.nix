@@ -101,29 +101,7 @@ vim_configurable.customize {
     " vim-json config
     let g:vim_json_syntax_conceal = 0
     
-    " supertab for haskell
-    " http://www.stephendiehl.com/posts/vim_2016.html
-    let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-    
-    if has("gui_running")
-      imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-    else " no gui
-      if has("unix")
-        inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-      endif
-    endif
-
-    let g:haskellmode_completion_ghc = 1
-    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-
-    " haskell type information 
-    nnoremap <Leader>ht :GhcModType<cr>
-    nnoremap <Leader>htc :GhcModTypeClear<cr>
-    autocmd FileType haskell nnoremap <buffer> <leader>? :call ale#cursor#ShowCursorDetail()<cr>
-
     " tablular
-    let g:haskell_tabular = 1
-
     vmap a= :Tabularize /=<CR>
     vmap a; :Tabularize /::<CR>
     vmap a- :Tabularize /-><CR>
@@ -149,12 +127,8 @@ vim_configurable.customize {
       "zenburn"
       "vim-airline"
       "vim-airline-themes"
-      "ale"
       "vimproc"
-      "ghc-mod-vim"
-      "neco-ghc"
       "purescript-vim"
-      "haskell-vim"
     ]; }
   ];
 }
