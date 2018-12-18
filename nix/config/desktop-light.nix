@@ -57,6 +57,7 @@
     browserpass
 
     okular
+    breeze-icons # needed for okular
   ];
   environment.pathsToLink = [ "/share" ];
 
