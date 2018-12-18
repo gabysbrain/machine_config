@@ -239,17 +239,22 @@
     };
 
     ###############################
-    # Other stuff
+    # Ranger
     ###############################
     ".config/ranger/rifle.conf".source = ../dotfiles/dot-rifle.conf;
     ".config/ranger/rc.conf".source = ../dotfiles/dot-ranger/rc.conf;
     ".config/ranger/commands.py".source = ../dotfiles/dot-ranger/commands.py;
+    ".config/ranger/colorschemes/zenburn.py".source = ../dotfiles/dot-ranger/zenburn.py;
+
+    ###############################
+    # Other stuff
+    ###############################
     ".tvrc".source = ../dotfiles/dot-tvrc;
     ".newsboat/config".source = ../dotfiles/dot-newsboat;
   };
   gtk = {
     enable = true;
-    theme.name = "Arc";
+    theme.name = "Arc-Darker";
     theme.package = pkgs.arc-theme;
     iconTheme.name = "Arc";
     iconTheme.package = pkgs.arc-icon-theme;
