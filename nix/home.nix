@@ -7,13 +7,11 @@
     initExtra = ''
       ~/.fehbg
     '';
-    windowManager.command = 
-      let
-        xmonad = pkgs.xmonad-with-packages.override {
-          packages = self: [ self.xmonad-contrib ];
-        };
-      in
-        "${xmonad}/bin/xmonad";
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      config = ~/Projects/machine_config/xmonad/xmonad.hs;
+    };
   };
   accounts.email = {
     maildirBasePath = ".mail";
@@ -229,9 +227,8 @@
     ".urlview".source = ../dotfiles/dot-urlview;
 
     ###############################
-    # Xmonad, etc
+    # XMonad utilities
     ###############################
-    ".xmonad/xmonad.hs".source = ../xmonad/xmonad.hs;
     ".xmonad/xmobar.hs".source = ../xmonad/xmobar.hs;
     ".xmonad/wireless.sh" = {
       source = ../xmonad/wireless.sh;
