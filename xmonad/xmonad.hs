@@ -44,7 +44,7 @@ myFocusedBorderColor = "#75b92d"
 
 -- Key bindings. Add, modify or remove key bindings here.
 -------------------------------------------------------------------------------
-myKeys x = M.union (M.fromList (customKeys x)) (keys defaultConfig x)
+myKeys x = M.union (M.fromList (customKeys x)) (keys def x)
 
 customKeys conf@(XConfig {XMonad.modMask = modm}) = 
 
@@ -125,7 +125,7 @@ myManageHook = manageDocks <+> composeAll
 -------------------------------------------------------------------------------
 myEventHook = mconcat
   [ docksEventHook -- this is needed to properly get xmobar struts working
-  , handleEventHook defaultConfig
+  , handleEventHook def
   ]
 
 -- Status bars and logging
@@ -149,7 +149,7 @@ myStartupHook = setWMName "LG3D"
 
 -- Configuration structure
 -------------------------------------------------------------------------------
-myConfig statusPipe = defaultConfig {
+myConfig statusPipe = def {
   -- simple stuff
   terminal           = myTerminal,
   focusFollowsMouse  = myFocusFollowsMouse,
