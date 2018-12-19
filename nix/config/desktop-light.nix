@@ -71,7 +71,9 @@
     autorun = true;
     enable = true;
     layout = "us";
-    #xkbOptions = "eurosign:e";
+    
+    # use compose key
+    xkbOptions = "compose:menu";
 
     # synaptics
     #synaptics = {
@@ -103,6 +105,7 @@
       enableContribAndExtras = true;
     };
     windowManager.default = "xmonad";
+
   };
   services.gnome3.at-spi2-core.enable = true;
 }

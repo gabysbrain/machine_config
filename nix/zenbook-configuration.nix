@@ -12,6 +12,7 @@
       ./config/base.nix
       ./config/dev.nix
       ./config/writing.nix
+      ./config/laptop.nix
       ./config/desktop-full.nix
       ./pkgs/dsmc-service.nix
     ];
@@ -96,10 +97,6 @@
       in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
   };
   # List services that you want to enable
-
-  services.xserver = {
-    xkbOptions = "compose:menu";
-  };
 
   services.printing.enable = true;
 
