@@ -66,8 +66,6 @@
   # List services that you want to enable
 
   services.xserver = {
-    xkbOptions = "compose:menu";
-
     monitorSection = ''
       DisplaySize 406 228
     '';
