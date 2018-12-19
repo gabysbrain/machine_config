@@ -1,5 +1,5 @@
-{pkgs ? import <nixpkgs>}:
-#with import <nixpkgs> {};
+#{pkgs ? import <nixpkgs>}:
+with import <nixpkgs> {};
 
 pkgs.writeShellScriptBin "screenselect" ''
     MAIN="eDP1"
