@@ -7,12 +7,14 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
+
 import XMonad.Actions.UpdatePointer
 
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
 import XMonad.Layout.Grid
+import XMonad.Layout.NoFrillsDecoration
 
 import XMonad.Util.Run(spawnPipe)
 import System.IO(hPutStrLn)
@@ -37,10 +39,23 @@ myMainColor = "#333333"
 myBgColor = "#FEFEFE"
 myTextcolor = "#282828"
 myLowColor = "#999999"
+greenColor = "#75b92d"
 
-myBorderWidth = 1
+myBorderWidth = 0
+myTopBarHeight = 5
+myGap = 10
 myNormalBorderColor = myTextcolor
 myFocusedBorderColor = "#75b92d"
+
+myTopBar = def
+  { inactiveBorderColor = myBgColor
+  , inactiveColor = myBgColor
+  , inactiveTextColor = myBgColor
+  , activeBorderColor = greenColor
+  , activeColor = greenColor
+  , activeTextColor = greenColor
+  , decoHeight = myTopBarHeight
+  }
 
 -- Key bindings. Add, modify or remove key bindings here.
 -------------------------------------------------------------------------------
@@ -101,9 +116,11 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
 
 -- Layouts
 ------------------------------------------------------------------------
-myLayout = smartBorders $ avoidStruts $ smartSpacing 2 $ tiled ||| Mirror tiled ||| Grid ||| Full
+myLayout = smartBorders $ avoidStruts $ topbar $ spacing myGap $ tiled ||| Grid ||| Full
   where
     tiled = ResizableTall 1 0.03 0.5 []
+    spacing x = spacingRaw False (Border 0 0 0 0) False (Border x x x x) True
+    topbar = noFrillsDeco shrinkText myTopBar
 
 -- Window rules:
 -- > xprop | grep WM_CLASS
