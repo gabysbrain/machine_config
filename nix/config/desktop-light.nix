@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  networking = {
-    wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    #connman.enable = true;
-  };
-
   # Select internationalisation properties.
   # i18n = {
   #   consoleFont = "Lat2-Terminus16";
@@ -30,8 +25,6 @@
     kinit
     plasma-workspace
     haskellPackages.xmobar
-    dzen2
-    conky
     dmenu
 
     xclip
