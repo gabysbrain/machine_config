@@ -10,11 +10,13 @@ import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Actions.UpdatePointer
 
+import XMonad.Layout.BinarySpacePartition
+import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
+import XMonad.Layout.NoFrillsDecoration
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
-import XMonad.Layout.Grid
-import XMonad.Layout.NoFrillsDecoration
+import XMonad.Layout.Tabbed
 
 import XMonad.Util.Run(spawnPipe)
 import System.IO(hPutStrLn)
@@ -37,23 +39,24 @@ myModMask = mod4Mask
 myWorkspaces = ["1 sh","2 ed","3 www","4 mail", "5 doc", "6 ."]
 myMainColor = "#333333"
 myBgColor = "#FEFEFE"
-myTextcolor = "#282828"
+myTextColor = "#282828"
 myLowColor = "#999999"
 greenColor = "#75b92d"
+
+myActiveColor = greenColor
+myInactiveColor = myTextColor
 
 myBorderWidth = 0
 myTopBarHeight = 5
 myGap = 10
-myNormalBorderColor = myTextcolor
-myFocusedBorderColor = "#75b92d"
 
 myTopBar = def
-  { inactiveBorderColor = myBgColor
-  , inactiveColor = myBgColor
-  , inactiveTextColor = myBgColor
-  , activeBorderColor = greenColor
-  , activeColor = greenColor
-  , activeTextColor = greenColor
+  { inactiveBorderColor = myInactiveColor
+  , inactiveColor = myInactiveColor
+  , inactiveTextColor = myInactiveColor
+  , activeBorderColor = myActiveColor
+  , activeColor = myActiveColor
+  , activeTextColor = myActiveColor
   , decoHeight = myTopBarHeight
   }
 
@@ -153,8 +156,8 @@ myPP statusPipe = xmobarPP {
     ppOutput = hPutStrLn statusPipe
   , ppCurrent = xmobarColor myMainColor myBgColor . addPad
   , ppHiddenNoWindows = xmobarColor myLowColor "" . addPad
-  , ppHidden = xmobarColor myTextcolor "" . addPad
-  , ppTitle = xmobarColor myTextcolor ""
+  , ppHidden = xmobarColor myTextColor "" . addPad
+  , ppTitle = xmobarColor myTextColor ""
   , ppSep = xmobarColor myMainColor myBgColor "  |  "
 }
 
@@ -173,8 +176,6 @@ myConfig statusPipe = def {
   borderWidth        = myBorderWidth,
   modMask            = myModMask,
   workspaces         = myWorkspaces,
-  normalBorderColor  = myNormalBorderColor,
-  focusedBorderColor = myFocusedBorderColor,
 
   -- bindings
   keys               = myKeys,
