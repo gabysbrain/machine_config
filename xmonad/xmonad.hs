@@ -119,10 +119,14 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
 
 -- Layouts
 ------------------------------------------------------------------------
-myLayout = smartBorders $ avoidStruts $ topbar $ spacing myGap $ tiled ||| Grid ||| Full
+myLayout = smartBorders $ avoidStruts $ tiled ||| bsp ||| tabbed 
   where
-    tiled = ResizableTall 1 0.03 0.5 []
+    tiled = topbar $ spacing myGap $ ResizableTall 1 0.03 0.5 []
+    tabbed = fsSpacing myGap $ simpleTabbed
+    bsp = topbar $ spacing myGap $ emptyBSP
+    grid = topbar $ spacing myGap $ Grid
     spacing x = spacingRaw False (Border 0 0 0 0) False (Border x x x x) True
+    fsSpacing x = spacingRaw False (Border x x x x) True (Border 0 0 0 0) False
     topbar = noFrillsDeco shrinkText myTopBar
 
 -- Window rules:
