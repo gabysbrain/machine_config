@@ -260,7 +260,7 @@
   services = {
     mbsync = {
       enable = true;
-      frequency = "15m";
+      frequency = "*:0/15";
     };
     gpg-agent = {
       enable = true;
