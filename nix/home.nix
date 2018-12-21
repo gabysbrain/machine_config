@@ -262,6 +262,11 @@
       enable = true;
       frequency = "15m";
     };
+    gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 1800; # 30 minutes
+      maxCacheTtl = 604800; # one week
+    };
   };
   systemd.user = {
     services = {
