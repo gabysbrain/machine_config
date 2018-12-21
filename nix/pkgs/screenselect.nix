@@ -17,7 +17,7 @@ pkgs.writeShellScriptBin "screenselect" ''
     # Let the user choose what screen
     chosen=$(printf "docking station\\ndual\\nmain\\nother" | dmenu -i -p "Select display:") &&
     case "$chosen" in
-      "docking station") $XRANDR --output DP1-1 --off; $XRANDR --output DP1-1 --mode '1920x1200' --left-of eDP1 ;;
+      "docking station") $XRANDR --output DP1-1 --off; $XRANDR --output DP1-1 --mode '1920x1080' --left-of eDP1 ;;
       dual) $XRANDR --output $MAIN --auto $(echo "$screens" | grep -v $MAIN | awk '{print "--output", $1, "--off"}' | tr '\n' ' ') ;;
       main) $XRANDR --output $MAIN --auto $(echo "$screens" | grep -v $MAIN | awk '{print "--output", $1, "--off"}' | tr '\n' ' ') ;;
       other) $ARANDR ; exit ;;
