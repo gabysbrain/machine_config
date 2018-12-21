@@ -17,6 +17,7 @@
 
     # general
     gnumake
+    jq
   ];
 
   nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
