@@ -14,6 +14,7 @@ import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
 import XMonad.Layout.NoFrillsDecoration
+import XMonad.Layout.Renamed
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
@@ -48,7 +49,9 @@ myInactiveColor = myTextColor
 
 myBorderWidth = 0
 myTopBarHeight = 5
+myTabBarHeight = 13
 myGap = 10
+myFont = "xft:Anonymous Pro:size=10"
 
 myTopBar = def
   { inactiveBorderColor = myInactiveColor
@@ -58,6 +61,17 @@ myTopBar = def
   , activeColor = myActiveColor
   , activeTextColor = myActiveColor
   , decoHeight = myTopBarHeight
+  }
+
+myTabBar = def
+  { fontName = myFont
+  , inactiveBorderColor = myInactiveColor
+  , inactiveColor = myInactiveColor
+  , inactiveTextColor = myBgColor
+  , activeBorderColor = myActiveColor
+  , activeColor = myActiveColor
+  , activeTextColor = myTextColor
+  , decoHeight = myTabBarHeight
   }
 
 -- Key bindings. Add, modify or remove key bindings here.
@@ -104,6 +118,10 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
   , ((0, 0x1008ff13), spawn "amixer -q set Master 5+ unmute")
   , ((0, 0x1008ff12), spawn "amixer set Master toggle")
 
+  -- Select display
+  , ((0, 0x2a00001), spawn "screnselect")
+
+
   -- Cover the status bar gap
   , ((modm, xK_y), sendMessage ToggleStruts)
 
@@ -119,15 +137,28 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
 
 -- Layouts
 ------------------------------------------------------------------------
-myLayout = smartBorders $ avoidStruts $ tiled ||| bsp ||| tabbed 
+myLayout = smartBorders $ avoidStruts $ tiledL ||| bspL ||| tabbedL 
   where
-    tiled = topbar $ spacing myGap $ ResizableTall 1 0.03 0.5 []
-    tabbed = fsSpacing myGap $ simpleTabbed
-    bsp = topbar $ spacing myGap $ emptyBSP
-    grid = topbar $ spacing myGap $ Grid
+    tiledL = named "Tiled"
+      $ topbar 
+      $ spacing myGap 
+      $ ResizableTall 1 0.03 0.5 []
+    tabbedL = named "Tabbed"
+      $ fsSpacing myGap 
+      $ tabbed shrinkText myTabBar
+    bspL = named "BSP" 
+      $ topbar 
+      $ spacing myGap 
+      $ emptyBSP
+    gridL = named "Grid" 
+      $ topbar 
+      $ spacing myGap 
+      $ Grid
+
     spacing x = spacingRaw False (Border 0 0 0 0) False (Border x x x x) True
     fsSpacing x = spacingRaw False (Border x x x x) True (Border 0 0 0 0) False
     topbar = noFrillsDeco shrinkText myTopBar
+    named n = renamed [(XMonad.Layout.Renamed.Replace n)]
 
 -- Window rules:
 -- > xprop | grep WM_CLASS
