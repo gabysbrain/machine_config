@@ -92,8 +92,7 @@
     fsType = "cifs";
     options = let
       # this line prevents hanging on network split
-      #automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,users,nounix,file_mode=0660,dir_mode=0770,gid=1";
-      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,file_mode=0660,dir_mode=0770,gid=1,nounix";
+      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
       in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
   };
   # List services that you want to enable
