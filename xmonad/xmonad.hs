@@ -8,6 +8,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
 
+import XMonad.Actions.DynamicProjects
 import XMonad.Actions.UpdatePointer
 
 import XMonad.Layout.BinarySpacePartition
@@ -20,7 +21,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
 
 import XMonad.Util.NamedActions
-import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.Run
 
 import System.IO
 
@@ -37,6 +38,15 @@ wsDoc = "Doc"
 wsAV  = "AV"
 wsTmp = "Tmp"
 wsSys = "Sys"
+
+-- Projects
+projects :: [Project]
+projects = 
+  [ Project { projectName = wsSys
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ do runInTerm "-name glances" "glances"
+            }
+  ]
 
 ---
 --- derived from https://gist.github.com/Tzbob/7362371
@@ -139,9 +149,9 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
 
   -- Programs
   , ((modm, xK_b), spawn "firefox")
-  , ((modm, xK_k), spawn "urxvt -e khal")
-  , ((modm, xK_m), spawn "urxvt -e mutt")
-  , ((modm, xK_r), spawn "urxvt -e ranger")
+  , ((modm, xK_k), runInTerm "-name khal" "khal")
+  , ((modm, xK_m), runInTerm "-name mutt" "mutt")
+  , ((modm, xK_r), runInTerm "-name ranger" "ranger")
 
   -- Restart xmonad
   , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
@@ -250,7 +260,10 @@ myConfig statusPipe = def {
 -------------------------------------------------------------------------------
 main = do
   statusPipe <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
-  xmonad . ewmh $ myConfig statusPipe
+  xmonad
+    $ dynamicProjects projects
+    $ ewmh 
+    $ myConfig statusPipe
     -- $ addDescrKeys ((myModMask, xK_F1), showKeybindings) myKeys
 
 -- from:
