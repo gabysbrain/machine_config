@@ -119,7 +119,7 @@ customKeys conf@(XConfig {XMonad.modMask = modm}) =
   , ((0, 0x1008ff12), spawn "amixer set Master toggle")
 
   -- Select display
-  , ((0, 0x1008ffa9), spawn "screenselect")
+  , ((modm, xK_F8), spawn "screenselect")
 
   -- Cover the status bar gap
   , ((modm, xK_y), sendMessage ToggleStruts)
