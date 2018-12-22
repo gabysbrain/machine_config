@@ -17,6 +17,8 @@
     connman-gtk
     connman_dmenu
 
+    python36Packages.glances
+
     firefox
     libreoffice
     franz
