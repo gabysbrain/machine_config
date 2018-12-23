@@ -62,13 +62,12 @@ projects =
 --- derived from https://gist.github.com/Tzbob/7362371
 ---
 
-myTerminal :: String
 myTerminal = "urxvt"
+myBrowser = "firefox"
 
-myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
-myWorkspaces = [wsGen,wsWk1,wsWk2,wsWk3, wsCom, wsDoc, wsAV, wsTmp, wsSys]
+myWorkspaces = [wsWk1, wsWk2, wsWk3, wsGen, wsCom, wsDoc, wsAV, wsTmp, wsSys]
 myMainColor = "#333333"
 myBgColor = "#FEFEFE"
 myTextColor = "#282828"
