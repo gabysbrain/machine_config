@@ -41,13 +41,22 @@ wsTmp = "Tmp"
 wsSys = "Sys"
 
 -- Projects
+workProject :: String -> Project
+workProject ws = Project { projectName = ws
+                         , projectDirectory = "~/"
+                         , projectStartHook = Just $ do
+                             spawn myBrowser
+                             spawn myTerminal
+                             rit' "ranger"
+                         }
+
 projects :: [Project]
 projects = 
   [ Project { projectName = wsSys
             , projectDirectory = "~/"
             , projectStartHook = Just $ do runInTerm "-name glances" "glances"
             }
-  ]
+  ] ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
 
 ---
 --- derived from https://gist.github.com/Tzbob/7362371
