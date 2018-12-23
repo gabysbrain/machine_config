@@ -20,6 +20,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
 
+import XMonad.Util.EZConfig
 import XMonad.Util.NamedActions
 import XMonad.Util.Run
 
@@ -58,13 +59,7 @@ myTerminal = "urxvt"
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
-<<<<<<< HEAD
-myModMask = mod4Mask
-
 myWorkspaces = [wsGen,wsWk1,wsWk2,wsWk3, wsCom, wsDoc, wsAV, wsTmp, wsSys]
-=======
-myWorkspaces = ["1 sh","2 ed","3 www","4 mail", "5 doc", "6 ."]
->>>>>>> change method for keybindings
 myMainColor = "#333333"
 myBgColor = "#FEFEFE"
 myTextColor = "#282828"
@@ -117,34 +112,32 @@ showKeybindings x = addName "Show Keybindings" $ io $ do
 
 myKeys conf = let
   -- from https://github.com/altercation/dotfiles-tilingwm/blob/master/.xmonad/xmonad.hs
-  subKeys str ks = subtitle str : mkNamedKeymap conf ks
+  subKeys str ks = subtitle str : ks
   in
   subKeys "system"
-    [ ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
-    , ((modm, xK_F8), spawn "screenselect") -- Select display
+    [ ((myModMask, xK_q), addName "Restart and recompile xmonad" $ spawn "xmonad --recompile; xmonad --restart")
+    , ((myModMask, xK_F8), addName "Select display" $ spawn "screenselect")
     -- Volume
-    , ((0, 0x1008ff11), spawn "amixer -q set Master 5- unmute")
-    , ((0, 0x1008ff13), spawn "amixer -q set Master 5+ unmute")
-    , ((0, 0x1008ff12), spawn "amixer set Master toggle")
+    , ((0, 0x1008ff11), addName "Reduce volume" $ spawn "amixer -q set Master 5- unmute")
+    , ((0, 0x1008ff13), addName "Increase volume" $ spawn "amixer -q set Master 5+ unmute")
+    , ((0, 0x1008ff12), addName "Mute volume" $ spawn "amixer set Master toggle")
     ] ^++^
 
   -- Programs
   subKeys "launchers"
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-    , ((modm, xK_b), spawn "firefox")
-    , ((modm, xK_k), spawn "urxvt -e khal")
-    , ((modm, xK_m), spawn "urxvt -e mutt")
-    , ((modm, xK_r), spawn "urxvt -e ranger")
+    [ ((myModMask .|. shiftMask, xK_Return), addName "Terminal" $ spawn $ XMonad.terminal conf)
+    , ((myModMask, xK_b), addName "Browser" $ spawn "firefox")
+    , ((myModMask, xK_k), addName "Khal" $ spawn "urxvt -e khal")
+    , ((myModMask, xK_m), addName "Mutt" $ spawn "urxvt -e mutt")
+    , ((myModMask, xK_r), addName "Ranger" $ spawn "urxvt -e ranger")
     ] ^++^
 
   subKeys "layouts"
-    [ ((modm, xK_space ), sendMessage NextLayout) -- Rotate through the available layout algorithms
-    , ((modm, xK_Return), windows W.swapMaster) -- Swap the focused window and the master window
-    , ((modm, xK_h), sendMessage Shrink) -- Shrink the master area
-    , ((modm, xK_l), sendMessage Expand) -- Expand the master area
-    , ((modm, xK_t), withFocused $ windows . W.sink) -- Push window back into tiling
-    , ((modm .|. shiftMask, xK_c), kill) -- close focused window
-    , ((modm, xK_y), sendMessage ToggleStruts) -- Cover the status bar gap
+    [ ((myModMask, xK_space ), addName "Change layout" $ sendMessage NextLayout)
+    , ((myModMask, xK_Return), addName "Swap master" $ windows W.swapMaster)
+    , ((myModMask, xK_t), addName "Push window pack to tiling" $ withFocused $ windows . W.sink) 
+    , ((myModMask .|. shiftMask, xK_c), addName "Close window" $ kill)
+    , ((myModMask, xK_y), addName "Hide status bar" $ sendMessage ToggleStruts)
     ]
 
 -- Layouts
@@ -210,17 +203,6 @@ myPP statusPipe = xmobarPP {
 
 myLogHook pipe = dynamicLogWithPP (myPP pipe)  -- >> updatePointer (Relative 0.5 0.5)
 
-
--- Display keyboard mappings using zenity
--- from https://github.com/thomasf/dotfiles-thomasf-xmonad/
---              blob/master/.xmonad/lib/XMonad/Config/A00001.hs
-showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
-showKeybindings x = addName "Show Keybindings" $ io $ do
-    h <- spawnPipe "zenity --text-info --font=terminus"
-    hPutStr h (unlines $ showKm x)
-    hClose h
-    return ()
-
 -- Startup hook
 -------------------------------------------------------------------------------
 myStartupHook = setWMName "LG3D"
@@ -234,9 +216,6 @@ myConfig statusPipe = def {
   borderWidth        = myBorderWidth,
   modMask            = myModMask,
   workspaces         = myWorkspaces,
-
-  -- bindings
-  keys               = myKeys,
 
   -- hooks, layouts
   layoutHook         = myLayout,
@@ -253,8 +232,8 @@ main = do
   xmonad
     $ dynamicProjects projects
     $ ewmh 
+    $ addDescrKeys ((myModMask, xK_F1), showKeybindings) myKeys
     $ myConfig statusPipe
-    -- $ addDescrKeys ((myModMask, xK_F1), showKeybindings) myKeys
 
 -- from:
 -- https://github.com/pjones/xmonadrc/blob/master/src/XMonad/Local/Action.hs
