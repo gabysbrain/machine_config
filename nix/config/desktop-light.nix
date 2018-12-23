@@ -26,6 +26,7 @@
     plasma-workspace
     haskellPackages.xmobar
     dmenu
+    zenity
 
     xclip
     ranger
