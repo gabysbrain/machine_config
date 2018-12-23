@@ -58,9 +58,13 @@ myTerminal = "urxvt"
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
+<<<<<<< HEAD
 myModMask = mod4Mask
 
 myWorkspaces = [wsGen,wsWk1,wsWk2,wsWk3, wsCom, wsDoc, wsAV, wsTmp, wsSys]
+=======
+myWorkspaces = ["1 sh","2 ed","3 www","4 mail", "5 doc", "6 ."]
+>>>>>>> change method for keybindings
 myMainColor = "#333333"
 myBgColor = "#FEFEFE"
 myTextColor = "#282828"
@@ -99,63 +103,49 @@ myTabBar = def
 
 -- Key bindings. Add, modify or remove key bindings here.
 -------------------------------------------------------------------------------
-myKeys x = M.union (M.fromList (customKeys x)) (keys def x)
+myModMask = mod4Mask
 
-customKeys conf@(XConfig {XMonad.modMask = modm}) = 
+-- Display keyboard mappings using zenity
+-- from https://github.com/thomasf/dotfiles-thomasf-xmonad/
+--              blob/master/.xmonad/lib/XMonad/Config/A00001.hs
+showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
+showKeybindings x = addName "Show Keybindings" $ io $ do
+  h <- spawnPipe "zenity --text-info --font=terminus"
+  hPutStr h (unlines $ showKm x)
+  hClose h
+  return ()
 
-  -- launch a terminal
-  [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-
-  -- close focused window
-  , ((modm .|. shiftMask, xK_c), kill)
-
-   -- Rotate through the available layout algorithms
-  , ((modm, xK_space ), sendMessage NextLayout)
-
-  -- Swap the focused window and the master window
-  , ((modm, xK_Return), windows W.swapMaster)
-
-  -- Shrink the master area
-  , ((modm, xK_h), sendMessage Shrink)
-
-  -- Expand the master area
-  , ((modm, xK_l), sendMessage Expand)
-
-  -- Shrink a window
-  , ((modm, xK_u), sendMessage MirrorShrink)
-
-  -- Expand a window
-  , ((modm, xK_i), sendMessage MirrorExpand)
-
-  -- Push window back into tiling
-  , ((modm, xK_t), withFocused $ windows . W.sink)
-
-  -- Increment the number of windows in the master area
-  , ((modm .|. shiftMask, xK_h), sendMessage (IncMasterN 1))
-
-  -- Deincrement the number of windows in the master area
-  , ((modm .|. shiftMask, xK_l), sendMessage (IncMasterN (-1)))
-
-  -- Volume
-  , ((0, 0x1008ff11), spawn "amixer -q set Master 5- unmute")
-  , ((0, 0x1008ff13), spawn "amixer -q set Master 5+ unmute")
-  , ((0, 0x1008ff12), spawn "amixer set Master toggle")
-
-  -- Select display
-  , ((modm, xK_F8), spawn "screenselect")
-
-  -- Cover the status bar gap
-  , ((modm, xK_y), sendMessage ToggleStruts)
+myKeys conf = let
+  -- from https://github.com/altercation/dotfiles-tilingwm/blob/master/.xmonad/xmonad.hs
+  subKeys str ks = subtitle str : mkNamedKeymap conf ks
+  in
+  subKeys "system"
+    [ ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm, xK_F8), spawn "screenselect") -- Select display
+    -- Volume
+    , ((0, 0x1008ff11), spawn "amixer -q set Master 5- unmute")
+    , ((0, 0x1008ff13), spawn "amixer -q set Master 5+ unmute")
+    , ((0, 0x1008ff12), spawn "amixer set Master toggle")
+    ] ^++^
 
   -- Programs
-  , ((modm, xK_b), spawn "firefox")
-  , ((modm, xK_k), runInTerm "-name khal" "khal")
-  , ((modm, xK_m), runInTerm "-name mutt" "mutt")
-  , ((modm, xK_r), runInTerm "-name ranger" "ranger")
+  subKeys "launchers"
+    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    , ((modm, xK_b), spawn "firefox")
+    , ((modm, xK_k), spawn "urxvt -e khal")
+    , ((modm, xK_m), spawn "urxvt -e mutt")
+    , ((modm, xK_r), spawn "urxvt -e ranger")
+    ] ^++^
 
-  -- Restart xmonad
-  , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
-  ]
+  subKeys "layouts"
+    [ ((modm, xK_space ), sendMessage NextLayout) -- Rotate through the available layout algorithms
+    , ((modm, xK_Return), windows W.swapMaster) -- Swap the focused window and the master window
+    , ((modm, xK_h), sendMessage Shrink) -- Shrink the master area
+    , ((modm, xK_l), sendMessage Expand) -- Expand the master area
+    , ((modm, xK_t), withFocused $ windows . W.sink) -- Push window back into tiling
+    , ((modm .|. shiftMask, xK_c), kill) -- close focused window
+    , ((modm, xK_y), sendMessage ToggleStruts) -- Cover the status bar gap
+    ]
 
 -- Layouts
 ------------------------------------------------------------------------
