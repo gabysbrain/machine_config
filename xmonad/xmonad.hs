@@ -54,7 +54,7 @@ projects :: [Project]
 projects = 
   [ Project { projectName = wsSys
             , projectDirectory = "~/"
-            , projectStartHook = Just $ do runInTerm "-name glances" "glances"
+            , projectStartHook = Just $ do rit' "glances"
             }
   ] ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
 
@@ -134,11 +134,11 @@ myKeys conf = let
 
   -- Programs
   subKeys "launchers"
-    [ ((myModMask .|. shiftMask, xK_Return), addName "Terminal" $ spawn $ XMonad.terminal conf)
-    , ((myModMask, xK_b), addName "Browser" $ spawn "firefox")
-    , ((myModMask, xK_k), addName "Khal" $ spawn "urxvt -e khal")
-    , ((myModMask, xK_m), addName "Mutt" $ spawn "urxvt -e mutt")
-    , ((myModMask, xK_r), addName "Ranger" $ spawn "urxvt -e ranger")
+    [ ((myModMask .|. shiftMask, xK_Return), addName "Terminal" $ spawn myTerminal)
+    , ((myModMask, xK_b), addName "Browser" $ spawn myBrowser)
+    , ((myModMask, xK_k), addName "Khal" $ rit' "khal")
+    , ((myModMask, xK_m), addName "Mutt" $ rit' "mutt")
+    , ((myModMask, xK_r), addName "Ranger" $ rit' "ranger")
     ] ^++^
 
   subKeys "layouts"
@@ -262,4 +262,7 @@ forceCenterFloat = doFloatDep move
     h = 1/2
     x = (1-w)/2
     y = (1-h)/2
+
+rit n c = runInTerm ("-name " ++ n) c
+rit' c = rit c c
 
