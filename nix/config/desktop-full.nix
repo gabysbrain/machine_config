@@ -21,12 +21,12 @@
 
     firefox
     libreoffice
-    franz
     spotify
     skype
     jabref
     meld
     newsboat
+    weechat
 
     inkscape
     gimp
@@ -34,5 +34,23 @@
     shotcut
 
     rstudio
+  ];
+
+  nixpkgs.overlays = [
+    (
+      self: super: {
+        weechat = super.weechat.override {
+          configure = { availablePlugins, ...}: {
+            plugins = with availablePlugins; [
+              (python.withPackages (ps: with ps; [websocket_client]))
+            ];
+            scripts = with pkgs.weechatScripts; [
+              weechat-xmpp
+              wee-slack
+            ];
+          };
+        };
+      }
+    )
   ];
 }
