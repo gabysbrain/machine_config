@@ -46,7 +46,6 @@ workProject ws = Project { projectName = ws
                          , projectDirectory = "~/"
                          , projectStartHook = Just $ do
                              spawn myBrowser
-                             spawn myTerminal
                              rit' "ranger"
                          }
 
