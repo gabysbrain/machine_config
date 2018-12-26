@@ -45,8 +45,8 @@ workProject :: String -> Project
 workProject ws = Project { projectName = ws
                          , projectDirectory = "~/"
                          , projectStartHook = Just $ do
+                             rit' "ranger ~/Projects"
                              spawn myBrowser
-                             rit' "ranger"
                          }
 
 projects :: [Project]
