@@ -42,6 +42,10 @@
             "*" "INBOX"
             "![Gmail]/*" "!sent" "!archive" "!spam" "!trash"
           ];
+          extraConfig.account = {
+            PipelineDepth = 50;
+            Timeout = 60;
+          };
         };
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1";
         folders = {
