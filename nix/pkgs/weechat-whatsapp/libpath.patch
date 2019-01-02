@@ -1,0 +1,14 @@
+diff --git whatsapp.py whatsapp_patched.py
+index fbacc86..f709aae 100644
+--- whatsapp.py
++++ whatsapp_patched.py
+@@ -95,6 +95,9 @@ SCRIPT_LICENSE = "GPL3"
+ SCRIPT_DESC    = "Whatsapp protocol for WeeChat"
+ SCRIPT_COMMAND = SCRIPT_NAME
+ 
++import sys
++sys.path.append('@env@')
++
+ import re
+ 
+ import_ok = True
