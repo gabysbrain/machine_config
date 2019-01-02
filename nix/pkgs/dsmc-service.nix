@@ -79,11 +79,11 @@ with lib;
   };
 
   config = mkIf cfg.enable {
-    systemd.services.dsmc = {
+    systemd.services.dsmc-backup = {
       description = "Tivoli run script";
       serviceConfig.ExecStart = "${dsmc}/bin/dsmc incremental";
     };
-    systemd.timers.dsmc = {
+    systemd.timers.dsmc-backup = {
       timerConfig.OnCalendar = cfg.interval;
       wantedBy = [ "timers.target" ];
     };
