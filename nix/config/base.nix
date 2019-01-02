@@ -43,6 +43,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # set build cores automatically
+  nix.buildCores = 0;
+
   # List services that you want to enable
 
   # periodically run GC
