@@ -53,7 +53,7 @@ projects :: [Project]
 projects = 
   [ Project { projectName = wsSys
             , projectDirectory = "~/"
-            , projectStartHook = Just $ do rit' "glances"
+            , projectStartHook = Just $ do rit' "glances -1"
             }
   ] ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
 
