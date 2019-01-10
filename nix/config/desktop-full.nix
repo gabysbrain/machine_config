@@ -20,7 +20,7 @@
     python36Packages.glances
 
     firefox
-    libreoffice
+    libreoffice-unwrapped
     spotify
     skype
     jabref
@@ -42,7 +42,10 @@
         weechat = super.weechat.override {
           configure = { availablePlugins, ...}: {
             plugins = with availablePlugins; [
-              (python.withPackages (ps: with ps; [websocket_client]))
+              (python.withPackages (ps: with ps; [
+                websocket_client
+                #yowsup
+              ]))
             ];
             scripts = with pkgs.weechatScripts; [
               weechat-xmpp
