@@ -47,7 +47,7 @@
     #dropbox-cli
     owncloud-client
 
-    chromium
+    firefox
     browserpass
 
     okular

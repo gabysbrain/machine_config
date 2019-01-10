@@ -18,6 +18,8 @@
     # general
     gnumake
     jq
+
+    chromium
   ];
 
   nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];

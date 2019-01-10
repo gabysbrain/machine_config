@@ -19,7 +19,6 @@
 
     python36Packages.glances
 
-    firefox
     libreoffice-unwrapped
     spotify
     skype
