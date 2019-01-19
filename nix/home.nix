@@ -261,6 +261,10 @@
     iconTheme.package = pkgs.arc-icon-theme;
         #nixos.arc-icon-theme
   };
+  qt = {
+    enable = true;
+    useGtkTheme = true;
+  };
   services = {
     mbsync = {
       enable = true;
