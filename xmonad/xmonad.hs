@@ -55,6 +55,12 @@ projects =
             , projectDirectory = "~/"
             , projectStartHook = Just $ do rit' "glances -1"
             }
+  , Project { projectName = wsCom
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ do
+                rit' "mutt"
+                rit' "weechat"
+            }
   ] ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
 
 ---
