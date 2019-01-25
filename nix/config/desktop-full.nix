@@ -39,6 +39,7 @@
     (
       self: super: {
         weechat = super.weechat.override {
+          #pythonPackages = super.python36Packages;
           configure = { availablePlugins, ...}: {
             plugins = with availablePlugins; [
               (python.withPackages (ps: with ps; [

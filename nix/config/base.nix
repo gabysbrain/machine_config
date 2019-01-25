@@ -12,6 +12,7 @@
     silver-searcher
     unzip
     (import ../pkgs/vim.nix)
+    atool
 
     # password storage
     pass
