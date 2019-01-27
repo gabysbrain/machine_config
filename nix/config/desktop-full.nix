@@ -32,12 +32,19 @@
     imagemagick
     shotcut
 
-    rstudio
+    #rstudio
+    rstudio-with-packages
   ];
 
   nixpkgs.overlays = [
     (
       self: super: {
+        rstudio-with-packages = super.rstudioWrapper.override {
+          packages = with super.rPackages; [
+            ggplot2
+            dplyr
+          ]; 
+        };
         weechat = super.weechat.override {
           #pythonPackages = super.python36Packages;
           configure = { availablePlugins, ...}: {
