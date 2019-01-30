@@ -159,7 +159,7 @@ myKeys conf = let
 
 -- Layouts
 ------------------------------------------------------------------------
-myLayout = smartBorders $ avoidStruts $ tiledL ||| bspL ||| tabbedL 
+myLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL 
   where
     tiledL = named "Tiled"
       $ topbar 
