@@ -25,6 +25,7 @@ import XMonad.Util.NamedActions
 import XMonad.Util.Run
 
 import System.IO
+import Graphics.X11.ExtraTypes.XF86 -- more keys
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
@@ -134,6 +135,9 @@ myKeys conf = let
     , ((0, 0x1008ff11), addName "Reduce volume" $ spawn "amixer -q set Master 5- unmute")
     , ((0, 0x1008ff13), addName "Increase volume" $ spawn "amixer -q set Master 5+ unmute")
     , ((0, 0x1008ff12), addName "Mute volume" $ spawn "amixer set Master toggle")
+    -- brightness
+    , ((0, xF86XK_MonBrightnessUp), addName "Increase screen brightness" $ spawn "xbacklight -inc 10")
+    , ((0, xF86XK_MonBrightnessDown), addName "Decrease screen brightness" $ spawn "xbacklight -dec 10")
     ] ^++^
 
   -- Programs
