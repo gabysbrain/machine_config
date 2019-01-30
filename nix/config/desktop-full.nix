@@ -42,6 +42,7 @@
         rstudio-with-packages = super.rstudioWrapper.override {
           packages = with super.rPackages; [
             ggplot2
+            gridExtra
             dplyr
           ]; 
         };
