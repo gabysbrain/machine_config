@@ -115,8 +115,7 @@ myTabBar = def
 myModMask = mod4Mask
 
 -- Display keyboard mappings using zenity
--- from https://github.com/thomasf/dotfiles-thomasf-xmonad/
---              blob/master/.xmonad/lib/XMonad/Config/A00001.hs
+-- from https://github.com/thomasf/dotfiles-thomasf-xmonad/blob/master/.xmonad/lib/XMonad/Config/A00001.hs
 showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
 showKeybindings x = addName "Show Keybindings" $ io $ do
   h <- spawnPipe "zenity --text-info --font=terminus"
@@ -223,7 +222,7 @@ myLogHook pipe = dynamicLogWithPP (myPP pipe)  -- >> updatePointer (Relative 0.5
 
 -- Startup hook
 -------------------------------------------------------------------------------
-myStartupHook = setWMName "LG3D"
+myStartupHook = setWMName "LG3D" -- so Java works
 
 -- Configuration structure
 -------------------------------------------------------------------------------
