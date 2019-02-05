@@ -125,14 +125,21 @@
     ];
     excludeDirs = [
       "/boot" 
+      "/dev"
+      "/lost+found"
       "/private" 
+      "/mnt"
       "/nix" 
+      "/run"
+      "/sys"
       "/tmp" 
       "/proc" 
       "/home/torsnet6cs/.cache" 
+      "/home/torsnet6cs/.mail" 
       "/home/torsnet6cs/.mozilla" 
       "/home/torsnet6cs/ownCloud"
       "/home/torsnet6cs/Dropbox"
+      "/home/torsnet6cs/Sync"
       "/var/tmp/"
     ];
   };
@@ -140,11 +147,31 @@
   # home backup
   services.borgbackup.jobs = {
     homeBackup = {
-      paths = "/home/torsnet6cs";
+      paths = "/";
       repo = "/mnt/ds_homes/gabysbrain/backups/zenbook";
       compression = "auto,lzma";
       encryption.mode = "none";
       startAt = "daily";
+      exclude = [
+        "/home/*/.cache"
+        "/boot"
+        "/dev"
+        "/lost+found"
+        "/nix"
+        "/var/tmp"
+        "/mnt"
+        "/proc"
+        "/run"
+        "/sys"
+        "/tmp"
+      ];
+      prune.keep = {
+        within = "1d"; # Keep all archives from the last day
+        daily = 7;
+        weekly = 4;
+        monthly = 12;  # Keep at one archive/month from the last year
+        yearly = -1; # Keep at least one archive per year
+      };
     };
   };
 
