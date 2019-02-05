@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ../../hardware-configuration.nix
-      #../secure.nix
+      ../../secret.nix
       ./config/base.nix
       ./config/dev.nix
       ./config/writing.nix
