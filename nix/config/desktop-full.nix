@@ -41,9 +41,15 @@
       self: super: {
         rstudio-with-packages = super.rstudioWrapper.override {
           packages = with super.rPackages; [
+            devtools
+            dplyr
+            geometry
             ggplot2
             gridExtra
-            dplyr
+            randtoolbox
+            roxygen2
+            testthat
+            usethis
           ]; 
         };
         weechat = super.weechat.override {
