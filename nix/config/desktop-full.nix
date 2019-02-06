@@ -32,6 +32,9 @@
     imagemagick
     shotcut
 
+    exiftool
+    poppler_utils
+
     #rstudio
     rstudio-with-packages
   ];
