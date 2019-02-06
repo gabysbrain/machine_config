@@ -244,6 +244,7 @@
     ###############################
     ".config/ranger/rifle.conf".source = ../dotfiles/dot-rifle.conf;
     ".config/ranger/rc.conf".source = ../dotfiles/dot-ranger/rc.conf;
+    ".config/ranger/scope.sh".source = ../dotfiles/dot-ranger/scope.sh;
     ".config/ranger/commands.py".source = ../dotfiles/dot-ranger/commands.py;
     ".config/ranger/colorschemes/zenburn.py".source = ../dotfiles/dot-ranger/zenburn.py;
 
