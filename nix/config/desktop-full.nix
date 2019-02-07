@@ -50,6 +50,7 @@
             ggplot2
             gridExtra
             randtoolbox
+            rgl
             roxygen2
             testthat
             usethis
