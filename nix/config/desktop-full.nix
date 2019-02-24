@@ -7,6 +7,7 @@ let rpkgs =  rpkg: with rpkg; [
       ggplot2
       gridExtra
       randtoolbox
+      rjson
       rgl
       roxygen2
       testthat
