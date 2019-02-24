@@ -154,16 +154,21 @@
       startAt = "daily";
       exclude = [
         "/home/*/.cache"
+        "/bin"
         "/boot"
         "/dev"
         "/lost+found"
         "/nix"
-        "/var/tmp"
         "/mnt"
         "/proc"
         "/run"
         "/sys"
         "/tmp"
+        "/usr"
+        "/var/cache"
+        "/var/lib"
+        "/var/run"
+        "/var/tmp"
       ];
       prune.keep = {
         within = "1d"; # Keep all archives from the last day
