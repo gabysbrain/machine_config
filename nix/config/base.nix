@@ -13,6 +13,7 @@
     unzip
     (import ../pkgs/vim.nix)
     atool
+    p7zip
 
     # password storage
     pass
