@@ -137,7 +137,6 @@
       "/home/torsnet6cs/.cache" 
       "/home/torsnet6cs/.mail" 
       "/home/torsnet6cs/.mozilla" 
-      "/home/torsnet6cs/ownCloud"
       "/home/torsnet6cs/Dropbox"
       "/home/torsnet6cs/Sync"
       "/var/tmp/"

@@ -45,7 +45,6 @@
     w3m
 
     #dropbox-cli
-    owncloud-client
 
     firefox
     browserpass
