@@ -15,6 +15,6 @@ Config
     ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = " %StdinReader% }{<fc=#333333>st</fc> %st% <action=`wpa_gui`>%wifi%</action> <fc=#333333>cpu</fc> %multicpu% <fc=#333333>vol</fc> %default:Master% <fc=#333333>bat</fc> %battery% <fc=#333333>|</fc> %date% "
+  , template = " %StdinReader% }{<action=`wpa_gui`>%wifi%</action> <fc=#333333>st</fc> %st% <fc=#333333>cpu</fc> %multicpu% <fc=#333333>vol</fc> %default:Master% <fc=#333333>bat</fc> %battery% <fc=#333333>|</fc> %date% "
   }
 
