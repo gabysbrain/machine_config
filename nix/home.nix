@@ -238,6 +238,10 @@
       source = ../xmonad/wireless.sh;
       executable = true;
     };
+    ".xmonad/xmobar-syncthing-status.sh" = {
+      source = ../xmonad/xmobar-syncthing-status.sh;
+      executable = true;
+    };
 
     ###############################
     # Ranger
