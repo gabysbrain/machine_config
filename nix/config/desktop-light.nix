@@ -46,6 +46,8 @@
 
     #dropbox-cli
 
+    (import ../pkgs/syncthing-quick-status.nix)
+
     firefox
     browserpass
 
