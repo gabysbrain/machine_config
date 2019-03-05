@@ -2,18 +2,11 @@
 # HTML
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
-# MS Word documents
-application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+# Application-specific
+application/*; ~/.mutt/view_attachment.sh %s "-"
 
 # Images
-image/jpg; feh %s
-image/jpeg; feh %s
-image/pjpeg; feh %s
-image/png; feh %s
-image/gif; feh %s
-
-# PDFs
-application/pdf; okular %s
+image/*; ~/.mutt/view_attachment.sh %s "-"
 
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
