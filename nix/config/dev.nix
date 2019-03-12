@@ -18,6 +18,7 @@
     # general
     gnumake
     jq
+    entr
 
     chromium
   ];
