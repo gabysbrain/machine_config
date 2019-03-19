@@ -10,6 +10,7 @@ let rpkgs =  rpkg: with rpkg; [
       rjson
       rgl
       roxygen2
+      tensorflow
       testthat
       usethis
     ];
