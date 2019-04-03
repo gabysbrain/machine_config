@@ -1,20 +1,5 @@
 { config, pkgs, ... }:
 
-let rpkgs =  rpkg: with rpkg; [
-      devtools
-      dplyr
-      geometry
-      ggplot2
-      gridExtra
-      randtoolbox
-      rjson
-      rgl
-      roxygen2
-      tensorflow
-      testthat
-      usethis
-    ];
-in
 {
   imports = [
     ./desktop-light.nix
@@ -49,21 +34,11 @@ in
 
     exiftool
     poppler_utils
-
-    #rstudio
-    rstudio-with-my-packages
-    R-with-my-packages
   ];
 
   nixpkgs.overlays = [
     (
       self: super: {
-        R-with-my-packages = super.rWrapper.override { 
-          packages = rpkgs super.rPackages;
-        };
-        rstudio-with-my-packages = super.rstudioWrapper.override {
-          packages = rpkgs super.rPackages;
-        };
         weechat = super.weechat.override {
           #pythonPackages = super.python36Packages;
           configure = { availablePlugins, ...}: {

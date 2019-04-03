@@ -1,5 +1,22 @@
 { config, pkgs, ... }:
 
+let rpkgs =  rpkg: with rpkg; [
+      bench
+      devtools
+      dplyr
+      geometry
+      ggplot2
+      gridExtra
+      profvis
+      randtoolbox
+      rjson
+      rgl
+      roxygen2
+      tensorflow
+      testthat
+      usethis
+    ];
+in
 {
   environment.systemPackages = with pkgs; [
     # haskell
@@ -21,6 +38,23 @@
     entr
 
     chromium
+
+    # R stuff
+    rstudio-with-my-packages
+    R-with-my-packages
+  ];
+
+  nixpkgs.overlays = [
+    (
+      self: super: {
+        R-with-my-packages = super.rWrapper.override { 
+          packages = rpkgs super.rPackages;
+        };
+        rstudio-with-my-packages = super.rstudioWrapper.override {
+          packages = rpkgs super.rPackages;
+        };
+      }
+    )
   ];
 
   nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
