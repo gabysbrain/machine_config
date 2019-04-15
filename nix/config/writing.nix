@@ -13,6 +13,5 @@
     montserrat
     raleway
     oxygenfonts
-    (import ../pkgs/remarker/default.nix {}).remarker
   ];
 }
