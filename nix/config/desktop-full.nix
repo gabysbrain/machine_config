@@ -7,7 +7,16 @@
 
   hardware.pulseaudio = {
     enable = true;
+    daemon.config = {
+      flat-volumes = "no";
+      default-sample-format = "s24le";
+      default-sample-rate = "192000";
+      resample-method = "speex-float-10";
+      avoid-resampling = "true";
+    };
+    package = pkgs.pulseaudioFull;
   };
+
   nixpkgs.config.pulseaudio = true;
   nixpkgs.config.firefox.enableBrowserPass = true;
 
