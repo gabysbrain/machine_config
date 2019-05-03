@@ -8,8 +8,9 @@
     pandoc
     haskellPackages.pandoc-citeproc
     odpdown
+  ];
 
-    # fonts
+  fonts.fonts = with pkgs; [
     montserrat
     raleway
     oxygenfonts
