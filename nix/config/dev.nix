@@ -7,13 +7,16 @@ let rpkgs =  rpkg: with rpkg; [
       geometry
       ggplot2
       gridExtra
+      GPareto
+      mco
       profvis
       randtoolbox
       rjson
       rgl
       roxygen2
-      tensorflow
+      #tensorflow
       testthat
+      tidyr
       usethis
     ];
 in
