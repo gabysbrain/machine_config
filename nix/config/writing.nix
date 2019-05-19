@@ -8,6 +8,7 @@
     pandoc
     haskellPackages.pandoc-citeproc
     odpdown
+    graphviz
   ];
 
   fonts.fonts = with pkgs; [
