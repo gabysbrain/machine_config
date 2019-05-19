@@ -68,6 +68,9 @@
 
   # List services that you want to enable
 
+  # Use browserpass
+  programs.browserpass.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver = {
     autorun = true;

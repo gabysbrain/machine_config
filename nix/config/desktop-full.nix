@@ -18,7 +18,6 @@
   };
 
   nixpkgs.config.pulseaudio = true;
-  nixpkgs.config.firefox.enableBrowserPass = true;
 
   environment.systemPackages = with pkgs; [
     blueman
