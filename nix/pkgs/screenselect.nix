@@ -2,8 +2,8 @@
 with import <nixpkgs> {};
 
 pkgs.writeShellScriptBin "screenselect" ''
-    MAIN="eDP1"
-    DOCK="DP1-1"
+    MAIN="eDP-1"
+    DOCK="DP-1"
     XRANDR=${pkgs.xorg.xrandr}/bin/xrandr
     ARANDR=${pkgs.arandr}/bin/arandr
 
