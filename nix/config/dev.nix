@@ -9,6 +9,7 @@ let rpkgs =  rpkg: with rpkg; [
       gridExtra
       GPareto
       mco
+      pracma
       profvis
       randtoolbox
       rjson
