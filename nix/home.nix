@@ -285,7 +285,6 @@
       defaultCacheTtl = 1800; # 30 minutes
       maxCacheTtl = 604800; # one week
     };
-    nextcloud-client.enable = true;
   };
   systemd.user = {
     services = {
