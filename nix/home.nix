@@ -66,8 +66,8 @@
         mbsync = {
           enable = true;
           create = "both";
-          #expunge = "both";
-          #remove = "both";
+          expunge = "both";
+          remove = "both";
           flatten = ".";
           patterns = [ 
             "*" 
