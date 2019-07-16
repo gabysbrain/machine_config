@@ -56,7 +56,7 @@
           #archive = "[Gmail]/All Mail";
         };
       };
-      work = {
+      univie = {
         realName = "Tom Torsney-Weir";
         userName = "torsnet6";
         address = "thomas.torsney-weir@univie.ac.at";
@@ -161,37 +161,37 @@
       Expunge Both
       SyncState *
 
-      Channel work-archive
-      Master :work-remote:"Archive"
-      Slave :work-local:"archive"
+      Channel univie-archive
+      Master :univie-remote:"Archive"
+      Slave :univie-local:"archive"
       Create Both
       Expunge Both
       SyncState *
 
-      Channel work-drafts
-      Master :work-remote:"Drafts"
-      Slave :work-local:"drafts"
+      Channel univie-drafts
+      Master :univie-remote:"Drafts"
+      Slave :univie-local:"drafts"
       Create Both
       Expunge Both
       SyncState *
 
-      Channel work-sent
-      Master :work-remote:"Sent"
-      Slave :work-local:"sent"
+      Channel univie-sent
+      Master :univie-remote:"Sent"
+      Slave :univie-local:"sent"
       Create Both
       Expunge Both
       SyncState *
 
-      Channel work-trash
-      Master :work-remote:"Trash"
-      Slave :work-local:"trash"
+      Channel univie-trash
+      Master :univie-remote:"Trash"
+      Slave :univie-local:"trash"
       Create Both
       Expunge Both
       SyncState *
 
-      Channel work-spam
-      Master :work-remote:"Junk"
-      Slave :work-local:"spam"
+      Channel univie-spam
+      Master :univie-remote:"Junk"
+      Slave :univie-local:"spam"
       Create Both
       Expunge Both
       SyncState *
@@ -204,17 +204,17 @@
       Channel personal-trash
       Channel personal-spam
 
-      Group work
-      Channel work
-      Channel work-archive
-      Channel work-drafts
-      Channel work-sent
-      Channel work-trash
-      Channel work-spam
+      Group univie
+      Channel univie
+      Channel univie-archive
+      Channel univie-drafts
+      Channel univie-sent
+      Channel univie-trash
+      Channel univie-spam
       '';
       groups = {
         inboxes = {
-          work     = ["INBOX"];
+          univie   = ["INBOX"];
           personal = ["INBOX"];
         };
       };
