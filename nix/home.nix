@@ -56,8 +56,47 @@
           #archive = "[Gmail]/All Mail";
         };
       };
+      work = {
+        realName = "Thomas Torsney-Weir";
+        userName = "t.d.torsney-weir@swansea.ac.uk";
+        address = "t.d.torsney-weir@swansea.ac.uk";
+        flavor = "plain";
+        msmtp.enable = true;
+        notmuch.enable = true;
+        mbsync = {
+          enable = true;
+          create = "both";
+          #expunge = "both";
+          #remove = "both";
+          flatten = ".";
+          patterns = [ 
+            "*" 
+            "!Calendar*" "!Contacts"
+            "!Conversation History*" "!Journal" "!Notes" "!Tasks"
+            "!RSS Subscriptions*"
+            "!Outbox" "!Sync Issues*"
+            "!Archive" "!Sent Items" "!Deleted Items" "!Junk Email" "!Drafts"
+            "!archive" "!sent" "!trash" "!spam" "!drafts"
+          ];
+        };
+        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/swansea.ac.uk.gpg | head -1";
+        imap = {
+          host = "outlook.office365.com";
+          tls.enable = true;
+        };
+        smtp = {
+          host = "outlook.office365.com";
+          tls.enable = true;
+        };
+        folders = {
+          inbox = "INBOX";
+          #drafts = "INBOX.Drafts";
+          #sent = "INBOX.Sent";
+          #trash = "INBOX.Trash";
+        };
+      };
       univie = {
-        realName = "Tom Torsney-Weir";
+        realName = "Thomas Torsney-Weir";
         userName = "torsnet6";
         address = "thomas.torsney-weir@univie.ac.at";
         flavor = "plain";
@@ -161,6 +200,41 @@
       Expunge Both
       SyncState *
 
+      Channel work-archive
+      Master :work-remote:"Archive"
+      Slave :work-local:"archive"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel work-drafts
+      Master :work-remote:"Drafts"
+      Slave :work-local:"drafts"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel work-sent
+      Master :work-remote:"Sent Items"
+      Slave :work-local:"sent"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel work-trash
+      Master :work-remote:"Deleted Items"
+      Slave :work-local:"trash"
+      Create Both
+      Expunge Both
+      SyncState *
+
+      Channel work-spam
+      Master :work-remote:"Junk Email"
+      Slave :work-local:"spam"
+      Create Both
+      Expunge Both
+      SyncState *
+
       Channel univie-archive
       Master :univie-remote:"Archive"
       Slave :univie-local:"archive"
@@ -204,6 +278,14 @@
       Channel personal-trash
       Channel personal-spam
 
+      Group work
+      Channel work
+      Channel work-archive
+      Channel work-drafts
+      Channel work-sent
+      Channel work-trash
+      Channel work-spam
+
       Group univie
       Channel univie
       Channel univie-archive
@@ -215,6 +297,7 @@
       groups = {
         inboxes = {
           univie   = ["INBOX"];
+          work     = ["INBOX"];
           personal = ["INBOX"];
         };
       };
@@ -276,10 +359,10 @@
     platformTheme = "gtk";
   };
   services = {
-    mbsync = {
-      enable = true;
-      frequency = "*:0/15";
-    };
+    #mbsync = {
+      #enable = true;
+      #frequency = "*:0/15";
+    #};
     gpg-agent = {
       enable = true;
       defaultCacheTtl = 1800; # 30 minutes
