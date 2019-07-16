@@ -75,6 +75,7 @@
             "!Conversation History*" "!Journal" "!Notes" "!Tasks"
             "!RSS Subscriptions*"
             "!Outbox" "!Sync Issues*"
+            "!students"
             "!Archive" "!Sent Items" "!Deleted Items" "!Junk Email" "!Drafts"
             "!archive" "!sent" "!trash" "!spam" "!drafts"
           ];
@@ -359,10 +360,10 @@
     platformTheme = "gtk";
   };
   services = {
-    #mbsync = {
-      #enable = true;
-      #frequency = "*:0/15";
-    #};
+    mbsync = {
+      enable = true;
+      frequency = "*:0/15";
+    };
     gpg-agent = {
       enable = true;
       defaultCacheTtl = 1800; # 30 minutes
