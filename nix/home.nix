@@ -273,7 +273,7 @@
   };
   qt = {
     enable = true;
-    useGtkTheme = true;
+    platformTheme = "gtk";
   };
   services = {
     mbsync = {
@@ -369,7 +369,7 @@
     };
   };
 
-  home.stateVersion = "18.09";
+  #home.stateVersion = "18.09";
   programs.home-manager.enable = true;
-  programs.home-manager.path = https://github.com/rycee/home-manager/archive/release-18.09.tar.gz;
+  #programs.home-manager.path = https://github.com/rycee/home-manager/archive/release-18.09.tar.gz;
 }
