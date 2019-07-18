@@ -60,7 +60,7 @@ projects =
             , projectDirectory = "~/"
             , projectStartHook = Just $ do
                 rit' "mutt"
-                rit' "weechat"
+                spawn "orage"
             }
   ] ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
 
