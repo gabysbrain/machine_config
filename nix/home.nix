@@ -87,7 +87,9 @@
         };
         smtp = {
           host = "outlook.office365.com";
+          port = 587;
           tls.enable = true;
+          tls.useStartTls = true;
         };
         folders = {
           inbox = "INBOX";
