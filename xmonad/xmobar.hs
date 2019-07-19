@@ -5,8 +5,8 @@ Config
   , position = Static { xpos = 1, ypos = 1, width = 1918, height = 20 }
   , lowerOnStart = False
   , commands = [
-      Run Com "/home/torsnet6cs/.xmonad/xmobar-syncthing-status.sh" [] "st" 30
-    , Run Com "/home/torsnet6cs/.xmonad/wireless.sh" [] "wifi" 30
+      Run Com "/home/tom/.xmonad/xmobar-syncthing-status.sh" [] "st" 30
+    , Run Com "/home/tom/.xmonad/wireless.sh" [] "wifi" 30
     , Run Battery ["-t", "<left>"] 100
     , Run MultiCpu ["-t", "<total0>"] 30
     , Run Date "%_d %#B %Y <fc=#333333>|</fc> %H:%M" "date" 600
