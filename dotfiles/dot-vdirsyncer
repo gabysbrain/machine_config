@@ -15,9 +15,36 @@ collections = [["Talks", "talks", "1CCF43C4-F03E-4AC7-B62F-1EDFC3202546"],["Pers
 metadata = ["displayname"]
 conflict_resolution = ["command", "meld"]
 
+[pair my_academic_cal]
+a = "academic_cal_local"
+b = "academic_cal"
+collections = null
+
+[pair my_cs_cal]
+a = "cs_cal_local"
+b = "cs_cal"
+collections = null
+
+[pair my_cos_cal]
+a = "cos_cal_local"
+b = "cos_cal"
+collections = null
+
 [storage my_calendars]
 type = "singlefile"
 path = "~/.calendars/%s.ics"
+
+[storage academic_cal_local]
+type = "singlefile"
+path = "~/.calendars/academic.ics"
+
+[storage cs_cal_local]
+type = "singlefile"
+path = "~/.calendars/cs.ics"
+
+[storage cos_cal_local]
+type = "singlefile"
+path = "~/.calendars/cos.ics"
 
 [storage my_contacts_local]
 type = "filesystem"
@@ -40,4 +67,16 @@ type = "carddav"
 url = "https://contacts.icloud.com/"
 username = "torsneyt@georgetown.edu"
 password = "ctqk-yizh-eogl-vzdt"
+
+[storage academic_cal]
+type = "http"
+url = "https://spcaldav.swan.ac.uk/staff/academic-services/_layouts/15/SwanWebTeam/ical.aspx?Root=Academic%20Year%20Planner"
+
+[storage cs_cal]
+type = "http"
+url = "https://spcaldav.swan.ac.uk/schools/science/compsci/_layouts/15/SwanWebTeam/ical.aspx?Root=CS%20Calendar"
+
+[storage cos_cal]
+type = "http"
+url = "https://spcaldav.swan.ac.uk/schools/science/_layouts/15/SwanWebTeam/ical.aspx?Root=College%20of%20Science%20Info"
 
