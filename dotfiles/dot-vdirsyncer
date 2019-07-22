@@ -4,21 +4,20 @@ status_path = "~/.vdirsyncer/status/"
 
 [pair my_contacts]
 a = "my_contacts_local"
-b = "card"
+b = "apple_card"
 collections = ["from a", "from b"]
 conflict_resolution = ["command", "meld"]
 
 [pair my_calendars_home]
 a = "my_calendars"
-b = "cal"
-collections = [["Talks", "talks", "1CCF43C4-F03E-4AC7-B62F-1EDFC3202546"],["Personal", "personal", "D78B4400-8B45-4123-AC27-D06F3128A044"]]
+b = "apple_cal"
+collections = [["Talks", "talks", "1CCF43C4-F03E-4AC7-B62F-1EDFC3202546"],["Personal", "personal", "D78B4400-8B45-4123-AC27-D06F3128A044"],["Work", "work", "6647E408-B1DF-4013-90D8-6B042A55CC24"]]
 metadata = ["displayname"]
 conflict_resolution = ["command", "meld"]
 
 [storage my_calendars]
-type = "filesystem"
-path = "~/.calendars/"
-fileext = ".ics"
+type = "singlefile"
+path = "~/.calendars/%s.ics"
 
 [storage my_contacts_local]
 type = "filesystem"
@@ -28,7 +27,7 @@ fileext = ".vcf"
 [storage my_contacts_remote]
 type = "carddav"
 
-[storage cal]
+[storage apple_cal]
 type = "caldav"
 url = "https://caldav.icloud.com/"
 username = "torsneyt@georgetown.edu"
@@ -36,7 +35,7 @@ password = "ctqk-yizh-eogl-vzdt"
 start_date = "datetime.now() - timedelta(days=365)"
 end_date   = "datetime.now() + timedelta(days=365)"
 
-[storage card]
+[storage apple_card]
 type = "carddav"
 url = "https://contacts.icloud.com/"
 username = "torsneyt@georgetown.edu"
