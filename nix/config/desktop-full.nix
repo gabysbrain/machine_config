@@ -24,6 +24,7 @@
     wpa_supplicant_gui
     connman-gtk
     connman_dmenu
+    pavucontrol
 
     python36Packages.glances
 
@@ -44,9 +45,13 @@
     poppler_utils
   ];
 
+  #nixpkgs.config.oraclejdk.accept_license = true;
   nixpkgs.overlays = [
     (
       self: super: {
+        #jabref = super.jabref.override {
+          #jre = pkgs.openjdk8;
+        #};
         weechat = super.weechat.override {
           #pythonPackages = super.python36Packages;
           configure = { availablePlugins, ...}: {
