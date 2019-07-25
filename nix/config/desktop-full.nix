@@ -36,6 +36,9 @@
     newsboat
     weechat
 
+    gnome3.gnome-calendar
+    gnome3.evolution-data-server
+
     inkscape
     gimp
     imagemagick
