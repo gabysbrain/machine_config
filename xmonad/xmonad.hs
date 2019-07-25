@@ -60,7 +60,7 @@ projects =
             , projectDirectory = "~/"
             , projectStartHook = Just $ do
                 rit' "mutt"
-                spawn "orage"
+                spawn "gnome-calendar"
             }
   ] ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
 
