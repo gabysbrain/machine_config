@@ -20,6 +20,9 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
 
+import XMonad.Prompt
+import XMonad.Prompt.Input
+
 import XMonad.Util.EZConfig
 import XMonad.Util.NamedActions
 import XMonad.Util.Run
@@ -149,6 +152,10 @@ myKeys conf = let
     , ((myModMask, xK_backslash), addName "Password" $ spawn "passmenu")
     ] ^++^
 
+  subKeys "shortcuts"
+    [ ((myModMask, xK_a), addName "Create new appointment" $ apptPrompt def ["work", "personal", "talks"])
+    ] ^++^
+
   subKeys "layouts"
     [ ((myModMask, xK_space ), addName "Change layout" $ sendMessage NextLayout)
     , ((myModMask, xK_Return), addName "Swap master" $ windows W.swapMaster)
@@ -273,4 +280,14 @@ forceCenterFloat = doFloatDep move
 
 rit n c = runInTerm ("-name " ++ n) c
 rit' c = rit c c
+
+-- | Prompt the user for information and add an appointment using \'khal\'
+apptPrompt :: XPConfig -> [String] -> X ()
+apptPrompt c calNames = 
+  inputPromptWithCompl c "Cal" (mkComplFunFromList calNames) ?+ \cal ->
+  inputPrompt c "Title" ?+ \ttl ->
+  inputPrompt c "Start" ?+ \start ->
+  inputPrompt c "End" ?+ \end ->
+  safeSpawn "khal" ["new", "-a", cal, start, end, ttl]
+    >> return ()
 
