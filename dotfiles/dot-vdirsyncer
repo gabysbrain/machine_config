@@ -8,12 +8,23 @@ b = "apple_card"
 collections = ["from a", "from b"]
 conflict_resolution = ["command", "meld"]
 
+[pair my_calendars_home_vdir]
+a = "my_calendars_vdir"
+b = "apple_cal"
+collections = [["Talks", "talks", "1CCF43C4-F03E-4AC7-B62F-1EDFC3202546"],["Personal", "personal", "D78B4400-8B45-4123-AC27-D06F3128A044"],["Work", "work", "6647E408-B1DF-4013-90D8-6B042A55CC24"]]
+metadata = ["displayname"]
+
 [pair my_calendars_home]
 a = "my_calendars"
 b = "apple_cal"
 collections = [["Talks", "talks", "1CCF43C4-F03E-4AC7-B62F-1EDFC3202546"],["Personal", "personal", "D78B4400-8B45-4123-AC27-D06F3128A044"],["Work", "work", "6647E408-B1DF-4013-90D8-6B042A55CC24"]]
 metadata = ["displayname"]
 conflict_resolution = ["command", "meld"]
+
+#[pair my_gcal]
+#a = "gcal_local"
+#b = "gcal"
+#collections = ["from a", "from b"]
 
 [pair my_academic_cal]
 a = "academic_cal_local"
@@ -30,9 +41,18 @@ a = "cos_cal_local"
 b = "cos_cal"
 collections = null
 
+[storage gcal_local]
+type = "singlefile"
+path = "~/caltest/%s.ics"
+
 [storage my_calendars]
 type = "singlefile"
 path = "~/.calendars/%s.ics"
+
+[storage my_calendars_vdir]
+type = "filesystem"
+path = "~/.calendars/vdir"
+fileext = ".ics"
 
 [storage academic_cal_local]
 type = "singlefile"
@@ -67,6 +87,12 @@ type = "carddav"
 url = "https://contacts.icloud.com/"
 username = "torsneyt@georgetown.edu"
 password = "ctqk-yizh-eogl-vzdt"
+
+[storage gcal]
+type = "google_calendar"
+client_id = "1016081500448-9j152ka0vu9pu7jshn73u0fcr45s18c2.apps.googleusercontent.com" 
+client_secret = "zrn9TeKgHpQB1ZT2iW1w8Eof"
+
 
 [storage academic_cal]
 type = "http"

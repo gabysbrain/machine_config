@@ -1,15 +1,15 @@
 [calendars]
 
   [[work]]
-    path = ~/.calendars/work
+    path = ~/.calendars/vdir/work
     color = dark red
 
   [[home]]
-    path = ~/.calendars/personal
+    path = ~/.calendars/vdir/personal
     color = brown
   
   [[talks]]
-    path = ~/.calendars/talks
+    path = ~/.calendars/vdir/talks
     color = dark green
 
 [default]
