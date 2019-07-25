@@ -44,6 +44,8 @@
     imagemagick
     shotcut
 
+    jrnl
+
     exiftool
     poppler_utils
   ];
