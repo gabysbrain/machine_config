@@ -455,6 +455,15 @@
     };
   };
 
+  # TODO: integrate this into the programs.vim module
+  home.packages = [
+    (import ./pkgs/vim.nix)
+  ];
+  #programs.vim = {
+    #enable = true;
+    #package = ./pkgs/vim.nix;
+  #};
+
   #home.stateVersion = "18.09";
   programs.home-manager.enable = true;
   #programs.home-manager.path = https://github.com/rycee/home-manager/archive/release-18.09.tar.gz;

@@ -11,7 +11,7 @@
     git
     silver-searcher
     unzip
-    (import ../pkgs/vim.nix)
+    nvi
     atool
     p7zip
 
