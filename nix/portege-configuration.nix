@@ -62,7 +62,7 @@
   services.syncthing = {
     enable = true;
     user = "tom";
-    dataDir = "/home/tom/.config/syncthing";
+    dataDir = "/home/tom/";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
