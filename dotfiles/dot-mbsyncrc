@@ -1,0 +1,215 @@
+IMAPAccount personal
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+Host imap.gmail.com
+PassCmd "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1"
+PipelineDepth 50
+SSLType IMAPS
+Timeout 60
+User torsneyt@gmail.com
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+Flatten .
+Inbox /home/tom/.mail/personal/INBOX
+Path /home/tom/.mail/personal/
+SubFolders Verbatim
+
+Channel personal
+Create Both
+Expunge Both
+Master :personal-remote:
+Patterns * INBOX ![Gmail]/* !sent !archive !spam !trash
+Remove Both
+Slave :personal-local:
+SyncState *
+
+
+IMAPAccount univie
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+Host imap.univie.ac.at
+PassCmd "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/univie.ac.at.gpg | head -1"
+SSLType IMAPS
+User torsnet6
+
+IMAPStore univie-remote
+Account univie
+
+MaildirStore univie-local
+Flatten .
+Inbox /home/tom/.mail/univie/INBOX
+Path /home/tom/.mail/univie/
+SubFolders Verbatim
+
+Channel univie
+Create Both
+Expunge Both
+Master :univie-remote:
+Patterns * INBOX !Archive !Sent !Trash !Junk !Drafts !archive !sent !trash !spam !drafts
+Remove Both
+Slave :univie-local:
+SyncState *
+
+
+IMAPAccount work
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+Host outlook.office365.com
+PassCmd "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/swansea.ac.uk.gpg | head -1"
+SSLType IMAPS
+User t.d.torsney-weir@swansea.ac.uk
+
+IMAPStore work-remote
+Account work
+
+MaildirStore work-local
+Flatten .
+Inbox /home/tom/.mail/work/INBOX
+Path /home/tom/.mail/work/
+SubFolders Verbatim
+
+Channel work
+Create Both
+Expunge Both
+Master :work-remote:
+Patterns * !Calendar* !Contacts "!Conversation History*" !Journal !Notes !Tasks "!RSS Subscriptions*" !Outbox "!Sync Issues*" !students !Archive "!Sent Items" "!Deleted Items" "!Junk Email" !Drafts !archive !sent !trash !spam !drafts
+Remove Both
+Slave :work-local:
+SyncState *
+
+
+
+Channel personal-archive
+Master :personal-remote:"[Gmail]/All Mail"
+Slave :personal-local:"archive"
+Create Both
+Expunge Both
+SyncState *
+
+Channel personal-drafts
+Master :personal-remote:"[Gmail]/Drafts"
+Slave :personal-local:"drafts"
+Create Both
+Expunge Both
+SyncState *
+
+Channel personal-sent
+Master :personal-remote:"[Gmail]/Sent Mail"
+Slave :personal-local:"sent"
+Create Both
+Expunge Both
+SyncState *
+
+Channel personal-trash
+Master :personal-remote:"[Gmail]/Trash"
+Slave :personal-local:"trash"
+Create Both
+Expunge Both
+SyncState *
+
+Channel personal-spam
+Master :personal-remote:"[Gmail]/Spam"
+Slave :personal-local:"spam"
+Create Both
+Expunge Both
+SyncState *
+
+Channel work-archive
+Master :work-remote:"Archive"
+Slave :work-local:"archive"
+Create Both
+Expunge Both
+SyncState *
+
+Channel work-drafts
+Master :work-remote:"Drafts"
+Slave :work-local:"drafts"
+Create Both
+Expunge Both
+SyncState *
+
+Channel work-sent
+Master :work-remote:"Sent Items"
+Slave :work-local:"sent"
+Create Both
+Expunge Both
+SyncState *
+
+Channel work-trash
+Master :work-remote:"Deleted Items"
+Slave :work-local:"trash"
+Create Both
+Expunge Both
+SyncState *
+
+Channel work-spam
+Master :work-remote:"Junk Email"
+Slave :work-local:"spam"
+Create Both
+Expunge Both
+SyncState *
+
+Channel univie-archive
+Master :univie-remote:"Archive"
+Slave :univie-local:"archive"
+Create Both
+Expunge Both
+SyncState *
+
+Channel univie-drafts
+Master :univie-remote:"Drafts"
+Slave :univie-local:"drafts"
+Create Both
+Expunge Both
+SyncState *
+
+Channel univie-sent
+Master :univie-remote:"Sent"
+Slave :univie-local:"sent"
+Create Both
+Expunge Both
+SyncState *
+
+Channel univie-trash
+Master :univie-remote:"Trash"
+Slave :univie-local:"trash"
+Create Both
+Expunge Both
+SyncState *
+
+Channel univie-spam
+Master :univie-remote:"Junk"
+Slave :univie-local:"spam"
+Create Both
+Expunge Both
+SyncState *
+
+Group personal
+Channel personal
+Channel personal-archive
+Channel personal-drafts
+Channel personal-sent
+Channel personal-trash
+Channel personal-spam
+
+Group work
+Channel work
+Channel work-archive
+Channel work-drafts
+Channel work-sent
+Channel work-trash
+Channel work-spam
+
+Group univie
+Channel univie
+Channel univie-archive
+Channel univie-drafts
+Channel univie-sent
+Channel univie-trash
+Channel univie-spam
+
+
+Group inboxes
+Channel personal:INBOX
+Channel univie:INBOX
+Channel work:INBOX

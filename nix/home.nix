@@ -32,21 +32,21 @@
           #host = "";
           tls.enable = true;
         };
-        mbsync = {
-          enable = true;
-          create = "both";
-          expunge = "both";
-          remove = "both";
-          flatten = ".";
-          patterns = [ 
-            "*" "INBOX"
-            "![Gmail]/*" "!sent" "!archive" "!spam" "!trash"
-          ];
-          extraConfig.account = {
-            PipelineDepth = 50;
-            Timeout = 60;
-          };
-        };
+        #mbsync = {
+          #enable = true;
+          #create = "both";
+          #expunge = "both";
+          #remove = "both";
+          #flatten = ".";
+          #patterns = [ 
+            #"*" "INBOX"
+            #"![Gmail]/*" "!sent" "!archive" "!spam" "!trash"
+          #];
+          #extraConfig.account = {
+            #PipelineDepth = 50;
+            #Timeout = 60;
+          #};
+        #};
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1";
         folders = {
           inbox = "INBOX";
@@ -63,23 +63,23 @@
         flavor = "plain";
         msmtp.enable = true;
         notmuch.enable = true;
-        mbsync = {
-          enable = true;
-          create = "both";
-          expunge = "both";
-          remove = "both";
-          flatten = ".";
-          patterns = [ 
-            "*" 
-            "!Calendar*" "!Contacts"
-            "!Conversation History*" "!Journal" "!Notes" "!Tasks"
-            "!RSS Subscriptions*"
-            "!Outbox" "!Sync Issues*"
-            "!students"
-            "!Archive" "!Sent Items" "!Deleted Items" "!Junk Email" "!Drafts"
-            "!archive" "!sent" "!trash" "!spam" "!drafts"
-          ];
-        };
+        #mbsync = {
+          #enable = true;
+          #create = "both";
+          #expunge = "both";
+          #remove = "both";
+          #flatten = ".";
+          #patterns = [ 
+            #"*" 
+            #"!Calendar*" "!Contacts"
+            #"!Conversation History*" "!Journal" "!Notes" "!Tasks"
+            #"!RSS Subscriptions*"
+            #"!Outbox" "!Sync Issues*"
+            #"!students"
+            #"!Archive" "!Sent Items" "!Deleted Items" "!Junk Email" "!Drafts"
+            #"!archive" "!sent" "!trash" "!spam" "!drafts"
+          #];
+        #};
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/swansea.ac.uk.gpg | head -1";
         imap = {
           host = "outlook.office365.com";
@@ -106,18 +106,18 @@
         #offlineimap.enable = true;
         msmtp.enable = true;
         notmuch.enable = true;
-        mbsync = {
-          enable = true;
-          create = "both";
-          expunge = "both";
-          remove = "both";
-          flatten = ".";
-          patterns = [ 
-            "*" "INBOX"
-            "!Archive" "!Sent" "!Trash" "!Junk" "!Drafts"
-            "!archive" "!sent" "!trash" "!spam" "!drafts"
-          ];
-        };
+        #mbsync = {
+          #enable = true;
+          #create = "both";
+          #expunge = "both";
+          #remove = "both";
+          #flatten = ".";
+          #patterns = [ 
+            #"*" "INBOX"
+            #"!Archive" "!Sent" "!Trash" "!Junk" "!Drafts"
+            #"!archive" "!sent" "!trash" "!spam" "!drafts"
+          #];
+        #};
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/univie.ac.at.gpg | head -1";
         imap = {
           host = "imap.univie.ac.at";
@@ -164,147 +164,6 @@
     };
     msmtp.enable = true; # sendmail support
     notmuch.enable = true; # index email
-    mbsync = {
-      enable = true; # imap mail sync support
-      extraConfig = ''
-
-      Channel personal-archive
-      Master :personal-remote:"[Gmail]/All Mail"
-      Slave :personal-local:"archive"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel personal-drafts
-      Master :personal-remote:"[Gmail]/Drafts"
-      Slave :personal-local:"drafts"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel personal-sent
-      Master :personal-remote:"[Gmail]/Sent Mail"
-      Slave :personal-local:"sent"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel personal-trash
-      Master :personal-remote:"[Gmail]/Trash"
-      Slave :personal-local:"trash"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel personal-spam
-      Master :personal-remote:"[Gmail]/Spam"
-      Slave :personal-local:"spam"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel work-archive
-      Master :work-remote:"Archive"
-      Slave :work-local:"archive"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel work-drafts
-      Master :work-remote:"Drafts"
-      Slave :work-local:"drafts"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel work-sent
-      Master :work-remote:"Sent Items"
-      Slave :work-local:"sent"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel work-trash
-      Master :work-remote:"Deleted Items"
-      Slave :work-local:"trash"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel work-spam
-      Master :work-remote:"Junk Email"
-      Slave :work-local:"spam"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel univie-archive
-      Master :univie-remote:"Archive"
-      Slave :univie-local:"archive"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel univie-drafts
-      Master :univie-remote:"Drafts"
-      Slave :univie-local:"drafts"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel univie-sent
-      Master :univie-remote:"Sent"
-      Slave :univie-local:"sent"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel univie-trash
-      Master :univie-remote:"Trash"
-      Slave :univie-local:"trash"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Channel univie-spam
-      Master :univie-remote:"Junk"
-      Slave :univie-local:"spam"
-      Create Both
-      Expunge Both
-      SyncState *
-
-      Group personal
-      Channel personal
-      Channel personal-archive
-      Channel personal-drafts
-      Channel personal-sent
-      Channel personal-trash
-      Channel personal-spam
-
-      Group work
-      Channel work
-      Channel work-archive
-      Channel work-drafts
-      Channel work-sent
-      Channel work-trash
-      Channel work-spam
-
-      Group univie
-      Channel univie
-      Channel univie-archive
-      Channel univie-drafts
-      Channel univie-sent
-      Channel univie-trash
-      Channel univie-spam
-      '';
-      groups = {
-        inboxes = {
-          univie   = ["INBOX"];
-          work     = ["INBOX"];
-          personal = ["INBOX"];
-        };
-      };
-    };
   };
   home.sessionVariables = {
     EDITOR = "vim";
@@ -320,6 +179,7 @@
     ".config/khal/config".source = ../dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ../dotfiles/dot-khard;
     ".urlview".source = ../dotfiles/dot-urlview;
+    ".mbsyncrc".source = ../dotfiles/dot-mbsyncrc;
 
     ###############################
     # XMonad utilities
@@ -458,6 +318,7 @@
   # TODO: integrate this into the programs.vim module
   home.packages = [
     (import ./pkgs/vim.nix)
+    pkgs.isync
   ];
   #programs.vim = {
     #enable = true;
