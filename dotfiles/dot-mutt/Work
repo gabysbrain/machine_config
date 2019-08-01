@@ -4,8 +4,9 @@ set from = "t.d.torsney-weir@swansea.ac.uk"
 set sendmail = "msmtp -a work"
 set mbox = "+work/archive"
 set postponed = "+work/drafts"
-set trash="+work/trash"
-set record="+work/sent"
+set trash = "+work/trash"
+set record = "+work/sent"
+set copy = no
 
 color status cyan default
 
