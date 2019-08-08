@@ -153,7 +153,7 @@ myKeys conf = let
     ] ^++^
 
   subKeys "shortcuts"
-    [ ((myModMask, xK_a), addName "Create new appointment" $ apptPrompt def ["work", "personal", "talks"])
+    [ ((myModMask, xK_a), addName "Create new appointment" $ apptPrompt def ["work", "home", "talks"])
     ] ^++^
 
   subKeys "layouts"
