@@ -200,6 +200,7 @@ myManageHook = manageDocks <+> composeOne
     -- floating windows
     , className =? "Pinentry" -?> doFloat
     , className =? "Qpdfview" -?> doFloat
+    , className =? "Skype"    -?> doFloat
     ]
   where
   isBrowserDialog = isDialog <&&> (className =? "Chromium-browser" <||> className =? "Firefox")
