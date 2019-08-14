@@ -34,10 +34,10 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
 -- Workspaces
-wsGen = "Gen"
 wsWk1 = "Wk1"
 wsWk2 = "Wk2"
 wsWk3 = "Wk3"
+wsWk4 = "Wk4"
 wsCom = "Com"
 wsDoc = "Doc"
 wsAV  = "AV"
@@ -76,7 +76,7 @@ myBrowser = "firefox"
 
 myFocusFollowsMouse = True
 
-myWorkspaces = [wsWk1, wsWk2, wsWk3, wsGen, wsCom, wsDoc, wsAV, wsTmp, wsSys]
+myWorkspaces = [wsWk1, wsWk2, wsWk3, wsWk4, wsCom, wsDoc, wsAV, wsTmp, wsSys]
 myMainColor = "#333333"
 myBgColor = "#FEFEFE"
 myTextColor = "#282828"
