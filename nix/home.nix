@@ -193,6 +193,10 @@
       source = ../xmonad/xmobar-syncthing-status.sh;
       executable = true;
     };
+    ".xmonad/kb-status.sh" = {
+      source = ../xmonad/kb-status.sh;
+      executable = true;
+    };
 
     ###############################
     # Ranger
