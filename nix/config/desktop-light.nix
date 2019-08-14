@@ -75,16 +75,11 @@
   services.xserver = {
     autorun = true;
     enable = true;
-    layout = "us";
+    #layout = "us";
     
-    # use compose key
-    xkbOptions = "compose:menu";
+    # use compose key and switch layouts with caps lock
+    xkbOptions = "grp:caps_toggle,compose:menu";
 
-    # synaptics
-    #synaptics = {
-      #enable = true;
-      #twoFingerScroll = true;
-    #};
     libinput = {
       enable = true;
       accelProfile = "adaptive";

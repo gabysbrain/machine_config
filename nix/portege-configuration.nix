@@ -38,11 +38,8 @@
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
+  services.xserver.layout = "gb,us";
+  i18n.consoleUseXkbConfig = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
