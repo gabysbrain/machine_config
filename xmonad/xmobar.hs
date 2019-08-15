@@ -7,7 +7,7 @@ Config
   , commands = [
       Run Com "/home/tom/.xmonad/xmobar-syncthing-status.sh" [] "st" 30
     , Run Com "/home/tom/.xmonad/wireless.sh" [] "wifi" 30
-    , Run Com "/home/tom/.xmonad/kb-status.sh" [] "kb" 30
+    , Run Com "xkb-switch" [] "kb" 30
     , Run Battery ["-t", "<left>"] 100
     , Run MultiCpu ["-t", "<total0>"] 30
     , Run Date "%_d %#B %Y <fc=#333333>|</fc> %H:%M" "date" 600
