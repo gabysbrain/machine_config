@@ -2,107 +2,42 @@
 [general]
 status_path = "~/.vdirsyncer/status/"
 
+##### Collections
+
 [pair my_contacts]
 a = "my_contacts_local"
 b = "apple_card"
 collections = ["from a", "from b"]
+
+[pair my_gcal]
+a = "gcal_local"
+b = "gcal"
+metadata = ["color", "displayname"]
 conflict_resolution = ["command", "meld"]
+collections = [["Personal", "personal", "torsneyt@gmail.com"], ["Work", "work", "o97sdkdlh3tu1249an1469rvvs@group.calendar.google.com"], ["Talks", "talks", "j1rrh115jb7ip1lpdjsf6j8vhs@group.calendar.google.com"], ["Academic", "academic", "bai94cp8c974t5k8cn14i01vv1t7duos@import.calendar.google.com"], ["COS", "cos", "jvtua13jtf8g3eiuuvp05tnq88n938g7@import.calendar.google.com" ], ["CS", "cs", "qvpkdglkvqhq1a455mnn88frf70poeon@import.calendar.google.com"]]
 
-[pair my_calendars_home_vdir]
-a = "my_calendars_vdir"
-b = "apple_cal"
-collections = [["Talks", "talks", "1CCF43C4-F03E-4AC7-B62F-1EDFC3202546"],["Personal", "personal", "D78B4400-8B45-4123-AC27-D06F3128A044"],["Work", "work", "6647E408-B1DF-4013-90D8-6B042A55CC24"]]
-metadata = ["displayname"]
-
-[pair my_calendars_home]
-a = "my_calendars"
-b = "apple_cal"
-collections = [["Talks", "talks", "1CCF43C4-F03E-4AC7-B62F-1EDFC3202546"],["Personal", "personal", "D78B4400-8B45-4123-AC27-D06F3128A044"],["Work", "work", "6647E408-B1DF-4013-90D8-6B042A55CC24"]]
-metadata = ["displayname"]
-conflict_resolution = ["command", "meld"]
-
-#[pair my_gcal]
-#a = "gcal_local"
-#b = "gcal"
-#collections = ["from a", "from b"]
-
-[pair my_academic_cal]
-a = "academic_cal_local"
-b = "academic_cal"
-collections = null
-
-[pair my_cs_cal]
-a = "cs_cal_local"
-b = "cs_cal"
-collections = null
-
-[pair my_cos_cal]
-a = "cos_cal_local"
-b = "cos_cal"
-collections = null
+##### Local storages
 
 [storage gcal_local]
 type = "singlefile"
-path = "~/caltest/%s.ics"
-
-[storage my_calendars]
-type = "singlefile"
 path = "~/.calendars/%s.ics"
-
-[storage my_calendars_vdir]
-type = "filesystem"
-path = "~/.calendars/vdir"
-fileext = ".ics"
-
-[storage academic_cal_local]
-type = "singlefile"
-path = "~/.calendars/academic.ics"
-
-[storage cs_cal_local]
-type = "singlefile"
-path = "~/.calendars/cs.ics"
-
-[storage cos_cal_local]
-type = "singlefile"
-path = "~/.calendars/cos.ics"
 
 [storage my_contacts_local]
 type = "filesystem"
 path = "~/.contacts/"
 fileext = ".vcf"
 
-[storage my_contacts_remote]
-type = "carddav"
+##### Remote storages
 
-[storage apple_cal]
-type = "caldav"
-url = "https://caldav.icloud.com/"
-username = "torsneyt@georgetown.edu"
-password = "ctqk-yizh-eogl-vzdt"
-start_date = "datetime.now() - timedelta(days=365)"
-end_date   = "datetime.now() + timedelta(days=365)"
+[storage gcal]
+type = "google_calendar"
+token_file = "~/.vdirsyncer_gcal_token"
+client_id = "1016081500448-9j152ka0vu9pu7jshn73u0fcr45s18c2.apps.googleusercontent.com" 
+client_secret = "zrn9TeKgHpQB1ZT2iW1w8Eof"
 
 [storage apple_card]
 type = "carddav"
 url = "https://contacts.icloud.com/"
 username = "torsneyt@georgetown.edu"
 password = "ctqk-yizh-eogl-vzdt"
-
-[storage gcal]
-type = "google_calendar"
-client_id = "1016081500448-9j152ka0vu9pu7jshn73u0fcr45s18c2.apps.googleusercontent.com" 
-client_secret = "zrn9TeKgHpQB1ZT2iW1w8Eof"
-
-
-[storage academic_cal]
-type = "http"
-url = "https://spcaldav.swan.ac.uk/staff/academic-services/_layouts/15/SwanWebTeam/ical.aspx?Root=Academic%20Year%20Planner"
-
-[storage cs_cal]
-type = "http"
-url = "https://spcaldav.swan.ac.uk/schools/science/compsci/_layouts/15/SwanWebTeam/ical.aspx?Root=CS%20Calendar"
-
-[storage cos_cal]
-type = "http"
-url = "https://spcaldav.swan.ac.uk/schools/science/_layouts/15/SwanWebTeam/ical.aspx?Root=College%20of%20Science%20Info"
 
