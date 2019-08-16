@@ -39,9 +39,8 @@ in
     msmtp
     vdirsyncer-patched
     (import ../pkgs/terminal-velocity.nix)
-    khard
-    khal
-    calcurse
+    gcalcli
+    python37Packages.goobook
     urlscan
     notmuch
     notmuch-mutt
