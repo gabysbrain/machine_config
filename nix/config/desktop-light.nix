@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let 
+  vdirsyncer-patched = pkgs.callPackage ../pkgs/vdirsyncer-patched.nix {};
+in
 {
   # Select internationalisation properties.
   # i18n = {
@@ -34,7 +37,7 @@
     mutt
     offlineimap
     msmtp
-    vdirsyncer
+    vdirsyncer-patched
     (import ../pkgs/terminal-velocity.nix)
     khard
     khal
