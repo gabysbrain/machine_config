@@ -31,7 +31,7 @@
     libreoffice-unwrapped
     spotify
     skype
-    jabref
+    zotero
     meld
     newsboat
     weechat
@@ -54,9 +54,6 @@
   nixpkgs.overlays = [
     (
       self: super: {
-        #jabref = super.jabref.override {
-          #jre = pkgs.openjdk8;
-        #};
         weechat = super.weechat.override {
           #pythonPackages = super.python36Packages;
           configure = { availablePlugins, ...}: {
