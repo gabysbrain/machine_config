@@ -80,6 +80,42 @@
     in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
   };
 
+  # home backup
+  services.borgbackup.jobs = {
+    homeBackup = {
+      paths = "/";
+      repo = "/mnt/ds_homes/gabysbrain/backups/portege";
+      compression = "auto,lzma";
+      encryption.mode = "none";
+      startAt = "daily";
+      exclude = [
+        "/home/*/.cache"
+        "/bin"
+        "/boot"
+        "/dev"
+        "/lost+found"
+        "/nix"
+        "/mnt"
+        "/proc"
+        "/run"
+        "/sys"
+        "/tmp"
+        "/usr"
+        "/var/cache"
+        "/var/lib"
+        "/var/run"
+        "/var/tmp"
+      ];
+      prune.keep = {
+        within = "1d"; # Keep all archives from the last day
+        daily = 7;
+        weekly = 4;
+        monthly = 12;  # Keep at one archive/month from the last year
+        yearly = -1; # Keep at least one archive per year
+      };
+    };
+  };
+
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
