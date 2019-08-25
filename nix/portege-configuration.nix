@@ -71,6 +71,15 @@
     shell = "/run/current-system/sw/bin/zsh";
   };
 
+  fileSystems."/mnt/diskstation" = {
+    device = "//192.168.0.14/homes";
+    fsType = "cifs";
+    options = let
+      # this line prevents hanging on network split
+      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
+    in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
+  };
+
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
