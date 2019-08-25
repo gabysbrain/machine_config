@@ -34,6 +34,8 @@ type = "google_calendar"
 token_file = "~/.vdirsyncer_gcal_token"
 client_id = "1016081500448-9j152ka0vu9pu7jshn73u0fcr45s18c2.apps.googleusercontent.com" 
 client_secret = "zrn9TeKgHpQB1ZT2iW1w8Eof"
+start_date = "datetime.now() - timedelta(days=365)"
+end_date = "datetime.now() + timedelta(days=365)"
 
 [storage apple_card]
 type = "carddav"
