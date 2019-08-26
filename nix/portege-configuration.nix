@@ -84,7 +84,7 @@
   services.borgbackup.jobs = {
     homeBackup = {
       paths = "/";
-      repo = "/mnt/ds_homes/gabysbrain/backups/portege";
+      repo = "/mnt/diskstation/gabysbrain/backups/portege";
       compression = "auto,lzma";
       encryption.mode = "none";
       startAt = "daily";
