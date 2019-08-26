@@ -9,7 +9,7 @@ Config
     , Run Com "/home/tom/.xmonad/wireless.sh" [] "wifi" 30
     , Run Com "xkb-switch" [] "kb" 30
     , Run Battery ["-t", "<left>"] 100
-    , Run MultiCpu ["-t", "<total0>"] 30
+    , Run MultiCpu ["-t", "<total>"] 30
     , Run Date "%_d %#B %Y <fc=#333333>|</fc> %H:%M" "date" 600
     , Run Volume "default" "Master" ["-t", "<volume>% <status>"] 10
     , Run StdinReader
