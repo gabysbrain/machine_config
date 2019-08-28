@@ -148,7 +148,7 @@ myKeys conf = let
     , ((myModMask, xK_b), addName "Browser" $ spawn myBrowser)
     , ((myModMask, xK_k), addName "Khal" $ rit' "khal")
     , ((myModMask, xK_m), addName "Mutt" $ rit' "mutt")
-    , ((myModMask, xK_r), addName "Ranger" $ rit' "ranger")
+    , ((myModMask, xK_n), addName "Ranger" $ rit' "ranger")
     , ((myModMask, xK_backslash), addName "Password" $ spawn "passmenu")
     ] ^++^
 
