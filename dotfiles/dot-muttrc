@@ -111,9 +111,9 @@ auto_view text/html
 alternative_order text/plain text/enriched text/html # avoid html if possible
 
 # address querying
-set query_command = "goobook query %s"
+set query_command = "khard email --parsable --search-in-source-files '%s'"
 bind editor <tab> complete-query
-macro index,pager a "<pipe-message>goobook add<return>" \
-  "add the sender email to contacts"
+macro index,pager a "<pipe-message>khard add-email<return>" \
+  "add the sender email to khard"
 
 

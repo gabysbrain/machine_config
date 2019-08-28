@@ -3,7 +3,7 @@
 
 [addressbooks]
 [[all]]
-path = ~/.contacts/card/
+path = ~/.contacts/default/
 #[[friends]]
 #path = ~/.contacts/friends/
 
