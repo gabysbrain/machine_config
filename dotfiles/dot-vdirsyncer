@@ -6,7 +6,8 @@ status_path = "~/.vdirsyncer/status/"
 
 [pair my_contacts]
 a = "my_contacts_local"
-b = "apple_card"
+#b = "apple_card"
+b = "gcontacts"
 collections = ["from a", "from b"]
 
 [pair my_cals]
@@ -55,9 +56,9 @@ read_only = "true"
 start_date = "datetime.now() - timedelta(days=60)"
 end_date = "datetime.now() + timedelta(days=365)"
 
-[storage apple_card]
-type = "carddav"
-url = "https://contacts.icloud.com/"
-username = "torsneyt@georgetown.edu"
-password = "ctqk-yizh-eogl-vzdt"
+[storage gcontacts]
+type = "google_contacts"
+token_file = "~/.vdirsyncer_gcontacts_token"
+client_id = "1016081500448-9j152ka0vu9pu7jshn73u0fcr45s18c2.apps.googleusercontent.com" 
+client_secret = "zrn9TeKgHpQB1ZT2iW1w8Eof"
 
