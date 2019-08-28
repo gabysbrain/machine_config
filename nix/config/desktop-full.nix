@@ -31,6 +31,8 @@
     libreoffice-unwrapped
     spotify
     skype
+    #viber
+    slack
     zotero
     meld
     newsboat
