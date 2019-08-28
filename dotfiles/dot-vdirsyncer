@@ -9,24 +9,25 @@ a = "my_contacts_local"
 b = "apple_card"
 collections = ["from a", "from b"]
 
-[pair my_gcal]
-a = "gcal_local"
-b = "gcal"
+[pair my_cals]
+a = "cal_local"
+b = "su_gcal"
 metadata = ["color", "displayname"]
 #conflict_resolution = ["command", "meld"]
 conflict_resolution = "b wins"
 collections = [["Personal", "personal", "torsneyt@gmail.com"], ["Work", "work", "o97sdkdlh3tu1249an1469rvvs@group.calendar.google.com"], ["Talks", "talks", "j1rrh115jb7ip1lpdjsf6j8vhs@group.calendar.google.com"]]
 
-[pair su_gcal]
-a = "gcal_local"
-b = "gcal"
+[pair su_cals]
+a = "cal_local"
+b = "su_gcal"
 metadata = ["color", "displayname"]
 conflict_resolution = "b wins"
+partial_sync = "ignore"
 collections = [["Academic", "academic", "bai94cp8c974t5k8cn14i01vv1t7duos@import.calendar.google.com"], ["COS", "cos", "jvtua13jtf8g3eiuuvp05tnq88n938g7@import.calendar.google.com" ], ["CS", "cs", "qvpkdglkvqhq1a455mnn88frf70poeon@import.calendar.google.com"]]
 
 ##### Local storages
 
-[storage gcal_local]
+[storage cal_local]
 type = "singlefile"
 path = "~/.calendars/%s.ics"
 
@@ -37,11 +38,20 @@ fileext = ".vcf"
 
 ##### Remote storages
 
-[storage gcal]
+[storage my_gcal]
 type = "google_calendar"
 token_file = "~/.vdirsyncer_gcal_token"
 client_id = "1016081500448-9j152ka0vu9pu7jshn73u0fcr45s18c2.apps.googleusercontent.com" 
 client_secret = "zrn9TeKgHpQB1ZT2iW1w8Eof"
+start_date = "datetime.now() - timedelta(days=60)"
+end_date = "datetime.now() + timedelta(days=365)"
+
+[storage su_gcal]
+type = "google_calendar"
+token_file = "~/.vdirsyncer_gcal_token"
+client_id = "1016081500448-9j152ka0vu9pu7jshn73u0fcr45s18c2.apps.googleusercontent.com" 
+client_secret = "zrn9TeKgHpQB1ZT2iW1w8Eof"
+read_only = "true"
 start_date = "datetime.now() - timedelta(days=60)"
 end_date = "datetime.now() + timedelta(days=365)"
 
