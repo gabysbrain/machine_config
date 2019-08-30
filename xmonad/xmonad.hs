@@ -25,6 +25,7 @@ import XMonad.Prompt.Input
 
 import XMonad.Util.EZConfig
 import XMonad.Util.NamedActions
+import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run
 
 import System.IO
@@ -148,7 +149,10 @@ myKeys conf = let
     , ((myModMask, xK_b), addName "Browser" $ spawn myBrowser)
     , ((myModMask, xK_k), addName "Khal" $ rit' "khal")
     , ((myModMask, xK_m), addName "Mutt" $ rit' "mutt")
+    , ((myModMask, xK_s), addName "Spotify" $ namedScratchpadAction scratchpads "spotify")
+    , ((myModMask .|. shiftMask, xK_m), addName "Pavucontrol mixer" $ namedScratchpadAction scratchpads "mixer")
     , ((myModMask, xK_n), addName "Ranger" $ rit' "ranger")
+    , ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks")
     , ((myModMask, xK_backslash), addName "Password" $ spawn "passmenu")
     ] ^++^
 
@@ -201,10 +205,22 @@ myManageHook = manageDocks <+> composeOne
     , className =? "Pinentry" -?> doFloat
     , className =? "Qpdfview" -?> doFloat
     , className =? "Skype"    -?> doFloat
-    ]
+    ] <+> namedScratchpadManageHook scratchpads
   where
   isBrowserDialog = isDialog <&&> (className =? "Chromium-browser" <||> className =? "Firefox")
   isRole = stringProperty "WM_WINDOW_ROLE"
+
+-- Scratchpads
+-- Name, launch command, how to find the window, float spec
+scratchpads =
+  [ NS "spotify" "spotify" (className =? "Spotify") 
+       (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+  , NS "mixer" "pavucontrol" (className =? "Pavucontrol")
+       (customFloating $ W.RationalRect (1/40) (1/20) (19/20) (9/10))
+  , NS "work_tasks" "chromium --app='https://trello.com/b/CJPzPChQ/work'" 
+       (appName =? "trello.com__b_CJPzPChQ_work")
+       (customFloating $ W.RationalRect (1/40) (1/20) (19/20) (9/10))
+  ]
 
 -- Event handling
 -------------------------------------------------------------------------------
