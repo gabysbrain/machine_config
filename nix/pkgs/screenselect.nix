@@ -6,8 +6,11 @@ pkgs.writeShellScriptBin "screenselect" ''
     # important that screens go left to right
     # first screen in list will become primary
     DOCK="DP-2 DP-1-1"
+    # default keyboard
+    DEFAULTKB=gb
     XRANDR=${pkgs.xorg.xrandr}/bin/xrandr
     ARANDR=${pkgs.arandr}/bin/arandr
+    KBSWITCH=${pkgs.xkb-switch}/bin/xkb-switch
 
     # Gives a number of options for connecting to different screens
 
@@ -17,10 +20,14 @@ pkgs.writeShellScriptBin "screenselect" ''
     # Get all connected screens.
     connscreens=$(echo "$screens" | grep " connected" | awk '{print $1}')
 
+    kbmap=$DEFAULTKB
+
     # Let the user choose what screen
     chosen=$(printf "docking station\\ndual\\nmain\\nother" | dmenu -i -p "Select display:") &&
     case "$chosen" in
       "docking station") 
+        # use us keyboard for docking station
+        kbmap=us
         # turn off the laptop screen temporalily to reset the display numbers
         $XRANDR --output $MAIN --off 
         rs=$MAIN
@@ -47,5 +54,8 @@ pkgs.writeShellScriptBin "screenselect" ''
         exit 
         ;;
     esac
+
+    # set kb map
+    $KBSWITCH -s $kbmap
 ''
 
