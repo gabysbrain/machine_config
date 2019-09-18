@@ -324,6 +324,7 @@
     (import ./pkgs/vim.nix)
     pkgs.xkb-switch
     pkgs.isync
+    pkgs.haskellPackages.stylish-haskell
   ];
   #programs.vim = {
     #enable = true;

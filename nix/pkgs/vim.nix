@@ -138,6 +138,7 @@ vim_configurable.customize {
       "vim-airline-themes"
       "vimproc"
       "haskell-vim"
+      "vim-stylish-haskell"
     ]; }
   ];
 }
