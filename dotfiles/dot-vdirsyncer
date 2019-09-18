@@ -24,7 +24,7 @@ b = "su_gcal"
 metadata = ["color", "displayname"]
 conflict_resolution = "b wins"
 partial_sync = "ignore"
-collections = [["Academic", "academic", "bai94cp8c974t5k8cn14i01vv1t7duos@import.calendar.google.com"], ["COS", "cos", "jvtua13jtf8g3eiuuvp05tnq88n938g7@import.calendar.google.com" ], ["CS", "cs", "qvpkdglkvqhq1a455mnn88frf70poeon@import.calendar.google.com"]]
+collections = [["Timetable", "timetable", "fq90c86lush8pefqeios81kh51fe4uc3@import.calendar.google.com"], ["COS", "cos", "jvtua13jtf8g3eiuuvp05tnq88n938g7@import.calendar.google.com" ], ["CS", "cs", "qvpkdglkvqhq1a455mnn88frf70poeon@import.calendar.google.com"]]
 
 ##### Local storages
 
@@ -61,4 +61,5 @@ type = "google_contacts"
 token_file = "~/.vdirsyncer_gcontacts_token"
 client_id = "1016081500448-9j152ka0vu9pu7jshn73u0fcr45s18c2.apps.googleusercontent.com" 
 client_secret = "zrn9TeKgHpQB1ZT2iW1w8Eof"
+
 
