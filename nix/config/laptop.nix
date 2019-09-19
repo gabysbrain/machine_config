@@ -6,6 +6,13 @@
     #connman.enable = true;
   };
 
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "ondemand";
+  };
+
+  boot.extraModprobeConfig = "options snd_hda_intel power_save=1";
+
   environment.systemPackages = with pkgs; [
     (import ../pkgs/screenselect.nix)
     xorg.xbacklight

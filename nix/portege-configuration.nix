@@ -52,6 +52,8 @@
 
   # List services that you want to enable:
 
+  hardware.bluetooth.enable = false;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
