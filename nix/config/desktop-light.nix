@@ -65,6 +65,7 @@ in
       corefonts
       emojione
       helvetica-neue-lt-std
+      carlito
     ];
   };
 
