@@ -242,7 +242,7 @@ myPP statusPipe = xmobarPP {
   , ppSep = xmobarColor myMainColor myBgColor "  |  "
 }
 
-myLogHook pipe = dynamicLogWithPP (myPP pipe)  -- >> updatePointer (Relative 0.5 0.5)
+myLogHook = dynamicLogWithPP . namedScratchpadFilterOutWorkspacePP . myPP
 
 -- Startup hook
 -------------------------------------------------------------------------------
