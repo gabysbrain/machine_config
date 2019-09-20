@@ -1,38 +1,39 @@
-import XMonad
-import Data.Monoid
-import System.Exit
+import           Data.Monoid
+import           System.Exit
+import           XMonad
 
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.SetWMName
-import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.DynamicProperty
+import           XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.ManageHelpers
+import           XMonad.Hooks.SetWMName
 
-import XMonad.Actions.DynamicProjects
-import XMonad.Actions.UpdatePointer
+import           XMonad.Actions.DynamicProjects
+import           XMonad.Actions.UpdatePointer
 
-import XMonad.Layout.BinarySpacePartition
-import XMonad.Layout.Grid
-import XMonad.Layout.NoBorders
-import XMonad.Layout.NoFrillsDecoration
-import XMonad.Layout.Renamed
-import XMonad.Layout.ResizableTile
-import XMonad.Layout.Spacing
-import XMonad.Layout.Tabbed
+import           XMonad.Layout.BinarySpacePartition
+import           XMonad.Layout.Grid
+import           XMonad.Layout.NoBorders
+import           XMonad.Layout.NoFrillsDecoration
+import           XMonad.Layout.Renamed
+import           XMonad.Layout.ResizableTile
+import           XMonad.Layout.Spacing
+import           XMonad.Layout.Tabbed
 
-import XMonad.Prompt
-import XMonad.Prompt.Input
+import           XMonad.Prompt
+import           XMonad.Prompt.Input
 
-import XMonad.Util.EZConfig
-import XMonad.Util.NamedActions
-import XMonad.Util.NamedScratchpad
-import XMonad.Util.Run
+import           XMonad.Util.EZConfig
+import           XMonad.Util.NamedActions
+import           XMonad.Util.NamedScratchpad
+import           XMonad.Util.Run
 
-import System.IO
-import Graphics.X11.ExtraTypes.XF86 -- more keys
+import           Graphics.X11.ExtraTypes.XF86
+import           System.IO
 
-import qualified XMonad.StackSet as W
-import qualified Data.Map as M
+import qualified Data.Map                           as M
+import qualified XMonad.StackSet                    as W
 
 -- Workspaces
 wsWk1 = "Wk1"
@@ -45,6 +46,12 @@ wsAV  = "AV"
 wsTmp = "Tmp"
 wsSys = "Sys"
 
+-- stuff to specify floating window sizes
+centerFloat w h = customFloating $ W.RationalRect ((1-w)/2) ((1-h)/2) w h
+
+spotifyFloat = ("Spotify", centerFloat 0.6 0.6)
+trelloFloat = ("trello.com__b_CJPzPChQ_work", centerFloat 0.6 0.6)
+
 -- Projects
 workProject :: String -> Project
 workProject ws = Project { projectName = ws
@@ -55,7 +62,7 @@ workProject ws = Project { projectName = ws
                          }
 
 projects :: [Project]
-projects = 
+projects =
   [ Project { projectName = wsSys
             , projectDirectory = "~/"
             , projectStartHook = Just $ do rit' "glances -1"
@@ -163,29 +170,29 @@ myKeys conf = let
   subKeys "layouts"
     [ ((myModMask, xK_space ), addName "Change layout" $ sendMessage NextLayout)
     , ((myModMask, xK_Return), addName "Swap master" $ windows W.swapMaster)
-    , ((myModMask, xK_t), addName "Push window pack to tiling" $ withFocused $ windows . W.sink) 
+    , ((myModMask, xK_t), addName "Push window pack to tiling" $ withFocused $ windows . W.sink)
     , ((myModMask .|. shiftMask, xK_c), addName "Close window" $ kill)
     , ((myModMask, xK_y), addName "Hide status bar" $ sendMessage ToggleStruts)
     ]
 
 -- Layouts
 ------------------------------------------------------------------------
-myLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL 
+myLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
   where
     tiledL = named "Tiled"
-      $ topbar 
-      $ spacing myGap 
+      $ topbar
+      $ spacing myGap
       $ ResizableTall 1 0.03 0.5 []
     tabbedL = named "Tabbed"
-      $ fsSpacing myGap 
+      $ fsSpacing myGap
       $ tabbed shrinkText myTabBar
-    bspL = named "BSP" 
-      $ topbar 
-      $ spacing myGap 
+    bspL = named "BSP"
+      $ topbar
+      $ spacing myGap
       $ emptyBSP
-    gridL = named "Grid" 
-      $ topbar 
-      $ spacing myGap 
+    gridL = named "Grid"
+      $ topbar
+      $ spacing myGap
       $ Grid
 
     spacing x = spacingRaw False (Border 0 0 0 0) False (Border x x x x) True
@@ -213,19 +220,20 @@ myManageHook = manageDocks <+> composeOne
 -- Scratchpads
 -- Name, launch command, how to find the window, float spec
 scratchpads =
-  [ NS "spotify" "spotify" (className =? "Spotify") 
-       (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+  [ NS "spotify" "spotify" (className =? fst spotifyFloat) (snd spotifyFloat)
   , NS "mixer" "pavucontrol" (className =? "Pavucontrol")
-       (customFloating $ W.RationalRect (1/40) (1/20) (19/20) (9/10))
-  , NS "work_tasks" "chromium --app='https://trello.com/b/CJPzPChQ/work'" 
-       (appName =? "trello.com__b_CJPzPChQ_work")
-       (customFloating $ W.RationalRect (1/40) (1/20) (19/20) (9/10))
+       (centerFloat 0.6 0.6)
+  , NS "work_tasks" "chromium --app='https://trello.com/b/CJPzPChQ/work'"
+       (appName =? (fst trelloFloat))
+       (snd trelloFloat)
   ]
 
 -- Event handling
 -------------------------------------------------------------------------------
 myEventHook = mconcat
   [ docksEventHook -- this is needed to properly get xmobar struts working
+  , dynamicPropertyChange "WM_NAME" (title =? (fst spotifyFloat) --> (snd spotifyFloat))
+  , dynamicPropertyChange "WM_NAME" (appName =? (fst trelloFloat) --> (snd trelloFloat))
   , handleEventHook def
   ]
 
@@ -272,7 +280,7 @@ main = do
   statusPipe <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
   xmonad
     $ dynamicProjects projects
-    $ ewmh 
+    $ ewmh
     $ addDescrKeys ((myModMask, xK_F1), showKeybindings) myKeys
     $ myConfig statusPipe
 
@@ -300,7 +308,7 @@ rit' c = rit c c
 
 -- | Prompt the user for information and add an appointment using \'khal\'
 apptPrompt :: XPConfig -> [String] -> X ()
-apptPrompt c calNames = 
+apptPrompt c calNames =
   inputPromptWithCompl c "Cal" (mkComplFunFromList calNames) ?+ \cal ->
   inputPrompt c "Title" ?+ \ttl ->
   inputPrompt c "Start" ?+ \start ->
