@@ -19,6 +19,7 @@ let rpkgs =  rpkg: with rpkg; [
       testthat
       tidyr
       usethis
+      xml2
     ];
 in
 {
