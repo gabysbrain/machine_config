@@ -13,6 +13,7 @@
       ./config/writing.nix
       ./config/laptop.nix
       ./config/desktop-full.nix
+      ./config/teaching.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
