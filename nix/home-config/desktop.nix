@@ -210,8 +210,8 @@
     ###############################
     # Other stuff
     ###############################
-    ".tvrc".source = ../dotfiles/dot-tvrc;
-    ".newsboat/config".source = ../dotfiles/dot-newsboat;
+    ".tvrc".source = ../../dotfiles/dot-tvrc;
+    ".newsboat/config".source = ../../dotfiles/dot-newsboat;
   };
   gtk = {
     enable = true;
