@@ -173,39 +173,39 @@
     ###############################
     # Email/calendar/contacts sync
     ###############################
-    ".vdirsyncer/config".source = ../dotfiles/dot-vdirsyncer;
-    ".muttrc".source = ../dotfiles/dot-muttrc;
-    ".mutt".source = ../dotfiles/dot-mutt;
-    ".config/khal/config".source = ../dotfiles/dot-khal;
-    ".config/khard/khard.conf".source = ../dotfiles/dot-khard;
-    ".urlview".source = ../dotfiles/dot-urlview;
-    ".mbsyncrc".source = ../dotfiles/dot-mbsyncrc;
+    ".vdirsyncer/config".source = ../../dotfiles/dot-vdirsyncer;
+    ".muttrc".source = ../../dotfiles/dot-muttrc;
+    ".mutt".source = ../../dotfiles/dot-mutt;
+    ".config/khal/config".source = ../../dotfiles/dot-khal;
+    ".config/khard/khard.conf".source = ../../dotfiles/dot-khard;
+    ".urlview".source = ../../dotfiles/dot-urlview;
+    ".mbsyncrc".source = ../../dotfiles/dot-mbsyncrc;
 
     ###############################
     # XMonad utilities
     ###############################
-    ".xmonad/xmobar.hs".source = ../xmonad/xmobar.hs;
+    ".xmonad/xmobar.hs".source = ../../xmonad/xmobar.hs;
     ".xmonad/wireless.sh" = {
-      source = ../xmonad/wireless.sh;
+      source = ../../xmonad/wireless.sh;
       executable = true;
     };
     ".xmonad/xmobar-syncthing-status.sh" = {
-      source = ../xmonad/xmobar-syncthing-status.sh;
+      source = ../../xmonad/xmobar-syncthing-status.sh;
       executable = true;
     };
     ".xmonad/kb-status.sh" = {
-      source = ../xmonad/kb-status.sh;
+      source = ../../xmonad/kb-status.sh;
       executable = true;
     };
 
     ###############################
     # Ranger
     ###############################
-    ".config/ranger/rifle.conf".source = ../dotfiles/dot-rifle.conf;
-    ".config/ranger/rc.conf".source = ../dotfiles/dot-ranger/rc.conf;
-    ".config/ranger/scope.sh".source = ../dotfiles/dot-ranger/scope.sh;
-    ".config/ranger/commands.py".source = ../dotfiles/dot-ranger/commands.py;
-    ".config/ranger/colorschemes/zenburn.py".source = ../dotfiles/dot-ranger/zenburn.py;
+    ".config/ranger/rifle.conf".source = ../../dotfiles/dot-rifle.conf;
+    ".config/ranger/rc.conf".source = ../../dotfiles/dot-ranger/rc.conf;
+    ".config/ranger/scope.sh".source = ../../dotfiles/dot-ranger/scope.sh;
+    ".config/ranger/commands.py".source = ../../dotfiles/dot-ranger/commands.py;
+    ".config/ranger/colorschemes/zenburn.py".source = ../../dotfiles/dot-ranger/zenburn.py;
 
     ###############################
     # Other stuff
@@ -321,15 +321,11 @@
 
   # TODO: integrate this into the programs.vim module
   home.packages = [
-    (import ./pkgs/vim.nix)
+    (import ../pkgs/vim.nix)
     pkgs.xkb-switch
     pkgs.isync
     pkgs.haskellPackages.stylish-haskell
   ];
-  #programs.vim = {
-    #enable = true;
-    #package = ./pkgs/vim.nix;
-  #};
 
   #home.stateVersion = "18.09";
   programs.home-manager.enable = true;
