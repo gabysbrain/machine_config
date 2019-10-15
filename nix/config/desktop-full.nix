@@ -66,7 +66,6 @@
               ]))
             ];
             scripts = with pkgs.weechatScripts; [
-              weechat-xmpp
               wee-slack
               (import ../pkgs/weechat-whatsapp)
             ];
