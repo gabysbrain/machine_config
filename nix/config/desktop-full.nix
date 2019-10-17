@@ -62,12 +62,10 @@
             plugins = with availablePlugins; [
               (python.withPackages (ps: with ps; [
                 websocket_client
-                #yowsup
               ]))
             ];
             scripts = with pkgs.weechatScripts; [
               wee-slack
-              (import ../pkgs/weechat-whatsapp)
             ];
           };
         };
