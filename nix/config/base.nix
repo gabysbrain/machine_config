@@ -16,7 +16,7 @@
     p7zip
 
     # password storage
-    pass
+    gopass
     gnupg
   ];
 

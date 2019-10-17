@@ -48,6 +48,7 @@ in
 
     #dropbox-cli
 
+    (callPackage ../pkgs/gopass-dmenu.nix {})
     (callPackage ../pkgs/syncthing-quick-status.nix {})
 
     firefox
