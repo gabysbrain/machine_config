@@ -1,8 +1,9 @@
 /*{ stdenv, fetchFromGitHub, pythonPackages,*/
   /*libxml2, libxslt, zlib }:*/
-with import <nixpkgs> {};
+{pkgs ? import <nixpkgs>}:
+#with import <nixpkgs> {};
 
-let pypkg = python27Packages;
+let pypkg = pkgs.python27Packages;
     chardet = pypkg.buildPythonPackage rec {
       version = "2.1.1";
       name = "chardet-${version}";
@@ -47,7 +48,7 @@ pypkg.buildPythonApplication rec {
   meta = {
     description = "Fast note taking app for the linux terminal";
     homepage = https://vhp.github.io/terminal_velocity;
-    license = stdenv.lib.licenses.gpl3;
+    license = pkgs.stdenv.lib.licenses.gpl3;
     #maintainers = [ stdenv.lib.maintainers.garbas ];
   };
 }

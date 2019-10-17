@@ -1,10 +1,11 @@
-with import <nixpkgs> {};
+{pkgs ? import <nixpkgs>}:
+#with import <nixpkgs> {};
 
-stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation rec {
   version = "68a6a5427c83fb2b45646cab19a641e598b1b38e";
   name = "syncthing-quick-status-${version}";
 
-  src = fetchFromGitHub {
+  src = pkgs.fetchFromGitHub {
     owner = "serl";
     repo = "syncthing-quick-status";
     rev = "${version}";
@@ -12,7 +13,7 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs = [
-    jq curl
+    pkgs.jq pkgs.curl
   ];
 
   patchPhase = ''

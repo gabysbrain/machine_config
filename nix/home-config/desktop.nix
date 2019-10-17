@@ -321,7 +321,7 @@
 
   # TODO: integrate this into the programs.vim module
   home.packages = [
-    (import ../pkgs/vim.nix)
+    (pkgs.callPackage ./pkgs/vim.nix {})
     pkgs.xkb-switch
     pkgs.isync
     pkgs.haskellPackages.stylish-haskell

@@ -38,7 +38,7 @@ in
     offlineimap
     msmtp
     vdirsyncer-patched
-    (import ../pkgs/terminal-velocity.nix)
+    (callPackage ../pkgs/terminal-velocity.nix {})
     gcalcli
     python37Packages.goobook
     urlscan
@@ -48,7 +48,7 @@ in
 
     #dropbox-cli
 
-    (import ../pkgs/syncthing-quick-status.nix)
+    (callPackage ../pkgs/syncthing-quick-status.nix {})
 
     firefox
     browserpass

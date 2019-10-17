@@ -1,4 +1,5 @@
-with import <nixpkgs> {};
+{pkgs ? import <nixpkgs>}:
+#with import <nixpkgs> {};
 
 pkgs.writeText "zshrc" ''
 export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/

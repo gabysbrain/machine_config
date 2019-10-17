@@ -14,7 +14,7 @@
   boot.extraModprobeConfig = "options snd_hda_intel power_save=1";
 
   environment.systemPackages = with pkgs; [
-    (import ../pkgs/screenselect.nix)
+    (callPackage ../pkgs/screenselect.nix {})
     xorg.xbacklight
     powertop
     lm_sensors
