@@ -160,7 +160,7 @@ myKeys conf = let
     , ((myModMask .|. shiftMask, xK_m), addName "Pavucontrol mixer" $ namedScratchpadAction scratchpads "mixer")
     , ((myModMask, xK_n), addName "Ranger" $ rit' "ranger")
     , ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks")
-    , ((myModMask, xK_backslash), addName "Password" $ spawn "passmenu")
+    , ((myModMask, xK_backslash), addName "Password" $ spawn "gopass-dmenu")
     ] ^++^
 
   subKeys "shortcuts"
