@@ -32,6 +32,7 @@ in
     gnome3.zenity
 
     xclip
+    xdotool
     ranger
     feh
     mutt
