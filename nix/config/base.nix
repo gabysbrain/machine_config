@@ -31,6 +31,9 @@
     openDefaultPorts = true;
   };
 
+  # figure out correct time zone
+  services.localtime.enable = true; 
+
   # font config
   fonts = {
 		enableFontDir = true;

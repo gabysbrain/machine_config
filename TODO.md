@@ -11,4 +11,5 @@
 
 - fix screen select
 - set proper keyboard layout for docking station script
+- have time zone float with location
 
