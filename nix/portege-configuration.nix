@@ -58,6 +58,17 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # set up sleep/hiberante
+  services.logind = {
+    # FIXME: why doesn't this work!?!?!
+    lidSwitch = "hibernate";
+    #lidSwitchDocked = "hibernate";
+    lidSwitchExternalPower = "hibernate";
+    extraConfig = ''
+      HandleSuspendKey = hibernate
+    '';
+  };
+
   # The remaining syncthing config
   services.syncthing = {
     enable = true;

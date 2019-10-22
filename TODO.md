@@ -4,6 +4,8 @@
 - figure out why tick_sched_timer takes so much power
 - what is usb-device-8087-0a2b?
 - fix floating window sizes on hidden workspaces
+- fix lid power config
+- fix DP screen showing
 
 # Won't do
 
