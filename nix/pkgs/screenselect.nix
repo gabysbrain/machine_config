@@ -28,7 +28,7 @@ pkgs.writeShellScriptBin "screenselect" ''
       "docking station") 
         # use us keyboard for docking station
         kbmap=us
-        # turn off the laptop screen temporalily to reset the display numbers
+        # turn off the laptop screen temporarily to reset the display numbers
         $XRANDR --output $MAIN --off 
         rs=$MAIN
         fst=true
