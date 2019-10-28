@@ -1,5 +1,5 @@
-#{pkgs ? import <nixpkgs>}:
-with import <nixpkgs> {};
+{pkgs ? import <nixpkgs>}:
+#with import <nixpkgs> {};
 
 let
   confPath = pkgs.copyPathToStore ./gcal.conky;
