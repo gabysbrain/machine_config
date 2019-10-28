@@ -1,0 +1,21 @@
+conky.config = {
+  update_interval = 10,
+  own_window = true,
+  own_window_class = "GCalendar",
+  own_window_title = "My Calendar",
+  own_window_colour = "3f3f3f",
+  default_colour = "FFFFFF",
+  draw_outline = false,
+  draw_borders = false,
+  draw_shades = false,
+
+  double_buffer = true,
+  text_buffer_size = 1024,
+  use_xft = true,
+  font = "Anonymous Pro:size=11",
+};
+
+conky.text = [[
+${execpi 300 gcalcli --conky agenda}
+${execpi 300 gcalcli --lineart=unicode --conky calw}
+]]
