@@ -71,7 +71,7 @@ projects =
             , projectDirectory = "~/"
             , projectStartHook = Just $ do
                 rit' "mutt"
-                spawn "gnome-calendar"
+                spawn "gcal-conky"
             }
   ] ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
 
@@ -154,7 +154,7 @@ myKeys conf = let
   subKeys "launchers"
     [ ((myModMask .|. shiftMask, xK_Return), addName "Terminal" $ spawn myTerminal)
     , ((myModMask, xK_b), addName "Browser" $ spawn myBrowser)
-    , ((myModMask, xK_k), addName "Khal" $ rit' "khal")
+    , ((myModMask, xK_k), addName "Calendar" $ spawn "gcal-conky")
     , ((myModMask, xK_m), addName "Mutt" $ rit' "mutt")
     , ((myModMask, xK_s), addName "Spotify" $ namedScratchpadAction scratchpads "spotify")
     , ((myModMask .|. shiftMask, xK_m), addName "Pavucontrol mixer" $ namedScratchpadAction scratchpads "mixer")
