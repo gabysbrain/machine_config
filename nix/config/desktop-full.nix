@@ -39,8 +39,7 @@
     newsboat
     weechat
 
-    gnome3.gnome-calendar
-    gnome3.evolution-data-server
+    (callPackage ../pkgs/gcal-conky {})
 
     inkscape
     gimp
