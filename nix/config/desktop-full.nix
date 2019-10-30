@@ -31,6 +31,7 @@
     libreoffice-unwrapped
     spotify
     skype
+    zoom-us
     #viber
     slack
     zotero
