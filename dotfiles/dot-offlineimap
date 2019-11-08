@@ -1,0 +1,96 @@
+[general]
+ui = blinkenlights
+accounts = personal,work,univie
+#maxsyncaccounts = 2
+fsync = False
+pythonfile = ~/.offlineimap.py
+
+[Account personal]
+localrepository = personal-local
+remoterepository = personal-remote
+postsynchook = notmuch new
+
+[Account work]
+localrepository = work-local
+remoterepository = work-remote
+postsynchook = notmuch new
+
+[Account univie]
+localrepository = univie-local
+remoterepository = univie-remote
+postsynchook = notmuch new
+
+[Repository personal-local]
+type = Maildir
+localfolders = ~/.mail/personal
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'spam':    '[Gmail]/Spam',
+                            'archive': '[Gmail]/All Mail',
+                           }.get(folder, folder)
+
+[Repository personal-remote]
+type = Gmail
+remoteuser = torsneyt@gmail.com
+remotepasseval = get_pass('gmail/mbsync')
+nametrans = lambda folder: {'[Gmail]/Drafts': 'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Trash': 'trash',
+                            '[Gmail]/Spam': 'spam',
+                            '[Gmail]/All Mail': 'archive'
+                           }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Starred']
+ssl_version = tls1_2
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Repository work-local]
+type = Maildir
+localfolders = ~/.mail/work
+nametrans = lambda folder: {'drafts':  'Drafts',
+                            'sent':    'Sent Items',
+                            'trash':   'Deleted Items',
+                            'archive': 'Archive',
+                            'spam':    'Junk Email'
+                           }.get(folder, folder)
+
+[Repository work-remote]
+type = IMAP
+remoteuser = t.d.torsney-weir@swansea.ac.uk
+remotepasseval = get_pass('swansea.ac.uk')
+remotehost = outlook.office365.com
+nametrans = lambda folder: {'Drafts':        'drafts',
+                            'Sent Items':    'sent',
+                            'Deleted Items': 'trash',
+                            'Archive':       'archive',
+                            'Junk Email':    'spam'
+                           }.get(folder, folder)
+folderfilter = lambda folder: (not folder.startswith('Calendar')) and \
+                              (not folder.startswith('Sync Issues')) and \
+                              (folder not in ['Tasks', 'Conversation History', 
+                                'RSS Subscriptions', 'Journal', 'Notes', 
+                                'Outbox', 'Contacts'])
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Repository univie-local]
+type = Maildir
+localfolders = ~/.mail/univie
+nametrans = lambda folder: {'drafts':  'INBOX.Drafts',
+                            'sent':    'INBOX.Sent',
+                            'trash':   'INBOX.Trash',
+                            'archive': 'INBOX.Archive'
+                           }.get(folder, 'INBOX.' + folder)
+
+[Repository univie-remote]
+type = IMAP
+remoteuser = torsnet6
+remotepasseval = get_pass('univie.ac.at')
+remotehost = imap.univie.ac.at
+nametrans = lambda folder: {'INBOX.Drafts': 'drafts',
+                            'INBOX.Sent': 'sent',
+                            'INBOX.Trash': 'trash',
+                            'INBOX.Archive': 'archive'
+                           }.get(folder, re.sub('^INBOX\.', '', folder))
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
