@@ -52,6 +52,8 @@
     poppler_utils
   ];
 
+  services.system-config-printer.enable = true;
+
   #nixpkgs.config.oraclejdk.accept_license = true;
   nixpkgs.overlays = [
     (

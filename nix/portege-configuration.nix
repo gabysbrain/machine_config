@@ -47,9 +47,9 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   wget vim
-  # ];
+  environment.systemPackages = with pkgs; [
+    samba # for samba printer
+  ];
 
   # List services that you want to enable:
 
@@ -57,6 +57,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [pkgs.gutenprint pkgs.gutenprintBin];
 
   # set up sleep/hiberante
   services.logind = {
@@ -93,6 +94,17 @@
       automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
     in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
   };
+
+  # printers
+  hardware.printers.ensurePrinters = [
+    {
+      name = "Swanea";
+      description = "Swansea Uni Printers";
+      deviceUri = "smb://iss-ricoh-ps4.tawe.swan.ac.uk/Staff%20Printing";
+      ppdOptions = {PageSize = "A4";};
+      model = "gutenprint.5.2://ricoh-mp_c5503/expert";
+    }
+  ];
 
   # home backup
   services.borgbackup.jobs = {
