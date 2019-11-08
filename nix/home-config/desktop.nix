@@ -22,64 +22,33 @@
         userName = "torsneyt@gmail.com";
         address = "torsneyt@gmail.com";
         flavor = "gmail.com";
-        msmtp.enable = true;
-        notmuch.enable = true;
         imap = {
-          #host = "";
+          #host = "imap.gmail.com";
           tls.enable = true;
         };
         smtp = {
-          #host = "";
+          #host = "smtp.gmail.com";
           tls.enable = true;
         };
-        #mbsync = {
-          #enable = true;
-          #create = "both";
-          #expunge = "both";
-          #remove = "both";
-          #flatten = ".";
-          #patterns = [ 
-            #"*" "INBOX"
-            #"![Gmail]/*" "!sent" "!archive" "!spam" "!trash"
-          #];
-          #extraConfig.account = {
-            #PipelineDepth = 50;
-            #Timeout = 60;
-          #};
-        #};
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1";
         folders = {
           inbox = "INBOX";
-          #drafts = "[Gmail]/Drafts";
-          #sent = "[Gmail]/Sent Mail";
-          #trash = "[Gmail]/Trash";
+          drafts = "[Gmail]/Drafts";
+          sent = "[Gmail]/Sent Mail";
+          trash = "[Gmail]/Trash";
           #archive = "[Gmail]/All Mail";
         };
+        msmtp.enable = true;
+        notmuch.enable = true;
+        #offlineimap = {
+          #enable = true;
+        #};
       };
       work = {
         realName = "Thomas Torsney-Weir";
         userName = "t.d.torsney-weir@swansea.ac.uk";
         address = "t.d.torsney-weir@swansea.ac.uk";
         flavor = "plain";
-        msmtp.enable = true;
-        notmuch.enable = true;
-        #mbsync = {
-          #enable = true;
-          #create = "both";
-          #expunge = "both";
-          #remove = "both";
-          #flatten = ".";
-          #patterns = [ 
-            #"*" 
-            #"!Calendar*" "!Contacts"
-            #"!Conversation History*" "!Journal" "!Notes" "!Tasks"
-            #"!RSS Subscriptions*"
-            #"!Outbox" "!Sync Issues*"
-            #"!students"
-            #"!Archive" "!Sent Items" "!Deleted Items" "!Junk Email" "!Drafts"
-            #"!archive" "!sent" "!trash" "!spam" "!drafts"
-          #];
-        #};
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/swansea.ac.uk.gpg | head -1";
         imap = {
           host = "outlook.office365.com";
@@ -93,31 +62,21 @@
         };
         folders = {
           inbox = "INBOX";
-          #drafts = "INBOX.Drafts";
-          #sent = "INBOX.Sent";
-          #trash = "INBOX.Trash";
+          drafts = "Drafts";
+          sent = "Sent Mail";
+          trash = "Deleted Items";
         };
+        msmtp.enable = true;
+        notmuch.enable = true;
+        #offlineimap = {
+          #enable = true;
+        #};
       };
       univie = {
         realName = "Thomas Torsney-Weir";
         userName = "torsnet6";
         address = "thomas.torsney-weir@univie.ac.at";
         flavor = "plain";
-        #offlineimap.enable = true;
-        msmtp.enable = true;
-        notmuch.enable = true;
-        #mbsync = {
-          #enable = true;
-          #create = "both";
-          #expunge = "both";
-          #remove = "both";
-          #flatten = ".";
-          #patterns = [ 
-            #"*" "INBOX"
-            #"!Archive" "!Sent" "!Trash" "!Junk" "!Drafts"
-            #"!archive" "!sent" "!trash" "!spam" "!drafts"
-          #];
-        #};
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/univie.ac.at.gpg | head -1";
         imap = {
           host = "imap.univie.ac.at";
@@ -129,10 +88,15 @@
         };
         folders = {
           inbox = "INBOX";
-          #drafts = "INBOX.Drafts";
-          #sent = "INBOX.Sent";
-          #trash = "INBOX.Trash";
+          drafts = "INBOX.Drafts";
+          sent = "INBOX.Sent";
+          trash = "INBOX.Trash";
         };
+        msmtp.enable = true;
+        notmuch.enable = true;
+        #offlineimap = {
+          #enable = true;
+        #};
       };
     };
   };
@@ -162,6 +126,7 @@
       enable = true;
       browsers = [ "chromium" "firefox" ];
     };
+    offlineimap.enable = true; # email syncing
     msmtp.enable = true; # sendmail support
     notmuch.enable = true; # index email
   };
@@ -179,7 +144,8 @@
     ".config/khal/config".source = ../../dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ../../dotfiles/dot-khard;
     ".urlview".source = ../../dotfiles/dot-urlview;
-    ".mbsyncrc".source = ../../dotfiles/dot-mbsyncrc;
+    ".offlineimaprc".source = ../../dotfiles/dot-offlineimap;
+    ".offlineimap.py".source = ../../dotfiles/dot-offlineimap.py;
 
     ###############################
     # XMonad utilities
@@ -226,10 +192,6 @@
     platformTheme = "gtk";
   };
   services = {
-    mbsync = {
-      enable = true;
-      frequency = "*:0/15";
-    };
     gpg-agent = {
       enable = true;
       defaultCacheTtl = 1800; # 30 minutes
