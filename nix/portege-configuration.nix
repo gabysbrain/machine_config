@@ -40,7 +40,17 @@
 
   # Select internationalisation properties.
   services.xserver.layout = "gb,us";
+  #services.xserver.videoDrivers = ["modesetting"];
+  #services.xserver.videoDrivers = ["displaylink" "modesetting"];
   i18n.consoleUseXkbConfig = true;
+
+  # Enable intel iris drivers
+  environment.variables = {
+    MESA_LOADER_DRIVER_OVERRIDE = "iris";
+  };
+  hardware.opengl.package = (pkgs.mesa.override {
+    galliumDrivers = [ "nouveau" "virgl" "swrast" "iris" ];
+  }).drivers;
 
   # Set your time zone.
   #time.timeZone = "Europe/London";
