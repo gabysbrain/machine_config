@@ -33,11 +33,11 @@
     skype
     zoom-us
     #viber
-    slack
+    #slack
     zotero
     meld
     newsboat
-    weechat
+    #weechat
 
     (callPackage ../pkgs/gcal-conky {})
 
