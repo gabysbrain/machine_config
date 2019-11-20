@@ -25,7 +25,6 @@ type = Maildir
 localfolders = ~/.mail/personal
 nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             'sent':    '[Gmail]/Sent Mail',
-                            'flagged': '[Gmail]/Starred',
                             'trash':   '[Gmail]/Trash',
                             'spam':    '[Gmail]/Spam',
                             'archive': '[Gmail]/All Mail',
@@ -79,7 +78,8 @@ localfolders = ~/.mail/univie
 nametrans = lambda folder: {'drafts':  'INBOX.Drafts',
                             'sent':    'INBOX.Sent',
                             'trash':   'INBOX.Trash',
-                            'archive': 'INBOX.Archive'
+                            'archive': 'INBOX.Archive',
+                            'INBOX':   'INBOX'
                            }.get(folder, 'INBOX.' + folder)
 
 [Repository univie-remote]
@@ -90,7 +90,8 @@ remotehost = imap.univie.ac.at
 nametrans = lambda folder: {'INBOX.Drafts': 'drafts',
                             'INBOX.Sent': 'sent',
                             'INBOX.Trash': 'trash',
-                            'INBOX.Archive': 'archive'
+                            'INBOX.Archive': 'archive',
+                            'INBOX':   'INBOX'
                            }.get(folder, re.sub('^INBOX\.', '', folder))
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
