@@ -59,6 +59,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     samba # for samba printer
+    system-config-printer
   ];
 
   # List services that you want to enable:
@@ -68,6 +69,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.drivers = [pkgs.gutenprint pkgs.gutenprintBin];
+  #services.printing.logLevel = "debug";
 
   # set up sleep/hiberante
   services.logind = {
@@ -91,7 +93,7 @@
   users.users.tom = {
     home = "/home/tom";
     description = "Thomas Torsney-Weir";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "lp" "lpadmin" ]; # Enable ‘sudo’ for the user.
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
   };
@@ -108,12 +110,25 @@
   # printers
   hardware.printers.ensurePrinters = [
     {
-      name = "Swanea";
+      name = "Swansea";
       description = "Swansea Uni Printers";
-      deviceUri = "smb://iss-ricoh-ps4.tawe.swan.ac.uk/Staff%20Printing";
+      deviceUri = "smb://iss-ricoh-ps4.tawe.swan.ac.uk/staff%20printing";
       ppdOptions = {PageSize = "A4";};
       model = "gutenprint.5.2://ricoh-mp_c5503/expert";
     }
+  ];
+  nixpkgs.overlays = [
+    (
+      self: super: {
+        cups = super.cups.overrideAttrs (old: rec {
+          version = "2.3.0";
+          src = super.fetchurl {
+            url = "https://github.com/apple/cups/releases/download/v${version}/cups-${version}-source.tar.gz";
+            sha256 = "19d1jpdpxy0fclq37pchi7ldnw9dssxx3zskcgqai3h0rwlh5bxc";
+          };
+        });
+      }
+    )
   ];
 
   # home backup
