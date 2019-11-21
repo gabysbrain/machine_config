@@ -15,6 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     (callPackage ../pkgs/screenselect.nix {})
+    (callPackage ../pkgs/speakerselect.nix {})
     xorg.xbacklight
     powertop
     lm_sensors

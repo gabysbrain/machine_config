@@ -138,8 +138,10 @@ myKeys conf = let
   -- from https://github.com/altercation/dotfiles-tilingwm/blob/master/.xmonad/xmonad.hs
   subKeys str ks = subtitle str : ks
   in
+  -- TODO: split this into applications, utilities (like speaker or passwords), system (e.g. volume), and window manager things
   subKeys "system"
     [ ((myModMask, xK_q), addName "Restart and recompile xmonad" $ spawn "xmonad --recompile; xmonad --restart")
+    , ((myModMask, xK_F7), addName "Select speaker" $ spawn "screenselect")
     , ((myModMask, xK_F8), addName "Select display" $ spawn "screenselect")
     -- Volume
     , ((0, 0x1008ff11), addName "Reduce volume" $ spawn "amixer -q set Master 5- unmute")
