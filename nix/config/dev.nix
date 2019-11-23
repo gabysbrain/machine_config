@@ -7,7 +7,7 @@ let rpkgs =  rpkg: with rpkg; [
       geometry
       ggplot2
       gridExtra
-      GPareto
+      #GPareto
       mco
       pracma
       profvis
@@ -47,6 +47,10 @@ in
     # R stuff
     rstudio-with-my-packages
     R-with-my-packages
+
+    # Julia stuff
+    atom # for juno
+    (callPackage ../pkgs/julia.nix {})
   ];
 
   nixpkgs.overlays = [
