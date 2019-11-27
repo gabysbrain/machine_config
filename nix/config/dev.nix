@@ -41,6 +41,7 @@ in
     gnumake
     jq
     entr
+    bat
 
     chromium
 
