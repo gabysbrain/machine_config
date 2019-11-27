@@ -128,6 +128,13 @@
       enable = true;
       browsers = [ "chromium" "firefox" ];
     };
+    bat = {
+      enable = true;
+      config = {
+        pager = "less -FR";
+        theme = "zenburn";
+      };
+    };
     offlineimap.enable = true; # email syncing
     msmtp.enable = true; # sendmail support
     notmuch.enable = true; # index email
