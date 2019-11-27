@@ -114,6 +114,8 @@
       initExtra = ''
         nix-search() {echo "Searching for '$1'..." ; nix-env -qaP --description \* | grep -i $1; }
         nix-install() { nix-env -iA $1; }
+        zle -N edit-command-line
+        bindkey v edit-command-line
       '';
       history.ignoreDups = true;
     };
