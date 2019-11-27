@@ -1,6 +1,6 @@
 [general]
 ui = blinkenlights
-accounts = personal,work,univie
+accounts = personal,work
 #maxsyncaccounts = 2
 fsync = False
 pythonfile = ~/.offlineimap.py
@@ -13,11 +13,6 @@ postsynchook = notmuch new
 [Account work]
 localrepository = work-local
 remoterepository = work-remote
-postsynchook = notmuch new
-
-[Account univie]
-localrepository = univie-local
-remoterepository = univie-remote
 postsynchook = notmuch new
 
 [Repository personal-local]
@@ -70,28 +65,5 @@ folderfilter = lambda folder: (not folder.startswith('Calendar')) and \
                               (folder not in ['Tasks', 'Conversation History', 
                                 'RSS Subscriptions', 'Journal', 'Notes', 
                                 'Outbox', 'Contacts'])
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-
-[Repository univie-local]
-type = Maildir
-localfolders = ~/.mail/univie
-nametrans = lambda folder: {'drafts':  'INBOX.Drafts',
-                            'sent':    'INBOX.Sent',
-                            'trash':   'INBOX.Trash',
-                            'archive': 'INBOX.Archive',
-                            'INBOX':   'INBOX'
-                           }.get(folder, 'INBOX.' + folder)
-
-[Repository univie-remote]
-type = IMAP
-remoteuser = torsnet6
-remotepasseval = get_pass('univie.ac.at')
-remotehost = imap.univie.ac.at
-nametrans = lambda folder: {'INBOX.Drafts': 'drafts',
-                            'INBOX.Sent': 'sent',
-                            'INBOX.Trash': 'trash',
-                            'INBOX.Archive': 'archive',
-                            'INBOX':   'INBOX'
-                           }.get(folder, re.sub('^INBOX\.', '', folder))
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
