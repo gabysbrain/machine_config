@@ -74,7 +74,6 @@ macro index o "<shell-escape>offlineimap -c ~/.offlineimaprc -qf INBOX<enter>"  
 # Macros for switching accounts
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/Personal<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/Work<enter><change-folder>!<enter>'
-macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/Univie<enter><change-folder>!<enter>'
 
 # "Open with..." command in attachment mode to read things
 macro attach O \
