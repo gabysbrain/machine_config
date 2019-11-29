@@ -6,7 +6,7 @@ set mbox = "+work/archive"
 set postponed = "+work/drafts"
 set trash = "+work/trash"
 set record = "+work/sent"
-set copy = no
+unset move
 
 color status cyan default
 
