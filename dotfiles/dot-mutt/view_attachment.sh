@@ -117,12 +117,4 @@ if [ $debug = "yes" ]; then
     echo "Open With:" $open_with >> $debug_file
 fi
 
-# If there's no 'open with' then we can let preview do it's thing.
-# Otherwise we've been told what to use.  So do an open -a.
-
-rifle $newfile
-#if [ -z $open_with ]; then
-    #open $newfile
-#else
-    #open -a "$open_with" $newfile
-#fi
+open $newfile
