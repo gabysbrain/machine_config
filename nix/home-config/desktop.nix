@@ -177,19 +177,12 @@
       executable = true;
     };
 
-    ###############################
-    # Ranger
-    ###############################
-    ".config/ranger/rifle.conf".source = ../../dotfiles/dot-rifle.conf;
-    ".config/ranger/rc.conf".source = ../../dotfiles/dot-ranger/rc.conf;
-    ".config/ranger/scope.sh".source = ../../dotfiles/dot-ranger/scope.sh;
-    ".config/ranger/commands.py".source = ../../dotfiles/dot-ranger/commands.py;
-    ".config/ranger/colorschemes/zenburn.py".source = ../../dotfiles/dot-ranger/zenburn.py;
 
     ###############################
     # Other stuff
     ###############################
     ".tvrc".source = ../../dotfiles/dot-tvrc;
+    ".config/lf/lfrc".source = ../../dotfiles/dot-lfrc;
     ".newsboat/config".source = ../../dotfiles/dot-newsboat;
   };
   gtk = {
@@ -298,6 +291,7 @@
   home.packages = [
     (pkgs.callPackage ../pkgs/vim.nix {})
     (pkgs.callPackage ../pkgs/open.nix {})
+    (pkgs.callPackage ../pkgs/preview.nix {})
     pkgs.xkb-switch
     pkgs.isync
     pkgs.haskellPackages.stylish-haskell

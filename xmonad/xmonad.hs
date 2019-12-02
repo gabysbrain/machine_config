@@ -57,7 +57,7 @@ workProject :: String -> Project
 workProject ws = Project { projectName = ws
                          , projectDirectory = "~/"
                          , projectStartHook = Just $ do
-                             rit' "ranger ~/Projects"
+                             rit' "lf ~/Projects"
                              spawn myBrowser
                          }
 
@@ -160,7 +160,7 @@ myKeys conf = let
     , ((myModMask, xK_m), addName "Mutt" $ rit' "mutt")
     , ((myModMask, xK_s), addName "Spotify" $ namedScratchpadAction scratchpads "spotify")
     , ((myModMask .|. shiftMask, xK_m), addName "Pavucontrol mixer" $ namedScratchpadAction scratchpads "mixer")
-    , ((myModMask, xK_n), addName "Ranger" $ rit' "ranger")
+    , ((myModMask, xK_n), addName "Ranger" $ rit' "lf")
     , ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks")
     , ((myModMask, xK_backslash), addName "Password" $ spawn "gopass-dmenu")
     ] ^++^

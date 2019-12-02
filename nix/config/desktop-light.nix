@@ -33,7 +33,7 @@ in
 
     xclip
     xdotool
-    ranger
+    lf
     feh
     mutt
     offlineimap
