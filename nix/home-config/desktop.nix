@@ -118,8 +118,25 @@
       initExtra = ''
         nix-search() {echo "Searching for '$1'..." ; nix-env -qaP --description \* | grep -i $1; }
         nix-install() { nix-env -iA $1; }
+
         zle -N edit-command-line
         bindkey -M vicmd v edit-command-line
+
+        bindkey -s '^o' 'lfcd\n'
+
+        lfcd () {
+            tmp="$(mktemp)"
+            lf -last-dir-path="$tmp" "$@"
+            if [ -f "$tmp" ]; then
+                dir="$(cat "$tmp")"
+                rm -f "$tmp"
+                if [ -d "$dir" ]; then
+                    if [ "$dir" != "$(pwd)" ]; then
+                        cd "$dir"
+                    fi
+                fi
+            fi
+        }
       '';
       history.ignoreDups = true;
     };
