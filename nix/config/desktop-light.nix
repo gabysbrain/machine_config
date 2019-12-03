@@ -35,6 +35,7 @@ in
     xdotool
     lf
     feh
+    sxiv
     mutt
     offlineimap
     msmtp
@@ -56,6 +57,7 @@ in
     browserpass
 
     okular
+    zathura
     breeze-icons # needed for okular
   ];
   environment.pathsToLink = [ "/share" ];

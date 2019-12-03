@@ -14,6 +14,8 @@
     nvi
     atool
     p7zip
+    file
+    mimeo
 
     # password storage
     gopass
