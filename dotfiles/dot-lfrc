@@ -38,6 +38,7 @@ map x $$f
 map X !$f
 
 # dedicated keys for file opener actions
+#map <enter> open $f
 map o open $f
 #map O $mimeo --ask $f
 
@@ -57,7 +58,7 @@ map gc cd ~/Projects/machine_config
 # text files and a file opener for the rest.
 cmd open ${{
     for f in $fx; do 
-      open $f & 
+      open $f
     done
 }}
 
