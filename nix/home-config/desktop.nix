@@ -199,6 +199,7 @@
     # Other stuff
     ###############################
     ".tvrc".source = ../../dotfiles/dot-tvrc;
+    ".config/mimeo/associations.txt".source = ../../dotfiles/dot-associations;
     ".config/lf/lfrc".source = ../../dotfiles/dot-lfrc;
     ".newsboat/config".source = ../../dotfiles/dot-newsboat;
   };
