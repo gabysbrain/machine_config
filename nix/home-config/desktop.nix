@@ -107,7 +107,7 @@
   programs = {
     zsh = {
       enable = true;
-      defaultKeymap = "vicmd";
+      #defaultKeymap = "vicmd";
       enableCompletion = true;
       plugins = [
         { name = "pure";
@@ -163,7 +163,7 @@
 
         # vim edit command line
         zle -N edit-command-line
-        bindkey -M vicmd v edit-command-line
+        bindkey -M vicmd "^V" edit-command-line
 
         # history search
         bindkey '^[[A' history-substring-search-up
