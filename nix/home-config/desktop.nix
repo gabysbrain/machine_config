@@ -107,20 +107,69 @@
   programs = {
     zsh = {
       enable = true;
-      oh-my-zsh = {
-        enable = true;
-        theme = "kolo";
-        plugins = [ "vi-mode" "history" "git" "stack" ];
-      };
+      defaultKeymap = "vicmd";
+      enableCompletion = true;
+      plugins = [
+        { name = "pure";
+          src = pkgs.fetchFromGitHub {
+            owner = "sindresorhus";
+            repo = "pure";
+            rev = "v1.11.0";
+            sha256 = "0nzvb5iqyn3fv9z5xba850mxphxmnsiq3wxm1rclzffislm8ml1j";
+          };
+        }
+        { name = "zsh-syntax-highlighting";
+          src = pkgs.fetchFromGitHub {
+            owner = "zsh-users";
+            repo = "zsh-syntax-highlighting";
+            rev = "0.6.0";
+            sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
+          };
+        }
+        { name = "zsh-history-substring-search";
+          src = pkgs.fetchFromGitHub {
+            owner = "zsh-users";
+            repo = "zsh-history-substring-search";
+            rev = "v1.0.2";
+            sha256 = "0y8va5kc2ram38hbk2cibkk64ffrabfv1sh4xm7pjspsba9n5p1y";
+          };
+        }
+      ];
       shellAliases = {
         gvim = "vim -g";
+
+        # Git stuff
+        ga = "git add";
+        gb = "git branch";
+        gc = "git commit -v";
+        gco = "git checkout";
+        gd = "git diff";
+        gl = "git log --oneline --stat";
+        glq = "git whatchanged -p --abbrev-commit --pretty=medium";
+        gp = "git push";
+        gst = "git status";
+        gu = "git pull --rebase";
+
+        # list dir stack
+        d = "dirs -v | head -10";
       };
       initExtra = ''
+        # setup up autopushd
+        setopt autopushd pushdignoredups
+
+        # commands
         nix-search() {echo "Searching for '$1'..." ; nix-env -qaP --description \* | grep -i $1; }
         nix-install() { nix-env -iA $1; }
 
+        # vim edit command line
         zle -N edit-command-line
         bindkey -M vicmd v edit-command-line
+
+        # history search
+        bindkey '^[[A' history-substring-search-up
+        bindkey '^[[B' history-substring-search-down
+        bindkey -M vicmd 'k' history-substring-search-up
+        bindkey -M vicmd 'j' history-substring-search-down
 
         bindkey -s '^o' 'lfcd\n'
 
