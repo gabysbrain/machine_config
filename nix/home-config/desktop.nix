@@ -162,8 +162,9 @@
         nix-install() { nix-env -iA $1; }
 
         # vim edit command line
+        autoload edit-command-line
         zle -N edit-command-line
-        bindkey -M vicmd "^V" edit-command-line
+        bindkey -M vicmd '^V' edit-command-line
 
         # history search
         bindkey '^[[A' history-substring-search-up
