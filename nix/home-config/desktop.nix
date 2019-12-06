@@ -166,6 +166,9 @@
         zle -N edit-command-line
         bindkey -M vicmd '^V' edit-command-line
 
+        # menu completion
+        zstyle ':completion:*' menu select
+
         # history search
         bindkey '^[[A' history-substring-search-up
         bindkey '^[[B' history-substring-search-down
