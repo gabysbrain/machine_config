@@ -152,6 +152,9 @@
 
         # list dir stack
         d = "dirs -v | head -10";
+
+        # history aliases
+        h = "history";
       };
       history = {
         extended = true;
@@ -186,6 +189,11 @@
         bindkey -M vicmd 'j' history-substring-search-down
 
         bindkey -s '^o' 'lfcd\n'
+
+        # from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/history/history.plugin.zsh
+        function hs {
+          history | grep -i $*
+        }
 
         lfcd () {
             tmp="$(mktemp)"
