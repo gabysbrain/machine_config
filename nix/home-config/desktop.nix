@@ -303,8 +303,7 @@
     enable = true;
     package = pkgs.rxvt_unicode-with-plugins;
     fonts = [
-      "xft:Anonymous Pro:size=11"
-      #"xft:Terminus:size=11"
+      "xft:Anonymice Powerline:size=11"
     ];
     scroll = {
       bar.enable = true;
@@ -349,7 +348,7 @@
       "color13" = "#dc8cc3";
       "color14" = "#93e0e3";
       "color15" = "#ffffff";
-      "url-launcher" = "/usr/bin/xdg-open";
+      "url-launcher" = "mimeo";
       "matcher.button" = "1";
     };
   };
