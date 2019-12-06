@@ -70,6 +70,7 @@ in
       emojione
       helvetica-neue-lt-std
       carlito
+      nerdfonts
     ];
   };
 
