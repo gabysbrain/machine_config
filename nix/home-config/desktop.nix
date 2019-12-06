@@ -169,6 +169,9 @@
         # menu completion
         zstyle ':completion:*' menu select
 
+        # fancy globbing
+        setopt extendedglob
+
         # history search
         bindkey '^[[A' history-substring-search-up
         bindkey '^[[B' history-substring-search-down
