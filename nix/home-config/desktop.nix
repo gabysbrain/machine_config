@@ -153,6 +153,13 @@
         # list dir stack
         d = "dirs -v | head -10";
       };
+      history = {
+        extended = true;
+        save = 1000;
+        share = true;
+        ignoreDups = true;
+        expireDuplicatesFirst = true;
+      };
       initExtra = ''
         # setup up autopushd
         setopt autopushd pushdignoredups
@@ -194,7 +201,6 @@
             fi
         }
       '';
-      history.ignoreDups = true;
     };
     git = {
       enable = true;
