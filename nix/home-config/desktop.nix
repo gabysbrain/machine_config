@@ -126,12 +126,12 @@
             sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
           };
         }
-        { name = "zsh-history-substring-search";
+        { name = "zsh-peco-history";
           src = pkgs.fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-history-substring-search";
-            rev = "v1.0.2";
-            sha256 = "0y8va5kc2ram38hbk2cibkk64ffrabfv1sh4xm7pjspsba9n5p1y";
+            owner = "jimeh";
+            repo = "zsh-peco-history";
+            rev = "0.9.1";
+            sha256 = "1kadc2ylqxs9yrscbx4fxhcalj5k9bgakm2rpk6zk205kl36a2gg";
           };
         }
       ];
@@ -181,12 +181,6 @@
 
         # fancy globbing
         setopt extendedglob
-
-        # history search
-        bindkey '^[[A' history-substring-search-up
-        bindkey '^[[B' history-substring-search-down
-        bindkey -M vicmd 'k' history-substring-search-up
-        bindkey -M vicmd 'j' history-substring-search-down
 
         bindkey -s '^o' 'lfcd\n'
 
