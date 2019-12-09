@@ -16,6 +16,7 @@
     p7zip
     file
     mimeo
+    peco
 
     # password storage
     gopass
