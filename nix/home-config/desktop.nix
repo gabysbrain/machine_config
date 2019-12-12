@@ -235,7 +235,6 @@
     ".vdirsyncer/config".source = ../../dotfiles/dot-vdirsyncer;
     ".muttrc".source = ../../dotfiles/dot-muttrc;
     ".mutt".source = ../../dotfiles/dot-mutt;
-    ".config/khal/config".source = ../../dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ../../dotfiles/dot-khard;
     ".urlview".source = ../../dotfiles/dot-urlview;
     ".offlineimaprc".source = ../../dotfiles/dot-offlineimap;
