@@ -26,7 +26,7 @@ set previewer preview
 #set icons # enable fancy icons, needs nerd fonts and LF_ICONS set
 
 # ways to enter the shell
-map <enter> shell
+#map <enter> shell
 map S $zsh
 
 # shell-type commands
@@ -38,7 +38,7 @@ map x $$f
 map X !$f
 
 # dedicated keys for file opener actions
-#map <enter> open $f
+map <enter> open $f
 map o open $f
 #map O $mimeo --ask $f
 
