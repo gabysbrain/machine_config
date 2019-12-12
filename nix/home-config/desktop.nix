@@ -334,18 +334,14 @@
       "Control-Shift-R" = "perl:tabbedex:rename_tab";
     };
 
-    transparent = true;
-    shading = 20;
-
     extraConfig = {
-      #"letterSpace" = -1;
       "perl-ext-common" = "default,matcher,tabbedex";
-      #"xftAntialias" = true;
+      "xftAntialias" = true;
       "depth" = 32;
       "foreground" = "#dcdccc";
       "background" = "#3f3f3f";
       "cursorColor" = "#aaaaaa";
-      "colorUL" = "#366060";
+      "colorUL" = "#669090";
       "underlineColor" = "#dfaf8f";
       "color0" = "#3f3f3f";
       "color1" = "#cc9393";
