@@ -154,7 +154,7 @@
         d = "dirs -v | head -10";
 
         # history aliases
-        h = "history";
+        h = "history 0";
       };
       history = {
         extended = true;
@@ -186,7 +186,7 @@
 
         # from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/history/history.plugin.zsh
         function hs {
-          history | grep -i $*
+          history 0 | grep -i $*
         }
 
         lfcd () {
