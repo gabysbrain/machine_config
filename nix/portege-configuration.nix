@@ -19,13 +19,16 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  #boot.loader.grub = {
-    #enable = true;
-    #version = 2;
-    #device = "nodev";
-    #efiSupport = true;
-    #canTouchEfiVariables = true;
-  #};
+  boot.kernelParams = [
+    # maybe helps (https://hobo.house/2018/05/18/fix-for-intel-i915-gpu-freeze-on-recent-linux-kernels/)
+    "i915.enable_psr=0"
+    # from https://www.ivanov.biz/2019/howto-optimize-intel-graphics-performance-fedora-kde-linux-laptop/
+    "i915.enable_dc=2"
+    "i915.enable_power_well=0"
+    "i915.enable_fbc=1"
+    "i915.enable_guc=3"
+    "i915.enable_dpcd_backlight=1"
+  ];
   boot.initrd.luks.devices = [
     {
       name = "root";
@@ -40,6 +43,7 @@
 
   # Select internationalisation properties.
   services.xserver.layout = "gb,us";
+  services.xserver.videoDrivers = ["intel"];
   #services.xserver.videoDrivers = ["modesetting"];
   #services.xserver.videoDrivers = ["displaylink" "modesetting"];
   i18n.consoleUseXkbConfig = true;
