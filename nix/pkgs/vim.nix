@@ -118,6 +118,10 @@ pkgs.vim_configurable.customize {
     let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
     let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
     let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+    " vim wiki config
+    let g:vimwiki_list = [{'path': '~/Sync/wiki/',
+                          \ 'syntax': 'markdown', 'ext': '.md'}]
   '';
 
   vimrcConfig.vam.knownPlugins = pkgs.vimPlugins;
@@ -137,6 +141,7 @@ pkgs.vim_configurable.customize {
       "zenburn"
       "vim-airline"
       "vim-airline-themes"
+      "vimwiki"
       "vimproc"
       "haskell-vim"
       "vim-stylish-haskell"
