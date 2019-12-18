@@ -32,12 +32,8 @@
     spotify
     skype
     zoom-us
-    #viber
-    #slack
     zotero
     meld
-    newsboat
-    #weechat
 
     (callPackage ../pkgs/gcal-conky {})
 
@@ -50,6 +46,7 @@
 
     exiftool
     poppler_utils
+    #glib-networking # feedreader needs this for ssl
   ];
 
   services.system-config-printer.enable = true;
