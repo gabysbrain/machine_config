@@ -2,11 +2,11 @@
 #with import <nixpkgs> {};
 
 pkgs.writeShellScriptBin "screenselect" ''
-    MAIN="eDP-1"
+    MAIN="eDP1"
     # important that screens go left to right
     # first screen in list will become primary
-    #DOCK="DP-2 DP-1-1"
-    DOCK="DP-1-1"
+    #DOCK="DP2 DP1-1"
+    DOCK="DP1-1"
     # default keyboard
     DEFAULTKB=gb
     XRANDR=${pkgs.xorg.xrandr}/bin/xrandr
