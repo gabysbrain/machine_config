@@ -21,13 +21,13 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
     # maybe helps (https://hobo.house/2018/05/18/fix-for-intel-i915-gpu-freeze-on-recent-linux-kernels/)
-    "i915.enable_psr=0"
+    #"i915.enable_psr=0"
     # from https://www.ivanov.biz/2019/howto-optimize-intel-graphics-performance-fedora-kde-linux-laptop/
-    "i915.enable_dc=2"
-    "i915.enable_power_well=0"
-    "i915.enable_fbc=1"
-    "i915.enable_guc=3"
-    "i915.enable_dpcd_backlight=1"
+    #"i915.enable_dc=2"
+    #"i915.enable_power_well=0"
+    #"i915.enable_fbc=1"
+    #"i915.enable_guc=3"
+    #"i915.enable_dpcd_backlight=1"
   ];
   boot.initrd.luks.devices = [
     {
