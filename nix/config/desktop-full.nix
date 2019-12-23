@@ -30,7 +30,6 @@
 
     libreoffice-unwrapped
     spotify
-    skype
     zoom-us
     zotero
     meld
