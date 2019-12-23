@@ -160,7 +160,8 @@ myKeys conf = let
     , ((myModMask, xK_m), addName "Mutt" $ rit' "mutt")
     , ((myModMask, xK_s), addName "Spotify" $ namedScratchpadAction scratchpads "spotify")
     , ((myModMask .|. shiftMask, xK_m), addName "Pavucontrol mixer" $ namedScratchpadAction scratchpads "mixer")
-    , ((myModMask, xK_n), addName "Ranger" $ rit' "lf")
+    , ((myModMask, xK_n), addName "File browser" $ rit' "lf")
+    , ((myModMask .|. shiftMask, xK_n), addName "Wiki" $ spawn "vim -g -c 'VimwikiIndex'")
     , ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks")
     , ((myModMask, xK_backslash), addName "Password" $ spawn "gopass-dmenu")
     ] ^++^
@@ -172,7 +173,7 @@ myKeys conf = let
   subKeys "layouts"
     [ ((myModMask, xK_space ), addName "Change layout" $ sendMessage NextLayout)
     , ((myModMask, xK_Return), addName "Swap master" $ windows W.swapMaster)
-    , ((myModMask, xK_t), addName "Push window pack to tiling" $ withFocused $ windows . W.sink)
+    , ((myModMask, xK_t), addName "Push window back to tiling" $ withFocused $ windows . W.sink)
     , ((myModMask .|. shiftMask, xK_c), addName "Close window" $ kill)
     , ((myModMask, xK_y), addName "Hide status bar" $ sendMessage ToggleStruts)
     ]
