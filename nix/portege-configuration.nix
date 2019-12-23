@@ -52,9 +52,19 @@
   environment.variables = {
     MESA_LOADER_DRIVER_OVERRIDE = "iris";
   };
-  hardware.opengl.package = (pkgs.mesa.override {
-    galliumDrivers = [ "nouveau" "virgl" "swrast" "iris" ];
-  }).drivers;
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    extraPackages = [
+      pkgs.vaapiIntel pkgs.vaapiVdpau 
+      pkgs.libvdpau-va-gl pkgs.intel-media-driver
+    ];
+    package = (pkgs.mesa.override {
+      galliumDrivers = [ "nouveau" "virgl" "swrast" "iris" ];
+    }).drivers;
+  };
+  nixpkgs.config.packageOverrides = pkgs: {
+  };
 
   # Set your time zone.
   #time.timeZone = "Europe/London";
