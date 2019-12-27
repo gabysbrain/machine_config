@@ -227,6 +227,7 @@
   home.sessionVariables = {
     EDITOR = "vim";
     BROWSER = "firefox";
+    TERM = "xterm-256color";
   };
   home.file = {
     ###############################
