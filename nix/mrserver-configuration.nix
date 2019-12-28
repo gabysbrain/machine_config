@@ -56,6 +56,8 @@
     home = "/home/tom";
     shell = "/run/current-system/sw/bin/zsh";
   };
+  home-manager.users.tom = import ./home-config/server.nix; # needs to be a function
+
 
   # root only has ssh login
   /*users.users.root.openssh.authorizedKeys.keys = [*/

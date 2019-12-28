@@ -14,7 +14,7 @@
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
-      config = ~/Projects/machine_config/xmonad/xmonad.hs;
+      config = ../../xmonad/xmonad.hs;
     };
   };
   programs = {

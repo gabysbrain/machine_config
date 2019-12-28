@@ -111,6 +111,7 @@
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
   };
+  home-manager.users.tom = import ./home-config/desktop.nix; # needs to be a function
 
   fileSystems."/mnt/diskstation" = {
     device = "//192.168.0.14/homes";
