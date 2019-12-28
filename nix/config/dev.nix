@@ -1,12 +1,17 @@
 { config, pkgs, ... }:
 
-let rpkgs =  rpkg: with rpkg; [
+    # TODO: this hdf5r thing should be an override and use the official depends
+let my-hdf5r = pkgs.rPackages.hdf5r.override {
+      depends = [pkgs.hdf5_1_8 pkgs.rPackages.R6 pkgs.rPackages.bit64]; #++ pkgs.rPackages.hdf5r.depends;
+    };
+    rpkgs =  rpkg: with rpkg; [
       bench
       devtools
       dplyr
       geometry
       ggplot2
       gridExtra
+      my-hdf5r
       #GPareto
       mco
       pracma
