@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./config/base.nix
+    ./config/email.nix
+  ];
   xsession = {
     enable = true;
 
@@ -13,221 +17,14 @@
       config = ~/Projects/machine_config/xmonad/xmonad.hs;
     };
   };
-  accounts.email = {
-    maildirBasePath = ".mail";
-    accounts = {
-      personal = {
-        primary = true;
-        realName = "Tom Torsney-Weir";
-        userName = "torsneyt@gmail.com";
-        address = "torsneyt@gmail.com";
-        flavor = "gmail.com";
-        # imap through manual offlineimap
-        #imap = {
-          ##host = "imap.gmail.com";
-          #tls.enable = true;
-        #};
-        smtp = {
-          #host = "smtp.gmail.com";
-          tls.enable = true;
-        };
-        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1";
-        folders = {
-          inbox = "INBOX";
-          drafts = "[Gmail]/Drafts";
-          sent = "[Gmail]/Sent Mail";
-          trash = "[Gmail]/Trash";
-          #archive = "[Gmail]/All Mail";
-        };
-        msmtp.enable = true;
-        notmuch.enable = true;
-        #offlineimap = {
-          #enable = true;
-        #};
-      };
-      work = {
-        realName = "Thomas Torsney-Weir";
-        userName = "t.d.torsney-weir@swansea.ac.uk";
-        address = "t.d.torsney-weir@swansea.ac.uk";
-        flavor = "plain";
-        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/swansea.ac.uk.gpg | head -1";
-        # imap through gmail/offlineimap
-        #imap = {
-          #host = "outlook.office365.com";
-          #tls.enable = true;
-        #};
-        smtp = {
-          host = "outlook.office365.com";
-          port = 587;
-          tls.enable = true;
-          tls.useStartTls = true;
-        };
-        folders = {
-          inbox = "INBOX";
-          drafts = "[Gmail]/Drafts";
-          sent = "[Gmail]/Sent Mail";
-          trash = "[Gmail]/Trash";
-          #archive = "[Gmail]/All Mail";
-        };
-        msmtp.enable = true;
-        notmuch.enable = true;
-        #offlineimap = {
-          #enable = true;
-        #};
-      };
-      univie = {
-        realName = "Thomas Torsney-Weir";
-        userName = "torsnet6";
-        address = "thomas.torsney-weir@univie.ac.at";
-        flavor = "plain";
-        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/univie.ac.at.gpg | head -1";
-        # imap through manual offlineimap
-        #imap = {
-          #host = "imap.univie.ac.at";
-          #tls.enable = true;
-        #};
-        smtp = {
-          host = "mail.univie.ac.at";
-          tls.enable = true;
-        };
-        folders = {
-          inbox = "INBOX";
-          drafts = "INBOX.Drafts";
-          sent = "INBOX.Sent";
-          trash = "INBOX.Trash";
-        };
-        msmtp.enable = true;
-        notmuch.enable = true;
-        #offlineimap = {
-          #enable = true;
-        #};
-      };
-    };
-  };
   programs = {
-    zsh = {
-      enable = true;
-      #defaultKeymap = "vicmd";
-      enableCompletion = true;
-      plugins = [
-        { name = "pure";
-          src = pkgs.fetchFromGitHub {
-            owner = "sindresorhus";
-            repo = "pure";
-            rev = "v1.11.0";
-            sha256 = "0nzvb5iqyn3fv9z5xba850mxphxmnsiq3wxm1rclzffislm8ml1j";
-          };
-        }
-        { name = "zsh-syntax-highlighting";
-          src = pkgs.fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-syntax-highlighting";
-            rev = "0.6.0";
-            sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
-          };
-        }
-        { name = "zsh-peco-history";
-          src = pkgs.fetchFromGitHub {
-            owner = "jimeh";
-            repo = "zsh-peco-history";
-            rev = "0.9.1";
-            sha256 = "1kadc2ylqxs9yrscbx4fxhcalj5k9bgakm2rpk6zk205kl36a2gg";
-          };
-        }
-      ];
-      shellAliases = {
-        gvim = "vim -g";
-
-        # Git stuff
-        ga = "git add";
-        gb = "git branch";
-        gc = "git commit -v";
-        gco = "git checkout";
-        gd = "git diff";
-        gl = "git log --oneline --stat";
-        glq = "git whatchanged -p --abbrev-commit --pretty=medium";
-        gp = "git push";
-        gst = "git status";
-        gu = "git pull --rebase";
-
-        # list dir stack
-        d = "dirs -v | head -10";
-
-        # history aliases
-        h = "history 0";
-      };
-      history = {
-        extended = true;
-        save = 1000;
-        share = true;
-        ignoreDups = true;
-        expireDuplicatesFirst = true;
-      };
-      initExtra = ''
-        # setup up autopushd
-        setopt autopushd pushdignoredups
-
-        # commands
-        nix-search() {echo "Searching for '$1'..." ; nix-env -qaP --description \* | grep -i $1; }
-        nix-install() { nix-env -iA $1; }
-
-        # vim edit command line
-        autoload edit-command-line
-        zle -N edit-command-line
-        bindkey -M vicmd '^V' edit-command-line
-
-        # menu completion
-        zstyle ':completion:*' menu select
-
-        # fancy globbing
-        setopt extendedglob
-
-        bindkey -s '^o' 'lfcd\n'
-
-        # from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/history/history.plugin.zsh
-        function hs {
-          history 0 | grep -i $*
-        }
-
-        lfcd () {
-            tmp="$(mktemp)"
-            lf -last-dir-path="$tmp" "$@"
-            if [ -f "$tmp" ]; then
-                dir="$(cat "$tmp")"
-                rm -f "$tmp"
-                if [ -d "$dir" ]; then
-                    if [ "$dir" != "$(pwd)" ]; then
-                        cd "$dir"
-                    fi
-                fi
-            fi
-        }
-      '';
-    };
-    git = {
-      enable = true;
-      userName = "Thomas Torsney-Weir";
-      userEmail = "torsneyt@gmail.com";
-    };
     browserpass = {
       enable = true;
       browsers = [ "chromium" "firefox" ];
     };
-    bat = {
-      enable = true;
-      config = {
-        pager = "less -FR";
-        theme = "zenburn";
-      };
-    };
     offlineimap.enable = true; # email syncing
     msmtp.enable = true; # sendmail support
     notmuch.enable = true; # index email
-  };
-  home.sessionVariables = {
-    EDITOR = "vim";
-    BROWSER = "firefox";
-    TERM = "xterm-256color";
   };
   home.file = {
     ###############################
@@ -364,17 +161,11 @@
     };
   };
 
-  # TODO: integrate this into the programs.vim module
   home.packages = [
-    (pkgs.callPackage ../pkgs/vim.nix {})
     (pkgs.callPackage ../pkgs/open.nix {})
     (pkgs.callPackage ../pkgs/preview.nix {})
     pkgs.xkb-switch
     pkgs.isync
     pkgs.haskellPackages.stylish-haskell
   ];
-
-  #home.stateVersion = "18.09";
-  programs.home-manager.enable = true;
-  #programs.home-manager.path = https://github.com/rycee/home-manager/archive/release-18.09.tar.gz;
 }
