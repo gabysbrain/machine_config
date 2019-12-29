@@ -113,6 +113,12 @@
   };
   home-manager.users.tom = import ./home-config/desktop.nix; # needs to be a function
 
+  fileSystems = {
+    "/mnt/backups" = {
+      device = "192.168.0.14:/volume1/backups";
+      fsType = "nfs";
+    };
+  };
   fileSystems."/mnt/diskstation" = {
     device = "//192.168.0.14/homes";
     fsType = "cifs";
@@ -150,7 +156,7 @@
   services.borgbackup.jobs = {
     homeBackup = {
       paths = "/";
-      repo = "/mnt/diskstation/gabysbrain/backups/portege";
+      repo = "/mnt/backups/portege";
       compression = "auto,lzma";
       encryption.mode = "none";
       startAt = "daily";
