@@ -25,6 +25,9 @@
     openssh = {
       permitRootLogin = "yes";
       enable = true;
+    };
+    nginx = {
+      enable = true;
       virtualHosts = {
         "www.tomtorsneyweir.com" = {
           #serverName = "website";
