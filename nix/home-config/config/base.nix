@@ -116,7 +116,6 @@
   home.sessionVariables = {
     EDITOR = "vim";
     BROWSER = "firefox";
-    TERM = "xterm-256color";
   };
   home.packages = [
     # TODO: integrate this into the programs.vim module

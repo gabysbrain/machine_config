@@ -132,6 +132,7 @@
     };
 
     extraConfig = {
+      "urxvt.termName" = "xterm-256color";
       "perl-ext-common" = "default,matcher,tabbedex";
       "xftAntialias" = true;
       "depth" = 32;
