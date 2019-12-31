@@ -115,7 +115,7 @@
     enable = true;
     package = pkgs.rxvt_unicode-with-plugins;
     fonts = [
-      "xft:Anonymice Powerline:size=11"
+      "xft:Anonymice Nerd Font:size=11"
     ];
     scroll = {
       bar.enable = true;

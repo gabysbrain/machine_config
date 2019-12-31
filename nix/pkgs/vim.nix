@@ -12,7 +12,7 @@ pkgs.vim_configurable.customize {
     filetype plugin indent on " required
     
     " appearance
-    set guifont=Anonymous\ Pro\ for\ Powerline\ 12
+    set guifont=Anonymice\ Nerd\ Font\ 12
     colors zenburn
     set noshowmode
     set cursorline " color current line
