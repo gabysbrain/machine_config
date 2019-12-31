@@ -51,6 +51,7 @@ in
     entr
     bat
 
+    nixops
     chromium
 
     # R stuff
