@@ -42,8 +42,8 @@
     # XMonad utilities
     ###############################
     ".xmonad/xmobar.hs".source = ../../xmonad/xmobar.hs;
-    ".xmonad/wireless.sh" = {
-      source = ../../xmonad/wireless.sh;
+    ".xmonad/net.sh" = {
+      source = ../../xmonad/net.sh;
       executable = true;
     };
     ".xmonad/xmobar-syncthing-status.sh" = {
