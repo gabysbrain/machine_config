@@ -171,11 +171,12 @@ myKeys conf = let
     ] ^++^
 
   subKeys "layouts"
-    [ ((myModMask, xK_space ), addName "Change layout" $ sendMessage NextLayout)
+    [ ((myModMask, xK_space), addName "Change layout" $ sendMessage NextLayout)
     , ((myModMask, xK_Return), addName "Swap master" $ windows W.swapMaster)
     , ((myModMask, xK_t), addName "Push window back to tiling" $ withFocused $ windows . W.sink)
     , ((myModMask .|. shiftMask, xK_c), addName "Close window" $ kill)
     , ((myModMask, xK_y), addName "Hide status bar" $ sendMessage ToggleStruts)
+    , ((myModMask .|. shiftMask, xK_space), addName "reset layout" $ setLayout $ XMonad.layoutHook conf)
     ]
 
 -- Layouts
