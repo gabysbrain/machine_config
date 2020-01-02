@@ -30,6 +30,22 @@
             sha256 = "1kadc2ylqxs9yrscbx4fxhcalj5k9bgakm2rpk6zk205kl36a2gg";
           };
         }
+        { name = "zsh-system-clipboard";
+          src = pkgs.fetchFromGitHub {
+            owner = "zsh-vi-more";
+            repo = "evil-registers";
+            rev = "master";
+            sha256 = "0jsybyb3n9h1nxs3w1kh8mxmib8dx7hwch8i55qvr0xylcbcg791";
+          };
+        }
+        { name = "clipboard";
+          src = pkgs.fetchFromGitHub {
+            owner = "zpm-zsh";
+            repo = "clipboard";
+            rev = "master";
+            sha256 = "1vwihqcdzhrv463025p0g5wiccl19yr2c4zps325d3ylf3gxyzqy";
+          };
+        }
       ];
       shellAliases = {
         gvim = "vim -g";
