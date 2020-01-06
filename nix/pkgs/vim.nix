@@ -141,6 +141,7 @@ pkgs.vim_configurable.customize {
       "zenburn"
       "vim-airline"
       "vim-airline-themes"
+      "vim-obsession"
       "vimwiki"
       "vimproc"
       "haskell-vim"

@@ -4,6 +4,19 @@
     enable = true;
     shortcut = "a";
     terminal = "tmux-256color";
+    plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = "set -g @resurrect-strategy-vim 'session'";
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '60' # minutes
+        '';
+      }
+    ];
     extraConfig = ''
       # reload config
       unbind r
