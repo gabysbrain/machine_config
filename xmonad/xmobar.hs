@@ -9,7 +9,7 @@ Config
     , Run Com "/home/tom/.xmonad/net.sh" [] "netstat" 30
     , Run Battery ["-t", "<left><acstatus>", "--", "-O", "+", "-i", "", "-o", " <timeleft>", "-L", "10", "-l", "red"] 60
     , Run MultiCpu ["-t", "<total>"] 30
-    , Run CpuFreq ["-t", "<cpu0>GHz"] 30
+    , Run CpuFreq ["-t", "<cpu0>~"] 30
     , Run Date "%_d %#B %Y <fc=#333333>|</fc> %H:%M" "date" 600
     , Run Alsa "default" "Master" ["-t", "<volume>% <status>"]
     , Run Kbd []
