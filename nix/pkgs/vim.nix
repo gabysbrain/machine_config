@@ -134,6 +134,7 @@ pkgs.vim_configurable.customize {
       "The_NERD_Commenter"
       "The_NERD_tree"
       "fugitive"
+      "julia-vim"
       "vim-gitgutter"
       "Supertab"
       "ctrlp"
