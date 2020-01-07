@@ -98,7 +98,7 @@ myBorderWidth = 0
 myTopBarHeight = 5
 myTabBarHeight = 13
 myGap = 10
-myFont = "xft:Anonymous Pro:size=10"
+myFont = "xft:Anonymice Nerd Font:size=9"
 
 myTopBar = def
   { inactiveBorderColor = myInactiveColor
