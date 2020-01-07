@@ -7,6 +7,7 @@
   programs = {
     git = {
       enable = true;
+      lfs.enable = true;
       userName = "Thomas Torsney-Weir";
       userEmail = "torsneyt@gmail.com";
     };
