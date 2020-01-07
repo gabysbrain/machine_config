@@ -6,6 +6,6 @@ pkgs.runCommand "tat" {
 } ''
   mkdir -p $out/bin
   cp ${./tat} $out/bin/tat
-  sed -i "2 i export PATH=$PATH" $out/bin/tat
+  #sed -i "2 i export PATH=$PATH" $out/bin/tat
 ''
 
