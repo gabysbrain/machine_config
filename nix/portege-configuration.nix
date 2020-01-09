@@ -74,6 +74,7 @@
   environment.systemPackages = with pkgs; [
     samba # for samba printer
     system-config-printer
+    restic
   ];
 
   # List services that you want to enable:
@@ -114,18 +115,14 @@
   home-manager.users.tom = import ./home-config/desktop.nix; # needs to be a function
 
   fileSystems = {
-    "/mnt/backups" = {
-      device = "192.168.0.14:/volume1/backups";
-      fsType = "nfs";
+    "/mnt/diskstation" = {
+      device = "//192.168.0.14/homes";
+      fsType = "cifs";
+      options = let
+        # this line prevents hanging on network split
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
+      in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
     };
-  };
-  fileSystems."/mnt/diskstation" = {
-    device = "//192.168.0.14/homes";
-    fsType = "cifs";
-    options = let
-      # this line prevents hanging on network split
-      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
-    in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
   };
 
   # printers
@@ -153,38 +150,28 @@
   ];
 
   # home backup
-  services.borgbackup.jobs = {
-    homeBackup = {
-      paths = "/";
-      repo = "/mnt/backups/portege";
-      compression = "auto,lzma";
-      encryption.mode = "none";
-      startAt = "daily";
-      exclude = [
-        "/home/*/.cache"
-        "/bin"
-        "/boot"
-        "/dev"
-        "/lost+found"
-        "/nix"
-        "/mnt"
-        "/proc"
-        "/run"
-        "/sys"
-        "/tmp"
-        "/usr"
-        "/var/cache"
-        "/var/lib"
-        "/var/run"
-        "/var/tmp"
+  services.restic.backups = {
+    local = {
+      paths = [ "/home" ];
+      repository = "sftp:backup@192.168.0.14:/backup";
+      passwordFile = "/etc/nixos/secrets/restic-password";
+      extraBackupArgs = [
+        "--exclude='home/*/.cache'"
+        "--exclude='home/*/.mozilla'"
       ];
-      prune.keep = {
-        within = "1d"; # Keep all archives from the last day
-        daily = 7;
-        weekly = 4;
-        monthly = 12;  # Keep at one archive/month from the last year
-        yearly = -1; # Keep at least one archive per year
-      };
+      extraOptions = [
+        "sftp.command='ssh backup@192.168.0.14 -i /etc/nixos/secrets/diskstation.rsa -s sftp'"
+      ];
+    };
+    remote = {
+      paths = [ "/home" ];
+      repository = "s3:https://s3.eu-central-1.wasabisys.com/gabysbrain-restic";
+      passwordFile = "/etc/nixos/secrets/restic-password";
+      s3CredentialsFile = "/etc/nixos/secrets/wasabi";
+      extraBackupArgs = [
+        "--exclude='home/*/.cache'"
+        "--exclude='home/*/.mozilla'"
+      ];
     };
   };
 
