@@ -136,17 +136,6 @@
     }
   ];
   nixpkgs.overlays = [
-    (
-      self: super: {
-        cups = super.cups.overrideAttrs (old: rec {
-          version = "2.3.0";
-          src = super.fetchurl {
-            url = "https://github.com/apple/cups/releases/download/v${version}/cups-${version}-source.tar.gz";
-            sha256 = "19d1jpdpxy0fclq37pchi7ldnw9dssxx3zskcgqai3h0rwlh5bxc";
-          };
-        });
-      }
-    )
   ];
 
   # home backup
