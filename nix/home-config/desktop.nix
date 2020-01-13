@@ -19,6 +19,15 @@
     };
   };
   programs = {
+    zathura = {
+      enable = true;
+      options = {
+        selection-clipboard = "clipboard";
+      };
+      extraConfig = ''
+        map <C-o> feedkeys ":exec okular $FILE<Return>"
+      '';
+    };
     browserpass = {
       enable = true;
       browsers = [ "chromium" "firefox" ];
@@ -71,7 +80,6 @@
     theme.package = pkgs.arc-theme;
     iconTheme.name = "Arc";
     iconTheme.package = pkgs.arc-icon-theme;
-        #nixos.arc-icon-theme
   };
   qt = {
     enable = true;
