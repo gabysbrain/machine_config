@@ -28,7 +28,7 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
 [Repository personal-remote]
 type = Gmail
 remoteuser = torsneyt@gmail.com
-remotepasseval = get_pass('gmail/mbsync')
+remotepasseval = get_pass('gmail/personal')
 nametrans = lambda folder: {'[Gmail]/Drafts': 'drafts',
                             '[Gmail]/Sent Mail': 'sent',
                             '[Gmail]/Trash': 'trash',
@@ -52,7 +52,7 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
 [Repository work-remote]
 type = Gmail
 remoteuser = t.d.torsneyweir@gmail.com
-remotepasseval = get_pass('gmail/offlineimap-work')
+remotepasseval = get_pass('gmail/work')
 nametrans = lambda folder: {'[Gmail]/Drafts': 'drafts',
                             '[Gmail]/Sent Mail': 'sent',
                             '[Gmail]/Trash': 'trash',

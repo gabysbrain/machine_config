@@ -17,7 +17,7 @@
           #host = "smtp.gmail.com";
           tls.enable = true;
         };
-        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/mbsync.gpg | head -1";
+        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/personal.gpg | head -1";
         folders = {
           inbox = "INBOX";
           drafts = "[Gmail]/Drafts";
