@@ -32,6 +32,11 @@ in
   users.extraGroups.vboxusers.members = [ "tom" ];
 
   environment.systemPackages = with pkgs; [
+    # git things
+    git
+    gitAndTools.git-annex
+    gitAndTools.git-annex-remote-rclone
+
     # haskell
     cabal-install
     ghc
