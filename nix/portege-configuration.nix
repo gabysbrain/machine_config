@@ -151,6 +151,10 @@
       extraOptions = [
         "sftp.command='ssh backup@192.168.0.14 -i /etc/nixos/secrets/diskstation.rsa -s sftp'"
       ];
+      timerConfig = {
+        OnBootSec = "2m";
+        OnUnitInactiveSec = "1d";
+      };
     };
     remote = {
       paths = [ "/home" ];
@@ -161,6 +165,10 @@
         "--exclude='home/*/.cache'"
         "--exclude='home/*/.mozilla'"
       ];
+      timerConfig = {
+        OnBootSec = "2m";
+        OnUnitInactiveSec = "1d";
+      };
     };
   };
 
