@@ -6,7 +6,7 @@ pkgs.writeShellScriptBin "screenselect" ''
     # important that screens go left to right
     # first screen in list will become primary
     #DOCK="DP2 DP1-1"
-    DOCK="DP1-1"
+    DOCK="DP2 HDMI1"
     # default keyboard
     DEFAULTKB=gb
     XRANDR=${pkgs.xorg.xrandr}/bin/xrandr
