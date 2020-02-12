@@ -47,6 +47,9 @@
       # status bar styling
       set-option -g status-position top
 
+      # fix vim slow escape key thing
+      set -sg escape-time 0
+
       # Zenburn colors
       setw -g clock-mode-colour colour117
       setw -g mode-style 'fg=colour117 bg=colour238 bold'
