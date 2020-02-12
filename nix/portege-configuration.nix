@@ -145,6 +145,8 @@
       repository = "sftp:backup@192.168.0.14:/backup";
       passwordFile = "/etc/nixos/secrets/restic-password";
       extraBackupArgs = [
+        "--exclude='home/tom/Downloads'"
+        "--exclude='home/tom/Sync'"
         "--exclude='home/*/.cache'"
         "--exclude='home/*/.mozilla'"
       ];
@@ -162,6 +164,8 @@
       passwordFile = "/etc/nixos/secrets/restic-password";
       s3CredentialsFile = "/etc/nixos/secrets/wasabi";
       extraBackupArgs = [
+        "--exclude='home/tom/Downloads'"
+        "--exclude='home/tom/Sync'"
         "--exclude='home/*/.cache'"
         "--exclude='home/*/.mozilla'"
       ];
