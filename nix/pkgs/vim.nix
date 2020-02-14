@@ -21,11 +21,6 @@ pkgs.vim_configurable.customize {
     " TODO: look into matchadd though to only highlight extended lines
     execute "set colorcolumn=" . join(range(79,335), ',') 
 
-    " quickly edit/reload the vimrc file
-    " from http://nvie.com/posts/how-i-boosted-my-vim/
-    nmap <silent> <leader>ev :e $MYVIMRC<CR>
-    nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
     " keep backup files and stuff outside of the working dir
     set backupdir=/var/tmp/
     set directory=/var/tmp/
