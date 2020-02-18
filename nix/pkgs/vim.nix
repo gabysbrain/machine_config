@@ -124,6 +124,7 @@ pkgs.vim_configurable.customize {
   vimrcConfig.vam.pluginDictionaries = [
     { names = [
       #"Syntastic"
+      "vim-markdown"
       "Tagbar"
       "Tabular"
       "vim-buffergator"
