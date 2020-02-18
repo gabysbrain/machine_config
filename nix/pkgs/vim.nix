@@ -115,6 +115,7 @@ pkgs.vim_configurable.customize {
     let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
     " vim wiki config
+    let g:vimwiki_global_ext = 0
     let g:vimwiki_list = [{'path': '~/Sync/wiki/',
                           \ 'syntax': 'markdown', 'ext': '.md'}]
   '';
