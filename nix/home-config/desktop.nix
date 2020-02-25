@@ -2,8 +2,9 @@
 {
   imports = [
     ./config/base.nix
+    ./config/alacritty.nix
     ./config/email.nix
-    ./config/urxvt.nix
+    #./config/urxvt.nix
   ];
   xsession = {
     enable = true;

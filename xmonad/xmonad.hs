@@ -79,7 +79,7 @@ projects =
 --- derived from https://gist.github.com/Tzbob/7362371
 ---
 
-myTerminal = "urxvt"
+myTerminal = "alacritty"
 myBrowser = "firefox"
 
 myFocusFollowsMouse = True
@@ -307,7 +307,7 @@ forceCenterFloat = doFloatDep move
     x = (1-w)/2
     y = (1-h)/2
 
-rit n c = runInTerm ("-name " ++ n) c
+rit n c = runInTerm ("-t " ++ n) c
 rit' c = rit c c
 
 -- | Prompt the user for information and add an appointment using \'khal\'
