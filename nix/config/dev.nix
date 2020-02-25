@@ -36,6 +36,7 @@ in
     git
     gitAndTools.git-annex
     gitAndTools.git-annex-remote-rclone
+    gitAndTools.hub
 
     # haskell
     cabal-install
@@ -56,7 +57,10 @@ in
     entr
     bat
 
+    # deployment
     nixops
+    heroku
+
     chromium
 
     # R stuff
