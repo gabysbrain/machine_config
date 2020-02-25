@@ -48,8 +48,6 @@ in
     notmuch-mutt
     w3m
 
-    #dropbox-cli
-
     (callPackage ../pkgs/gopass-dmenu.nix {})
     (callPackage ../pkgs/syncthing-quick-status.nix {})
 
