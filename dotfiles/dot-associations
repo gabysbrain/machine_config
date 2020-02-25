@@ -4,7 +4,7 @@ firefox %U
   ^https?://
 
 # mutt for mailto
-urxvt -e mutt "%U"
+alacritty -e mutt "%U"
   ^mailto:
 
 zathura %F
