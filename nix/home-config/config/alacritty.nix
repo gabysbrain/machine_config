@@ -5,6 +5,7 @@
     settings = {
       env = {
         "TERM" = "xterm-256color"; # fix weird server errors
+        "WINIT_HIDPI_FACTOR" = "1"; # fix alacritty font scaling issue
       };
       window = {
         padding.x = 10;
@@ -20,6 +21,7 @@
         normal.family = "Anonymice Nerd Font";
         bold.family = "Anonymice Nerd Font";
         italic.family = "Anonymice Nerd Font";
+
       };
       # zenburn color scheme
       colors = {
