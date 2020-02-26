@@ -57,8 +57,8 @@ workProject :: String -> Project
 workProject ws = Project { projectName = ws
                          , projectDirectory = "~/"
                          , projectStartHook = Just $ do
-                             rit' "lf ~/Projects"
-                             spawn myBrowser
+                             rit "lf" "lf ~/Projects"
+                             --spawn myBrowser
                          }
 
 projects :: [Project]
@@ -307,7 +307,7 @@ forceCenterFloat = doFloatDep move
     x = (1-w)/2
     y = (1-h)/2
 
-rit n c = runInTerm ("-t " ++ n) c
+rit n c = runInTerm ("-t \"" ++ n ++"\"") c
 rit' c = rit c c
 
 -- | Prompt the user for information and add an appointment using \'khal\'
