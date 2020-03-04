@@ -26,6 +26,8 @@
     connman_dmenu
     pavucontrol
 
+    alacritty
+
     python36Packages.glances
 
     libreoffice-unwrapped
