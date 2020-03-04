@@ -32,21 +32,13 @@
       enable = true;
       browsers = [ "chromium" "firefox" ];
     };
-    offlineimap.enable = true; # email syncing
-    msmtp.enable = true; # sendmail support
-    notmuch.enable = true; # index email
   };
   home.file = {
     ###############################
-    # Email/calendar/contacts sync
+    # Calendar/contacts sync
     ###############################
     ".vdirsyncer/config".source = ../../dotfiles/dot-vdirsyncer;
-    ".muttrc".source = ../../dotfiles/dot-muttrc;
-    ".mutt".source = ../../dotfiles/dot-mutt;
     ".config/khard/khard.conf".source = ../../dotfiles/dot-khard;
-    ".urlview".source = ../../dotfiles/dot-urlview;
-    ".offlineimaprc".source = ../../dotfiles/dot-offlineimap;
-    ".offlineimap.py".source = ../../dotfiles/dot-offlineimap.py;
 
     ###############################
     # XMonad utilities

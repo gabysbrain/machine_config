@@ -70,7 +70,7 @@ projects =
   , Project { projectName = wsCom
             , projectDirectory = "~/"
             , projectStartHook = Just $ do
-                rit' "mutt"
+                rit' "alot"
                 spawn "gcal-conky"
             }
   ] ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
@@ -157,7 +157,7 @@ myKeys conf = let
     [ ((myModMask .|. shiftMask, xK_Return), addName "Terminal" $ spawn myTerminal)
     , ((myModMask, xK_b), addName "Browser" $ spawn myBrowser)
     , ((myModMask, xK_k), addName "Calendar" $ spawn "gcal-conky")
-    , ((myModMask, xK_m), addName "Mutt" $ rit' "mutt")
+    , ((myModMask, xK_m), addName "Email" $ rit' "alot")
     , ((myModMask, xK_s), addName "Spotify" $ namedScratchpadAction scratchpads "spotify")
     , ((myModMask .|. shiftMask, xK_m), addName "Pavucontrol mixer" $ namedScratchpadAction scratchpads "mixer")
     , ((myModMask, xK_n), addName "File browser" $ rit' "lf")
