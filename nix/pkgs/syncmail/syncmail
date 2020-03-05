@@ -1,0 +1,5 @@
+#!/bin/sh
+
+(cd ~/.mail/personal; gmi sync)
+(cd ~/.mail/work; gmi sync)
+

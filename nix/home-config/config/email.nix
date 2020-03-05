@@ -15,6 +15,12 @@
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/personal.gpg | head -1";
         msmtp.enable = true;
         notmuch.enable = true;
+        alot.contactCompletion = {
+          type = "shellcommand";
+          command = "khard email -s";
+          regexp = "'^(?P[^@]+@[^\\t]+)\\t+(?P[^\\t]+)'";
+          ignorecase = "True";
+        };
       };
       work = {
         realName = "Thomas Torsney-Weir";
@@ -30,12 +36,24 @@
         };
         msmtp.enable = true;
         notmuch.enable = true;
+        alot.contactCompletion = {
+          type = "shellcommand";
+          command = "khard email -s";
+          regexp = "'^(?P[^@]+@[^\\t]+)\\t+(?P[^\\t]+)'";
+          ignorecase = "True";
+        };
       };
     };
   };
   programs = {
     alot = {
       enable = true;
+      bindings.global = {
+        "%" = "shellescape 'syncmail'; refresh";
+      };
+      bindings.thread = {
+        "v" = "pipeto urlscan 2>/dev/null";
+      };
       extraConfig = ''
         theme = mutt
       '';
@@ -43,7 +61,6 @@
     afew = {
       enable = true;
     };
-    #offlineimap.enable = true; # email syncing
     msmtp.enable = true; # sendmail support
     notmuch = {
       enable = true; # index email
@@ -52,10 +69,7 @@
     };
   };
   home.file = {
-    #".muttrc".source = ../../dotfiles/dot-muttrc;
-    #".mutt".source = ../../dotfiles/dot-mutt;
     ".urlview".source = ../../../dotfiles/dot-urlview;
-    #".offlineimaprc".source = ../../dotfiles/dot-offlineimap;
-    #".offlineimap.py".source = ../../dotfiles/dot-offlineimap.py;
+    ".mailcap".source = ../../../dotfiles/dot-mailcap;
   };
 }
