@@ -105,6 +105,9 @@ pkgs.vim_configurable.customize {
     " vim markdown config
     let g:vim_markdown_folding_disabled = 1
 
+    " align markdown tables
+    au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
     " haskell stuff
     let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
     let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
@@ -143,6 +146,7 @@ pkgs.vim_configurable.customize {
       "vimwiki"
       "vimproc"
       "haskell-vim"
+      "vim-easy-align"
       "vim-stylish-haskell"
     ]; }
   ];
