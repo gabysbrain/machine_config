@@ -58,7 +58,7 @@
         # tags
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
-        "s" = "retag spam";
+        "j" = "retag spam";
         "u" = "toggletags unread";
       };
       bindings.bufferlist = {
