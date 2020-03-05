@@ -70,20 +70,51 @@
         # tags
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
-        "s" = "retag spam";
+        "j" = "retag spam";
         "u" = "toggletags unread";
       };
       extraConfig = ''
         theme = mutt
+        tabwidth = 2
+        search_threads_sort_order = newest_first
       '';
     };
     afew = {
       enable = true;
+      extraConfig = ''
+        [SpamFilter]
+        [KillThreadsFilter]
+        [ArchiveSentMailsFilter]
+
+        [Filter.1]
+        query = 'asil.cetin@univie.ac.at'
+        tags = +students;+students/Asil_Cetin
+
+        [Filter.2]
+        query = 'd.saunders.910995@swansea.ac.uk'
+        tags = +students;+students/David_Saunders
+
+        [Filter.3]
+        query = '961297@swansea.ac.uk'
+        tags = +students;+students/Etienne_Badoche
+
+        [Filter.4]
+        query = 'h.shi.999488@swansea.ac.uk'
+        tags = +students;+students/Haiou_Shi
+
+        [Filter.5]
+        query = 's.james.788390@swansea.ac.uk'
+        tags = +students;+students/Sam_James
+
+        [InboxFilter]
+        tags = -important
+      '';
     };
     msmtp.enable = true; # sendmail support
     notmuch = {
       enable = true; # index email
       new.tags = ["new"];
+      new.ignore = [ "*.json" ];
       search.excludeTags = [ "trash" "spam" ];
     };
   };
