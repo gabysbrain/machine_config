@@ -50,9 +50,28 @@
       enable = true;
       bindings.global = {
         "%" = "shellescape 'syncmail'; refresh";
+        "x" = "bclose";
       };
       bindings.thread = {
+        "x" = "bclose";
         "v" = "pipeto urlscan 2>/dev/null";
+        # tags
+        "a" = "untag inbox; untag todo";
+        "d" = "retag trash";
+        "s" = "retag spam";
+        "u" = "toggletags unread";
+      };
+      bindings.bufferlist = {
+        "x" = "close";
+        "enter" = "open";
+      };
+      bindings.search = {
+        "enter" = "untag unread; select";
+        # tags
+        "a" = "untag inbox; untag todo";
+        "d" = "retag trash";
+        "s" = "retag spam";
+        "u" = "toggletags unread";
       };
       extraConfig = ''
         theme = mutt
