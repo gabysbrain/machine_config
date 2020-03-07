@@ -17,8 +17,8 @@
         notmuch.enable = true;
         alot.contactCompletion = {
           type = "shellcommand";
-          command = "khard email -s";
-          regexp = "'^(?P[^@]+@[^\\t]+)\\t+(?P[^\\t]+)'";
+          command = "khard email --parsable";
+          regexp = "'^(?P<email>[^@]+@[^\t]+)\t+(?P<name>[^\t]+)'";
           ignorecase = "True";
         };
       };
@@ -38,8 +38,8 @@
         notmuch.enable = true;
         alot.contactCompletion = {
           type = "shellcommand";
-          command = "khard email -s";
-          regexp = "'^(?P[^@]+@[^\\t]+)\\t+(?P[^\\t]+)'";
+          command = "khard email --parsable";
+          regexp = "'^(?P<email>[^@]+@[^\t]+)\t+(?P<name>[^\t]+)'";
           ignorecase = "True";
         };
       };
@@ -51,6 +51,9 @@
       bindings.global = {
         "%" = "shellescape 'syncmail'; refresh";
         "x" = "bclose";
+        "ctrl f" = "move page down";
+        " " = "move page down";
+        "ctrl b" = "move page up";
       };
       bindings.thread = {
         "x" = "bclose";
@@ -89,22 +92,27 @@
         [Filter.1]
         query = 'asil.cetin@univie.ac.at'
         tags = +students;+students/Asil_Cetin
+        message = Asil Cetin
 
         [Filter.2]
         query = 'd.saunders.910995@swansea.ac.uk'
         tags = +students;+students/David_Saunders
+        message = David Saunders
 
         [Filter.3]
         query = '961297@swansea.ac.uk'
         tags = +students;+students/Etienne_Badoche
+        message = Etienne Badoche
 
         [Filter.4]
         query = 'h.shi.999488@swansea.ac.uk'
         tags = +students;+students/Haiou_Shi
+        message = Haiou Shi
 
         [Filter.5]
         query = 's.james.788390@swansea.ac.uk'
         tags = +students;+students/Sam_James
+        message = Sam James
 
         [InboxFilter]
         tags = -important
