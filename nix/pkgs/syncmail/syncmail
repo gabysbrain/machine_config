@@ -1,5 +1,20 @@
 #!/bin/sh
 
-(cd ~/.mail/personal; gmi sync)
-(cd ~/.mail/work; gmi sync)
+MAILDIR=~/.mail
+GMAILACCTS="personal work"
+
+echo ---------------- email sync -------------------
+for gm in ${GMAILACCTS};
+do
+  echo syncing ${gm}
+  (cd ${MAILDIR}/${gm} && gmi sync)
+done
+
+echo ----------------- notmuch ---------------------
+notmuch new
+
+echo -----------------  tags   ---------------------
+afew -v --tag --new
+
+echo done
 
