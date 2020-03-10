@@ -112,6 +112,7 @@
     (pkgs.callPackage ../pkgs/syncmail {})
     pkgs.xkb-switch
     pkgs.isync
+    pkgs.khard
     pkgs.haskellPackages.stylish-haskell
   ];
 }
