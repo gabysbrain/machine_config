@@ -77,7 +77,7 @@
         "u" = "toggletags unread";
       };
       extraConfig = ''
-        theme = mutt
+        theme = tom.zenburn
         tabwidth = 2
         search_threads_sort_order = newest_first
       '';
@@ -129,5 +129,6 @@
   home.file = {
     ".urlview".source = ../../../dotfiles/dot-urlview;
     ".mailcap".source = ../../../dotfiles/dot-mailcap;
+    ".config/alot/themes/tom.zenburn".source = ../../../dotfiles/dot-alot.mytheme;
   };
 }
