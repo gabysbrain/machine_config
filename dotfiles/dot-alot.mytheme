@@ -1,5 +1,6 @@
 # zenburn color theme for alot
 # only supports 256 color (does not support mono or 16 color)
+# from https://github.com/guestdaniel/alotzenburn/blob/master/zenburn
 
 [global]
     footer = '','','','','g100','dark blue'
