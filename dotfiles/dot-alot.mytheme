@@ -51,7 +51,7 @@
     [[threadline]]
         normal = '','','','','h118','h237'
         focus = '','','','','h188','h238'
-        parts = date,authors,mailcount, tags,subject,content
+        parts = date,authors,subject,tags,mailcount
         [[[date]]]
             normal = '','','','','h188','h237'
             focus = '','','','','h188','h238'
