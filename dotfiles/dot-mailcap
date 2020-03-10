@@ -2,12 +2,3 @@
 # HTML
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
-# Application-specific
-application/*; ~/.mutt/view_attachment.sh %s "-"
-
-# Images
-image/*; ~/.mutt/view_attachment.sh %s "-"
-
-# Unidentified files
-application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
-
