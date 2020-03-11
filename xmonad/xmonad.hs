@@ -248,8 +248,8 @@ addPad = wrap " " " "
 myPP statusPipe = xmobarPP {
     ppOutput = hPutStrLn statusPipe
   , ppCurrent = xmobarColor myMainColor myBgColor . addPad
+  , ppHidden = xmobarColor myLowColor "" . addPad
   , ppHiddenNoWindows = xmobarColor myLowColor "" . addPad
-  , ppHidden = xmobarColor myTextColor "" . addPad
   , ppTitle = xmobarColor myTextColor ""
   , ppSep = xmobarColor myMainColor myBgColor "  |  "
 }
