@@ -36,16 +36,18 @@ in
     lf
     feh
     sxiv
-    mutt
-    offlineimap
+    (callPackage ../pkgs/terminal-velocity.nix {})
+
+    # PIM stuff
+    alot
     msmtp
     vdirsyncer-patched
-    (callPackage ../pkgs/terminal-velocity.nix {})
     gcalcli
     python37Packages.goobook
     urlscan
     notmuch
-    notmuch-mutt
+    afew
+    gmailieer
     w3m
 
     (callPackage ../pkgs/gopass-dmenu.nix {})
