@@ -9,7 +9,14 @@ alacritty -e alot "%U"
 
 zathura %F
   \.pdf$
+  glob:application/pdf
 
 vim -g %F
   glob:text/*
+
+mplayer %F
+  glob:video/*
+
+sxiv -a %F
+  glob:image/*
 

@@ -47,6 +47,7 @@
       }
     ];
     shellAliases = {
+      open = "mimeo";
       gvim = "vim -g";
 
       # Git stuff

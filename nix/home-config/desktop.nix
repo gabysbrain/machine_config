@@ -107,7 +107,6 @@
   };
 
   home.packages = [
-    (pkgs.callPackage ../pkgs/open.nix {})
     (pkgs.callPackage ../pkgs/preview.nix {})
     (pkgs.callPackage ../pkgs/syncmail {})
     pkgs.xkb-switch
