@@ -8,11 +8,15 @@
         userName = "torsneyt@gmail.com";
         address = "torsneyt@gmail.com";
         flavor = "gmail.com";
+        folders = {
+          drafts = "drafts";
+          sent = "sent";
+        };
+        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/personal.gpg | head -1";
         smtp = {
           #host = "smtp.gmail.com";
           tls.enable = true;
         };
-        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/personal.gpg | head -1";
         msmtp.enable = true;
         notmuch.enable = true;
         alot.contactCompletion = {
@@ -27,6 +31,10 @@
         userName = "t.d.torsney-weir@swansea.ac.uk";
         address = "t.d.torsney-weir@swansea.ac.uk";
         flavor = "plain";
+        folders = {
+          drafts = "drafts";
+          sent = "sent";
+        };
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/swansea.ac.uk.gpg | head -1";
         smtp = {
           host = "outlook.office365.com";
@@ -80,6 +88,8 @@
         theme = tom.zenburn
         tabwidth = 2
         search_threads_sort_order = newest_first
+
+        reply_force_address = False
       '';
     };
     afew = {
