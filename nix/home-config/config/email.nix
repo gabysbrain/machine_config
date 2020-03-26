@@ -124,6 +124,11 @@
         tags = +students;+students/Sam_James
         message = Sam James
 
+        [Filter.6]
+        query = 'subject:CSCM337/CSCM37 CW3 paper request' 
+        tags = -inbox;+CSC337_CW3_papers
+        message = CSC337 papers
+
         [InboxFilter]
         tags = -important
       '';
