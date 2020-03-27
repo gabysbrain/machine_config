@@ -59,7 +59,6 @@
       bindings.global = {
         "%" = "shellescape 'syncmail'; refresh";
         "ctrl f" = "move page down";
-        " " = "move page down";
         "ctrl b" = "move page up";
         "q" = "bclose";
         "Q" = "exit";
@@ -67,6 +66,7 @@
       bindings.thread = {
         "q" = "bclose";
         "v" = "pipeto urlscan 2>/dev/null";
+        " " = "fold; untag unread; move next unfolded";
         # tags
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
@@ -78,7 +78,7 @@
         "enter" = "open";
       };
       bindings.search = {
-        "enter" = "untag unread; select";
+        "enter" = "select; fold *; unfold tag:unread; move last; unfold";
         # tags
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
@@ -93,6 +93,7 @@
         ask_subject = False
         thread_authors_order_by = latest_message
       '';
+      hooks = builtins.readFile ../../../dotfiles/dot-alot/hooks.py;
     };
     afew = {
       enable = true;
@@ -146,6 +147,6 @@
   home.file = {
     ".urlview".source = ../../../dotfiles/dot-urlview;
     ".mailcap".source = ../../../dotfiles/dot-mailcap;
-    ".config/alot/themes/tom.zenburn".source = ../../../dotfiles/dot-alot.mytheme;
+    ".config/alot/themes/tom.zenburn".source = ../../../dotfiles/dot-alot/mytheme;
   };
 }
