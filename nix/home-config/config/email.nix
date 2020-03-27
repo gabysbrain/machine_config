@@ -87,10 +87,12 @@
       };
       extraConfig = ''
         theme = tom.zenburn
-        tabwidth = 2
-        search_threads_sort_order = newest_first
 
+        tabwidth = 2
         ask_subject = False
+        initial_command = "search tag:inbox AND NOT tag:killed; search date:today; search date:yesterday; buffer 0"
+
+        search_threads_sort_order = newest_first
         thread_authors_order_by = latest_message
       '';
       hooks = builtins.readFile ../../../dotfiles/dot-alot/hooks.py;
