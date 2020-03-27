@@ -58,13 +58,14 @@
       enable = true;
       bindings.global = {
         "%" = "shellescape 'syncmail'; refresh";
-        "x" = "bclose";
         "ctrl f" = "move page down";
         " " = "move page down";
         "ctrl b" = "move page up";
+        "q" = "bclose";
+        "Q" = "exit";
       };
       bindings.thread = {
-        "x" = "bclose";
+        "q" = "bclose";
         "v" = "pipeto urlscan 2>/dev/null";
         # tags
         "a" = "untag inbox; untag todo";
@@ -73,7 +74,7 @@
         "u" = "toggletags unread";
       };
       bindings.bufferlist = {
-        "x" = "close";
+        "q" = "close";
         "enter" = "open";
       };
       bindings.search = {
@@ -89,7 +90,8 @@
         tabwidth = 2
         search_threads_sort_order = newest_first
 
-        reply_force_address = False
+        ask_subject = False
+        thread_authors_order_by = latest_message
       '';
     };
     afew = {
