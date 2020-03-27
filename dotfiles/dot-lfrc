@@ -38,8 +38,8 @@ map x $$f
 map X !$f
 
 # dedicated keys for file opener actions
-map <enter> mimeo $f
-map o mimeo $f
+map <enter> $mimeo $f
+map o $mimeo $f
 map O $mimeo --ask $f
 
 # compress/decompress keys
@@ -57,11 +57,11 @@ map gd cd ~/Downloads
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
-#cmd open ${{
-    #for f in $fx; do 
-      #open $f
-    #done
-#}}
+cmd open ${{
+    for f in $fx; do 
+      mimeo $f
+    done
+}}
 
 # define a custom 'rename' command without prompt for overwrite
 # cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
