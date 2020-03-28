@@ -143,6 +143,7 @@ myKeys conf = let
     [ ((myModMask, xK_q), addName "Restart and recompile xmonad" $ spawn "xmonad --recompile; xmonad --restart")
     , ((myModMask, xK_F7), addName "Select speaker" $ spawn "speakerselect")
     , ((myModMask, xK_F8), addName "Select display" $ spawn "screenselect")
+    , ((myModMask, xK_Print), addName "Take screenshot" $ spawn "screenshot")
     -- Volume
     , ((0, 0x1008ff11), addName "Reduce volume" $ spawn "amixer -q set Master 5- unmute")
     , ((0, 0x1008ff13), addName "Increase volume" $ spawn "amixer -q set Master 5+ unmute")

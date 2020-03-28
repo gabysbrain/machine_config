@@ -36,7 +36,7 @@ in
     lf
     feh
     sxiv
-    (callPackage ../pkgs/terminal-velocity.nix {})
+    (callPackage ../pkgs/screenshot {})
 
     # PIM stuff
     alot
@@ -49,6 +49,7 @@ in
     afew
     gmailieer
     w3m
+    (callPackage ../pkgs/terminal-velocity.nix {})
 
     (callPackage ../pkgs/gopass-dmenu.nix {})
     (callPackage ../pkgs/syncthing-quick-status.nix {})

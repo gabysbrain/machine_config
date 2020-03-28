@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+MAIM=maim
+
+# Let the user choose what screen
+chosen=$(printf "clip-window\\nclip-area\\nsave-window\\nsave-area" | dmenu -i -p "Screenshot:") &&
+  case "$chosen" in
+    "clip-window")
+      $MAIM -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+      ;;
+    "clip-area")
+      $MAIM -s | xclip -selection clipoard -t image/png
+      ;;
+    "save-window")
+      $MAIM -i $(xdotool getactivewindow) ~/$(date +%s).png
+      ;;
+    "save-area")
+      $MAIM -s ~/$(date +%s).png
+      ;;
+  esac
+
