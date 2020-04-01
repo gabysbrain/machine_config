@@ -89,7 +89,6 @@
         theme = tom.zenburn
 
         tabwidth = 2
-        ask_subject = False
         initial_command = "search tag:inbox AND NOT tag:killed; search date:today; search date:yesterday; buffer 0"
 
         search_threads_sort_order = newest_first
@@ -130,7 +129,7 @@
         message = Sam James
 
         [Filter.6]
-        query = 'subject:CSCM337/CSCM37 CW3 paper request' 
+        query = 'subject:CSC337/CSCM37 CW3 paper request' 
         tags = -inbox;+CSC337_CW3_papers
         message = CSC337 papers
 
