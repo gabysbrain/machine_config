@@ -151,6 +151,7 @@
     };
   };
   home.file = {
+    ".mbsyncrc".source = ../../../dotfiles/dot-mbsyncrc;
     ".urlview".source = ../../../dotfiles/dot-urlview;
     ".mailcap".source = ../../../dotfiles/dot-mailcap;
     ".config/alot/themes/tom.zenburn".source = ../../../dotfiles/dot-alot/mytheme;

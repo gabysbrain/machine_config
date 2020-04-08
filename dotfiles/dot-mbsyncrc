@@ -1,0 +1,43 @@
+# Adapted from: https://wiki.archlinux.org/index.php/Isync
+
+# This will only sync drafts and sent mail
+# Only needed for my work account because things are sent through 
+# exchange not my forwarded gmail account
+
+IMAPAccount gmail-work
+# Address to connect to
+Host imap.gmail.com
+User t.d.torsneyweir@gmail.com
+PassCmd "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/work.gpg | head -1"
+# Use SSL
+SSLType IMAPS
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore work-remote
+Account gmail-work
+
+MaildirStore work-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/work/
+Inbox ~/.mail/work/Inbox
+
+Channel sync-work-sent
+Master :work-remote:"[Gmail]/Sent Mail"
+Slave :work-local:sent
+# don't download sent mails from server (they'll come through the main sync)
+Sync Push
+Create Slave
+
+#Channel sync-work-drafts
+#Master :work-remote:"[Gmail]/Drafts"
+#Slave :work-local:drafts
+#Create Slave
+
+# Get all the channels together into a group.
+Group work
+Channel sync-work-sent
+#Channel sync-work-drafts
