@@ -71,6 +71,7 @@ in
     # Julia stuff
     atom # for juno
     (callPackage ../pkgs/julia.nix {})
+    (callPackage ../pkgs/julia-vim {})
   ];
 
   nixpkgs.overlays = [

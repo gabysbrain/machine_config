@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+tmux new-session -d "vim $@"
+tmux split-window -v 'julia'
+tmux select-pane -t 0
+tmux -2 attach-session -d
+

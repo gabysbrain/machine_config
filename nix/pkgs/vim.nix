@@ -121,6 +121,10 @@ pkgs.vim_configurable.customize {
     let g:vimwiki_global_ext = 0
     let g:vimwiki_list = [{'path': '~/Sync/wiki/',
                           \ 'syntax': 'markdown', 'ext': '.md'}]
+    
+    " slime/julia stuff
+    let g:slime_target = "tmux"
+    let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
   '';
 
   vimrcConfig.vam.knownPlugins = pkgs.vimPlugins;
@@ -148,6 +152,7 @@ pkgs.vim_configurable.customize {
       "haskell-vim"
       "vim-easy-align"
       "vim-stylish-haskell"
+      "vim-slime"
     ]; }
   ];
 }
