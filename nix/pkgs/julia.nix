@@ -1,10 +1,60 @@
 {pkgs, stdenv, ...}:
 
-with pkgs;
-let 
-  julia = julia_11;
-  d = version: "v${lib.concatStringsSep "." (lib.take 2 (lib.splitString "." version))}";
-  extraLibs = [
+let
+  ldconfigWrapper = stdenv.mkDerivation {
+    name = "ldconfig-env";
+
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+
+    phases = [ "installPhase" "fixupPhase" ];
+
+    installPhase = ''
+      makeWrapper ${pkgs.glibc.bin}/bin/ldconfig $out/sbin/ldconfig \
+        --add-flags "-C /usr/ld.so.cache"
+    '';
+  };
+  extraLibs = pkgs: with pkgs; [
+    ldconfigWrapper
+
+    git
+    gitRepo
+    gnupg
+    autoconf
+    curl
+    procps
+    gnumake
+    utillinux
+    m4
+    gperf
+    unzip
+    libGLU_combined
+    xorg.libXi xorg.libXmu freeglut
+    xorg.libXext xorg.libX11 xorg.libXv xorg.libXrandr zlib
+    ncurses5
+    stdenv.cc
+    binutils
+
+    # Nvidia note: may need to change cudnn to match cudatoolkit version
+    #cudatoolkit_10_0
+    #cudnn_cudatoolkit_10_0
+    #linuxPackages.nvidia_x11
+
+    julia_11
+    #vim
+    #atom
+
+    # Arpack.jl
+    arpack
+    gfortran.cc
+    (pkgs.runCommand "openblas64_" {} ''
+      mkdir -p "$out"/lib/
+      ln -s ${openblasCompat}/lib/libopenblas.so "$out"/lib/libopenblas64_.so.0
+    '')
+
+    # IJulia.jl
+    #mbedtls
+    #zeromq3
+    #python3Packages.jupyterlab
     # ImageMagick.jl
     imagemagickBig
     # HDF5.jl
@@ -14,42 +64,35 @@ let
     gettext
     pango.out
     glib.out
+    # Gtk.jl
+    gtk3
+    gdk_pixbuf
     # GZip.jl # Required by DataFrames.jl
     gzip
     zlib
-    # Arpack.jl
-    arpack
-    gfortran.cc
-    (pkgs.runCommand "openblas64_" {} ''
-      mkdir -p "$out"/lib/
-      ln -s ${openblasCompat}/lib/libopenblas.so "$out"/lib/libopenblas64_.so.0
-    '')
+    # GR.jl # Runs even without Xrender and Xext, but cannot save files, so those are required
+    xorg.libXt
+    xorg.libX11
+    xorg.libXrender
+    xorg.libXext
+    glfw
+    freetype
+    qt4
   ];
 in
-stdenv.mkDerivation rec {
-  name = "julia-env";
-  version = julia.version;
-  nativeBuildInputs = [ makeWrapper cacert git pkgconfig which ];
-  buildInputs = [
-    julia # julia from above
-    /* jupyterEnv  # my custom jupyter */
-  ] ++ extraLibs;
-  phases = [ "installPhase" ];
-  installPhase = ''
-    export LD_LIBRARY_PATH=${lib.makeLibraryPath extraLibs}
-    makeWrapper ${julia}/bin/julia $out/bin/julia \
-        --prefix LD_LIBRARY_PATH : "$LD_LIBRARY_PATH" \
-        --set JULIA_PKGDIR $JULIA_PKGDIR
-  '';
-  #installPhase = ''
-    #export CUDA_PATH="${cudatoolkit}"
-    #export LD_LIBRARY_PATH=${lib.makeLibraryPath extraLibs}
-    ## pushd $JULIA_PKGDIR/${d version}
-    #makeWrapper ${julia}/bin/julia $out/bin/julia \
-        #--prefix LD_LIBRARY_PATH : "$LD_LIBRARY_PATH" \
-        #--prefix LD_LIBRARY_PATH ":" "${linuxPackages.nvidia_x11}/lib" \
-        #--set CUDA_PATH "${cudatoolkit}" \
-        #--set JULIA_PKGDIR $JULIA_PKGDIR
-        ## --set JULIA_LOAD_PATH $JULIA_PKGDIR/${d version}
-  #'';
-}
+  pkgs.buildFHSUserEnv {
+    name = "julia"; # so that we can start julia with 'julia'
+    #version = julia.version;
+    multiPkgs = pkgs: [ pkgs.zlib ];
+    targetPkgs = extraLibs;
+    profile = with pkgs; ''
+      export LD_LIBRARY_PATH=${lib.makeLibraryPath (extraLibs pkgs)}
+      export EXTRA_CCFLAGS="-I/usr/include"
+    '';
+    extraBuildCommands = ''
+      # Cannot write to /etc?
+      echo "$out/lib" > $out/usr/ld.so.conf
+      ldconfig -f $out/usr/ld.so.conf -C $out/usr/ld.so.cache
+    '';
+    runScript = "julia";
+  }
