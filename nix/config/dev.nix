@@ -53,6 +53,7 @@ in
 
     # general
     gnumake
+    cmake
     jq
     entr
     bat
