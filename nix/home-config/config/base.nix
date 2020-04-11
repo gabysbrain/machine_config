@@ -15,7 +15,7 @@
       enable = true;
       config = {
         pager = "less -FR";
-        theme = "zenburn";
+        theme = "tender";
       };
     };
   };
@@ -28,6 +28,9 @@
     (pkgs.callPackage ../../pkgs/vim.nix {})
     (pkgs.callPackage ../../pkgs/tat {})
   ];
+  home.file = {
+    ".config/bat/themes/tender.tmTheme".source = ../../../dotfiles/dot-bat/tender.tmTheme;
+  };
 
   #home.stateVersion = "18.09";
   programs.home-manager.enable = true;

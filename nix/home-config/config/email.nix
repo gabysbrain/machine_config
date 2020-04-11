@@ -86,7 +86,7 @@
         "u" = "toggletags unread";
       };
       extraConfig = ''
-        theme = tom.zenburn
+        theme = mutt
 
         tabwidth = 2
         initial_command = "search tag:inbox AND NOT tag:killed; search date:today; search date:yesterday; buffer 0"
@@ -154,6 +154,5 @@
     ".mbsyncrc".source = ../../../dotfiles/dot-mbsyncrc;
     ".urlview".source = ../../../dotfiles/dot-urlview;
     ".mailcap".source = ../../../dotfiles/dot-mailcap;
-    ".config/alot/themes/tom.zenburn".source = ../../../dotfiles/dot-alot/mytheme;
   };
 }

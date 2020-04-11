@@ -23,44 +23,37 @@
         italic.family = "Anonymice Nerd Font";
 
       };
-      # zenburn color scheme
+      # Tender color scheme
       colors = {
+        # Default colors
         primary = {
-          background = "0x383838";
-          foreground = "0xdcdccc";
+          background = "0x282828";
+          foreground = "0xeeeeee";
         };
-        cursor = {
-          text = "0x383838";
-          cursor = "0xdcdccc";
-        };
+
+        # Normal colors
         normal = {
-          black = "0x383838";
-          red = "0xdca3a3";
-          green = "0x5f7f5f";
-          yellow = "0xe0cf9f";
-          blue = "0x7cb8bb";
-          magenta = "0xdc8cc3";
-          cyan = "0x93e0e3";
-          white = "0xdcdccc";
+          black =   "0x282828";
+          red =     "0xf43753";
+          green =   "0xc9d05c";
+          yellow =  "0xffc24b";
+          blue =    "0xb3deef";
+          magenta = "0xd3b987";
+          cyan =    "0x73cef4";
+          white =   "0xeeeeee";
         };
+
+        # Bright colors
         bright = {
-          black = "0x6f6f6f";
-          red = "0xdca3a3";
-          green = "0x5f7f5f";
-          yellow = "0xe0cf9f";
-          blue = "0x7cb8bb";
-          magenta = "0xdc8cc3";
-          cyan = "0x93e0e3";
-          white = "0xffffff";
+          black =   "0x4c4c4c";
+          red =     "0xf43753";
+          green =   "0xc9d05c";
+          yellow =  "0xffc24b";
+          blue =    "0xb3deef";
+          magenta = "0xd3b987";
+          cyan =    "0x73cef4";
+          white =   "0xfeffff";
         };
-        indexed_colors = [
-          {index=16; color="0xdfaf8f";}
-          {index=17; color="0x000000";}
-          {index=18; color="0x404040";}
-          {index=19; color="0x606060";}
-          {index=20; color="0x808080";}
-          {index=21; color="0xc0c0c0";}
-        ];
       };
     };
   };

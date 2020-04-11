@@ -13,7 +13,8 @@ pkgs.vim_configurable.customize {
     
     " appearance
     set guifont=Anonymice\ Nerd\ Font\ 11
-    colors zenburn
+    set termguicolors " enable true color support
+    colorscheme tender
     set noshowmode
     set cursorline " color current line
     syntax on " syntax highlighting
@@ -143,7 +144,6 @@ pkgs.vim_configurable.customize {
       "Supertab"
       "ctrlp"
       "vim-addon-nix"
-      "zenburn"
       "vim-airline"
       "vim-airline-themes"
       "vim-obsession"
@@ -153,11 +153,9 @@ pkgs.vim_configurable.customize {
       "vim-easy-align"
       "vim-stylish-haskell"
       "vim-slime"
+      "tender-vim"
     ]; }
   ];
 }
-#    " My plugins
-#    NeoBundle 'vim-pandoc/vim-criticmarkup'
-#    NeoBundle 'chrisbra/csv.vim'
 
 

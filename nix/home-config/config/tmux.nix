@@ -49,14 +49,6 @@
 
       # fix vim slow escape key thing
       set -sg escape-time 0
-
-      # Zenburn colors
-      setw -g clock-mode-colour colour117
-      setw -g mode-style 'fg=colour117 bg=colour238 bold'
-      set -g status-style 'fg=colour248 bg=colour235'
-      setw -g window-status-current-style 'fg=colour223 bg=colour237 bold'
-      set -g message-style 'fg=colour117 bg=colour235 bold'
-      set -g status-left '#[fg=colour187,bold]'
     '';
   };
   programs.zsh.shellAliases = {
