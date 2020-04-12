@@ -1,6 +1,17 @@
 {pkgs ? import <nixpkgs>}:
 #with import <nixpkgs> {};
 
+let
+  customPlugins.bracey-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "bracey-vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "turbio";
+      repo = "bracey.vim";
+      rev = "3d234b3c5284ce4373b1de90098c58cc5cfc4dd4";
+      sha256 = "10p4p2wyb1ps19b2mhzpfamcibac7n92wlxyjg667snppsm8m7lh";
+    };
+  };
+in 
 pkgs.vim_configurable.customize {
   name = "vim";
 
@@ -128,7 +139,7 @@ pkgs.vim_configurable.customize {
     let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
   '';
 
-  vimrcConfig.vam.knownPlugins = pkgs.vimPlugins;
+  vimrcConfig.vam.knownPlugins = pkgs.vimPlugins // customPlugins;
   vimrcConfig.vam.pluginDictionaries = [
     { names = [
       #"Syntastic"
@@ -154,6 +165,7 @@ pkgs.vim_configurable.customize {
       "vim-stylish-haskell"
       "vim-slime"
       "tender-vim"
+      "bracey-vim"
     ]; }
   ];
 }
