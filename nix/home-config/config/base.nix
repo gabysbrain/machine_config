@@ -25,7 +25,7 @@
   };
   home.packages = [
     # TODO: integrate this into the programs.vim module
-    (pkgs.callPackage ../../pkgs/vim.nix {})
+    (pkgs.callPackage ../../pkgs/vim {})
     (pkgs.callPackage ../../pkgs/tat {})
   ];
   home.file = {
