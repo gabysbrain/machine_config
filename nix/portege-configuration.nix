@@ -45,6 +45,7 @@
   services.xserver.layout = "gb,us";
   services.xserver.videoDrivers = ["intel"];
   #services.xserver.videoDrivers = ["modesetting"];
+  #services.xserver.videoDrivers = ["displaylink"];
   #services.xserver.videoDrivers = ["displaylink" "modesetting"];
   i18n.consoleUseXkbConfig = true;
 
@@ -63,6 +64,10 @@
       galliumDrivers = [ "nouveau" "virgl" "swrast" "iris" ];
     }).drivers;
   };
+
+  # User level thunderbolt 3 drivers
+  services.hardware.bolt.enable = true;
+
   nixpkgs.config.packageOverrides = pkgs: {
   };
 
