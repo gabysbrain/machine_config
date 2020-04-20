@@ -19,6 +19,15 @@ let
       ln -s ${bracey-vim}/lib/node_modules/bracey/node_modules $out/node_modules
     '';
   };
+  customPlugins.lightline-bufferline = pkgs.vimUtils.buildVimPlugin {
+    name = "lightline-bufferline";
+    src = pkgs.fetchFromGitHub {
+      owner = "mengelbrecht";
+      repo = "lightline-bufferline";
+      rev = "17683bc5802de7f295f2583a15461e2bc662f98b";
+      sha256 = "1rlamxwk2gm9pyxl9vym9w6rhgimzqa2hjghy3qdqwvif6w8ir6l";
+    };
+  };
 in 
 pkgs.vim_configurable.customize {
   name = "vim";
@@ -42,6 +51,7 @@ pkgs.vim_configurable.customize {
       "ctrlp"
       "vim-addon-nix"
       "lightline-vim"
+      "lightline-bufferline"
       "vim-obsession"
       "vimwiki"
       "vimproc"
