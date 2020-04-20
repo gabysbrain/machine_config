@@ -72,6 +72,7 @@
         "d" = "retag trash";
         "j" = "retag spam";
         "u" = "toggletags unread";
+        "l" = "retagprompt";
       };
       bindings.bufferlist = {
         "q" = "close";
