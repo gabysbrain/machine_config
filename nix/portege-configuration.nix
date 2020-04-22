@@ -14,6 +14,7 @@
       ./config/laptop.nix
       ./config/desktop-full.nix
       ./config/teaching.nix
+      ./config/games.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
