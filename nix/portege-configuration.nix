@@ -30,14 +30,13 @@
     #"i915.enable_guc=3"
     #"i915.enable_dpcd_backlight=1"
   ];
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
+  boot.initrd.luks.devices = {
+    root = {
       device = "/dev/nvme0n1p3";
       preLVM = true;
       allowDiscards = true;
-    }
-  ];
+    };
+  };
 
   networking.hostName = "philadelphia"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -48,7 +47,7 @@
   #services.xserver.videoDrivers = ["modesetting"];
   #services.xserver.videoDrivers = ["displaylink"];
   #services.xserver.videoDrivers = ["displaylink" "modesetting"];
-  i18n.consoleUseXkbConfig = true;
+  console.useXkbConfig = true;
 
   # Enable intel iris drivers
   environment.variables = {

@@ -57,7 +57,6 @@ pkgs.vim_configurable.customize {
       "vimproc"
       "haskell-vim"
       "vim-easy-align"
-      "vim-stylish-haskell"
       "vim-slime"
       "tender-vim"
       "bracey-vim"

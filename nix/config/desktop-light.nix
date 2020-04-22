@@ -110,12 +110,11 @@ in
     };
 
     desktopManager.xterm.enable = false;
-    desktopManager.default = "none";
+    displayManager.defaultSession = "none+xmonad";
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
     };
-    windowManager.default = "xmonad";
 
   };
   services.gnome3.at-spi2-core.enable = true;

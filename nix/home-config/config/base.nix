@@ -15,6 +15,7 @@
       enable = true;
       config = {
         pager = "less -FR";
+        # TODO need to run `bat cache --build` after custom theme
         theme = "tender";
       };
     };

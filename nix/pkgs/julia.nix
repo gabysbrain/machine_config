@@ -27,7 +27,8 @@ let
     m4
     gperf
     unzip
-    libGLU_combined
+    libGL
+    libGLU
     xorg.libXi xorg.libXmu freeglut
     xorg.libXext xorg.libX11 xorg.libXv xorg.libXrandr zlib
     ncurses5

@@ -113,6 +113,5 @@
     pkgs.isync
     pkgs.khard
     pkgs.gmailieer
-    pkgs.haskellPackages.stylish-haskell
   ];
 }
