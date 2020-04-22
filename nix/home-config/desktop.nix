@@ -77,6 +77,9 @@
       enable = true;
       defaultCacheTtl = 1800; # 30 minutes
       maxCacheTtl = 604800; # one week
+      extraConfig = ''
+        pinentry-program ${pkgs.pinentry_gtk2}/bin/pinentry
+      '';
     };
   };
   systemd.user = {
