@@ -31,6 +31,7 @@ import           XMonad.Util.Run
 
 import           Graphics.X11.ExtraTypes.XF86
 import           System.IO
+import           System.Posix.Env (putEnv)
 
 import qualified Data.Map                           as M
 import qualified XMonad.StackSet                    as W
@@ -258,31 +259,27 @@ myPP statusPipe = xmobarPP {
 
 myLogHook = dynamicLogWithPP . namedScratchpadFilterOutWorkspacePP . myPP
 
--- Startup hook
--------------------------------------------------------------------------------
-myStartupHook = setWMName "LG3D" -- so Java works
-
 -- Configuration structure
 -------------------------------------------------------------------------------
 myConfig statusPipe = def {
   -- simple stuff
-  terminal           = myTerminal,
-  focusFollowsMouse  = myFocusFollowsMouse,
-  borderWidth        = myBorderWidth,
-  modMask            = myModMask,
-  workspaces         = myWorkspaces,
+    terminal           = myTerminal
+  , focusFollowsMouse  = myFocusFollowsMouse
+  , borderWidth        = myBorderWidth
+  , modMask            = myModMask
+  , workspaces         = myWorkspaces
 
   -- hooks, layouts
-  layoutHook         = myLayout,
-  manageHook         = myManageHook,
-  handleEventHook    = myEventHook,
-  logHook            = myLogHook statusPipe,
-  startupHook        = myStartupHook
+  , layoutHook         = myLayout
+  , manageHook         = myManageHook
+  , handleEventHook    = myEventHook
+  , logHook            = myLogHook statusPipe
 }
 
 -- Run xmonad with the settings specified. No need to modify this.
 -------------------------------------------------------------------------------
 main = do
+  putEnv "_JAVA_AWT_WM_NONREPARENTING=1"
   statusPipe <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
   xmonad
     $ dynamicProjects projects
