@@ -8,6 +8,7 @@ import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
 import           XMonad.Hooks.SetWMName
+import           XMonad.Hooks.EwmhDesktops
 
 import           XMonad.Actions.DynamicProjects
 import           XMonad.Actions.UpdatePointer
@@ -241,7 +242,7 @@ myEventHook = mconcat
   [ docksEventHook -- this is needed to properly get xmobar struts working
   , dynamicPropertyChange "WM_NAME" (title =? (fst spotifyFloat) --> (snd spotifyFloat))
   , dynamicPropertyChange "WM_NAME" (appName =? (fst trelloFloat) --> (snd trelloFloat))
-  , handleEventHook def
+  , fullscreenEventHook
   ]
 
 -- Status bars and logging
@@ -274,6 +275,7 @@ myConfig statusPipe = def {
   , manageHook         = myManageHook
   , handleEventHook    = myEventHook
   , logHook            = myLogHook statusPipe
+  , startupHook        = ewmhDesktopsStartup
 }
 
 -- Run xmonad with the settings specified. No need to modify this.
