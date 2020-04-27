@@ -10,6 +10,11 @@
       lfs.enable = true;
       userName = "Thomas Torsney-Weir";
       userEmail = "torsneyt@gmail.com";
+      extraConfig = {
+        credential = {
+          helper = "store";
+        };
+      };
     };
     bat = {
       enable = true;
