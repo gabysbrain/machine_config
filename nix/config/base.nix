@@ -23,6 +23,7 @@ in
     git
     silver-searcher
     unzip
+    unrar
     vim
     atool
     p7zip
