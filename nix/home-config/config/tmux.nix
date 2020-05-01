@@ -3,7 +3,7 @@
   programs.tmux = {
     enable = true;
     shortcut = "a";
-    terminal = "tmux-256color";
+    terminal = "xterm-256color";
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.resurrect;
