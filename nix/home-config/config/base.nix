@@ -3,6 +3,7 @@
   imports = [
     ./zsh.nix
     ./tmux.nix
+    ../../pkgs/neovim/default.nix
   ];
   programs = {
     git = {
@@ -31,7 +32,6 @@
   };
   home.packages = [
     # TODO: integrate this into the programs.vim module
-    (pkgs.callPackage ../../pkgs/vim {})
     (pkgs.callPackage ../../pkgs/tat {})
   ];
   home.file = {
