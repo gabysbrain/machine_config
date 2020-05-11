@@ -100,8 +100,12 @@
             translated = 📎
           [[unread]]
             translated = ✉
+          [[sent]]
+            translated = ✈
           [[replied]]
             translated = ⏎
+          [[inbox]]
+            translated = 📥
       '';
       hooks = builtins.readFile ../../../dotfiles/dot-alot/hooks.py;
     };
