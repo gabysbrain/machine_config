@@ -87,7 +87,7 @@
         "u" = "toggletags unread";
       };
       extraConfig = ''
-        theme = mutt
+        theme = tender
 
         tabwidth = 2
         initial_command = "search tag:inbox AND NOT tag:killed; search date:today; search date:yesterday; buffer 0"
@@ -155,5 +155,6 @@
     ".mbsyncrc".source = ../../../dotfiles/dot-mbsyncrc;
     ".urlview".source = ../../../dotfiles/dot-urlview;
     ".mailcap".source = ../../../dotfiles/dot-mailcap;
+    ".config/alot/themes/tender".source = ../../../dotfiles/dot-alot/tender;
   };
 }
