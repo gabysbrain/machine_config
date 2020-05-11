@@ -96,7 +96,7 @@ darkest = 'g0' #'#000000'
     [[threadline]]
         normal = '','','%(mt16)s','%(bg16)s','%(maintext)s','%(bg)s'
         focus = 'standout','','%(bg16)s','dark cyan','%(maintext)s','%(shadow)s'
-        parts = date,authors,subject,mailcount
+        parts = date,authors,subject,mailcount,tags
         [[[date]]]
             normal = '','','%(mt16)s','%(bg16)s','%(maintext)s','%(bg)s'
             focus = 'standout','','%(bg16)s','dark cyan','%(maintext)s','%(shadow)s'
@@ -126,7 +126,7 @@ darkest = 'g0' #'#000000'
         query = 'is:unread'
         normal = '','','%(mt16)s','%(bg16)s','%(yellow2)s','%(bg)s'
         focus = 'standout','','%(bg16)s','dark cyan','%(yellow2)s','%(shadow)s'
-        parts = date,authors,subject,mailcount
+        parts = date,authors,subject,mailcount,tags
         [[[date]]]
             normal = '','','%(mt16)s','%(bg16)s','%(yellow2)s','%(bg)s'
             focus = 'standout','','%(bg16)s','dark cyan','%(yellow2)s','%(shadow)s'

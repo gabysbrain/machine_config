@@ -94,6 +94,14 @@
 
         search_threads_sort_order = newest_first
         thread_authors_order_by = latest_message
+
+        [tags]
+          [[attachment]]
+            translated = 📎
+          [[unread]]
+            translated = ✉
+          [[replied]]
+            translated = ⏎
       '';
       hooks = builtins.readFile ../../../dotfiles/dot-alot/hooks.py;
     };
