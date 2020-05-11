@@ -6,8 +6,8 @@
 
 # reds
 red1 = '#f35' #'#f43753'
-red2 = '#c5152f'
-red3 = '#79313c'
+red2 = '#c13' #'#c5152f'
+red3 = '#734' #'#79313c'
 
 # blues
 blue1 = '#bdf' #'#b3deef'
@@ -120,5 +120,35 @@ darkest = 'g0' #'#000000'
         [[[content]]]
             normal = '','','%(mt16)s','%(bg16)s','%(maintext)s','%(bg)s'
             focus = 'standout','','%(bg16)s','dark cyan','%(maintext)s','%(shadow)s'
+            width = 'weight', 1
+
+    [[threadline-unread]]
+        query = 'is:unread'
+        normal = '','','%(mt16)s','%(bg16)s','%(yellow2)s','%(bg)s'
+        focus = 'standout','','%(bg16)s','dark cyan','%(yellow2)s','%(shadow)s'
+        parts = date,authors,subject,mailcount
+        [[[date]]]
+            normal = '','','%(mt16)s','%(bg16)s','%(yellow2)s','%(bg)s'
+            focus = 'standout','','%(bg16)s','dark cyan','%(yellow2)s','%(shadow)s'
+            width = 'fit',10,10
+            alignment = right
+        [[[mailcount]]]
+            normal = '','','%(mt16)s','%(bg16)s','%(yellow2)s','%(bg)s'
+            focus = 'standout','','%(bg16)s','dark cyan','%(yellow2)s','%(shadow)s'
+            width = 'fit', 5,5
+        [[[tags]]]
+            normal = '','','yellow','black','%(yellow2)s','%(bg)s'
+            focus = 'standout','','%(bg16)s','dark cyan','%(yellow2)s','%(shadow)s'
+        [[[authors]]]
+            normal = '','','%(mt16)s','%(bg16)s','%(yellow2)s','%(bg)s'
+            focus = 'standout','','%(bg16)s','dark cyan','%(yellow2)s','%(shadow)s'
+            width = 'fit',25,25
+        [[[subject]]]
+            normal = '','','%(mt16)s','%(bg16)s','%(yellow2)s','%(bg)s'
+            focus = 'standout','','%(bg16)s','dark cyan','%(yellow2)s','%(shadow)s'
+            width = 'weight', 1
+        [[[content]]]
+            normal = '','','%(mt16)s','%(bg16)s','%(yellow2)s','%(bg)s'
+            focus = 'standout','','%(bg16)s','dark cyan','%(yellow2)s','%(shadow)s'
             width = 'weight', 1
 
