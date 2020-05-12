@@ -41,8 +41,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "zpm-zsh";
           repo = "clipboard";
-          rev = "master";
-          sha256 = "1vwihqcdzhrv463025p0g5wiccl19yr2c4zps325d3ylf3gxyzqy";
+          rev = "6d87244071f2751d2ebbcb386383f3a875d63e87";
+          sha256 = "0b7nna4jz1ib217czizqrmdz0yw4apg3gl8kvxr0h10ygwmxh77x";
         };
       }
     ];
