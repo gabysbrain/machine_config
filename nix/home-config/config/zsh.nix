@@ -33,8 +33,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "zsh-vi-more";
           repo = "evil-registers";
-          rev = "master";
-          sha256 = "0jsybyb3n9h1nxs3w1kh8mxmib8dx7hwch8i55qvr0xylcbcg791";
+          rev = "1.2";
+          sha256 = "0gryvkrzdlncahm3gsklhshhzx0n07rbsm83zyab0nj721lms6nn";
         };
       }
       { name = "clipboard";
