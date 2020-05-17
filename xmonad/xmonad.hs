@@ -81,7 +81,7 @@ projects =
 --- derived from https://gist.github.com/Tzbob/7362371
 ---
 
-myTerminal = "alacritty"
+myTerminal = "termite"
 myBrowser = "firefox"
 
 myFocusFollowsMouse = True

@@ -2,7 +2,7 @@
 {
   imports = [
     ./config/base.nix
-    ./config/alacritty.nix
+    ./config/termite.nix
     ./config/email.nix
   ];
   xsession = {
