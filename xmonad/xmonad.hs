@@ -52,7 +52,6 @@ wsSys = "Sys"
 centerFloat w h = customFloating $ W.RationalRect ((1-w)/2) ((1-h)/2) w h
 
 spotifyFloat = ("Spotify", centerFloat 0.6 0.6)
-trelloFloat = ("trello.com__b_CJPzPChQ_work", centerFloat 0.6 0.6)
 
 -- Projects
 workProject :: String -> Project
@@ -231,9 +230,8 @@ scratchpads =
   [ NS "spotify" "spotify" (className =? fst spotifyFloat) (snd spotifyFloat)
   , NS "mixer" "pavucontrol" (className =? "Pavucontrol")
        (centerFloat 0.6 0.6)
-  , NS "work_tasks" "chromium --app='https://trello.com/b/CJPzPChQ/work'"
-       (appName =? (fst trelloFloat))
-       (snd trelloFloat)
+  , NS "work_tasks" "termite -t Tasks -r tasks -e tasks"
+       (stringProperty "WM_WINDOW_ROLE" =? "tasks") (centerFloat 0.8 0.8)
   ]
 
 -- Event handling
@@ -241,7 +239,6 @@ scratchpads =
 myEventHook = mconcat
   [ docksEventHook -- this is needed to properly get xmobar struts working
   , dynamicPropertyChange "WM_NAME" (title =? (fst spotifyFloat) --> (snd spotifyFloat))
-  , dynamicPropertyChange "WM_NAME" (appName =? (fst trelloFloat) --> (snd trelloFloat))
   , fullscreenEventHook
   ]
 

@@ -116,5 +116,10 @@
     pkgs.isync
     pkgs.khard
     pkgs.gmailieer
+
+    # task management stuff
+    pkgs.taskwarrior
+    pkgs.timewarrior
+    (pkgs.callPackage ../pkgs/tasks {})
   ];
 }
