@@ -46,6 +46,22 @@
 
       # status bar styling
       set-option -g status-position top
+      set -g status-justify left
+      set -g status-style 'bg=#323232 fg=#eeeeee dim'
+      set -g status-left ' '
+      set -g status-right ' '
+      set -g status-right-length 50
+      set -g status-left-length 20
+
+      # window styling
+      setw -g window-status-current-style 'fg=#282828 bg=#bbbbbb bold'
+      setw -g window-status-current-format ' #[fg=#464632]#I#[fg=#282828]:#W #[fg=#c9d05c]#F '
+      #setw -g window-status-current-format ' #[fg=#9faa00]#I#[fg=#282828]:#W #[fg=#c9d05c]#F '
+
+      setw -g window-status-style 'fg=#eeeeee bg=#444444'
+      setw -g window-status-format ' #[fg=#b3deef]#I#[fg=#eeeeee]:#W #[fg=#44778d]#F '
+
+      setw -g window-status-bell-style 'fg=#282828 bg=#f43753 bold'
 
       # fix vim slow escape key thing
       set -sg escape-time 0
