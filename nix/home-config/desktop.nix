@@ -117,6 +117,9 @@
     pkgs.khard
     pkgs.gmailieer
 
+    # for reviewing papers
+    (pkgs.callPackage ../pkgs/summ_paper {})
+
     # task management stuff
     pkgs.taskwarrior
     pkgs.timewarrior
