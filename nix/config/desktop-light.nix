@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
-let 
-  vdirsyncer-patched = pkgs.callPackage ../pkgs/vdirsyncer-patched.nix {};
-in
 {
   # Select internationalisation properties.
   # i18n = {
@@ -41,7 +38,7 @@ in
     # PIM stuff
     alot
     msmtp
-    vdirsyncer-patched
+    vdirsyncer
     gcalcli
     python37Packages.goobook
     urlscan
