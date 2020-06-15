@@ -3,7 +3,7 @@
 # Directory config. Where the template file and the summary files go
 TEMPLATE=~/Projects/paper_summaries/paper_summary_template.md
 SUMMDIR=$(dirname ${TEMPLATE})/site/summaries
-PAPERDIR=~/Papers/paper
+PAPERDIR=~/Papers/papers
 
 # Other variables that don't change very often
 CITEKEY_REGEX=[:alnum:]\+:[0-9]\{4\}
@@ -19,11 +19,8 @@ if [ ${input: -4} == ".pdf" ]; then
 else # assume this is a citekey
   citekey=$input
   paperkey=${input/:/_}
-  paper=`ls ${PAPERDIR}/*${paperkey}.pdf | head -1`
+  paper=`find ${PAPERDIR} -name "*${paperkey}.pdf" | head -1`
 fi
-
-echo $paper
-echo $citekey
 
 # make sure the paper exists and the citekey is valid
 #FIXME: too permissive it seems
@@ -34,7 +31,7 @@ if [[ ! $citekey =~ ${CITEKEYREGEX} ]]; then
 fi
 # make sure the file exists
 if [ ! -f "$paper" ]; then
-  echo paper ${paper} not found
+  echo paper "${paper}" not found
   exit 2
 fi
 
@@ -46,6 +43,6 @@ if [ ! -f "$summfile" ]; then
 fi
 
 # open the pdf and the summary document
-mimeo ${paper}
+mimeo "${paper}"
 vim ${summfile}
 
