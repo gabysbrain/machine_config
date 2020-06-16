@@ -39,7 +39,8 @@ summfile=${SUMMDIR}/${citekey/:/_}.md
 # copy the template file if needed
 # TODO: fill this in with info from zotero
 if [ ! -f "$summfile" ]; then
-  cp ${TEMPLATE} ${summfile}
+  today=`date +%Y-%m-%d`
+  sed "s/reviewdate:/\0 ${today}/" ${TEMPLATE} > ${summfile}
 fi
 
 # open the pdf and the summary document
