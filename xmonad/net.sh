@@ -4,7 +4,7 @@ net_up () {
   ip link show | grep $1 | grep 'state UP' > /dev/null
 }
 
-if net_up wlp2s0; then
+if net_up wlan0; then
   WLAN=
 else
   WLAN="<fc=#eeeeee></fc>"
