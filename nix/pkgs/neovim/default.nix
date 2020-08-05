@@ -50,10 +50,10 @@ in
       pkgs.vimPlugins.vim-addon-nix
       pkgs.vimPlugins.lightline-vim
       customPlugins.lightline-bufferline
+      pkgs.vimPlugins.purescript-vim
       pkgs.vimPlugins.vim-obsession
       pkgs.vimPlugins.vimwiki
       pkgs.vimPlugins.vimproc
-      pkgs.vimPlugins.haskell-vim
       pkgs.vimPlugins.vim-easy-align
       pkgs.vimPlugins.vim-slime
       pkgs.vimPlugins.tender-vim
