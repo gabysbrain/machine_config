@@ -79,6 +79,26 @@ let
     glfw
     freetype
     qt4
+    # Blink.jl (things from above might also be required...)
+    alsaLib
+    at_spi2_atk # for libatk_bridge
+    atk
+    cups
+    dbus
+    expat
+    nss
+    nspr
+    xorg.libxcb
+    xorg.libXcomposite
+    xorg.libXcursor
+    xorg.libXdamage
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXi
+    xorg.libXrender
+    xorg.libXrandr
+    xorg.libXScrnSaver
+    xorg.libXtst
   ];
 in
   pkgs.buildFHSUserEnv {
