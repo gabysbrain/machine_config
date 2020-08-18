@@ -97,14 +97,18 @@
       tapping = false;
     };
 
-    # Enable slim with xmonad
+    # Enable lightdm with xmonad
     displayManager = {
-      lightdm = {
-        enable = true;
-      };
+      lightdm.enable = true;
+
       #sddm.enable = true;
       sessionCommands = "~/.xmonad/xmonad-session-rc";
     };
+    /*
+    displayManager ={
+      startx.enable = true;
+    };
+    */
 
     desktopManager.xterm.enable = false;
     displayManager.defaultSession = "none+xmonad";
