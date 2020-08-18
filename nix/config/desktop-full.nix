@@ -48,6 +48,10 @@
     exiftool
     poppler_utils
     #glib-networking # feedreader needs this for ssl
+
+    # ledger/finance stuff
+    hledger
+    hledger-interest
   ];
 
   services.system-config-printer.enable = true;
