@@ -2,7 +2,7 @@
 #with import <nixpkgs> {};
 
 pkgs.runCommand "screenshot" {
-  buildInputs = with pkgs; [ maim ];
+  buildInputs = with pkgs; [ maim dmenu xdotool ];
 } ''
   mkdir -p $out/bin
   cp ${./screenshot} $out/bin/screenshot
