@@ -2,11 +2,8 @@
 #with import <nixpkgs> {};
 
 pkgs.writeShellScriptBin "screenselect" ''
-    MAIN="eDP1"
-    # important that screens go left to right
-    # first screen in list will become primary
-    #DOCK="DP2 DP1-1"
-    DOCK="DP2 HDMI1"
+    MAIN="eDP-1"
+
     # default keyboard
     DEFAULTKB=gb
     XRANDR=${pkgs.xorg.xrandr}/bin/xrandr
@@ -31,21 +28,13 @@ pkgs.writeShellScriptBin "screenselect" ''
         kbmap=us
         # turn off the laptop screen temporarily to reset the display numbers
         $XRANDR --output $MAIN --off 
-        rs=$MAIN
-        fst=true
-        for s in $DOCK; do
-          if [ "$fst" = true ]; then
-            fst=false
-            $XRANDR --output $s --mode '1920x1080' --primary
-          else
-            $XRANDR --output $s --mode '1920x1080' --right-of $rs
-          fi
-          rs=$s
-          done
-        $XRANDR --output $MAIN --mode '1920x1080' --right-of $rs
+
+        $XRANDR --output HDMI-1 --mode '1920x1080' --primary
+        #$XRANDR --output DP-2 --mode '1920x1080' --rate 50.0 --left-of HDMI-1
+        $XRANDR --output eDP-1 --mode '1920x1080' --right-of HDMI-1
         ;;
       dual) 
-        $XRANDR --output $MAIN --auto $(echo "$screens" | grep -v $MAIN | awk '{print "--output", $1, "--same-as $MAIN"}' | tr '\n' ' ') 
+        $XRANDR --output $MAIN --auto $(echo "$connscreens" | grep -v $MAIN | awk -v main=$MAIN '{print "--output", $1, "--same-as", main}' | tr '\n' ' ') 
         ;;
       main) 
         $XRANDR --output $MAIN --auto $(echo "$screens" | grep -v $MAIN | awk '{print "--output", $1, "--off"}' | tr '\n' ' ') 
