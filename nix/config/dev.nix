@@ -44,8 +44,12 @@ in
     stack
     hlint
     #haskellPackages.ghc-mod
-    haskellPackages.hdevtools
+    #haskellPackages.hdevtools
     #haskellPackages.hfmt
+
+    # purescript
+    purescript
+    spago
 
     # node 
     nodejs
