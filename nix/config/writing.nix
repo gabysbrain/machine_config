@@ -7,6 +7,7 @@
     bibtool
     pandoc
     haskellPackages.pandoc-citeproc
+    haskellPackages.pandoc-crossref
     odpdown
     graphviz
   ];
