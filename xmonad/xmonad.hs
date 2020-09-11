@@ -74,7 +74,7 @@ projects =
                 rit' "alot"
                 spawn "gcal-conky"
             }
-  ] ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
+  ] -- ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
 
 ---
 --- derived from https://gist.github.com/Tzbob/7362371
