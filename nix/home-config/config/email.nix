@@ -122,14 +122,14 @@
         message = Asil Cetin
 
         [Filter.2]
-        query = 'd.saunders.910995@swansea.ac.uk'
-        tags = +students;+students/David_Saunders
-        message = David Saunders
-
-        [Filter.3]
         query = '961297@swansea.ac.uk'
         tags = +students;+students/Etienne_Badoche
         message = Etienne Badoche
+
+        [Filter.3]
+        query = 'd.saunders.910995@swansea.ac.uk'
+        tags = +students;+students/David_Saunders
+        message = David Saunders
 
         [Filter.4]
         query = 'h.shi.999488@swansea.ac.uk'
@@ -142,14 +142,44 @@
         message = Sam James
 
         [Filter.6]
-        query = 'subject:CSC337/CSCM37 CW3 paper request' 
-        tags = -inbox;+CSC337_CW3_papers
-        message = CSC337 papers
+        query = 'a.budhathoki.958715@swansea.ac.uk'
+        tags = +students;+students/Ajaya_Budhathoki
+        message = Ajaya Budhathoki
 
         [Filter.7]
-        query = 'subject:CSCM337/CSCM37 CW3 paper request' 
-        tags = -inbox;+CSC337_CW3_papers
-        message = CSC337 papers
+        query = 'b.parker.974330@swansea.ac.uk'
+        tags = +students;+students/Ben_Parker
+        message = Ben Parker
+
+        [Filter.8]
+        query = 'n.mcilwain.979988@swansea.ac.uk'
+        tags = +students;+students/Nathaniel_McIlwain
+        message = Nathaniel McIlwain
+
+        [Filter.9]
+        query = 'c.gibson.981806@swansea.ac.uk'
+        tags = +students;+students/Chris_Gibson
+        message = Chris Gibson
+
+        [Filter.10]
+        query = 'a.cooper.964949@swansea.ac.uk'
+        tags = +students;+students/Anna_Cooper
+        message = Anna Cooper
+
+        [Filter.11]
+        query = 'a.tollett.975486@swansea.ac.uk'
+        tags = +students;+students/Alan_Tollett
+        message = Alan Tollett
+
+        [Filter.12]
+        query = 'a.hughes.991509@swansea.ac.uk'
+        tags = +students;+students/Alexander_Hughes
+        message = Alexander Hughes
+
+        [Filter.13]
+        query = 'b.lewsey.960448@swansea.ac.uk'
+        tags = +students;+students/Benjamin_Lewsey
+        message = Benjamin Lewsey
 
         [InboxFilter]
         tags = -important
