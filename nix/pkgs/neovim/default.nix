@@ -27,6 +27,15 @@ let
       sha256 = "1rlamxwk2gm9pyxl9vym9w6rhgimzqa2hjghy3qdqwvif6w8ir6l";
     };
   };
+  customPlugins.vim-criticmarkup = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-criticmarkup";
+    src = pkgs.fetchFromGitHub {
+      owner = "vim-pandoc";
+      repo = "vim-criticmarkup";
+      rev = "d15dc134eb177a170c79f6377f81eb02a9d20b02";
+      sha256 = "1la51jyjprjp7cvm6mfjs5365m2kfn02cqh599j8ciylr5arjcyq";
+    };
+  };
 in 
 {
   programs.neovim = {
@@ -36,7 +45,9 @@ in
     vimAlias = true;
     #vimdiffAlias = true;
     plugins = [
+      pkgs.vimPlugins.ale
       pkgs.vimPlugins.vim-markdown
+      customPlugins.vim-criticmarkup
       pkgs.vimPlugins.Tagbar
       pkgs.vimPlugins.Tabular
       pkgs.vimPlugins.vim-buffergator
@@ -56,10 +67,16 @@ in
       pkgs.vimPlugins.vimproc
       pkgs.vimPlugins.vim-easy-align
       pkgs.vimPlugins.vim-slime
+      pkgs.vimPlugins.vimtex
       pkgs.vimPlugins.tender-vim
       customPlugins.bracey-vim
       pkgs.vimPlugins.vimtex
+      pkgs.vimPlugins.haskell-vim
+      pkgs.vimPlugins.vim-hindent
     ];
   };
+  home.packages = [
+    pkgs.neovim-remote
+  ];
 }
 
