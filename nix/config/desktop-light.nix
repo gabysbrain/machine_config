@@ -39,8 +39,8 @@
     alot
     msmtp
     vdirsyncer
-    gcalcli
-    python37Packages.goobook
+    khal
+    khard
     urlscan
     notmuch
     afew

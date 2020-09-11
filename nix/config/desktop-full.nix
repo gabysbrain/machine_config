@@ -36,8 +36,6 @@
     zotero
     meld
 
-    (callPackage ../pkgs/gcal-conky {})
-
     inkscape
     gimp
     imagemagick

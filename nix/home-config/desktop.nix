@@ -38,6 +38,7 @@
     # Calendar/contacts sync
     ###############################
     ".vdirsyncer/config".source = ../../dotfiles/dot-vdirsyncer;
+    ".config/khal/config".source = ../../dotfiles/dot-khal;
     ".config/khard/khard.conf".source = ../../dotfiles/dot-khard;
 
     ###############################
@@ -115,6 +116,7 @@
     pkgs.xkb-switch
     pkgs.isync
     pkgs.khard
+    pkgs.khal
     pkgs.gmailieer
 
     # for reviewing papers

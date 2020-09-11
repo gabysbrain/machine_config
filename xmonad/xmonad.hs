@@ -52,6 +52,8 @@ wsSys = "Sys"
 centerFloat w h = customFloating $ W.RationalRect ((1-w)/2) ((1-h)/2) w h
 
 spotifyFloat = ("Spotify", centerFloat 0.6 0.6)
+launchMail = rit "Email" "alot"
+launchCal = rit "Calendar" "ikhal"
 
 -- Projects
 workProject :: String -> Project
@@ -71,8 +73,8 @@ projects =
   , Project { projectName = wsCom
             , projectDirectory = "~/"
             , projectStartHook = Just $ do
-                rit' "alot"
-                spawn "gcal-conky"
+                launchMail
+                launchCal
             }
   ] -- ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
 
@@ -158,8 +160,8 @@ myKeys conf = let
   subKeys "launchers"
     [ ((myModMask .|. shiftMask, xK_Return), addName "Terminal" $ spawn myTerminal)
     , ((myModMask, xK_b), addName "Browser" $ spawn myBrowser)
-    , ((myModMask, xK_k), addName "Calendar" $ spawn "gcal-conky")
-    , ((myModMask, xK_m), addName "Email" $ rit' "alot")
+    , ((myModMask, xK_k), addName "Calendar" launchCal)
+    , ((myModMask, xK_m), addName "Email" launchMail)
     , ((myModMask, xK_s), addName "Spotify" $ namedScratchpadAction scratchpads "spotify")
     , ((myModMask .|. shiftMask, xK_m), addName "Pavucontrol mixer" $ namedScratchpadAction scratchpads "mixer")
     , ((myModMask, xK_n), addName "File browser" $ rit' "lf")
