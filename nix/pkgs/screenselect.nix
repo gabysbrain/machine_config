@@ -2,7 +2,7 @@
 #with import <nixpkgs> {};
 
 pkgs.writeShellScriptBin "screenselect" ''
-    MAIN="eDP-1"
+    MAIN="eDP1"
 
     # default keyboard
     DEFAULTKB=gb
@@ -29,9 +29,8 @@ pkgs.writeShellScriptBin "screenselect" ''
         # turn off the laptop screen temporarily to reset the display numbers
         $XRANDR --output $MAIN --off 
 
-        $XRANDR --output HDMI-1 --mode '1920x1080' --primary
-        #$XRANDR --output DP-2 --mode '1920x1080' --rate 50.0 --left-of HDMI-1
-        $XRANDR --output eDP-1 --mode '1920x1080' --right-of HDMI-1
+        $XRANDR --output HDMI1 --mode '1920x1080' --primary
+        $XRANDR --output eDP1 --mode '1920x1080' --right-of HDMI1
         ;;
       dual) 
         $XRANDR --output $MAIN --auto $(echo "$connscreens" | grep -v $MAIN | awk -v main=$MAIN '{print "--output", $1, "--same-as", main}' | tr '\n' ' ') 
