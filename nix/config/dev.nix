@@ -29,6 +29,7 @@ let my-hdf5r = pkgs.rPackages.hdf5r.override {
 in
 {
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
   users.extraGroups.vboxusers.members = [ "tom" ];
 
   environment.systemPackages = with pkgs; [
