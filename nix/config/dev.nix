@@ -74,7 +74,7 @@ in
     R-with-my-packages
 
     # Julia stuff
-    atom # for juno
+    vscode # for julia-vscode
     (callPackage ../pkgs/julia.nix {})
     (callPackage ../pkgs/julia-vim {})
   ];
