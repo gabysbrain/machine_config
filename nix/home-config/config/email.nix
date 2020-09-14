@@ -116,70 +116,7 @@
         [KillThreadsFilter]
         [ArchiveSentMailsFilter]
 
-        [Filter.1]
-        query = 'asil.cetin@univie.ac.at'
-        tags = +students;+students/Asil_Cetin
-        message = Asil Cetin
-
-        [Filter.2]
-        query = '961297@swansea.ac.uk'
-        tags = +students;+students/Etienne_Badoche
-        message = Etienne Badoche
-
-        [Filter.3]
-        query = 'd.saunders.910995@swansea.ac.uk'
-        tags = +students;+students/David_Saunders
-        message = David Saunders
-
-        [Filter.4]
-        query = 'h.shi.999488@swansea.ac.uk'
-        tags = +students;+students/Haiou_Shi
-        message = Haiou Shi
-
-        [Filter.5]
-        query = 's.james.788390@swansea.ac.uk'
-        tags = +students;+students/Sam_James
-        message = Sam James
-
-        [Filter.6]
-        query = 'a.budhathoki.958715@swansea.ac.uk'
-        tags = +students;+students/Ajaya_Budhathoki
-        message = Ajaya Budhathoki
-
-        [Filter.7]
-        query = 'b.parker.974330@swansea.ac.uk'
-        tags = +students;+students/Ben_Parker
-        message = Ben Parker
-
-        [Filter.8]
-        query = 'n.mcilwain.979988@swansea.ac.uk'
-        tags = +students;+students/Nathaniel_McIlwain
-        message = Nathaniel McIlwain
-
-        [Filter.9]
-        query = 'c.gibson.981806@swansea.ac.uk'
-        tags = +students;+students/Chris_Gibson
-        message = Chris Gibson
-
-        [Filter.10]
-        query = 'a.cooper.964949@swansea.ac.uk'
-        tags = +students;+students/Anna_Cooper
-        message = Anna Cooper
-
-        [Filter.11]
-        query = 'a.tollett.975486@swansea.ac.uk'
-        tags = +students;+students/Alan_Tollett
-        message = Alan Tollett
-
-        [Filter.12]
-        query = 'a.hughes.991509@swansea.ac.uk'
-        tags = +students;+students/Alexander_Hughes
-        message = Alexander Hughes
-
-        [Filter.13]
-        query = 'b.lewsey.960448@swansea.ac.uk'
-        tags = +students;+students/Benjamin_Lewsey
-        message = Benjamin Lewsey
+        [StudentFilter]
 
         [InboxFilter]
         tags = -important
@@ -198,5 +135,6 @@
     ".urlview".source = ../../../dotfiles/dot-urlview;
     ".mailcap".source = ../../../dotfiles/dot-mailcap;
     ".config/alot/themes/tender".source = ../../../dotfiles/dot-alot/tender;
+    ".config/afew/student_filter.py".source = ../../../dotfiles/dot-afew/student_filter.py;
   };
 }
