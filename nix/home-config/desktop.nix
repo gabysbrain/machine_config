@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let 
+  obs-v4l2sink = pkgs.libsForQt5.callPackage ../pkgs/v4l2sink { };
+in
 {
   imports = [
     ./config/base.nix
@@ -31,6 +34,10 @@
     browserpass = {
       enable = true;
       browsers = [ "chromium" "firefox" ];
+    };
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs; [ obs-wlrobs obs-v4l2sink ];
     };
   };
   home.file = {
