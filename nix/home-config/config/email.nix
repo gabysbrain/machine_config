@@ -115,6 +115,7 @@
         [SpamFilter]
         [KillThreadsFilter]
         [ArchiveSentMailsFilter]
+        sent_tag = sent
 
         [StudentFilter]
 
