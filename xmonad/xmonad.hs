@@ -51,7 +51,7 @@ wsSys = "Sys"
 -- stuff to specify floating window sizes
 centerFloat w h = customFloating $ W.RationalRect ((1-w)/2) ((1-h)/2) w h
 
-spotifyFloat = ("Spotify", centerFloat 0.6 0.6)
+spotifyFloat = ("Spotify", centerFloat 0.8 0.8)
 launchMail = rit "Email" "alot"
 launchCal = rit "Calendar" "ikhal"
 
