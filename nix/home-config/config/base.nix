@@ -22,7 +22,7 @@
       config = {
         pager = "less -FR";
         # TODO need to run `bat cache --build` after custom theme
-        theme = "tender";
+        theme = "Nord";
       };
     };
   };
@@ -35,7 +35,7 @@
     (pkgs.callPackage ../../pkgs/tat {})
   ];
   home.file = {
-    ".config/bat/themes/tender.tmTheme".source = ../../../dotfiles/dot-bat/tender.tmTheme;
+    ".config/bat/themes/Nord.tmTheme".source = ../../../dotfiles/dot-bat/Nord.tmTheme;
   };
 
   #home.stateVersion = "18.09";

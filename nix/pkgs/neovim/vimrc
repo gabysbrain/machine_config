@@ -7,7 +7,7 @@ filetype plugin indent on " required
 " appearance
 set guifont=Anonymice\ Nerd\ Font\ 11
 set termguicolors " enable true color support
-colorscheme tender
+colorscheme nord
 set noshowmode
 set cursorline " color current line
 syntax on " syntax highlighting

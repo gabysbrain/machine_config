@@ -45,6 +45,10 @@ in
     vimAlias = true;
     #vimdiffAlias = true;
     plugins = [
+      # themes
+      pkgs.vimPlugins.tender-vim
+      pkgs.vimPlugins.nord-vim
+
       pkgs.vimPlugins.ale
       pkgs.vimPlugins.vim-markdown
       customPlugins.vim-criticmarkup
@@ -68,7 +72,6 @@ in
       pkgs.vimPlugins.vim-easy-align
       pkgs.vimPlugins.vim-slime
       pkgs.vimPlugins.vimtex
-      pkgs.vimPlugins.tender-vim
       customPlugins.bracey-vim
       pkgs.vimPlugins.vimtex
       pkgs.vimPlugins.haskell-vim

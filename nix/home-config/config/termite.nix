@@ -11,28 +11,39 @@
       font = Anonymice Nerd Font 11
       scrollback_lines = 10000
 
-      # Tender color scheme
+      # Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+      # Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+      # Project:    Nord Termite
+      # Repository: https://github.com/arcticicestudio/nord-termite
+      # License:    MIT
+
       [colors]
-      foreground = #eeeeee
-      background = #282828
-      cursor = #eeeeee
-      
-      color0  = #282828
-      color1  = #f43753
-      color2  = #c9d05c
-      color3  = #ffc24b
-      color4  = #b3deef
-      color5  = #d3b987
-      color6  = #73cef4
-      color7  = #eeeeee
-      color8  = #4c4c4c
-      color9  = #f43753
-      color10 = #c9d05c
-      color11 = #ffc24b
-      color12 = #b3deef
-      color13 = #d3b987
-      color14 = #73cef4
-      color15 = #feffff
+      cursor = #d8dee9
+      cursor_foreground = #2e3440
+
+      foreground = #d8dee9
+      foreground_bold = #d8dee9
+      background = #2e3440
+
+      highlight = #4c566a
+
+      color0  = #3b4252
+      color1  = #bf616a
+      color2  = #a3be8c
+      color3  = #ebcb8b
+      color4  = #81a1c1
+      color5  = #b48ead
+      color6  = #88c0d0
+      color7  = #e5e9f0
+      color8  = #4c566a
+      color9  = #bf616a
+      color10 = #a3be8c
+      color11 = #ebcb8b
+      color12 = #81a1c1
+      color13 = #b48ead
+      color14 = #8fbcbb
+      color15 = #eceff4
     '';
   programs.zsh.initExtra = ''
      # See https://github.com/thestinger/termite#id1
