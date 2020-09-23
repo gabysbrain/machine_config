@@ -39,3 +39,6 @@ color	body	    brightyellow default	"^gpg: can't handle these multiple signature
 color	body	    brightyellow default	"^gpg: signature verification suppressed"
 color	body	    brightyellow default	"^gpg: invalid node with packet of type"
 
+# tags (if they exist)
+color index_tags default color103
+
