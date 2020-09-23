@@ -44,13 +44,13 @@ in
     viAlias = true;
     vimAlias = true;
     #vimdiffAlias = true;
-    plugins = [
+    plugins = with pkgs.vimPlugins; [
       # themes
-      pkgs.vimPlugins.tender-vim
-      pkgs.vimPlugins.nord-vim
+      tender-vim
+      nord-vim
 
+      polyglot
       pkgs.vimPlugins.ale
-      pkgs.vimPlugins.vim-markdown
       customPlugins.vim-criticmarkup
       pkgs.vimPlugins.Tagbar
       pkgs.vimPlugins.Tabular
@@ -58,14 +58,12 @@ in
       pkgs.vimPlugins.The_NERD_Commenter
       pkgs.vimPlugins.The_NERD_tree
       pkgs.vimPlugins.fugitive
-      pkgs.vimPlugins.julia-vim
       pkgs.vimPlugins.vim-gitgutter
       pkgs.vimPlugins.Supertab
       pkgs.vimPlugins.ctrlp
       pkgs.vimPlugins.vim-addon-nix
       pkgs.vimPlugins.lightline-vim
       customPlugins.lightline-bufferline
-      pkgs.vimPlugins.purescript-vim
       pkgs.vimPlugins.vim-obsession
       pkgs.vimPlugins.vimwiki
       pkgs.vimPlugins.vimproc
@@ -73,8 +71,6 @@ in
       pkgs.vimPlugins.vim-slime
       pkgs.vimPlugins.vimtex
       customPlugins.bracey-vim
-      pkgs.vimPlugins.vimtex
-      pkgs.vimPlugins.haskell-vim
       pkgs.vimPlugins.vim-hindent
     ];
   };
