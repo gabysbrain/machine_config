@@ -48,7 +48,7 @@ bind index,pager \` modify-labels
 bind  index       <Return> display-message
 bind  index,pager R        group-reply
 bind  index,pager @        compose-to-sender
-macro index d "<modify-tags-then-hide>+trash<enter>"
+macro index d "<modify-tags-then-hide>+trash -inbox<enter>"
 macro index u "<modify-tags-then-hide>-trash<enter>"
 #macro index d "<delete-message><modify-tags-then-hide>+trash<enter>"
 #macro index u "<undelete-messsage><modify-tags-then-hide>-trash<enter>"
@@ -64,7 +64,7 @@ set virtual_spoolfile = yes
 set nm_record = yes
 set nm_unread_tag = unread
 set spoolfile = +/
-set record = +/
+set record = +sent
 set hidden_tags = "unread,draft,flagged,passed,replied,attachment,signed,encrypted"
 set vfolder_format = "%6n(%6N) %f"
 
