@@ -52,7 +52,7 @@ wsSys = "Sys"
 centerFloat w h = customFloating $ W.RationalRect ((1-w)/2) ((1-h)/2) w h
 
 spotifyFloat = ("Spotify", centerFloat 0.8 0.8)
-launchMail = rit "Email" "alot"
+launchMail = rit "Email" "neomutt"
 launchCal = rit "Calendar" "ikhal"
 
 -- Projects
