@@ -42,7 +42,7 @@ set edit_headers                     # show headers when composing
 
 # Keys/macros ----------------------------------------
 macro index \\ "<vfolder-from-query>"
-macro index,pager a "<modify-labels>-unread -inbox<enter>"
+macro index,pager a "<modify-labels-then-hide>-unread -inbox<enter>"
 bind index,pager + entire-thread
 bind index,pager \` modify-labels
 bind  index       <Return> display-message
