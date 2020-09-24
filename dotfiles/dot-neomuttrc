@@ -25,6 +25,11 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 unset wait_key                       # don't do 'press any key' after shell commands
 
+# Set from header before sending ---------------------
+alias identity_work Thomas Torsney-Weir <t.d.torsney-weir@swansea.ac.uk>
+alias identity_home Thomas Torsney-Weir <torsneyt@gmail.com>
+macro compose v "<edit-from>^Uidentity\_<tab>" "Select from"
+
 # Message formats ------------------------------------
 set index_format = " %Z %<[y?%<[m?%<[d?%[     %H:%M]&%[    %a %d]>&%[    %b %d]>&%[%d/%m/%Y]> %-30.30F %<M?(%2M)&    > %?GS?%GS& ?%?GE?%GE& ?%?GA?%GA& ? %.100s %g"
 set attach_format = "%u%D%I %t%4n %T%.75d (%.75f) %> [%.15m/%.15M, %.6e%?C?, %C?, %s] "
