@@ -66,6 +66,7 @@ bind compose R rename-attachment
 bind compose \CO rename-file
 macro pager v "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 bind index,pager V view-attachments
+macro index I "<change-folder>Inbox<enter>" "switch to inbox"
 
 # notmuch stuff --------------------------------------
 set virtual_spoolfile = yes
