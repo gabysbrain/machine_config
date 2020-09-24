@@ -14,6 +14,7 @@ macro index,pager A \
   "add the sender email address to khard"
 
 set folder = ~/.mail
+set mbox_type=Maildir
 set sort = "threads"
 set sort_aux = 'reverse-last-date-received'
 set sendmail = "msmtpq --read-envelope-from --read-recipients"
@@ -29,6 +30,9 @@ unset wait_key                       # don't do 'press any key' after shell comm
 alias identity_work Thomas Torsney-Weir <t.d.torsney-weir@swansea.ac.uk>
 alias identity_home Thomas Torsney-Weir <torsneyt@gmail.com>
 macro compose v "<edit-from>^Uidentity\_<tab>" "Select from"
+
+fcc-hook '~f t\.d\.torsney-weir@swansea\.ac\.uk' +work/sent
+fcc-hook '~f torsneyt@gmail\.com' +personal/sent
 
 # Message formats ------------------------------------
 set index_format = " %Z %<[y?%<[m?%<[d?%[     %H:%M]&%[    %a %d]>&%[    %b %d]>&%[%d/%m/%Y]> %-30.30F %<M?(%2M)&    > %?GS?%GS& ?%?GE?%GE& ?%?GA?%GA& ? %.100s %g"
