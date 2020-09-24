@@ -55,14 +55,13 @@ bind  index,pager R        group-reply
 bind  index,pager @        compose-to-sender
 macro index d "<modify-tags-then-hide>+trash -inbox<enter>"
 macro index u "<modify-tags-then-hide>-trash<enter>"
-#macro index d "<delete-message><modify-tags-then-hide>+trash<enter>"
-#macro index u "<undelete-messsage><modify-tags-then-hide>-trash<enter>"
 bind  index       U        toggle-new
 macro attach s <save-entry><kill-line>~/Downloads/<enter>y "Save entry"
 macro index \% '<shell-escape>syncmail<enter>' "Check for new mails"
 bind compose R rename-attachment
 bind compose \CO rename-file
 macro pager v "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+bind index,pager V view-attachments
 
 # notmuch stuff --------------------------------------
 set virtual_spoolfile = yes
