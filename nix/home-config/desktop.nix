@@ -7,6 +7,7 @@ in
     ./config/base.nix
     ./config/termite.nix
     ./config/email.nix
+    ./config/tasks.nix
   ];
   xsession = {
     enable = true;
