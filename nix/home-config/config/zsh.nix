@@ -68,6 +68,9 @@
       # history aliases
       h = "history 0";
 
+      # open vim wiki
+      wiki = "vim -c ':VimwikiIndex'";
+
       # restic backups
       restic-local = "restic -r sftp:backup@192.168.0.14:/backup/ -o 'sftp.command=ssh -i /home/tom/Sync/keys/diskstation.rsa backup@192.168.0.14 -s sftp'";
       restic-remote = "export $(cat /home/tom/Sync/keys/wasabi | xargs) && restic -r s3:https://s3.wasabisys.com/gabysbrain-restic";
