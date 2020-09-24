@@ -25,6 +25,7 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 unset wait_key                       # don't do 'press any key' after shell commands
+auto_view text/html
 
 # Set from header before sending ---------------------
 alias identity_work Thomas Torsney-Weir <t.d.torsney-weir@swansea.ac.uk>
