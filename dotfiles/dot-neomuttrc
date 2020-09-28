@@ -24,6 +24,7 @@ set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
+set envelope_from
 unset wait_key                       # don't do 'press any key' after shell commands
 auto_view text/html
 
