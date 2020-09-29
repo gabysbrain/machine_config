@@ -21,6 +21,7 @@ import           XMonad.Layout.Renamed
 import           XMonad.Layout.ResizableTile
 import           XMonad.Layout.Spacing
 import           XMonad.Layout.Tabbed
+import           XMonad.Layout.ThreeColumns
 
 import           XMonad.Prompt
 import           XMonad.Prompt.Input
@@ -185,7 +186,7 @@ myKeys conf = let
 
 -- Layouts
 ------------------------------------------------------------------------
-myLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
+myLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL ||| lectureL
   where
     tiledL = named "Tiled"
       $ topbar
@@ -202,6 +203,10 @@ myLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
       $ topbar
       $ spacing myGap
       $ Grid
+    lectureL = named "Lecturing"
+      $ topbar
+      $ spacing myGap
+      $ ThreeCol 2 (3/100) (1/2)
 
     spacing x = spacingRaw False (Border 0 0 0 0) False (Border x x x x) True
     fsSpacing x = spacingRaw False (Border x x x x) True (Border 0 0 0 0) False
