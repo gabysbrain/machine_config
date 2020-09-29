@@ -1,6 +1,11 @@
 set realname = "Thomas Torsney-Weir"
 set from = "torsneyt@gmail.com"
-alternates "^t.d.torsney-weir@swansea\.ac\.uk$"
+alternates "t.d.torsneyweir@gmail\.com|t.d.torsney-weir@swansea\.ac\.uk"
+#alternates "^t.d.torsney-weir@swansea\.ac\.uk$"
+
+# Make sure replies to swansea stuff comes from my work address
+reply-hook "~t .*@swansea\.ac\.uk" "my_hdr Reply-To: t.d.torsney-weir@swansea.ac.uk"
+reply-hook "~t .*@swansea\.ac\.uk" "my_hdr From: t.d.torsneyweir@gmail.com"
 
 # Color scheme (nord) --------------------------------
 source ~/.config/neomutt/nord.mutt
@@ -24,17 +29,17 @@ set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
-set envelope_from
 unset wait_key                       # don't do 'press any key' after shell commands
 auto_view text/html
 
 # Set from header before sending ---------------------
-alias identity_work Thomas Torsney-Weir <t.d.torsney-weir@swansea.ac.uk>
+#alias identity_work Thomas Torsney-Weir <t.d.torsney-weir@swansea.ac.uk>
+alias identity_work Thomas Torsney-Weir <t.d.torsneyweir@gmail.com>
 alias identity_home Thomas Torsney-Weir <torsneyt@gmail.com>
 macro compose v "<edit-from>^Uidentity\_<tab>" "Select from"
 
-fcc-hook '~f t\.d\.torsney-weir@swansea\.ac\.uk' +work/sent
-fcc-hook '~f torsneyt@gmail\.com' +personal/sent
+#fcc-hook '~f t\.d\.torsneyweir@swansea\.ac\.uk' +work/sent
+#fcc-hook '~f torsneyt@gmail\.com' +personal/sent
 
 # Message formats ------------------------------------
 set index_format = " %Z %<[y?%<[m?%<[d?%[     %H:%M]&%[    %a %d]>&%[    %b %d]>&%[%d/%m/%Y]> %-30.30F %<M?(%2M)&    > %?GS?%GS& ?%?GE?%GE& ?%?GA?%GA& ? %.100s %g"
