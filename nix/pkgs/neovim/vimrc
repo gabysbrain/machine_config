@@ -1,6 +1,7 @@
 " 100% pure vim
 set nocompatible
 filetype off
+set modeline " make sure per-file vim configs work
 
 filetype plugin indent on " required
 
@@ -53,6 +54,7 @@ map <F1> <Nop>
 set expandtab
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set wrap linebreak nolist " softwrap lines
 set autoindent
 
