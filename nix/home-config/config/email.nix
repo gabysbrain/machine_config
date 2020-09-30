@@ -23,6 +23,19 @@
       };
       work = {
         realName = "Thomas Torsney-Weir";
+        userName = "t.d.torsneyweir@gmail.com";
+        address = "t.d.torsneyweir@gmail.com";
+        flavor = "gmail.com";
+        folders = {
+          drafts = "drafts";
+          sent = "sent";
+        };
+        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/work.gpg | head -1";
+        msmtp.enable = true;
+        notmuch.enable = true;
+      };
+      work2 = {
+        realName = "Thomas Torsney-Weir";
         userName = "t.d.torsney-weir@swansea.ac.uk";
         address = "t.d.torsney-weir@swansea.ac.uk";
         flavor = "plain";
@@ -38,7 +51,6 @@
           tls.useStartTls = true;
         };
         msmtp.enable = true;
-        notmuch.enable = true;
       };
     };
   };

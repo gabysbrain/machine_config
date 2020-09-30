@@ -6,8 +6,8 @@ GMAILACCTS="personal work"
 echo ---------- send pending messages --------------
 msmtp-queue -r
 
-echo ------------ sync work sentmail ---------------
-mbsync sync-work-sent && rm ~/.mail/work/sent/cur/*
+#echo ------------ sync work sentmail ---------------
+#mbsync sync-work-sent && rm ~/.mail/work/sent/cur/*
 
 echo ---------------- email sync -------------------
 for gm in ${GMAILACCTS};
