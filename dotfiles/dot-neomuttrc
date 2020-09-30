@@ -31,6 +31,7 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 unset wait_key                       # don't do 'press any key' after shell commands
 auto_view text/html
+set copy = no                        # everything is in gmail so we don't need it
 
 # Set from header before sending ---------------------
 #alias identity_work Thomas Torsney-Weir <t.d.torsney-weir@swansea.ac.uk>
@@ -80,7 +81,7 @@ set virtual_spoolfile = yes
 set nm_record = yes
 set nm_unread_tag = unread
 set spoolfile = +/
-set record = +sent
+unset record
 set hidden_tags = "unread,draft,flagged,passed,replied,attachment,signed,encrypted"
 set vfolder_format = "%6n(%6N) %f"
 
