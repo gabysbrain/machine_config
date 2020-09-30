@@ -3,7 +3,7 @@
   programs.tmux = {
     enable = true;
     shortcut = "a";
-    terminal = "xterm-256color";
+    terminal = "screen-256color";
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.resurrect;
@@ -21,6 +21,10 @@
       # reload config
       unbind r
       bind r source-file ~/.tmux.conf
+
+      # get true color working
+      set-option -ga terminal-overrides ',xterm-termite:RGB'
+      #set-option -ga terminal-overrides ',*-256color*:Tc'
 
       # split panes using | and -
       bind | split-window -h
