@@ -112,6 +112,9 @@ vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
 
+" stop python vim file from overriding my tab settings
+autocmd FileType python setlocal shiftwidth=2 softtabstop=2 expandtab
+
 " vim markdown config
 "let g:vim_markdown_folding_disabled = 1
 set conceallevel=0
