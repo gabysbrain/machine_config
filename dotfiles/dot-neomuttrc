@@ -6,6 +6,8 @@ alternates "t.d.torsneyweir@gmail\.com|t.d.torsney-weir@swansea\.ac\.uk"
 # Make sure replies to swansea stuff comes from my work address
 reply-hook "~t .*@swansea\.ac\.uk" "my_hdr Reply-To: t.d.torsney-weir@swansea.ac.uk"
 reply-hook "~t .*@swansea\.ac\.uk" "my_hdr From: t.d.torsneyweir@gmail.com"
+send-hook "~t .*@swansea\.ac\.uk" "my_hdr Reply-To: t.d.torsney-weir@swansea.ac.uk"
+send-hook "~t .*@swansea\.ac\.uk" "my_hdr From: t.d.torsneyweir@gmail.com"
 
 # Color scheme (nord) --------------------------------
 source ~/.config/neomutt/nord.mutt
@@ -75,6 +77,14 @@ bind compose \CO rename-file
 macro pager v "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 bind index,pager V view-attachments
 macro index I "<change-folder>Inbox<enter>" "switch to inbox"
+
+# vim keys for navigation
+bind index G last-entry
+bind index gg first-entry
+bind pager j next-line
+bind pager k previous-line
+bind pager,browser gg top-page
+bind pager,browser G bottom-page
 
 # notmuch stuff --------------------------------------
 set virtual_spoolfile = yes
