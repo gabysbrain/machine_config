@@ -79,6 +79,7 @@ bind index,pager V view-attachments
 macro index I "<change-folder>Inbox<enter>" "switch to inbox"
 
 # vim keys for navigation
+bind index g noop
 bind index G last-entry
 bind index gg first-entry
 bind pager j next-line
