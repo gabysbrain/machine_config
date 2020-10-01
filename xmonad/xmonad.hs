@@ -168,7 +168,7 @@ myKeys conf = let
     , ((myModMask, xK_n), addName "File browser" $ rit' "lf")
     , ((myModMask .|. shiftMask, xK_n), addName "Wiki" $ spawn "vim -g -c 'VimwikiIndex'")
     , ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks")
-    , ((myModMask, xK_backslash), addName "Password" $ spawn "gopass-dmenu")
+    , ((myModMask .|. shiftMask, xK_p), addName "Password" $ spawn "gopass-dmenu")
     ] ^++^
 
   subKeys "shortcuts"
