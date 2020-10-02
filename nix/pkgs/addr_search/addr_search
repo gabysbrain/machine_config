@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+query=$1
+
+# khard for all main addresses
+khard email --parsable -- ${query}
+
+# goobook for group search
+goobook query ${query} | grep '(group)'
+

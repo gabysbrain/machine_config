@@ -13,7 +13,7 @@ send-hook "~t .*@swansea\.ac\.uk" "my_hdr From: t.d.torsneyweir@gmail.com"
 source ~/.config/neomutt/nord.mutt
 
 # Address book stuff ---------------------------------
-set query_command = "echo %s | xargs khard email --parsable --"
+set query_command = "echo %s | xargs addr_search"
 bind editor <Tab> complete-query
 bind editor ^T    complete
 macro index,pager A \

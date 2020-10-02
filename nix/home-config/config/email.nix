@@ -77,8 +77,9 @@
       search.excludeTags = [ "trash" "spam" ];
     };
   };
-  home.packages = [
-    pkgs.neomutt
+  home.packages = with pkgs; [
+    neomutt
+    (callPackage ../../pkgs/addr_search {})
   ];
   home.file = {
     # neomutt
