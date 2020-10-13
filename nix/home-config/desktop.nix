@@ -87,6 +87,66 @@ in
     platformTheme = "gtk";
   };
   services = {
+    dunst = {
+      enable = true;
+      settings = {
+        global = {
+          font = "Anonymous Pro 10";
+          frame_color = "#E5E9F0";
+          separator_color = "#E5E9F0";
+
+          format = "<b>%s</b>\\n%b";
+          sort = "no";
+          indicate_hidden = "yes";
+          alignment = "left";
+          show_age_threshold = -1;
+          word_wrap = "yes";
+          ignore_newline = "no";
+          stack_duplicates = "yes";
+          hide_duplicate_count = "yes";
+
+          geometry = "300x50-15+49";
+          shrink = "no";
+          transparency = 5;
+          idle_threshold = 0;
+          monitor = 0;
+          follow = "mouse";
+
+          sticky_history = "yes";
+          history_length = 15;
+          show_indicators = "no";
+
+          line_height = 3;
+          separator_height = 2;
+          padding = 6;
+          horizontal_padding = 6;
+          frame_width = 1;
+
+          startup_notification = "true"; #false
+          dmenu = "dmenu -p dunst:";
+          browser = "firefox";
+          icon_position = "off";
+        };
+
+        urgency_low = {
+          background = "#5E81AC";
+          foreground = "#ECEFF4";
+          timeout = 2;
+        };
+
+        urgency_normal = {
+          background = "#3B4252";
+          foreground = "#ECEFF4";
+          timeout = 4;
+        };
+
+        urgency_critical = {
+          background = "#BF616A";
+          foreground = "#ECEFF4";
+          timeout = 0;
+        };
+      };
+    };
     gpg-agent = {
       enable = true;
       defaultCacheTtl = 1800; # 30 minutes
