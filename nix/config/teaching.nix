@@ -23,5 +23,7 @@
     discord
     zoom-us
     v4l-utils
+
+    vscode
   ];
 }
