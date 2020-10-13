@@ -38,7 +38,12 @@ in
     };
     obs-studio = {
       enable = true;
-      plugins = with pkgs; [ obs-wlrobs obs-v4l2sink ];
+      plugins = with pkgs; [ 
+        obs-wlrobs 
+        obs-v4l2sink 
+
+        obs-linuxbrowser
+      ];
     };
   };
   home.file = {
