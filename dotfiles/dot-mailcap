@@ -3,13 +3,11 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
 # Audio formats
-audio/*; mimeo %s
+audio/*; mimeo %s &;
 	
 # Images formats
-image/*; mimeo %s
+image/*; mimeo %s &;
 	
 # Binary files
-application/msword; mimeo %s
-application/pdf; mimeo %s
-application/postscript; mimeo %s
+application/*; mimeo %s &;
 
