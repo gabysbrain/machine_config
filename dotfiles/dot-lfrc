@@ -29,6 +29,9 @@ set previewer preview
 #map <enter> shell
 map S $zsh
 
+# tmux shortcuts
+map T $tat
+
 # shell-type commands
 map a push :mkdir<space>
 #map cw push :rename<space>$f
