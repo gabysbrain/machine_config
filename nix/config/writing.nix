@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  pancritic = pkgs.callPackage ../pkgs/pancritic { };
+in
 {
   environment.systemPackages = with pkgs; [
     gnumake
@@ -8,6 +11,7 @@
     pandoc
     haskellPackages.pandoc-citeproc
     haskellPackages.pandoc-crossref
+    pancritic
     odpdown
     graphviz
   ];
