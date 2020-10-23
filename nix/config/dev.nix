@@ -40,6 +40,8 @@ in
     gitAndTools.git-annex-remote-rclone
     gitAndTools.hub
 
+    circleci-cli
+
     # haskell
     cabal-install
     ghc
