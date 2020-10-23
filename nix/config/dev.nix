@@ -14,6 +14,7 @@ let my-hdf5r = pkgs.rPackages.hdf5r.override {
       my-hdf5r
       #GPareto
       mco
+      packrat
       pracma
       profvis
       randtoolbox
