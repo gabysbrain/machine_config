@@ -15,6 +15,8 @@ in
     # run something like the first time: feh --bg-scale /home/tom/Dropbox/Wallpapers/future_past_japan.jpg
     initExtra = ''
       ~/.fehbg
+
+      ${pkgs.gnome3.gnome-keyring}/bin/gnome-keyring-daemon --start -d --components=pkcs11,secrets,ssh
     '';
     windowManager.xmonad = {
       enable = true;
