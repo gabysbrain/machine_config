@@ -15,6 +15,12 @@
   environment.systemPackages = with pkgs; [
     discord
     mumble
+
     steam
+    vassal # mmm board games
+
+    nethack
+    wesnoth
+    zeroad # 0 a.d.
   ];
 }
