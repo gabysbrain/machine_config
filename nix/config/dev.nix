@@ -59,6 +59,9 @@ in
     nodejs
     nodePackages.node2nix
 
+    # python
+    python3
+
     # general
     gnumake
     cmake
