@@ -27,6 +27,7 @@ set sort_aux = 'reverse-last-date-received'
 set sendmail = "msmtpq --read-envelope-from --read-recipients"
 set header_cache = ~/.cache/mutt
 set message_cachedir = $header_cache
+set mailcap_path = ~/.mailcap
 set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
@@ -34,6 +35,10 @@ set forward_quote                    # include message in forwards
 unset wait_key                       # don't do 'press any key' after shell commands
 auto_view text/html
 set copy = no                        # everything is in gmail so we don't need it
+
+# Nicer pager
+set pager_context = 3
+set pager_stop = yes
 
 # Set from header before sending ---------------------
 #alias identity_work Thomas Torsney-Weir <t.d.torsney-weir@swansea.ac.uk>
@@ -74,8 +79,8 @@ macro attach s <save-entry><kill-line>~/Downloads/<enter>y "Save entry"
 macro index \% '<shell-escape>syncmail<enter>' "Check for new mails"
 bind compose R rename-attachment
 bind compose \CO rename-file
-macro pager v "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-bind index,pager V view-attachments
+macro pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+bind index,pager v view-attachments
 macro index I "<change-folder>Inbox<enter>" "switch to inbox"
 
 # vim keys for navigation

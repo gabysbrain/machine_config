@@ -21,54 +21,81 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [
-    # maybe helps (https://hobo.house/2018/05/18/fix-for-intel-i915-gpu-freeze-on-recent-linux-kernels/)
-    #"i915.enable_psr=0"
-    # from https://www.ivanov.biz/2019/howto-optimize-intel-graphics-performance-fedora-kde-linux-laptop/
-    #"i915.enable_dc=2"
-    #"i915.enable_power_well=0"
-    #"i915.enable_fbc=1"
-    #"i915.enable_guc=3"
-    #"i915.enable_dpcd_backlight=1"
+    # see https://download.nvidia.com/XFree86/Linux-x86/169.04/README/chapter-08.html
+    #"pci=nocrs"
+    #"pci=realloc"
+    #"noapic"
+    #"acpi=off" # turning acpi off breaks internal keyboard
+    #"pcie_aspm=off"
+    #"rcutree.rcu_idle_gp_delay=1"
+    # from https://egpu.io/forums/thunderbolt-linux-setup/tutorial-ubuntu-18-04-rtx-2080-razer-core-v1/
+    #"pcie_ports=native" 
+    #"pci=assign-busses,nocrs,realloc"
+    #"iommu=on"
+    #"random.trust_cpu=on" 
+    #"nvidia-drm.modeset=1"
+
+    # additional debug info
+    #"rd.debug"
   ];
+  boot.kernelPatches = [ {
+     name = "thunderbolt";
+     patch = null;
+     extraConfig = ''
+       THUNDERBOLT y
+       HOTPLUG_PCI y
+       HOTPLUG_PCI_ACPI y
+     '';
+  } ];
   boot.initrd.luks.devices = {
     root = {
-      device = "/dev/nvme0n1p3";
+      device = "/dev/nvme0n1p4";
       preLVM = true;
       allowDiscards = true;
     };
   };
+  boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "philadelphia"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Select internationalisation properties.
   services.xserver.layout = "gb,us";
-  services.xserver.videoDrivers = ["intel"];
-  #services.xserver.videoDrivers = ["modesetting"];
-  #services.xserver.videoDrivers = ["displaylink"];
-  #services.xserver.videoDrivers = ["displaylink" "modesetting"];
+  services.xserver.exportConfiguration = true;
   console.useXkbConfig = true;
 
+  hardware.openrazer.enable = true;
+
+  # Video drivers setup
+  services.xserver.videoDrivers = [ "intel" ];
+  #services.xserver.videoDrivers = ["modesetting" "nvidia"];
+  #services.xserver.videoDrivers = ["intel" "nvidia"];
+
   # Enable intel iris drivers
-  environment.variables = {
-    MESA_LOADER_DRIVER_OVERRIDE = "iris";
-  };
+  /*environment.variables = {*/
+    /*MESA_LOADER_DRIVER_OVERRIDE = "iris";*/
+  /*};*/
   hardware.opengl = {
     enable = true;
-    driSupport32Bit = true;
-    extraPackages = [
-      pkgs.vaapiIntel pkgs.vaapiVdpau 
-      pkgs.libvdpau-va-gl pkgs.intel-media-driver
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
     ];
-    package = (pkgs.mesa.override {
-      galliumDrivers = [ "nouveau" "virgl" "swrast" "iris" ];
-    }).drivers;
+    driSupport32Bit = true;
   };
+  /*
+  services.xserver.displayManager ={
+    startx.enable = true;
+  };
+  */
 
   # User level thunderbolt 3 drivers
   services.hardware.bolt.enable = true;
 
   nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
   # Set your time zone.
@@ -80,6 +107,8 @@
     samba # for samba printer
     system-config-printer
     restic
+
+    thunderbolt
   ];
 
   # List services that you want to enable:
