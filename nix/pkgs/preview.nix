@@ -48,6 +48,11 @@ handle_extension() {
       mutool draw -F txt -i -- "''${FILE_PATH}" 1-10 
       exiftool "''${FILE_PATH}" 
       exit 1;;
+    # Markdown
+    md)
+      # Use glow for markdown
+      ${pkgs.glow}/bin/glow "''${FILE_PATH}"
+      exit 1;;
 
     # BitTorrent
     torrent)
