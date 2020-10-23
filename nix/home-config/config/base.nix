@@ -28,6 +28,7 @@
   };
   home.sessionVariables = {
     EDITOR = "vim";
+    OPENER = "mimeo";
     BROWSER = "firefox";
   };
   home.packages = [
