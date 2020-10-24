@@ -61,9 +61,10 @@ map gd cd ~/Downloads
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
 cmd open ${{
-    for f in $fx; do 
-      mimeo $f
-    done
+    case $(file --mime-type $f -b) in
+        text/*|application/json) $EDITOR "$fx";;
+        *) for f in $fx; do mimeo $f > /dev/null 2> /dev/null & done;;
+    esac
 }}
 
 # define a custom 'rename' command without prompt for overwrite
