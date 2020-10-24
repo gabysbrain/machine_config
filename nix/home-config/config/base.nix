@@ -25,6 +25,10 @@
         theme = "Nord";
       };
     };
+    broot = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
   home.sessionVariables = {
     EDITOR = "vim";
@@ -37,6 +41,7 @@
   ];
   home.file = {
     ".config/bat/themes/Nord.tmTheme".source = ../../../dotfiles/dot-bat/Nord.tmTheme;
+    ".config/broot/launcher/refused".source = ../../../dotfiles/broot-refused;
   };
 
   #home.stateVersion = "18.09";
