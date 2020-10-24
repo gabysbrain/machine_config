@@ -1,17 +1,8 @@
 { config, pkgs, ... }:
 
-let 
-  home-manager = builtins.fetchGit {
-    url = "https://github.com/rycee/home-manager.git";
-    rev = "af2303526d425b9aed15134f28efdf29b038daaf"; # CHANGEME 
-    ref = "release-19.09";
-  };
-in
 {
   imports = [
-    # home-manager
-    #"${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos"
-    "${home-manager}/nixos"
+    <home-manager/nixos>
   ];
   networking = {
     # firewall config
