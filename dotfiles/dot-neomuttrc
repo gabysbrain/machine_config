@@ -65,7 +65,7 @@ hdr_order from: to: cc: date: subject:  # and in this order
 set edit_headers                     # show headers when composing
 
 # Keys/macros ----------------------------------------
-macro index \\ "<vfolder-from-query>"
+macro index \\ "<vfolder-from-query>(not tag:trash and not tag:spam) and "
 macro index,pager a "<modify-labels-then-hide>-unread -inbox<enter>"
 bind index,pager + entire-thread
 bind index,pager \` modify-labels
