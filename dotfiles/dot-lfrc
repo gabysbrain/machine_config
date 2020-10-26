@@ -1,5 +1,6 @@
 # interpreter for shell commands (needs to be POSIX compatible)
-set shell sh
+set shell zsh
+set color256 true
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -21,6 +22,7 @@ set ifs "\n"
 set scrolloff 10
 
 # custom file previews
+set preview true
 set previewer preview
 
 #set icons # enable fancy icons, needs nerd fonts and LF_ICONS set
@@ -35,6 +37,9 @@ map T $tat
 # shell-type commands
 map a push :mkdir<space>
 #map cw push :rename<space>$f
+
+# toggle hidden files
+map . set hidden!
 
 # execute current file (must be executable)
 map x $$f
