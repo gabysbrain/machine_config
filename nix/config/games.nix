@@ -20,6 +20,7 @@
 
     # steam comes from the above programs.steam option
     vassal # mmm board games
+    lutris # windows games
 
     nethack
     wesnoth
