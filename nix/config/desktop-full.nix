@@ -41,6 +41,7 @@
     imagemagick
     shotcut
     xfce.ristretto
+    xfce.tumbler # needed for ristretto image previews
 
     jrnl
 
