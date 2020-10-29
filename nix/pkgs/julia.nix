@@ -13,6 +13,18 @@ let
         --add-flags "-C /usr/ld.so.cache"
     '';
   };
+  julia = stdenv.mkDerivation { # FIXME: julia seems constantly broken in nixos :(
+    name = "julia";
+    src = pkgs.fetchurl {
+      url = "https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.2-linux-x86_64.tar.gz";
+      sha256 = "0c26b11qy4csws6vvi27lsl0nmqszaf7lk1ya0jrg8zgvkx099vd";
+    };
+    installPhase = ''
+      mkdir $out
+      cp -R * $out/
+    '';
+    dontStrip = true;
+  };
   extraLibs = pkgs: with pkgs; [
     ldconfigWrapper
 
@@ -40,7 +52,7 @@ let
     #cudnn_cudatoolkit_10_0
     #linuxPackages.nvidia_x11
 
-    julia_11
+    julia
     #vim
     #atom
 
