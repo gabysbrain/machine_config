@@ -40,7 +40,6 @@
     (pkgs.callPackage ../../pkgs/tat {})
   ];
   home.file = {
-    ".config/bat/themes/Nord.tmTheme".source = ../../../dotfiles/dot-bat/Nord.tmTheme;
     ".config/broot/launcher/refused".source = ../../../dotfiles/broot-refused;
   };
 
