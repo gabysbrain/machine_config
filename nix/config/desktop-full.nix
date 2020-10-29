@@ -40,6 +40,7 @@
     gimp
     imagemagick
     shotcut
+    xfce.ristretto
 
     jrnl
 
