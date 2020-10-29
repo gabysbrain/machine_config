@@ -28,7 +28,7 @@
 
     alacritty
 
-    python36Packages.glances
+    glances
 
     libreoffice-unwrapped
     spotify
