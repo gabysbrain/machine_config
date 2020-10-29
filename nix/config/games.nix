@@ -12,11 +12,13 @@
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   hardware.pulseaudio.support32Bit = true;
 
+  programs.steam.enable = true;
+
   environment.systemPackages = with pkgs; [
     discord
     mumble
 
-    steam
+    # steam comes from the above programs.steam option
     vassal # mmm board games
 
     nethack
