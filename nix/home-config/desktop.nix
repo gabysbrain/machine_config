@@ -1,7 +1,5 @@
 { pkgs, ... }:
-let 
-  obs-v4l2sink = pkgs.libsForQt5.callPackage ../pkgs/v4l2sink { };
-in
+
 {
   imports = [
     ./config/base.nix
