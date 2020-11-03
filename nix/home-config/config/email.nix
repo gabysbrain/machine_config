@@ -34,24 +34,6 @@
         msmtp.enable = true;
         notmuch.enable = true;
       };
-      work2 = {
-        realName = "Thomas Torsney-Weir";
-        userName = "t.d.torsney-weir@swansea.ac.uk";
-        address = "t.d.torsney-weir@swansea.ac.uk";
-        flavor = "plain";
-        folders = {
-          drafts = "drafts";
-          sent = "sent";
-        };
-        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/swansea.ac.uk.gpg | head -1";
-        smtp = {
-          host = "outlook.office365.com";
-          port = 587;
-          tls.enable = true;
-          tls.useStartTls = true;
-        };
-        msmtp.enable = true;
-      };
     };
   };
   programs = {
