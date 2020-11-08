@@ -55,7 +55,14 @@
     notmuch = {
       enable = true; # index email
       new.tags = ["new"];
-      new.ignore = [ "*.json" ];
+      new.ignore = [ 
+        ".credentials.gmailieer.json"
+        ".gmailieer.json"
+        ".gmailieer.json.bak"
+        ".lock"
+        ".state.gmailieer.json"
+        ".state.gmailieer.json.bak"
+      ];
       search.excludeTags = [ "trash" "spam" ];
     };
   };
