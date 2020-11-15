@@ -1,39 +1,28 @@
 {pkgs, ...}:
+let 
+  gmail = {name, email, primary ? false}: {
+    primary = primary;
+    realName = "Thomas Torsney-Weir";
+    userName = email;
+    address = email;
+    flavor = "gmail.com";
+    folders = {
+      drafts = "drafts";
+      sent = "sent";
+    };
+    passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/${name}.gpg | head -1";
+    msmtp.enable = true;
+    notmuch.enable = true;
+    lieer.enable = true;
+  };
+in 
 {
   accounts.email = {
     maildirBasePath = ".mail";
     accounts = {
-      personal = {
-        primary = true;
-        realName = "Tom Torsney-Weir";
-        userName = "torsneyt@gmail.com";
-        address = "torsneyt@gmail.com";
-        flavor = "gmail.com";
-        folders = {
-          drafts = "drafts";
-          sent = "sent";
-        };
-        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/personal.gpg | head -1";
-        smtp = {
-          #host = "smtp.gmail.com";
-          tls.enable = true;
-        };
-        msmtp.enable = true;
-        notmuch.enable = true;
-      };
-      work = {
-        realName = "Thomas Torsney-Weir";
-        userName = "t.d.torsneyweir@gmail.com";
-        address = "t.d.torsneyweir@gmail.com";
-        flavor = "gmail.com";
-        folders = {
-          drafts = "drafts";
-          sent = "sent";
-        };
-        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/gmail/work.gpg | head -1";
-        msmtp.enable = true;
-        notmuch.enable = true;
-      };
+      personal = gmail {name="personal"; email="torsneyt@gmail.com"; primary=true;};
+      work = gmail {name="work"; email="t.d.torsneyweir@gmail.com";};
+      sfu = gmail {name="sfu"; email="ttorsney.sfu@gmail.com";};
     };
   };
   programs = {
