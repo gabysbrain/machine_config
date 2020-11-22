@@ -59,13 +59,14 @@ in
     #haskellPackages.hdevtools
     #haskellPackages.hfmt
 
-    # purescript
-    purescript
-    spago
-
     # node 
     nodejs
     nodePackages.node2nix
+
+    # purescript
+    purescript
+    spago
+    (callPackage ../pkgs/parcel {}).parcel
 
     # python
     python3
