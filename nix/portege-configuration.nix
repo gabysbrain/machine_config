@@ -184,6 +184,13 @@
         "--exclude='home/*/.cache'"
         "--exclude='home/*/.mozilla'"
       ];
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 8"
+        "--keep-monthly 24"
+        "--keep-yearly 5"
+        "--keep-last 2"
+      ];
       extraOptions = [
         "sftp.command='ssh backup@192.168.0.14 -i /etc/nixos/secrets/diskstation.rsa -s sftp'"
       ];
@@ -202,6 +209,13 @@
         "--exclude='home/tom/Sync'"
         "--exclude='home/*/.cache'"
         "--exclude='home/*/.mozilla'"
+      ];
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 8"
+        "--keep-monthly 24"
+        "--keep-yearly 5"
+        "--keep-last 2"
       ];
       timerConfig = {
         OnBootSec = "2m";
