@@ -45,7 +45,7 @@
   users.users.tom = {
     home = "/home/tom";
     description = "Thomas Torsney-Weir";
-    extraGroups = [ "wheel" "lp" "lpadmin" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "lp" "lpadmin" "media" ]; # Enable ‘sudo’ for the user.
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     openssh.authorizedKeys.keyFiles = [
