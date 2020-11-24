@@ -22,7 +22,6 @@
     hicolor-icon-theme
     rxvt_unicode-with-plugins
     shared_mime_info
-    kinit
     plasma-workspace
     haskellPackages.xmobar
     dmenu
