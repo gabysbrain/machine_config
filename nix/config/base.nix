@@ -19,6 +19,9 @@
     # password storage
     gopass
     gnupg
+
+    # needed for termite to access things
+    termite.terminfo
   ];
 
   programs.zsh = {
