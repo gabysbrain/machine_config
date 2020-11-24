@@ -27,6 +27,13 @@
     dmenu
     gnome3.zenity
 
+    silver-searcher
+    unzip
+    unrar
+    p7zip
+    mimeo
+    peco
+
     xclip
     xdotool
     lf
@@ -59,10 +66,15 @@
   ];
   environment.pathsToLink = [ "/share" ];
 
+  # font config
   fonts = {
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
+		  corefonts  # Micrsoft free fonts
+		  unifont # some international languages
+      powerline-fonts
+      anonymousPro
       corefonts
       emojione
       helvetica-neue-lt-std

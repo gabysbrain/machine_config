@@ -12,15 +12,9 @@
   environment.systemPackages = with pkgs; [
     nox
     git
-    silver-searcher
-    unzip
-    unrar
     vim
     atool
-    p7zip
     file
-    mimeo
-    peco
 
     # password storage
     gopass
