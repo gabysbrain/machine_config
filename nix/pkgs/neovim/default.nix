@@ -7,8 +7,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "turbio";
       repo = "bracey.vim";
-      rev = "3d234b3c5284ce4373b1de90098c58cc5cfc4dd4";
-      sha256 = "10p4p2wyb1ps19b2mhzpfamcibac7n92wlxyjg667snppsm8m7lh";
+      rev = "912997c5d0dbf42feaba5a4ee5527159a41ff82f";
+      sha256 = "1swsgid5xhgcvw4rqmalcjmkhr7bv00ikfj7b7xsyw0ps9mmcjbw";
     };
     #buildInputs = [
       #nodePkgs.package
