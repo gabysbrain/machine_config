@@ -1,6 +1,7 @@
 { config, pkgs, lib, options, ... }:
 {
   imports = [
+    ./config/base.nix
     ./wireless.nix
   ];
 
@@ -53,11 +54,16 @@
       /home/tom/.ssh/id_rsa.pub
     ];
   };
+  home-manager.users.tom = import ./home-config/server.nix; # needs to be a function
 
   # Miscellaneous
   time.timeZone = "Europe/London"; 
   #services.openssh.enable = true;
   #services.openssh.hostKeys = options.services.openssh.hostKeys.default;
+
+  # server doesn't compile on raspberry pi
+  services.localtime.enable = pkgs.lib.mkForce false;
+
   services.openssh = {
     enable = true;
     permitRootLogin = "prohibit-password";
@@ -76,8 +82,6 @@
   security.sudo.wheelNeedsPassword = false;
 
   # Nix
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 30d";
   boot.cleanTmpDir = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
