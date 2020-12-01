@@ -17,6 +17,8 @@ in
     in 
     { deployment.targetHost = rpiIp;
       nixpkgs.system = "aarch64-linux";
+
+      networking.hostName = "media";
       
       imports = [
         ../rpi-configuration.nix

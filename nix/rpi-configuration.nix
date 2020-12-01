@@ -28,7 +28,7 @@
   swapDevices = [ { device = "/swapfile"; size = 1024; } ];
 
   # Networking (see official manual or `/config/sd-image.nix` in this repo for other options)
-  networking.hostName = "nixpi"; # unleash your creativity!
+  #networking.hostName = "nixpi"; # unleash your creativity!
 
   networking.enableIPv6 = false;
   networking.wireless = {
