@@ -46,7 +46,6 @@ in
     #vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       # themes
-      tender-vim
       nord-vim
 
       polyglot
@@ -58,6 +57,7 @@ in
       pkgs.vimPlugins.The_NERD_Commenter
       pkgs.vimPlugins.The_NERD_tree
       pkgs.vimPlugins.fugitive
+      pkgs.vimPlugins.julia-vim
       pkgs.vimPlugins.vim-gitgutter
       pkgs.vimPlugins.Supertab
       pkgs.vimPlugins.ctrlp
