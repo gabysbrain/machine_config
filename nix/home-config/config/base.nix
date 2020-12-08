@@ -3,7 +3,6 @@
   imports = [
     ./zsh.nix
     ./tmux.nix
-    ../../pkgs/neovim/default.nix
   ];
   programs = {
     git = {

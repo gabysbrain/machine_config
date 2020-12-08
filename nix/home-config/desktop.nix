@@ -6,6 +6,7 @@
     ./config/termite.nix
     ./config/email.nix
     ./config/tasks.nix
+    ../pkgs/neovim/default.nix
   ];
   xsession = {
     enable = true;
