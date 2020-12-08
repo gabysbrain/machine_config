@@ -55,9 +55,18 @@ in
             "credentials=${sambaSecrets}/smb-secrets,vers=1.0,file_mode=0660,dir_mode=0770,gid=media,nounix"
           ];
         };
+
+        # for loki
+        "/var/lib/loki" = {
+          device = "//${diskstationIp}/loki";
+          fsType = "cifs";
+          options = [
+            "credentials=${sambaSecrets}/smb-secrets,vers=1.0,file_mode=0660,dir_mode=0770,gid=loki,nounix"
+          ];
+        };
       };
 
-      users.groups.media.members = [ "tom" "jellyfish" ];
+      users.groups.media.members = [ "tom" "jellyfin" ];
       services.jellyfin = {
         enable = true;
         group = "media";
@@ -80,6 +89,47 @@ in
           locations."/" = {
             proxyPass = "http://localhost:8096";
           };
+        };
+      };
+
+      # grafana service
+      services.grafana = {
+        enable = true;
+        domain = "grafana.tomtorsneyweir.com";
+        port = 2342;
+        addr = "127.0.0.1";
+        provision = {
+          enable = true;
+          datasources = [
+            { name = "loki"; type = "loki"; url = "http://localhost:3100"; }
+          ];
+        };
+      };
+  
+      # nginx reverse proxy
+      services.nginx.virtualHosts.${config.services.grafana.domain} = {
+        locations."/" = {
+            proxyPass = "http://127.0.0.1:${toString config.services.grafana.port}";
+            proxyWebsockets = true;
+        };
+      };
+
+      # loki log server
+      services.loki = {
+        enable = true;
+        configFile = ./loki.yaml;
+      };
+      #services.promtail.enable = true; # FIXME: not in nixos yet :(
+
+      # promtail to get logs into loki
+      systemd.services.promtail = {
+        description = "Promtail service for Loki";
+        wantedBy = [ "multi-user.target" ];
+
+        serviceConfig = {
+          ExecStart = ''
+            ${pkgs.grafana-loki}/bin/promtail --config.file ${./promtail.yaml}
+          '';
         };
       };
 
