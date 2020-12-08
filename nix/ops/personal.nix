@@ -71,7 +71,7 @@ in
         enable = true;
         group = "media";
       };
-      networking.firewall.allowedTCPPorts = [ 80 443 ];
+      networking.firewall.allowedTCPPorts = [ 80 443 3100 ];
 
       #security.acme.email = "torsneyt@gmail.com";
       #security.acme.acceptTerms = true;
