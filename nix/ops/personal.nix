@@ -64,6 +64,15 @@ in
             "credentials=${sambaSecrets}/smb-secrets,vers=1.0,file_mode=0660,dir_mode=0770,gid=loki,nounix"
           ];
         };
+
+        # for prometheus
+        "/var/lib/prometheus2" = {
+          device = "//${diskstationIp}/prometheus";
+          fsType = "cifs";
+          options = [
+            "credentials=${sambaSecrets}/smb-secrets,vers=1.0,file_mode=0660,dir_mode=0770,gid=prometheus,nounix"
+          ];
+        };
       };
 
       users.groups.media.members = [ "tom" "jellyfin" ];
@@ -102,6 +111,7 @@ in
           enable = true;
           datasources = [
             { name = "loki"; type = "loki"; url = "http://localhost:3100"; }
+            { name = "prometheus"; type = "prometheus"; url = "http://localhost:9001"; }
           ];
         };
       };
@@ -113,6 +123,37 @@ in
             proxyWebsockets = true;
         };
       };
+
+      # prometheus database
+      services.prometheus = {
+        enable = true;
+        port = 9001;
+
+        exporters = {
+          node = {
+            enable = true;
+            enabledCollectors = [ "systemd" ];
+            port = 9002;
+          };
+        };
+        scrapeConfigs = [
+          {
+            job_name = "media";
+            static_configs = [{
+              targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
+            }];
+          }
+          /*
+          {
+            job_name = "philadelphia";
+            static_configs = [{
+              targets = [ "192.168.0.8:${toString config.services.prometheus.exporters.node.port}" ];
+            }];
+          }
+          */
+        ];
+      };
+
 
       # loki log server
       services.loki = {
