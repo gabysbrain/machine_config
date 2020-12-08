@@ -186,6 +186,7 @@ in
           s3CredentialsFile = "${wasabiSecrets}/wasabi";
           extraBackupArgs = [
             "--host=media"
+            "--exclude=var/lib/jellyfin/transcodes"
           ];
           timerConfig = {
             OnCalendar = "*-*-* 01:24:00";
