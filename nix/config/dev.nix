@@ -30,9 +30,9 @@ let my-hdf5r = pkgs.rPackages.hdf5r.override {
 in
 {
   # virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "tom" ];
+  #virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
+  #users.extraGroups.vboxusers.members = [ "tom" ];
 
   # for building nixos on other systems (e.g. raspberry pi)
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
