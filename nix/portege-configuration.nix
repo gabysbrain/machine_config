@@ -182,6 +182,8 @@
         "--exclude='home/tom/Downloads'"
         "--exclude='home/tom/Sync'"
         "--exclude='home/*/.cache'"
+        "--exclude='home/*/.config'"
+        "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
       ];
       pruneOpts = [
@@ -209,6 +211,8 @@
         "--exclude='home/tom/Sync'"
         "--exclude='home/*/.cache'"
         "--exclude='home/*/.mozilla'"
+        "--exclude='home/*/.julia'"
+        "--exclude='home/*/.local'"
       ];
       pruneOpts = [
         "--keep-daily 7"
