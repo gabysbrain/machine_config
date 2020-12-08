@@ -97,8 +97,9 @@ in
             "--host=media"
           ];
           timerConfig = {
-            OnBootSec = "2m";
-            OnUnitInactiveSec = "1d";
+            OnCalendar = "*-*-* 01:24:00";
+            #OnBootSec = "2m";
+            #OnUnitInactiveSec = "1d";
           };
         };
       };
