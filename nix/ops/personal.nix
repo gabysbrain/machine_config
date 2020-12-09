@@ -124,6 +124,32 @@ in
         };
       };
 
+      # send restic logs for prometheus
+      systemd.services.restic-remote-metrics = {
+        description = "Generate prometheus metrics from restic";
+        wantedBy = [ "multi-user.target" ];
+
+        environment = {
+          RESTIC_PASSWORD_FILE = "${resticSecrets}/restic-password";
+          RESTIC_REPOSITORY = "s3:https://s3.wasabisys.com/gabysbrain-restic";
+        };
+        path = [ pkgs.bash pkgs.restic pkgs.jq pkgs.openssh ];
+        serviceConfig = {
+          ExecStart = ''
+            ${pkgs.callPackage ../pkgs/restic-metrics {}}/bin/restic_metrics
+          '';
+          EnvironmentFile = "${wasabiSecrets}/wasabi";
+        };
+      };
+      systemd.timers.restic-remote-metrics = {
+        description = "Regenerate restic prometheus metrics";
+        wantedBy = [ "timers.target" ];
+        timerConfig = {
+          OnBootSec = "5m";
+          OnUnitInactiveSec = "12h"; 
+        };
+      };
+
       # prometheus database
       services.prometheus = {
         enable = true;
@@ -132,7 +158,7 @@ in
         exporters = {
           node = {
             enable = true;
-            enabledCollectors = [ "systemd" ];
+            enabledCollectors = [ "systemd" "textfile" ];
             port = 9002;
           };
         };
