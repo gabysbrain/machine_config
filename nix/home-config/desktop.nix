@@ -3,9 +3,10 @@
 {
   imports = [
     ./config/base.nix
-    ./config/termite.nix
+    ./config/direnv.nix
     ./config/email.nix
     ./config/tasks.nix
+    ./config/termite.nix
     ../pkgs/neovim/default.nix
   ];
   xsession = {
