@@ -13,4 +13,5 @@ echo "copying image to ${SD}"
 read -p "Press [Enter] to continue ..."
 
 sudo umount ${SD}p*
-sudo cp --verbose ${SDIMG} ${SD}
+sudo dd if=${SDIMG} of=${SD} bs=64K status=progress
+
