@@ -2,7 +2,7 @@
 
 SD=/dev/mmcblk0
 
-BUILDLOG=`nixos-generate -f sd-aarch64 --system aarch64-linux -c image.nix`
+BUILDLOG=`nixos-generate -f sd-aarch64 --system aarch64-linux -c image.nix -I nixpkgs=/nix/var/nix/profiles/per-user/root/channels/unstable`
 IMGDIR=$(dirname $(echo $BUILDLOG | tail -1))/..
 
 SDIMG=$(ls $IMGDIR/sd-image/*.img)
