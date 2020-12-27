@@ -92,6 +92,9 @@ in
     vscode # for julia-vscode
     (callPackage ../pkgs/julia.nix {})
     (callPackage ../pkgs/julia-vim {})
+
+    # Problog
+    (callPackage ../pkgs/problog {})
   ];
 
   # needed for mysql vscode password saving
