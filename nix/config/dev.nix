@@ -77,6 +77,7 @@ in
     jq
     entr
     bat
+    universal-ctags
 
     # deployment
     nixops
