@@ -37,6 +37,7 @@
     meld
 
     inkscape
+    darktable
     gimp
     imagemagick
     shotcut
