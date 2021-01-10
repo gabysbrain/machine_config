@@ -33,7 +33,8 @@
     };
   };
 
-  swapDevices = [ { device = "/swapfile"; size = 1024; } ]; # setting to 2048 broke things...
+  #swapDevices = [ { device = "/swapfile"; size = 4096; } ]; # setting to 2048 broke things...
+  swapDevices = [ { device = "/swapfile"; size = 8192; } ]; # setting to 2048 broke things...
 
   # Networking (see official manual or `/config/sd-image.nix` in this repo for other options)
   #networking.hostName = "nixpi"; # unleash your creativity!
