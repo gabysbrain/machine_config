@@ -21,5 +21,6 @@ in
     montserrat
     raleway
     oxygenfonts
+    google-fonts
   ];
 }
