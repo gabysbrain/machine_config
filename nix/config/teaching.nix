@@ -16,6 +16,11 @@
     enable = true;
     dataDir = "/var/db/mysql";
     package = pkgs.mysql;
+    settings = {
+      mysqld = {
+        lower_case_table_names = 1;
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
