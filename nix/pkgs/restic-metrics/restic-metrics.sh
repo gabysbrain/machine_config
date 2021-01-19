@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # from https://medium.com/@zoispag/collect-restic-metrics-when-using-resticker-cf862f87fc41
 
