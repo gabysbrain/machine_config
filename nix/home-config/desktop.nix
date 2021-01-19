@@ -76,6 +76,7 @@
     ".config/mimeo/associations.txt".source = ../../dotfiles/dot-associations;
     ".config/lf/lfrc".source = ../../dotfiles/dot-lfrc;
     ".newsboat/config".source = ../../dotfiles/dot-newsboat;
+    ".julia/config/startup.jl".source = ../../dotfiles/julia/startup.jl;
   };
   gtk = {
     enable = true;
