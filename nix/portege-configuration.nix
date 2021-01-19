@@ -228,6 +228,33 @@
     };
   };
 
+  # send restic logs for prometheus
+  systemd.services.restic-backups-remote-metrics = {
+    description = "Generate prometheus metrics from restic";
+    wantedBy = [ "multi-user.target" ];
+
+    #preStart = "mkdir -p /metrics";
+    environment = {
+      RESTIC_PASSWORD_FILE = "/etc/nixos/secrets/restic-password";
+      RESTIC_REPOSITORY = "s3:https://s3.wasabisys.com/gabysbrain-restic";
+      RESTIC_CACHE_DIR = "/root/.cache/restic";
+    };
+    serviceConfig = {
+      ExecStart = ''
+        ${pkgs.callPackage ./pkgs/restic-metrics {}}/bin/restic-metrics
+      '';
+      EnvironmentFile = "/etc/nixos/secrets/wasabi";
+    };
+  };
+  systemd.timers.restic-backups-remote-metrics = {
+    description = "Regenerate restic prometheus metrics";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "5m";
+      OnUnitInactiveSec = "24h"; 
+    };
+  };
+
   # promtail to get logs into loki
   systemd.services.promtail = {
     description = "Promtail service for Loki";
