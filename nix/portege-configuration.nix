@@ -157,6 +157,22 @@
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
       in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
     };
+    "/mnt/media/videos" = {
+      device = "//192.168.0.14/videos";
+      fsType = "cifs";
+      options = let
+        # this line prevents hanging on network split
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
+      in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
+    };
+    "/mnt/media/music" = {
+      device = "//192.168.0.14/music";
+      fsType = "cifs";
+      options = let
+        # this line prevents hanging on network split
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
+      in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
+    };
   };
 
   # printers
@@ -266,7 +282,6 @@
       '';
     };
   };
-
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
