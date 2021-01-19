@@ -75,12 +75,11 @@ in
         };
 
         # for loki
-        /*
         "/var/lib/loki" = {
           device = "//${diskstationIp}/loki";
           fsType = "cifs";
           options = [
-            "credentials=${sambaSecrets}/smb-secrets,vers=1.0,file_mode=0660,dir_mode=0770,gid=loki,nounix"
+            "credentials=/run/keys/smb-secrets,vers=1.0,file_mode=0660,dir_mode=0770,gid=loki,nounix"
           ];
         };
 
@@ -89,10 +88,9 @@ in
           device = "//${diskstationIp}/prometheus";
           fsType = "cifs";
           options = [
-            "credentials=${sambaSecrets}/smb-secrets,vers=1.0,file_mode=0660,dir_mode=0770,gid=prometheus,nounix"
+            "credentials=/run/keys/smb-secrets,vers=1.0,file_mode=0660,dir_mode=0770,gid=prometheus,nounix"
           ];
         };
-        */
       };
 
       users.groups.media.members = [ "tom" "jellyfin" ];
@@ -165,8 +163,10 @@ in
           ];
         };
       };
+      */
   
       # nginx reverse proxy
+      /*
       services.nginx.virtualHosts.${config.services.grafana.domain} = {
         locations."/" = {
             proxyPass = "http://127.0.0.1:${toString config.services.grafana.port}";
@@ -176,7 +176,6 @@ in
       */
 
       # send restic logs for prometheus
-      /*
       systemd.services.restic-backups-remote-metrics = {
         description = "Generate prometheus metrics from restic";
         wantedBy = [ "multi-user.target" ];
@@ -184,11 +183,12 @@ in
         environment = {
           RESTIC_PASSWORD_FILE = "/run/keys/restic-password";
           RESTIC_REPOSITORY = "s3:https://s3.wasabisys.com/gabysbrain-restic";
+          RESTIC_CACHE_DIR = "/root/.cache/restic";
         };
         path = [ pkgs.bash pkgs.restic pkgs.jq pkgs.openssh ];
         serviceConfig = {
           ExecStart = ''
-            ${pkgs.callPackage ../pkgs/restic-metrics {}}/bin/restic_metrics
+            ${pkgs.callPackage ../pkgs/restic-metrics {}}/bin/restic-metrics
           '';
           User = "root";
           RuntimeDirectory = "restic-backups-remote";
@@ -203,10 +203,8 @@ in
           OnUnitInactiveSec = "12h"; 
         };
       };
-      */
 
       # prometheus database
-      /*
       services.prometheus = {
         enable = true;
         port = 9001;
@@ -233,11 +231,9 @@ in
           }
         ];
       };
-      */
 
 
       # loki log server
-      /*
       services.loki = {
         enable = true;
         configFile = ./loki.yaml;
@@ -255,7 +251,6 @@ in
           '';
         };
       };
-      */
 
       # backup media server
       services.restic.backups = {
