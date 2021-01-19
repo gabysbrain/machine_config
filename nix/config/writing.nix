@@ -13,6 +13,7 @@ in
     haskellPackages.pandoc-crossref
     pancritic
     odpdown
+    pdftk
     graphviz
   ];
 
