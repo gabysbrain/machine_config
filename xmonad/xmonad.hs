@@ -67,17 +67,17 @@ workProject ws = Project { projectName = ws
 
 projects :: [Project]
 projects =
-  [ Project { projectName = wsSys
-            , projectDirectory = "~/"
-            , projectStartHook = Just $ do rit' "glances -1"
-            }
-  , Project { projectName = wsCom
+  [ Project { projectName = wsCom
             , projectDirectory = "~/"
             , projectStartHook = Just $ do
                 launchMail
                 launchCal
             }
   ] -- ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
+  -- Project { projectName = wsSys
+            --, projectDirectory = "~/"
+            --, projectStartHook = Just $ do rit' "glances -1"
+            --}
 
 ---
 --- derived from https://gist.github.com/Tzbob/7362371
@@ -312,7 +312,7 @@ forceCenterFloat = doFloatDep move
     x = (1-w)/2
     y = (1-h)/2
 
-rit n c = runInTerm ("-t \"" ++ n ++"\"") c
+rit n = runInTerm ("-t \"" ++ n ++"\"")
 rit' c = rit c c
 
 -- | Prompt the user for information and add an appointment using \'khal\'
