@@ -56,7 +56,8 @@ map X extract $f
 
 # directory shortcuts
 map ge cd /etc/
-map gt cd ~/Teaching/CSCM59
+map gtv cd ~/Teaching/CSC337
+map gtd cd ~/Teaching/CSCM59
 map gp cd ~/Projects
 map gc cd ~/Projects/machine_config
 map gd cd ~/Downloads
