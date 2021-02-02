@@ -11,6 +11,7 @@ import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.EwmhDesktops
 
 import           XMonad.Actions.DynamicProjects
+import           XMonad.Actions.GridSelect
 import           XMonad.Actions.UpdatePointer
 
 import           XMonad.Layout.BinarySpacePartition
@@ -49,12 +50,13 @@ wsAV  = "AV"
 wsTmp = "Tmp"
 wsSys = "Sys"
 
--- stuff to specify floating window sizes
-centerFloat w h = customFloating $ W.RationalRect ((1-w)/2) ((1-h)/2) w h
-
 spotifyFloat = ("Spotify", centerFloat 0.8 0.8)
 launchMail = rit "Email" "neomutt"
 launchCal = rit "Calendar" "ikhal"
+
+-- things to show in the launcher
+launcherApps :: [String]
+launcherApps = [ "zoom", "teams", "obs", "gimp", "inkscape" ]
 
 -- Projects
 workProject :: String -> Project
@@ -168,7 +170,8 @@ myKeys conf = let
     , ((myModMask, xK_n), addName "File browser" $ rit' "lf")
     , ((myModMask .|. shiftMask, xK_n), addName "Wiki" $ spawn "vim -g -c 'VimwikiIndex'")
     , ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks")
-    , ((myModMask .|. shiftMask, xK_p), addName "Password" $ spawn "gopass-dmenu")
+    , ((myModMask .|. controlMask, xK_p), addName "Password" $ spawn "gopass-dmenu")
+    , ((myModMask .|. shiftMask, xK_p), addName "Grid launcher" $ spawnSelected defaultGSConfig launcherApps)
     ] ^++^
 
   subKeys "shortcuts"
@@ -281,6 +284,9 @@ myConfig statusPipe = def {
   , logHook            = myLogHook statusPipe
   , startupHook        = ewmhDesktopsStartup
 }
+
+-- put grid select colors, etc here
+launchGridSelect = spawnSelected defaultGSConfig 
 
 -- Run xmonad with the settings specified. No need to modify this.
 -------------------------------------------------------------------------------
