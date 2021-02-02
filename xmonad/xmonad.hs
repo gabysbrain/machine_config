@@ -168,7 +168,7 @@ myKeys conf = let
     , ((myModMask, xK_s), addName "Spotify" $ namedScratchpadAction scratchpads "spotify")
     , ((myModMask .|. shiftMask, xK_m), addName "Pavucontrol mixer" $ namedScratchpadAction scratchpads "mixer")
     , ((myModMask, xK_n), addName "File browser" $ rit' "lf")
-    , ((myModMask .|. shiftMask, xK_n), addName "Wiki" $ spawn "vim -g -c 'VimwikiIndex'")
+    , ((myModMask .|. shiftMask, xK_n), addName "Wiki" $ spawn "nvim -c 'VimwikiIndex'")
     , ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks")
     , ((myModMask .|. controlMask, xK_p), addName "Password" $ spawn "gopass-dmenu")
     , ((myModMask .|. shiftMask, xK_p), addName "Grid launcher" $ spawnSelected defaultGSConfig launcherApps)
