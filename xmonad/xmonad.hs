@@ -35,6 +35,7 @@ import           XMonad.Util.Run
 import           Graphics.X11.ExtraTypes.XF86
 import           System.IO
 import           System.Posix.Env (putEnv)
+import           Control.Monad (void)
 
 import qualified Data.Map                           as M
 import qualified XMonad.StackSet                    as W
@@ -328,6 +329,9 @@ apptPrompt c calNames =
   inputPrompt c "Title" ?+ \ttl ->
   inputPrompt c "Start" ?+ \start ->
   inputPrompt c "End" ?+ \end ->
-  safeSpawn "khal" ["new", "-a", cal, start, end, ttl]
-    >> return ()
+  void $ safeSpawn "khal" ["new", "-a", cal, start, end, ttl]
+    -- >> return ()
+
+-- stuff to specify floating window sizes
+centerFloat w h = customFloating $ W.RationalRect ((1-w)/2) ((1-h)/2) w h
 
