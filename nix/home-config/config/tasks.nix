@@ -2,6 +2,7 @@
 {
   home.file = {
     ".taskrc".source = ../../../dotfiles/dot-taskrc;
+    ".task/baserc".source = ../../../dotfiles/dot-taskwarrior/baserc;
     ".task/nord.theme".source = ../../../dotfiles/dot-taskwarrior/nord.theme;
   };
   home.packages = [

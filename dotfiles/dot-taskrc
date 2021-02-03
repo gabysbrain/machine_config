@@ -11,55 +11,6 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/.task
-
-# Color theme (uncomment one to use)
-include ~/.task/nord.theme
-
-# sync settings
-taskd.certificate=/home/tom/Sync/keys/inthe.am/private.certificate.pem
-taskd.key=/home/tom/Sync/keys/inthe.am/private.key.pem
-taskd.ca=/home/tom/Sync/keys/inthe.am/ca.cert.pem
-taskd.server=taskwarrior.inthe.am:53589
-taskd.credentials=inthe_am/torsneyt/49080033-f5dd-4289-bddc-1fe8b7c07aa5
-taskd.trust=ignore hostname
-
-# setup urgency computation
-urgency.user.tag.next.coefficient  = 15.0 # +next tag
-urgency.due.coefficient            = 12.0 # overdue or near due date
-urgency.blocking.coefficient       =  0.0 # blocking other tasks
-urgency.uda.priority.H.coefficient =  0.0 # high Priority
-urgency.uda.priority.M.coefficient =  0.0 # medium Priority
-urgency.uda.priority.L.coefficient =  0.0 # low Priority
-urgency.scheduled.coefficient      = 10.0 # scheduled tasks
-urgency.active.coefficient         = 20.0 # already started tasks
-urgency.age.coefficient            =  0.1 # coefficient for age
-urgency.annotations.coefficient    =  0.0 # has annotations
-urgency.tags.coefficient           =  0.0 # has tags
-urgency.project.coefficient        =  0.0 # assigned to any project
-urgency.waiting.coefficient        =  0.0 # waiting task
-urgency.blocked.coefficient        =  0.0 # blocked by other tasks
-
-report.next.labels=ID,Project,Recur,Start,Due,Description,Urg
-report.next.columns=id,project,recur,scheduled.countdown,due.relative,description,urgency
-
-report.next.filter=urgency>1 status:pending
-
-report.today.description=Tasks for today
-report.today.columns=id,project,scheduled.countdown,due.relative,description,urgency
-report.today.sort=due+,scheduled+,urgency-
-report.today.filter=(scheduled.before:tomorrow or due.before:yesterday) and status:pending
-
-report.week.description=Tasks for the next week
-report.week.columns=id,project,scheduled.countdown,due.relative,description,urgency
-report.week.sort=due+,scheduled+,urgency-
-report.week.filter=(scheduled.before:today+7days or due.before:today+7days) and status:pending
-
-# Task review
-uda.reviewed.type=date
-uda.reviewed.label=Reviewed
-report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
-report._reviewed.columns=uuid
-report._reviewed.sort=reviewed+,modified+
-report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+# Base config (everything below is state)
+include ~/.task/baserc
 
