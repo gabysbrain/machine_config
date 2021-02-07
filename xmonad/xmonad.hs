@@ -57,7 +57,7 @@ launchCal = rit "Calendar" "ikhal"
 
 -- things to show in the launcher
 launcherApps :: [String]
-launcherApps = [ "zoom", "teams", "obs", "gimp", "inkscape" ]
+launcherApps = [ "zoom", "teams", "obs", "gimp", "inkscape", "code", "zotero" ]
 
 -- Projects
 workProject :: String -> Project
@@ -266,7 +266,10 @@ myPP statusPipe = xmobarPP {
   , ppSep = xmobarColor myMainColor myBgColor "  |  "
 }
 
-myLogHook = dynamicLogWithPP . namedScratchpadFilterOutWorkspacePP . myPP
+myLogHook h = do
+  let pp = myPP h 
+  dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP pp
+  updatePointer (0.25, 0.25) (0.25, 0.25)
 
 -- Configuration structure
 -------------------------------------------------------------------------------
