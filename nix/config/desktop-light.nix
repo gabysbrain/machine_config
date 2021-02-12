@@ -27,6 +27,8 @@
     dmenu
     gnome3.zenity
 
+    nix-index
+
     silver-searcher
     unzip
     unrar
@@ -52,7 +54,6 @@
     afew
     gmailieer
     w3m
-    (callPackage ../pkgs/terminal-velocity.nix {})
 
     (callPackage ../pkgs/gopass-dmenu.nix {})
     (callPackage ../pkgs/syncthing-quick-status.nix {})
