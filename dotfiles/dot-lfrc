@@ -58,7 +58,10 @@ map X extract $f
 map ge cd /etc/
 map gtv cd ~/Teaching/CSC337
 map gtd cd ~/Teaching/CSCM59
-map gp cd ~/Projects
+map gpp cd ~/Projects
+map gpg cd ~/Projects/grants
+map gpw cd ~/Projects/welsh_covid/hospital_analysis
+map gpr cd ~/Projects/ramp
 map gc cd ~/Projects/machine_config
 map gd cd ~/Downloads
 
