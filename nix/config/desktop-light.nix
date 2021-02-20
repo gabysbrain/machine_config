@@ -12,9 +12,6 @@
   # $ nix-env -qaP | grep wget
   nixpkgs.config = {
     allowUnfree = true;
-    chromium = {
-      enablePepperFlash = false;
-    };
   };
   environment.systemPackages = with pkgs; [
     alsaUtils
