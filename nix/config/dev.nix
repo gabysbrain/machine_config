@@ -97,10 +97,6 @@ in
     # Problog
     (callPackage ../pkgs/problog {})
   ];
-  nixpkgs.config.permittedInsecurePackages = [
-    "libvirt-5.9.0"
-  ];
-
 
   # needed for mysql vscode password saving
   services.gnome3.gnome-keyring.enable = true;
