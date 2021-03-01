@@ -129,7 +129,10 @@ in
       */
 
 
-      networking.firewall.allowedTCPPorts = [ 53 80 443 3100 ];
+      networking.firewall.allowedTCPPorts = [ 
+        53 80 443 
+        #3100 # grafana
+      ];
 
       #security.acme.email = "torsneyt@gmail.com";
       #security.acme.acceptTerms = true;
@@ -228,7 +231,7 @@ in
           {
             job_name = "philadelphia";
             static_configs = [{
-              targets = [ "192.168.0.8:${toString config.services.prometheus.exporters.node.port}" ];
+              targets = [ "${philadelphiaIp}:${toString config.services.prometheus.exporters.node.port}" ];
             }];
           }
         ];
