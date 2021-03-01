@@ -48,6 +48,8 @@
     poppler_utils
     #glib-networking # feedreader needs this for ssl
 
+    libnotify
+
     # ledger/finance stuff
     hledger
     hledger-interest
