@@ -198,9 +198,10 @@
     # for reviewing papers
     (pkgs.callPackage ../pkgs/summ_paper {})
 
-    # task management stuff
+    # task/time management stuff
     pkgs.taskwarrior
     pkgs.timewarrior
     (pkgs.callPackage ../pkgs/tasks {})
+    (pkgs.callPackage ../pkgs/weekly-review {})
   ];
 }
