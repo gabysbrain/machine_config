@@ -28,8 +28,6 @@
 
     alacritty
 
-    glances
-
     libreoffice-unwrapped
     spotify
     zoom-us
@@ -45,8 +43,6 @@
     xfce.tumbler # needed for ristretto image previews
 
     youtube-dl
-
-    jrnl
 
     exiftool
     poppler_utils
