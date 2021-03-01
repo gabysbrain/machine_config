@@ -30,5 +30,6 @@
     v4l-utils
 
     vscode
+    paraview
   ];
 }
