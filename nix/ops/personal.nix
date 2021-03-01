@@ -100,6 +100,7 @@ in
         group = "media";
       };
 
+      /*
       services.deluge = {
         enable = true;
         group = "media";
@@ -125,6 +126,7 @@ in
         group = "media";
         openFirewall = true;
       };
+      */
 
 
       networking.firewall.allowedTCPPorts = [ 53 80 443 3100 ];
