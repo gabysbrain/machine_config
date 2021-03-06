@@ -34,10 +34,6 @@
         map <C-o> feedkeys ":exec okular $FILE<Return>"
       '';
     };
-    browserpass = {
-      enable = true;
-      browsers = [ "chromium" "firefox" ];
-    };
     obs-studio = {
       enable = true;
       plugins = with pkgs; [ 

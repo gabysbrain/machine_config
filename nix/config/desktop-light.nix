@@ -56,7 +56,6 @@
     (callPackage ../pkgs/syncthing-quick-status.nix {})
 
     firefox
-    browserpass
 
     okular
     zathura
@@ -84,9 +83,6 @@
   # List services that you want to enable
   services.udisks2.enable = true;
   services.devmon.enable = true;
-
-  # Use browserpass
-  programs.browserpass.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver = {
