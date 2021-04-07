@@ -64,11 +64,13 @@
   services.xserver.exportConfiguration = true;
   console.useXkbConfig = true;
 
-  hardware.openrazer.enable = true;
+  #hardware.openrazer.enable = true;
 
   # Video drivers setup
   services.xserver.videoDrivers = [ "intel" ];
   #services.xserver.videoDrivers = ["modesetting" "nvidia"];
+  #boot.blacklistedKernelModules = [ "i915" ];
+  #services.xserver.videoDrivers = [ "nvidia" ];
   #services.xserver.videoDrivers = ["intel" "nvidia"];
 
   # Enable intel iris drivers
