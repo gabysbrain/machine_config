@@ -17,12 +17,12 @@ data.location=~/.task
 include ~/.task/nord.theme
 
 # sync settings
-taskd.certificate=/home/tom/Sync/keys/inthe.am/private.certificate.pem
-taskd.key=/home/tom/Sync/keys/inthe.am/private.key.pem
-taskd.ca=/home/tom/Sync/keys/inthe.am/ca.cert.pem
-taskd.server=taskwarrior.inthe.am:53589
-taskd.credentials=inthe_am/torsneyt/49080033-f5dd-4289-bddc-1fe8b7c07aa5
-taskd.trust=ignore hostname
+taskd.key=/home/tom/Sync/keys/freecinc/freecinc_24b0104f.key.pem
+taskd.certificate=/home/tom/Sync/keys/freecinc/freecinc_24b0104f.cert.pem
+taskd.ca=/home/tom/Sync/keys/freecinc/freecinc_24b0104f.ca.pem
+taskd.server=freecinc.com:53589
+taskd.credentials=FreeCinc/freecinc_24b0104f/441588d3-43ec-417c-ae9f-e7f2df4b7053
+#taskd.trust=ignore hostname
 
 # setup urgency computation
 urgency.user.tag.next.coefficient  = 15.0 # +next tag
