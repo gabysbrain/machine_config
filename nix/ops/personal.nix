@@ -42,6 +42,11 @@ in
         ../rpi-configuration.nix
       ];
 
+      boot.loader.raspberryPi.firmwareConfig = ''
+        gpu_mem=256
+        dtoverlay=vc4-kms-v3d
+      '';
+
       fileSystems = {
         "/media/videos" = {
           device = "//${diskstationIp}/videos";
