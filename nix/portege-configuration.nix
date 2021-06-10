@@ -20,6 +20,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  /*
   boot.kernelParams = [
     # see https://download.nvidia.com/XFree86/Linux-x86/169.04/README/chapter-08.html
     #"pci=nocrs"
@@ -47,6 +48,7 @@
        HOTPLUG_PCI_ACPI y
      '';
   } ];
+  */
   boot.initrd.luks.devices = {
     root = {
       device = "/dev/nvme0n1p4";
