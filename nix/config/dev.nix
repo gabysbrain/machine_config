@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
     # TODO: this hdf5r thing should be an override and use the official depends
-let my-hdf5r = pkgs.rPackages.hdf5r.override {
-      depends = [pkgs.hdf5_1_8 pkgs.rPackages.R6 pkgs.rPackages.bit64]; #++ pkgs.rPackages.hdf5r.depends;
-    };
+let #my-hdf5r = pkgs.rPackages.hdf5r.override {
+      #depends = [pkgs.hdf5_1_8 pkgs.rPackages.R6 pkgs.rPackages.bit64]; #++ pkgs.rPackages.hdf5r.depends;
+    #};
     rpkgs =  rpkg: with rpkg; [
       bench
       devtools
@@ -11,7 +11,8 @@ let my-hdf5r = pkgs.rPackages.hdf5r.override {
       geometry
       ggplot2
       gridExtra
-      my-hdf5r
+      #my-hdf5r
+      hdf5r
       #GPareto
       mco
       packrat
@@ -86,8 +87,8 @@ in
     chromium
 
     # R stuff
-    rstudio-with-my-packages
-    R-with-my-packages
+    #rstudio-with-my-packages
+    #R-with-my-packages
 
     # Julia stuff
     vscode # for julia-vscode
