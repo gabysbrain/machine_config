@@ -13,7 +13,6 @@
       ./config/writing.nix
       ./config/laptop.nix
       ./config/desktop-full.nix
-      ./config/teaching.nix
       ./config/games.nix
     ];
 
