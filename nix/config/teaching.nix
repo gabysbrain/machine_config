@@ -32,4 +32,7 @@
     vscode
     paraview
   ];
+
+  # needed for mysql vscode password saving
+  services.gnome.gnome-keyring.enable = true;
 }

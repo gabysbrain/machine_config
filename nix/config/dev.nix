@@ -98,9 +98,6 @@ in
     (callPackage ../pkgs/problog {})
   ];
 
-  # needed for mysql vscode password saving
-  services.gnome3.gnome-keyring.enable = true;
-
   nixpkgs.overlays = [
     (
       self: super: {
