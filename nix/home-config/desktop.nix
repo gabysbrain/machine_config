@@ -40,7 +40,7 @@
         obs-wlrobs 
         obs-v4l2sink 
 
-        obs-linuxbrowser
+        #obs-linuxbrowser
       ];
     };
   };

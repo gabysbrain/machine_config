@@ -65,7 +65,7 @@
 
   # font config
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
 		  corefonts  # Micrsoft free fonts
@@ -93,8 +93,8 @@
     # use compose key and switch layouts with caps lock
     xkbOptions = "grp:caps_toggle,compose:menu";
 
-    libinput = {
-      enable = true;
+    libinput.touchpad = {
+      #enable = true;
       accelProfile = "adaptive";
       accelSpeed = "0.8";
       naturalScrolling = true;
@@ -123,5 +123,5 @@
     };
 
   };
-  services.gnome3.at-spi2-core.enable = true;
+  services.gnome.at-spi2-core.enable = true;
 }

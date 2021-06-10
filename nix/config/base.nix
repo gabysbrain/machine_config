@@ -41,7 +41,7 @@
 
   # font config
   fonts = {
-		enableFontDir = true;
+		fontDir.enable = true;
 		enableGhostscriptFonts = true;
 		fonts = with pkgs; [
 		  corefonts  # Micrsoft free fonts

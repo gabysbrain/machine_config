@@ -58,6 +58,7 @@
 
   networking.hostName = "philadelphia"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.interfaces = [ "wlp2s0" ];
 
   # Select internationalisation properties.
   services.xserver.layout = "gb,us";
@@ -147,6 +148,7 @@
     extraGroups = [ "wheel" "lp" "lpadmin" ]; # Enable ‘sudo’ for the user.
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
+    isNormalUser = true;
   };
   home-manager.users.tom = import ./home-config/desktop.nix; # needs to be a function
 

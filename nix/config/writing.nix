@@ -9,10 +9,10 @@ in
     texlive.combined.scheme-full
     bibtool
     pandoc
-    haskellPackages.pandoc-citeproc
+    #haskellPackages.pandoc-citeproc
     haskellPackages.pandoc-crossref
     pancritic
-    odpdown
+    #odpdown
     pdftk
     graphviz
   ];
