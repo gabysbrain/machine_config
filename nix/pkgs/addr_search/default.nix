@@ -3,7 +3,7 @@
 
 pkgs.runCommand "addr_search" {
   buildInputs = with pkgs; [ 
-    (pkgs.callPackage ../goobook.nix {})
+    python39Packages.goobook
     khard
   ];
 } ''
