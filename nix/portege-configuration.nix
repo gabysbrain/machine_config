@@ -104,7 +104,8 @@
   };
 
   # Set your time zone.
-  #time.timeZone = "Europe/London";
+  time.timeZone = "Europe/Vienna";
+  #services.localtime.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -180,19 +181,6 @@
       in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
     };
   };
-
-  # printers
-  hardware.printers.ensurePrinters = [
-    {
-      name = "Swansea";
-      description = "Swansea Uni Printers";
-      deviceUri = "smb://iss-ricoh-ps4.tawe.swan.ac.uk/staff%20printing";
-      ppdOptions = {PageSize = "A4";};
-      model = "gutenprint.5.2://ricoh-mp_c5503/expert";
-    }
-  ];
-  nixpkgs.overlays = [
-  ];
 
   # home backup
   services.restic.backups = {
