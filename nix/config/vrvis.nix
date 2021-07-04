@@ -19,6 +19,9 @@ in
 
   # vpn
   services.openvpn.servers = {
-    vrvisVPN = { config = '' config /etc/nixos/secrets/vrvisVPN/torsney-weir_philadelphia_vrvis.ovpn ''; };
+    vrvisVPN = { 
+      config = '' config /etc/nixos/secrets/vrvisVPN/torsney-weir_philadelphia_vrvis.ovpn ''; 
+      autoStart = false;
+    };
   };
 }
