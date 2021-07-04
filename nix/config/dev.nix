@@ -67,7 +67,7 @@ in
     # purescript
     purescript
     spago
-    (callPackage ../pkgs/parcel {}).parcel
+    (callPackage ../pkgs/parcel {})."parcel-1.10.x"
 
     # python
     python3
@@ -81,7 +81,7 @@ in
     universal-ctags
 
     # deployment
-    nixops
+    nixopsUnstable
     heroku
 
     chromium
