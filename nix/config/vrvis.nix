@@ -12,4 +12,13 @@ in
     "${builtins.readFile cacert}"
     #(builtins.readFile ../secrets/vrvis_ca.pem)
   ];
+
+  # printers
+  hardware.printers.ensurePrinters = [
+  ];
+
+  # vpn
+  services.openvpn.servers = {
+    vrvisVPN = { config = '' config /etc/nixos/secrets/vrvisVPN/torsney-weir_philadelphia_vrvis.ovpn ''; };
+  };
 }
