@@ -6,15 +6,13 @@ GMAILACCTS="personal work sfu"
 echo ---------- send pending messages --------------
 msmtp-queue -r
 
-#echo ------------ sync work sentmail ---------------
-#mbsync sync-work-sent && rm ~/.mail/work/sent/cur/*
-
 echo ---------------- email sync -------------------
 for gm in ${GMAILACCTS};
 do
   echo syncing ${gm}
   (cd ${MAILDIR}/${gm} && gmi sync)
 done
+mbsync -a
 
 echo ----------------- notmuch ---------------------
 notmuch new

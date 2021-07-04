@@ -23,6 +23,23 @@ in
       personal = gmail {name="personal"; email="torsneyt@gmail.com"; primary=true;};
       work = gmail {name="work"; email="t.d.torsneyweir@gmail.com";};
       sfu = gmail {name="sfu"; email="ttorsney.sfu@gmail.com";};
+      vrvis = {
+        realName = "Thomas Torsney-Weir";
+        userName = "torsney-weir";
+        address = "torsney-weir@vrvis.at";
+        flavor = "plain";
+        folders = {
+          drafts = "Drafts";
+          sent = "Sent";
+          trash = "Trash";
+        };
+        imap.host = "mail.vrvis.at";
+        smtp.host = "mail.vrvis.at";
+        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/vrvis.at.gpg | head -1";
+        msmtp.enable = true;
+        notmuch.enable = true;
+        mbsync.enable = true;
+      };
     };
   };
   programs = {
@@ -40,6 +57,7 @@ in
         tags = -important
       '';
     };
+    mbsync.enable = true;
     msmtp.enable = true; # sendmail support
     notmuch = {
       enable = true; # index email
@@ -55,6 +73,15 @@ in
       search.excludeTags = [ "trash" "spam" ];
     };
   };
+  /*
+  services = {
+    mbsync = {
+      enable = true;
+      frequency = "*:0/15";
+      postExec = "${pkgs.notmuch}/bin/notmuch new";
+    };
+  };
+  */
   home.packages = with pkgs; [
     neomutt
     (callPackage ../../pkgs/addr_search {})
@@ -64,7 +91,7 @@ in
     ".config/neomutt/neomuttrc".source = ../../../dotfiles/dot-neomuttrc;
     ".config/neomutt/nord.mutt".source = ../../../dotfiles/dot-neomutt/nord.mutt;
 
-    ".mbsyncrc".source = ../../../dotfiles/dot-mbsyncrc;
+    #".mbsyncrc".source = ../../../dotfiles/dot-mbsyncrc;
     ".urlview".source = ../../../dotfiles/dot-urlview;
     ".mailcap".source = ../../../dotfiles/dot-mailcap;
     ".config/alot/themes/tender".source = ../../../dotfiles/dot-alot/tender;

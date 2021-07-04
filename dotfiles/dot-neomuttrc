@@ -1,13 +1,9 @@
 set realname = "Thomas Torsney-Weir"
 set from = "torsneyt@gmail.com"
-alternates "t.d.torsneyweir@gmail\.com|t.d.torsney-weir@swansea\.ac\.uk"
-#alternates "^t.d.torsney-weir@swansea\.ac\.uk$"
+alternates "torsney-weir@vrvis\.at"
 
 # Make sure replies to swansea stuff comes from my work address
-reply-hook "~t .*@swansea\.ac\.uk" "my_hdr Reply-To: t.d.torsney-weir@swansea.ac.uk"
-reply-hook "~t .*@swansea\.ac\.uk" "my_hdr From: t.d.torsneyweir@gmail.com"
-send-hook "~t .*@swansea\.ac\.uk" "my_hdr Reply-To: t.d.torsney-weir@swansea.ac.uk"
-send-hook "~t .*@swansea\.ac\.uk" "my_hdr From: t.d.torsneyweir@gmail.com"
+reply-hook "~t .*@vrvis\.at" "my_hdr From: torsney-weir@vrvis.at"
 
 # Color scheme (nord) --------------------------------
 source ~/.config/neomutt/nord.mutt
@@ -42,7 +38,7 @@ set pager_stop = yes
 
 # Set from header before sending ---------------------
 #alias identity_work Thomas Torsney-Weir <t.d.torsney-weir@swansea.ac.uk>
-alias identity_work Thomas Torsney-Weir <t.d.torsneyweir@gmail.com>
+alias identity_work Thomas Torsney-Weir <torsney-weir@vrvis.at>
 alias identity_home Thomas Torsney-Weir <torsneyt@gmail.com>
 macro compose v "<edit-from>^Uidentity\_<tab>" "Select from"
 
