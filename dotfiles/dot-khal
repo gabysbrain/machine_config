@@ -10,21 +10,6 @@ color = light blue
 [[talks]]
 path = ~/.calendars/j1rrh115jb7ip1lpdjsf6j8vhs@group.calendar.google.com/
 color = dark green
-[[work]]
-path = ~/.calendars/o97sdkdlh3tu1249an1469rvvs@group.calendar.google.com/
-color = '#FF7F00'
-[[timetable]]
-path = ~/.calendars/fq90c86lush8pefqeios81kh51fe4uc3@import.calendar.google.com/
-color = '#FF7F00'
-readonly = True
-[[cs]]
-path = ~/.calendars/qvpkdglkvqhq1a455mnn88frf70poeon@import.calendar.google.com/
-color = brown
-readonly = True
-[[cos]]
-path = ~/.calendars/jvtua13jtf8g3eiuuvp05tnq88n938g7@import.calendar.google.com/
-color = brown
-readonly = True
 [[birthdays]]
 path = ~/.calendars/c5i68sj5edpm4rrfdchm6rreehgm6t3j81jn4rrle0n7cbj3c5m6arj4c5p2sprfdtjmop9ecdnmq@virtual/
 color = '#800080'
