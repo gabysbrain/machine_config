@@ -56,6 +56,7 @@
     (callPackage ../pkgs/syncthing-quick-status.nix {})
 
     (haskellPackages.callPackage ../pkgs/zk {}) # notes
+    obsidian
 
     firefox
 
