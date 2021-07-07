@@ -18,6 +18,7 @@
 
     # password storage
     gopass
+    gopass-jsonapi
     gnupg
 
     # needed for termite to access things
