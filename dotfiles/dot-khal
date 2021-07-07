@@ -1,6 +1,6 @@
 [default]
 highlight_event_days = True
-default_calendar = work
+default_calendar = personal
 
 [calendars]
 
