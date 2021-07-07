@@ -22,6 +22,7 @@ in
     vrvisVPN = { 
       config = '' config /etc/nixos/secrets/vrvisVPN/torsney-weir_philadelphia_vrvis.ovpn ''; 
       autoStart = false;
+      updateResolvConf = true;
     };
   };
 }
