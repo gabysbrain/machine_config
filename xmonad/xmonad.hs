@@ -57,8 +57,9 @@ launchCal = rit "Calendar" "ikhal"
 
 -- things to show in the launcher
 launcherApps :: [String]
-launcherApps = [ "zoom", "teams", "Discord", "obs", "gimp", "inkscape"
-               , "code", "zotero", "libreoffice" ]
+launcherApps = [ "zoom", "zulip", "teams", "Discord", "obs", "gimp", 
+                 "inkscape", "code", "zotero", "libreoffice", 
+                 "obsidian", "remmina" ]
 
 -- Projects
 workProject :: String -> Project
