@@ -4,10 +4,9 @@
   imports = [
     <home-manager/nixos>
   ];
-  networking = {
-    # firewall config
-    firewall.enable = true;
-  };
+
+  # firewall config
+  networking.firewall.enable = true;
 
   environment.systemPackages = with pkgs; [
     nox
@@ -15,14 +14,6 @@
     vim
     atool
     file
-
-    # password storage
-    gopass
-    gopass-jsonapi
-    gnupg
-
-    # needed for termite to access things
-    termite.terminfo
   ];
 
   programs.zsh = {

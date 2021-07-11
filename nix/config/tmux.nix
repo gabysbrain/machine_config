@@ -80,6 +80,6 @@
     tkss = "tmux kill-session -t";
   };
   home.packages = [
-    (pkgs.callPackage ../../pkgs/tat {})
+    (pkgs.callPackage ../pkgs/tat {})
   ];
 }

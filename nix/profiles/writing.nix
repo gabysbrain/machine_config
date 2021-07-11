@@ -4,7 +4,7 @@ let
   pancritic = pkgs.callPackage ../pkgs/pancritic { };
 in
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     gnumake
     texlive.combined.scheme-full
     bibtool
@@ -17,10 +17,12 @@ in
     graphviz
   ];
 
+  /*
   fonts.fonts = with pkgs; [
     montserrat
     raleway
     oxygenfonts
     google-fonts
   ];
+  */
 }

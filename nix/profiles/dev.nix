@@ -35,10 +35,7 @@ in
   #virtualisation.virtualbox.host.enableExtensionPack = true;
   #users.extraGroups.vboxusers.members = [ "tom" ];
 
-  # for building nixos on other systems (e.g. raspberry pi)
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     # git things
     git
     gitAndTools.git-annex
@@ -99,6 +96,7 @@ in
     (callPackage ../pkgs/problog {})
   ];
 
+  /*
   nixpkgs.overlays = [
     (
       self: super: {
@@ -111,12 +109,6 @@ in
       }
     )
   ];
+  */
 
-  nix.extraOptions = ''
-    keep-outputs = true
-    keep-derivations = true
-  '';
-
-  #nix.binaryCaches = [ "https://cache.nixos.org/" "https://nixcache.reflex-frp.org" ];
-  #nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 }

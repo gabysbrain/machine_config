@@ -84,17 +84,17 @@ in
   */
   home.packages = with pkgs; [
     neomutt
-    (callPackage ../../pkgs/addr_search {})
+    (callPackage ../pkgs/addr_search {})
   ];
   home.file = {
     # neomutt
-    ".config/neomutt/neomuttrc".source = ../../../dotfiles/dot-neomuttrc;
-    ".config/neomutt/nord.mutt".source = ../../../dotfiles/dot-neomutt/nord.mutt;
+    ".config/neomutt/neomuttrc".source = ../../dotfiles/dot-neomuttrc;
+    ".config/neomutt/nord.mutt".source = ../../dotfiles/dot-neomutt/nord.mutt;
 
     #".mbsyncrc".source = ../../../dotfiles/dot-mbsyncrc;
-    ".urlview".source = ../../../dotfiles/dot-urlview;
-    ".mailcap".source = ../../../dotfiles/dot-mailcap;
-    ".config/alot/themes/tender".source = ../../../dotfiles/dot-alot/tender;
-    ".config/afew/student_filter.py".source = ../../../dotfiles/dot-afew/student_filter.py;
+    ".urlview".source = ../../dotfiles/dot-urlview;
+    ".mailcap".source = ../../dotfiles/dot-mailcap;
+    ".config/alot/themes/tender".source = ../../dotfiles/dot-alot/tender;
+    ".config/afew/student_filter.py".source = ../../dotfiles/dot-afew/student_filter.py;
   };
 }

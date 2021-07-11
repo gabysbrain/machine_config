@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 
+# TODO: unify this with the profile/vrvis
 let 
   cacert = pkgs.fetchurl {
     url = http://ca.vrvis.at/vrvis_ca.pem;
@@ -25,9 +26,4 @@ in
       updateResolvConf = true;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    remmina # rdp
-    zulip   # chat
-  ];
 }

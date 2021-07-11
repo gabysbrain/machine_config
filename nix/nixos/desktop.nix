@@ -87,6 +87,20 @@
   services.udisks2.enable = true;
   services.devmon.enable = true;
 
+  # audio config
+  hardware.pulseaudio = {
+    enable = true;
+    daemon.config = {
+      flat-volumes = "no";
+      default-sample-format = "s24le";
+      default-sample-rate = "192000";
+      resample-method = "speex-float-10";
+      avoid-resampling = "true";
+    };
+    package = pkgs.pulseaudioFull;
+  };
+  nixpkgs.config.pulseaudio = true;
+
   # Enable the X11 windowing system.
   services.xserver = {
     autorun = true;

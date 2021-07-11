@@ -8,47 +8,21 @@
   imports =
     [ # Include the results of the hardware scan.
       ../../hardware-configuration.nix
-      ./config/base.nix
-      ./config/dev.nix
-      ./config/writing.nix
-      ./config/laptop.nix
-      ./config/desktop-full.nix
-      ./config/games.nix
-      ./config/vrvis.nix
+      ./nixos/common.nix
+      ./nixos/laptop.nix
+      ./nixos/desktop.nix
+      ./nixos/vrvis.nix
+      ./nixos/games.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  /*
-  boot.kernelParams = [
-    # see https://download.nvidia.com/XFree86/Linux-x86/169.04/README/chapter-08.html
-    #"pci=nocrs"
-    #"pci=realloc"
-    #"noapic"
-    #"acpi=off" # turning acpi off breaks internal keyboard
-    #"pcie_aspm=off"
-    #"rcutree.rcu_idle_gp_delay=1"
-    # from https://egpu.io/forums/thunderbolt-linux-setup/tutorial-ubuntu-18-04-rtx-2080-razer-core-v1/
-    #"pcie_ports=native" 
-    #"pci=assign-busses,nocrs,realloc"
-    #"iommu=on"
-    #"random.trust_cpu=on" 
-    #"nvidia-drm.modeset=1"
 
-    # additional debug info
-    #"rd.debug"
-  ];
-  boot.kernelPatches = [ {
-     name = "thunderbolt";
-     patch = null;
-     extraConfig = ''
-       THUNDERBOLT y
-       HOTPLUG_PCI y
-       HOTPLUG_PCI_ACPI y
-     '';
-  } ];
-  */
+
+  # for building nixos on other systems (e.g. raspberry pi)
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   boot.initrd.luks.devices = {
     root = {
       device = "/dev/nvme0n1p4";
@@ -71,15 +45,7 @@
 
   # Video drivers setup
   services.xserver.videoDrivers = [ "intel" ];
-  #services.xserver.videoDrivers = ["modesetting" "nvidia"];
-  #boot.blacklistedKernelModules = [ "i915" ];
-  #services.xserver.videoDrivers = [ "nvidia" ];
-  #services.xserver.videoDrivers = ["intel" "nvidia"];
 
-  # Enable intel iris drivers
-  /*environment.variables = {*/
-    /*MESA_LOADER_DRIVER_OVERRIDE = "iris";*/
-  /*};*/
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
@@ -90,11 +56,6 @@
     ];
     driSupport32Bit = true;
   };
-  /*
-  services.xserver.displayManager ={
-    startx.enable = true;
-  };
-  */
 
   # User level thunderbolt 3 drivers
   services.hardware.bolt.enable = true;
@@ -110,8 +71,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    samba # for samba printer
-    system-config-printer
     restic
 
     thunderbolt
@@ -153,7 +112,16 @@
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
   };
-  home-manager.users.tom = import ./home-config/desktop.nix; # needs to be a function
+  home-manager.users.tom = { pkgs, ... }: {
+    imports = [
+      ./home-config/common.nix
+      ./home-config/desktop.nix
+      ./profiles/dev.nix
+      ./profiles/writing.nix
+      ./profiles/games.nix
+      ./profiles/vrvis.nix
+    ];
+  };
 
   fileSystems = {
     "/mnt/diskstation" = {

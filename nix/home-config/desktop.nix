@@ -2,11 +2,10 @@
 
 {
   imports = [
-    ./config/base.nix
-    ./config/direnv.nix
-    ./config/email.nix
-    ./config/tasks.nix
-    ./config/termite.nix
+    ../config/direnv.nix
+    ../config/email.nix
+    ../config/tasks.nix
+    ../config/termite.nix
     ../pkgs/neovim/default.nix
   ];
   xsession = {
@@ -182,22 +181,53 @@
     };
   };
 
-  home.packages = [
-    (pkgs.callPackage ../pkgs/preview.nix {})
-    (pkgs.callPackage ../pkgs/syncmail {})
-    pkgs.xkb-switch
-    pkgs.isync
-    pkgs.khard
-    pkgs.khal
-    pkgs.gmailieer
+  home.packages = with pkgs; [
+    (callPackage ../pkgs/preview.nix {})
+    (callPackage ../pkgs/syncmail {})
+    xkb-switch
+    isync
+    khard
+    khal
+    gmailieer
 
     # for reviewing papers
-    (pkgs.callPackage ../pkgs/summ_paper {})
+    (callPackage ../pkgs/summ_paper {})
 
-    # task/time management stuff
-    pkgs.taskwarrior
-    pkgs.timewarrior
-    (pkgs.callPackage ../pkgs/tasks {})
-    (pkgs.callPackage ../pkgs/weekly-review {})
+    # needed for termite to access things
+    termite.terminfo
+
+    blueman
+    wpa_supplicant_gui
+    connman-gtk
+    connman_dmenu
+    pavucontrol
+
+    alacritty
+
+    libreoffice-unwrapped
+    spotify
+    zoom-us
+    zotero
+    meld
+
+    inkscape
+    darktable
+    gimp
+    imagemagick
+    shotcut
+    xfce.ristretto
+    xfce.tumbler # needed for ristretto image previews
+
+    youtube-dl
+
+    exiftool
+    poppler_utils
+    #glib-networking # feedreader needs this for ssl
+
+    libnotify
+
+    # ledger/finance stuff
+    hledger
+    hledger-interest
   ];
 }

@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./zsh.nix
-    ./tmux.nix
+    ../config/zsh.nix
+    ../config/tmux.nix
   ];
   programs = {
     git = {
@@ -34,14 +34,15 @@
     OPENER = "mimeo";
     BROWSER = "firefox";
   };
-  home.packages = [
-    # TODO: integrate this into the programs.vim module
-    (pkgs.callPackage ../../pkgs/tat {})
+  home.packages = with pkgs; [
+    gopass
+    gopass-jsonapi
+    gnupg
   ];
   home.file = {
-    ".config/broot/launcher/refused".source = ../../../dotfiles/broot-refused;
+    ".config/broot/launcher/refused".source = ../../dotfiles/broot-refused;
   };
 
-  #home.stateVersion = "18.09";
+  nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
 }
