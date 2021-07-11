@@ -25,4 +25,9 @@ in
       updateResolvConf = true;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    remmina # rdp
+    zulip   # chat
+  ];
 }
