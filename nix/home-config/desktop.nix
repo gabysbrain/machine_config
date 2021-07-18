@@ -6,6 +6,7 @@
     ../config/pim.nix
     ../config/termite.nix
     ../config/neovim/default.nix
+    ../config/xmonad/default.nix
   ];
   xsession = {
     enable = true;
@@ -16,11 +17,6 @@
 
       ${pkgs.gnome3.gnome-keyring}/bin/gnome-keyring-daemon --start -d --components=pkcs11,secrets,ssh
     '';
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      config = ../../xmonad/xmonad.hs;
-    };
   };
   programs = {
     zathura = {
@@ -44,20 +40,7 @@
   };
   home.file = {
     ###############################
-    # XMonad utilities
-    ###############################
-    ".xmonad/xmobar.hs".source = ../../xmonad/xmobar.hs;
-    ".xmonad/net.sh" = {
-      source = ../../xmonad/net.sh;
-      executable = true;
-    };
-    ".xmonad/xmobar-syncthing-status.sh" = {
-      source = ../../xmonad/xmobar-syncthing-status.sh;
-      executable = true;
-    };
-
-    ###############################
-    # Other stuff
+    # Random config stuff
     ###############################
     ".tvrc".source = ../../dotfiles/dot-tvrc;
     ".config/mimeo/associations.txt".source = ../../dotfiles/dot-associations;
