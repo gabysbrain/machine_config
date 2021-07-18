@@ -3,10 +3,9 @@
 {
   imports = [
     ../config/direnv.nix
-    ../config/email.nix
-    ../config/tasks.nix
+    ../config/pim.nix
     ../config/termite.nix
-    ../pkgs/neovim/default.nix
+    ../config/neovim/default.nix
   ];
   xsession = {
     enable = true;
@@ -44,13 +43,6 @@
     };
   };
   home.file = {
-    ###############################
-    # Calendar/contacts sync
-    ###############################
-    ".vdirsyncer/config".source = ../../dotfiles/dot-vdirsyncer;
-    ".config/khal/config".source = ../../dotfiles/dot-khal;
-    ".config/khard/khard.conf".source = ../../dotfiles/dot-khard;
-
     ###############################
     # XMonad utilities
     ###############################
@@ -183,12 +175,7 @@
 
   home.packages = with pkgs; [
     (callPackage ../pkgs/preview.nix {})
-    (callPackage ../pkgs/syncmail {})
     xkb-switch
-    isync
-    khard
-    khal
-    gmailieer
 
     # for reviewing papers
     (callPackage ../pkgs/summ_paper {})
