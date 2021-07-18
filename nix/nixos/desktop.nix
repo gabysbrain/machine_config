@@ -35,22 +35,9 @@
 
     xclip
     xdotool
-    lf
     feh
     sxiv
     (callPackage ../pkgs/screenshot {})
-
-    # PIM stuff
-    alot
-    msmtp
-    vdirsyncer
-    khal
-    khard
-    urlscan
-    notmuch
-    afew
-    gmailieer
-    w3m
 
     (callPackage ../pkgs/gopass-dmenu.nix {})
     (callPackage ../pkgs/syncthing-quick-status.nix {})

@@ -13,5 +13,8 @@
   home.packages = with pkgs; [
     (callPackage ../pkgs/syncmail {})
     gmailieer
+    alot
+    afew
+    notmuch
   ];
 }

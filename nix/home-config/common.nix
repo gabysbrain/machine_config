@@ -40,7 +40,7 @@
     gnupg
   ];
   home.file = {
-    ".config/broot/launcher/refused".source = ../../dotfiles/broot-refused;
+    ".config/broot/launcher/refused".source = ../config/broot/broot-refused;
   };
 
   nixpkgs.config.allowUnfree = true;

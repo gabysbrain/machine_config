@@ -85,16 +85,20 @@ in
   home.packages = with pkgs; [
     neomutt
     (callPackage ../pkgs/addr_search {})
+
+    alot
+    urlscan
+    w3m
   ];
   home.file = {
     # neomutt
-    ".config/neomutt/neomuttrc".source = ../../dotfiles/dot-neomuttrc;
-    ".config/neomutt/nord.mutt".source = ../../dotfiles/dot-neomutt/nord.mutt;
+    ".config/neomutt/neomuttrc".source = ./neomutt/dot-neomuttrc;
+    ".config/neomutt/nord.mutt".source = ./neomutt/dot-neomutt/nord.mutt;
 
     #".mbsyncrc".source = ../../../dotfiles/dot-mbsyncrc;
-    ".urlview".source = ../../dotfiles/dot-urlview;
-    ".mailcap".source = ../../dotfiles/dot-mailcap;
-    ".config/alot/themes/tender".source = ../../dotfiles/dot-alot/tender;
-    ".config/afew/student_filter.py".source = ../../dotfiles/dot-afew/student_filter.py;
+    ".urlview".source = ./neomutt/dot-urlview;
+    ".mailcap".source = ./neomutt/dot-mailcap;
+    ".config/alot/themes/tender".source = ./alot/tender;
+    ".config/afew/student_filter.py".source = ./afew/student_filter.py;
   };
 }

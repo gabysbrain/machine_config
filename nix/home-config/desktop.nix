@@ -7,6 +7,9 @@
     ../config/termite.nix
     ../config/neovim/default.nix
     ../config/xmonad/default.nix
+
+    ../config/mimeo/default.nix
+    ../config/julia/default.nix
   ];
   xsession = {
     enable = true;
@@ -38,16 +41,7 @@
       ];
     };
   };
-  home.file = {
-    ###############################
-    # Random config stuff
-    ###############################
-    ".tvrc".source = ../../dotfiles/dot-tvrc;
-    ".config/mimeo/associations.txt".source = ../../dotfiles/dot-associations;
-    ".config/lf/lfrc".source = ../../dotfiles/dot-lfrc;
-    ".newsboat/config".source = ../../dotfiles/dot-newsboat;
-    ".julia/config/startup.jl".source = ../../dotfiles/julia/startup.jl;
-  };
+
   gtk = {
     enable = true;
     theme.name = "Arc-Darker";
@@ -59,6 +53,7 @@
     enable = true;
     platformTheme = "gtk";
   };
+
   services = {
     dunst = {
       enable = true;
