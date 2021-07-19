@@ -1,5 +1,10 @@
 {pkgs, ...}:
 {
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [
+    nerdfonts
+  ];
+
   programs.zsh  = {
     enable = true;
     #defaultKeymap = "vicmd";
