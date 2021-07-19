@@ -12,7 +12,6 @@
       ./nixos/laptop.nix
       ./nixos/desktop.nix
       ./nixos/vrvis.nix
-      ./nixos/games.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
