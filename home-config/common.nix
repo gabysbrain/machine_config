@@ -41,6 +41,8 @@
     gopass
     gopass-jsonapi
     gnupg
+
+    silver-searcher
   ];
   home.file = {
     ".config/broot/launcher/refused".source = ../config/broot/broot-refused;
