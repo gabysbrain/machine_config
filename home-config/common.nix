@@ -3,6 +3,7 @@
   imports = [
     ../config/zsh.nix
     ../config/tmux.nix
+    ../config/lf/default.nix
   ];
   programs = {
     git = {

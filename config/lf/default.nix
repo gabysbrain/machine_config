@@ -5,7 +5,7 @@
     ".config/lf/lfrc".source = ./dot-lfrc;
   };
 
-  home.programs = with pkgs; [
+  home.packages = with pkgs; [
     lf
   ];
 }
