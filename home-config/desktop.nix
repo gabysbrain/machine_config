@@ -5,9 +5,7 @@
     ../config/direnv.nix
     ../config/pim.nix
     ../config/termite.nix
-    ../config/neovim/default.nix
     ../config/xmonad/default.nix
-
     ../config/mimeo/default.nix
     ../config/julia/default.nix
   ];
