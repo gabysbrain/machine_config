@@ -28,6 +28,12 @@
     youtube-dl
   ];
 
+  # nerdfonts needed for zsh prompt
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [
+    nerdfonts
+  ];
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
