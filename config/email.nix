@@ -85,8 +85,12 @@ in
   home.packages = with pkgs; [
     neomutt
     (callPackage ../pkgs/addr_search {})
+    (callPackage ../pkgs/syncmail {})
 
     alot
+    afew
+    notmuch
+    gmailieer
     urlscan
     w3m
   ];
@@ -95,7 +99,6 @@ in
     ".config/neomutt/neomuttrc".source = ./neomutt/dot-neomuttrc;
     ".config/neomutt/nord.mutt".source = ./neomutt/dot-neomutt/nord.mutt;
 
-    #".mbsyncrc".source = ../../../dotfiles/dot-mbsyncrc;
     ".urlview".source = ./neomutt/dot-urlview;
     ".mailcap".source = ./neomutt/dot-mailcap;
     ".config/alot/themes/tender".source = ./alot/tender;
