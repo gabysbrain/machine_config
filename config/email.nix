@@ -17,6 +17,9 @@ let
   };
 in 
 {
+  imports = [
+    ../config/afew/default.nix
+  ];
   accounts.email = {
     maildirBasePath = ".mail";
     accounts = {
@@ -43,20 +46,6 @@ in
     };
   };
   programs = {
-    afew = {
-      enable = true;
-      extraConfig = ''
-        [SpamFilter]
-        [KillThreadsFilter]
-        [ArchiveSentMailsFilter]
-        sent_tag = sent
-
-        [StudentFilter]
-
-        [InboxFilter]
-        tags = -important
-      '';
-    };
     mbsync.enable = true;
     msmtp.enable = true; # sendmail support
     notmuch = {
@@ -88,7 +77,6 @@ in
     (callPackage ../pkgs/syncmail {})
 
     alot
-    afew
     notmuch
     gmailieer
     urlscan
@@ -102,6 +90,5 @@ in
     ".urlview".source = ./neomutt/dot-urlview;
     ".mailcap".source = ./neomutt/dot-mailcap;
     ".config/alot/themes/tender".source = ./alot/tender;
-    ".config/afew/student_filter.py".source = ./afew/student_filter.py;
   };
 }
