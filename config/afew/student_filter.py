@@ -3,17 +3,20 @@ from afew.FilterRegistry import register_filter
 
 import csv
 
+# kwargs in constructor processes config
+
 # Each row of the csv should be: email, tag, program, tb
 
 @register_filter
 class StudentFilter(Filter):
   message = 'Organize student emails'
+  list_file = None
 
-  def __init__(self, database):
-    super().__init__(database)
+  def __init__(self, database, **kwargs):
+    super().__init__(database, **kwargs)
 
     self.students = {}
-    with open('/home/tom/studentlist.csv') as csvfile:
+    with open(self.list_file) as csvfile:
       reader = csv.DictReader(csvfile)
       for row in reader:
         self.students[row['email']] = row
