@@ -87,7 +87,6 @@
       setopt autopushd pushdignoredups
 
       # commands
-      nix-search() {echo "Searching for '$1'..." ; nix-env -qaP --description \* | grep -i $1; }
       nix-install() { nix-env -iA $1; }
 
       # vim edit command line
