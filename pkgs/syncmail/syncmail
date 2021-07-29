@@ -6,6 +6,10 @@ GMAILACCTS="personal work sfu"
 echo ---------- send pending messages --------------
 msmtp-queue -r
 
+echo ----------- moving tags to folders ------------
+afew -m
+archive_mails vrvis
+
 echo ---------------- email sync -------------------
 for gm in ${GMAILACCTS};
 do
@@ -18,7 +22,7 @@ echo ----------------- notmuch ---------------------
 notmuch new
 
 echo -----------------  tags   ---------------------
-afew -v --tag --new
+afew --tag --new
 
 echo done
 

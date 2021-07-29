@@ -41,7 +41,11 @@ in
         passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/vrvis.at.gpg | head -1";
         msmtp.enable = true;
         notmuch.enable = true;
-        mbsync.enable = true;
+        mbsync = {
+          enable = true;
+          create = "both";
+          expunge = "both";
+        };
       };
     };
   };
@@ -75,6 +79,7 @@ in
     neomutt
     (callPackage ../pkgs/addr_search {})
     (callPackage ../pkgs/syncmail {})
+    (callPackage ../pkgs/archive_mails {})
 
     alot
     notmuch
