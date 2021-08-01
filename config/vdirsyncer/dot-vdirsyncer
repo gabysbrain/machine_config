@@ -1,0 +1,44 @@
+
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+##### Collections
+
+[pair my_contacts]
+a = "my_contacts_local"
+#b = "apple_card"
+b = "gcontacts"
+collections = ["from a", "from b"]
+
+[pair calendars]
+a = "calendars_local"
+b = "gcalendars"
+collections = ["from a", "from b"]
+
+##### Local storages
+
+[storage my_contacts_local]
+type = "filesystem"
+path = "~/.contacts/"
+fileext = ".vcf"
+
+[storage calendars_local]
+type = "filesystem"
+path = "~/.calendars/"
+fileext = ".ics"
+
+##### Remote storages
+
+[storage gcontacts]
+type = "google_contacts"
+token_file = "~/.vdirsyncer/gcontacts_token"
+client_id.fetch = ["command", "sed", "-n", "1p", "/home/tom/.vdirsyncer/secrets"]
+client_secret.fetch = ["command", "sed", "-n", "2p", "/home/tom/.vdirsyncer/secrets"]
+
+[storage gcalendars]
+type = "google_calendar"
+token_file = "~/.vdirsyncer/gcalendar_token"
+client_id.fetch = ["command", "sed", "-n", "1p", "/home/tom/.vdirsyncer/secrets"]
+client_secret.fetch = ["command", "sed", "-n", "2p", "/home/tom/.vdirsyncer/secrets"]
+
+
