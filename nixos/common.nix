@@ -3,6 +3,8 @@
 {
   imports = [
     <home-manager/nixos>
+    <agenix/modules/age.nix>
+    ../secrets/home-manager.nix
   ];
 
   # firewall config
