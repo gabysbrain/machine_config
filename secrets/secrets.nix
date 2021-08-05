@@ -9,4 +9,8 @@ in
 {
   "vdirsyncer.age".publicKeys = systems;
   "vrvis.age".publicKeys = systems;
+  "wasabi.age".publicKeys = systems;
+  "restic.age".publicKeys = systems;
+  "diskstation-smb.age".publicKeys = systems;
+  "diskstation-key.age".publicKeys = systems;
 }

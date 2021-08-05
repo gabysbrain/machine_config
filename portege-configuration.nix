@@ -10,7 +10,7 @@ let nasMount = remotePath: {
       options = let
         # this line prevents hanging on network split
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
-      in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
+      in ["${automount_opts},credentials=/run/secrets/diskstation-smb,vers=1.0"];
     };
 in
 {
@@ -135,11 +135,14 @@ in
   fileSystems."/mnt/media/music" = nasMount "music";
 
   # home backup
+  age.secrets.wasabi.file = ./secrets/wasabi.age;
+  age.secrets.restic.file = ./secrets/restic.age;
+  age.secrets.diskstation-key.file = ./secrets/diskstation-key.age;
   services.restic.backups = {
     local = {
       paths = [ "/home" ];
       repository = "sftp:backup@192.168.0.14:/backup";
-      passwordFile = "/etc/nixos/secrets/restic-password";
+      passwordFile = "/run/secrets/restic"; # FIXME: this should use age.secrets.restic.path somehow
       extraBackupArgs = [
         "--exclude='home/tom/Downloads'"
         "--exclude='home/tom/Sync'"
@@ -156,7 +159,7 @@ in
         "--keep-last 2"
       ];
       extraOptions = [
-        "sftp.command='ssh backup@192.168.0.14 -i /etc/nixos/secrets/diskstation.rsa -s sftp'"
+        "sftp.command='ssh backup@192.168.0.14 -i /run/secrets/diskstation-key -s sftp'"
       ];
       timerConfig = {
         OnBootSec = "2m";
@@ -166,8 +169,8 @@ in
     remote = {
       paths = [ "/home" ];
       repository = "s3:https://s3.eu-central-1.wasabisys.com/gabysbrain-restic";
-      passwordFile = "/etc/nixos/secrets/restic-password";
-      s3CredentialsFile = "/etc/nixos/secrets/wasabi";
+      passwordFile = "/run/secrets/restic"; # FIXME: this should use age.secrets.restic.path somehow
+      s3CredentialsFile = "/run/secrets/wasabi"; # FIXME: this should use age.secrets.wasbi.path
       extraBackupArgs = [
         "--exclude='home/tom/Downloads'"
         "--exclude='home/tom/Sync'"
