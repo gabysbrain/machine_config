@@ -38,7 +38,7 @@ in
         };
         imap.host = "mail.vrvis.at";
         smtp.host = "mail.vrvis.at";
-        passwordCommand = "gpg --quiet --for-your-eyes-only --decrypt ~/.password-store/vrvis.at.gpg | head -1";
+        passwordCommand = "cat /run/secrets/vrvis";
         msmtp.enable = true;
         notmuch.enable = true;
         mbsync = {

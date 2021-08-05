@@ -8,4 +8,5 @@ let
 in
 {
   "vdirsyncer.age".publicKeys = systems;
+  "vrvis.age".publicKeys = systems;
 }
