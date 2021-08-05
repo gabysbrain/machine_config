@@ -4,6 +4,15 @@
 
 { config, pkgs, ... }:
 
+let nasMount = remotePath: {
+      device = "//192.168.0.14/${remotePath}";
+      fsType = "cifs";
+      options = let
+        # this line prevents hanging on network split
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
+      in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
+    };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -121,32 +130,9 @@
     ];
   };
 
-  fileSystems = {
-    "/mnt/diskstation" = {
-      device = "//192.168.0.14/homes";
-      fsType = "cifs";
-      options = let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
-      in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
-    };
-    "/mnt/media/videos" = {
-      device = "//192.168.0.14/videos";
-      fsType = "cifs";
-      options = let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
-      in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
-    };
-    "/mnt/media/music" = {
-      device = "//192.168.0.14/music";
-      fsType = "cifs";
-      options = let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
-      in ["${automount_opts},credentials=/etc/nixos/smb-secrets,vers=1.0"];
-    };
-  };
+  fileSystems."/mnt/diskstation" = nasMount "homes";
+  fileSystems."/mnt/media/videos" = nasMount "videos";
+  fileSystems."/mnt/media/music" = nasMount "music";
 
   # home backup
   services.restic.backups = {
