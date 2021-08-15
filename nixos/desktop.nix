@@ -91,8 +91,8 @@
   # Enable the X11 windowing system.
   services.xserver = {
     autorun = true;
+    #autorun = false;
     enable = true;
-    #layout = "us";
     
     # use compose key and switch layouts with caps lock
     xkbOptions = "grp:caps_toggle,compose:menu";
@@ -106,21 +106,10 @@
       tapping = false;
     };
 
-    # Enable lightdm with xmonad
-    displayManager = {
-      lightdm.enable = true;
-
-      #sddm.enable = true;
-      sessionCommands = "~/.xmonad/xmonad-session-rc";
-    };
-    /*
-    displayManager ={
-      startx.enable = true;
-    };
-    */
-
-    desktopManager.xterm.enable = false;
+    displayManager.sddm.enable = true;
+    #displayManager.lightdm.enable = true;
     displayManager.defaultSession = "none+xmonad";
+    desktopManager.xterm.enable = false;
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
