@@ -44,6 +44,7 @@ macro compose v "<edit-from>^Uidentity\_<tab>" "Select from"
 
 #fcc-hook '~f t\.d\.torsneyweir@swansea\.ac\.uk' +work/sent
 #fcc-hook '~f torsneyt@gmail\.com' +personal/sent
+fcc-hook '~f torsney-weir@vrvis.at' +vrvis/Sent
 
 # Message formats ------------------------------------
 set index_format = " %Z %<[y?%<[m?%<[d?%[     %H:%M]&%[    %a %d]>&%[    %b %d]>&%[%d/%m/%Y]> %-30.30F %<M?(%2M)&    > %?GS?%GS& ?%?GE?%GE& ?%?GA?%GA& ? %.100s %g"
