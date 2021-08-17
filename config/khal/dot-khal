@@ -5,15 +5,25 @@ default_calendar = personal
 [calendars]
 
 [[personal]]
-path = ~/.calendars/torsneyt@gmail.com/
+path = ~/.calendars/personal/torsneyt@gmail.com/
 color = light blue
 [[talks]]
-path = ~/.calendars/j1rrh115jb7ip1lpdjsf6j8vhs@group.calendar.google.com/
+path = ~/.calendars/personal/j1rrh115jb7ip1lpdjsf6j8vhs@group.calendar.google.com/
 color = dark green
 [[birthdays]]
-path = ~/.calendars/c5i68sj5edpm4rrfdchm6rreehgm6t3j81jn4rrle0n7cbj3c5m6arj4c5p2sprfdtjmop9ecdnmq@virtual/
+path = ~/.calendars/personal/c5i68sj5edpm4rrfdchm6rreehgm6t3j81jn4rrle0n7cbj3c5m6arj4c5p2sprfdtjmop9ecdnmq@virtual/
 color = '#800080'
 readonly = True
+[[work]]
+path = ~/.calendars/vrvis/personal/
+color = '#FF8C00'
+[[vrvis]]
+path = ~/.calendars/vrvis/personal_vrvis/
+color = '#696969'
+[[team_status]]
+path = ~/.calendars/vrvis/mwimmer_7390-5F4E1B00-1B-268C6400/
+color = '#696969'
+
 
 [[my_contacts_local]]
 path = ~/.contacts/*

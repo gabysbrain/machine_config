@@ -6,13 +6,17 @@ status_path = "~/.vdirsyncer/status/"
 
 [pair my_contacts]
 a = "my_contacts_local"
-#b = "apple_card"
 b = "gcontacts"
 collections = ["from a", "from b"]
 
-[pair calendars]
-a = "calendars_local"
+[pair my_calendars]
+a = "my_calendars_local"
 b = "gcalendars"
+collections = ["from a", "from b"]
+
+[pair vrvis_calendars]
+a = "vrvis_calendars_local"
+b = "vrvis"
 collections = ["from a", "from b"]
 
 ##### Local storages
@@ -22,9 +26,14 @@ type = "filesystem"
 path = "~/.contacts/"
 fileext = ".vcf"
 
-[storage calendars_local]
+[storage my_calendars_local]
 type = "filesystem"
-path = "~/.calendars/"
+path = "~/.calendars/personal"
+fileext = ".ics"
+
+[storage vrvis_calendars_local]
+type = "filesystem"
+path = "~/.calendars/vrvis"
 fileext = ".ics"
 
 ##### Remote storages
@@ -41,4 +50,11 @@ token_file = "~/.vdirsyncer/gcalendar_token"
 client_id.fetch = ["command", "sed", "-n", "1p", "/run/secrets/vdirsyncer"]
 client_secret.fetch = ["command", "sed", "-n", "2p", "/run/secrets/vdirsyncer"]
 
+[storage vrvis]
+type = "caldav"
+url = "https://sogo.vrvis.at/SOGo/dav"
+username = "torsney-weir"
+password.fetch = ["command", "cat", "/run/secrets/vrvis"]
+verify = false
+verify_fingerprint = "0C:FC:05:E1:35:EA:41:1D:01:11:9F:BA:35:E5:84:38:7D:0F:27:BD"
 
