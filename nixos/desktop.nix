@@ -106,8 +106,7 @@
       tapping = false;
     };
 
-    displayManager.sddm.enable = true;
-    #displayManager.lightdm.enable = true;
+    displayManager.lightdm.enable = true;
     displayManager.defaultSession = "none+xmonad";
     desktopManager.xterm.enable = false;
     windowManager.xmonad = {
