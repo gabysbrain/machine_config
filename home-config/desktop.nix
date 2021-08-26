@@ -169,7 +169,6 @@
 
     libreoffice-unwrapped
     spotify
-    zoom-us
     discord
     zotero
     meld
