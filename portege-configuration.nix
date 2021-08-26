@@ -47,9 +47,9 @@ in
   # Select internationalisation properties.
   services.xserver.layout = "gb,us";
   services.xserver.exportConfiguration = true;
+  services.xserver.xkbOptions = "grp:win_caps_toggle, compose:menu, terminate:ctrl_alt_bksp";
   console.useXkbConfig = true;
 
-  #hardware.openrazer.enable = true;
 
   # Video drivers setup
   services.xserver.videoDrivers = [ "intel" ];
@@ -194,6 +194,7 @@ in
   };
 
   # send restic logs for prometheus
+  /*
   systemd.services.restic-backups-remote-metrics = {
     description = "Generate prometheus metrics from restic";
     wantedBy = [ "multi-user.target" ];
@@ -231,6 +232,7 @@ in
       '';
     };
   };
+  */
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
