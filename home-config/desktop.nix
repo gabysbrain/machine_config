@@ -16,6 +16,8 @@
     initExtra = ''
       ~/.fehbg
 
+      ${pkgs.tmux}/bin/tmux kill-session -t Tasks
+      ${pkgs.tmux}/bin/tmux start-server
       ${pkgs.gnome3.gnome-keyring}/bin/gnome-keyring-daemon --start -d --components=pkcs11,secrets,ssh
     '';
   };
@@ -56,11 +58,15 @@
     picom = {
       enable = true;
       experimentalBackends = true;
-
-      # see https://nixos.wiki/wiki/Nvidia#Fix_app_flickering_with_Picom
+      shadow = true;
       extraOptions = ''
+        blur-method = "dual_kawase";
+        blur-strenth = 10;
+
         unredir-if-possible = false;
       '';
+
+      # see https://nixos.wiki/wiki/Nvidia#Fix_app_flickering_with_Picom
       backend = "xrender";
       vSync = true;
     };

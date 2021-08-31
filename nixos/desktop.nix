@@ -13,6 +13,11 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
+
+  nixpkgs.overlays = [
+    (import ../overlays/slock.nix)
+  ];
+
   environment.systemPackages = with pkgs; [
     alsaUtils
     gnome3.dconf
@@ -51,6 +56,7 @@
     zathura
     breeze-icons # needed for okular
   ];
+  programs.slock.enable = true;
   environment.pathsToLink = [ "/share" ];
 
   # font config
@@ -69,6 +75,9 @@
       nerdfonts
     ];
   };
+
+  # picom compositor
+  services.picom.enable = true;
 
   # List services that you want to enable
   services.udisks2.enable = true;

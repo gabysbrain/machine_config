@@ -7,7 +7,13 @@
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.resurrect;
-        extraConfig = "set -g @resurrect-strategy-vim 'session'";
+        extraConfig = ''
+          set -g @resurrect-strategy-vim 'session'
+          set -g @resurrect-strategy-nvim 'session'
+
+          # resurrect taskwarrior programs
+          set -g @resurrect-processes '~task'
+        '';
       }
       {
         plugin = tmuxPlugins.continuum;

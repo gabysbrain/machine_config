@@ -31,6 +31,7 @@ in
   # for building nixos on other systems (e.g. raspberry pi)
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  # since I lock down my data drive
   boot.initrd.luks.devices = {
     root = {
       device = "/dev/nvme0n1p4";
@@ -49,7 +50,6 @@ in
   services.xserver.exportConfiguration = true;
   services.xserver.xkbOptions = "grp:win_caps_toggle, compose:menu, terminate:ctrl_alt_bksp";
   console.useXkbConfig = true;
-
 
   # Video drivers setup
   services.xserver.videoDrivers = [ "intel" ];
@@ -115,7 +115,7 @@ in
   users.users.tom = {
     home = "/home/tom";
     description = "Thomas Torsney-Weir";
-    extraGroups = [ "wheel" "lp" "lpadmin" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "lp" "lpadmin" "adbusers" ]; # Enable ‘sudo’ for the user.
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
@@ -233,6 +233,9 @@ in
     };
   };
   */
+
+  # android dev stuff
+  programs.adb.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
