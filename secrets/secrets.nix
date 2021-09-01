@@ -3,10 +3,12 @@ let
   users = [ tom ];
 
   philadelphia = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGAYMK3yvisKXVemHBGQ80/rxxOgdAhLMxVmBo3ILD6o";
-  systems = [ philadelphia ];
+  brokkoli = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA1HIzwzLMlZINSD1p36schK1NmxoiRr3jKoZKtsO6j";
+  systems = [ philadelphia brokkoli ];
 
 in
 {
+  # FIXME: personal stuff should be encrypted with my public key
   "vdirsyncer.age".publicKeys = systems;
   "vrvis.age".publicKeys = systems;
   "wasabi.age".publicKeys = systems;
