@@ -13,9 +13,6 @@
       folder_blacklist = Archive
       folder_lowercases = true
 
-      [StudentFilter]
-      list_file = /home/tom/Sync/studentlist.csv
-
       [InboxFilter]
       tags = -important
 
