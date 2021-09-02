@@ -160,6 +160,8 @@ myKeys conf = let
     -- brightness
     , ((0, xF86XK_MonBrightnessUp), addName "Increase screen brightness" $ spawn "xbacklight -inc 10")
     , ((0, xF86XK_MonBrightnessDown), addName "Decrease screen brightness" $ spawn "xbacklight -dec 10")
+    -- screen lock
+    , ((myModMask .|. controlMask, xK_l), addName "Lock screen" $ spawn "slock")
     ] ^++^
 
   -- Programs
