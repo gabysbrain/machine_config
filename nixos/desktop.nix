@@ -25,36 +25,9 @@
     rxvt_unicode-with-plugins
     shared_mime_info
     plasma-workspace
-    haskellPackages.xmobar
-    dmenu
     gnome3.zenity
 
     nix-index
-
-    silver-searcher
-    unzip
-    unrar
-    p7zip
-    mimeo
-    peco
-
-    xclip
-    xdotool
-    feh
-    sxiv
-    (callPackage ../pkgs/screenshot {})
-
-    (callPackage ../pkgs/gopass-dmenu.nix {})
-    (callPackage ../pkgs/syncthing-quick-status.nix {})
-
-    (haskellPackages.callPackage ../pkgs/zk {}) # notes
-    obsidian
-
-    firefox
-
-    okular
-    zathura
-    breeze-icons # needed for okular
   ];
   programs.slock.enable = true;
   environment.pathsToLink = [ "/share" ];

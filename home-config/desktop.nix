@@ -168,6 +168,9 @@
   };
 
   home.packages = with pkgs; [
+    haskellPackages.xmobar
+    dmenu
+
     (callPackage ../pkgs/preview.nix {})
     xkb-switch
 
@@ -210,5 +213,31 @@
     # ledger/finance stuff
     hledger
     hledger-interest
+
+    mimeo
+    peco
+
+    xclip
+    xdotool
+    feh
+    sxiv
+    (callPackage ../pkgs/screenshot {})
+
+    (callPackage ../pkgs/gopass-dmenu.nix {})
+    (callPackage ../pkgs/syncthing-quick-status.nix {})
+
+    (haskellPackages.callPackage ../pkgs/zk {}) # notes
+    obsidian
+
+    firefox
+
+    okular
+    zathura
+    breeze-icons # needed for okular
+
+    silver-searcher
+    unzip
+    unrar
+    p7zip
   ];
 }
