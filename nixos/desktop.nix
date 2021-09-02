@@ -41,11 +41,10 @@
 		  unifont # some international languages
       powerline-fonts
       anonymousPro
-      corefonts
       emojione
-      helvetica-neue-lt-std
       carlito
       nerdfonts
+      gyre-fonts
     ];
   };
 
