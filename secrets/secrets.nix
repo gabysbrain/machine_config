@@ -9,7 +9,7 @@ let
 in
 {
   # FIXME: personal stuff should be encrypted with my public key
-  "vdirsyncer.age".publicKeys = systems;
+  "google-vdirsyncer.age".publicKeys = systems;
   "vrvis.age".publicKeys = systems;
   "wasabi.age".publicKeys = systems;
   "restic.age".publicKeys = systems;
