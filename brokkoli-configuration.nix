@@ -59,6 +59,9 @@
 
   };
 
+  # forward xsessions
+  services.openssh.forwardX11 = true;
+
   # syncthing config
   services.syncthing = {
     enable = true;
