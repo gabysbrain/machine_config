@@ -58,6 +58,7 @@
     picom = {
       enable = true;
       experimentalBackends = true;
+
       shadow = true;
       extraOptions = ''
         blur-method = "dual_kawase";
