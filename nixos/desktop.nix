@@ -76,9 +76,6 @@
     ];
   };
 
-  # picom compositor
-  services.picom.enable = true;
-
   # List services that you want to enable
   services.udisks2.enable = true;
   services.devmon.enable = true;
