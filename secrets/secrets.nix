@@ -1,6 +1,7 @@
 let
   tom = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJQREmqaoPzlEQZfnOVZqH7rWkYaUuWmoQ2T5daJ/uU";
-  users = [ tom ];
+  torsney-weir = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJQREmqaoPzlEQZfnOVZqH7rWkYaUuWmoQ2T5daJ/uU";
+  users = [ tom torsney-weir ];
 
   philadelphia = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGAYMK3yvisKXVemHBGQ80/rxxOgdAhLMxVmBo3ILD6o";
   brokkoli = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA1HIzwzLMlZINSD1p36schK1NmxoiRr3jKoZKtsO6j";
@@ -8,8 +9,8 @@ let
 
 in
 {
-  "google-vdirsyncer.age".publicKeys = [tom];
-  "vrvis.age".publicKeys = [tom];
+  "google-vdirsyncer.age".publicKeys = users;
+  "vrvis.age".publicKeys = users;
 
   "wasabi.age".publicKeys = systems;
   "restic.age".publicKeys = systems;
