@@ -1,46 +1,78 @@
-# This is actually a home-manager config file because the base is WSL Ubuntu
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./home-config/common.nix
+  imports =
+    [ # Include the results of the hardware scan.
+      ../hardware-configuration.nix
+      ./nixos/common.nix
+      ./nixos/desktop.nix
+      ./nixos/vrvis.nix
+      ./sysadmin.nix
+    ];
 
-    ./profiles/dev.nix
-    ./profiles/writing.nix
-    ./profiles/vrvis.nix
+  # use UEFI boot loader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-    ./config/nonixos.nix
-  ];
+  # Set your time zone.
+  time.timeZone = "Europe/Vienna";
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  networking.hostName = "brokkoli"; # Define your hostname.
 
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "torsney-weir";
-  home.homeDirectory = "/home/torsney-weir";
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = false;
+  networking.interfaces.enp4s0.useDHCP = true;
 
-  home.packages = with pkgs; [
-    # for reviewing papers
-    (callPackage ./pkgs/summ_paper {})
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-    meld
-    youtube-dl
-  ];
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
-  # nerdfonts needed for zsh prompt
-  fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [
-    nerdfonts
-  ];
+  # Enable NVIDIA stuff
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "21.05";
+  # Users
+  users.users.torsney-weir = {
+    home = "/home/torsney-weir";
+    description = "Thomas Torsney-Weir";
+    extraGroups = [ "wheel" "lp" "lpadmin" ];
+    createHome = true;
+    shell = "/run/current-system/sw/bin/zsh";
+    isNormalUser = true;
+  };
+  home-manager.users.torsney-weir = { pkgs, ...} : {
+    imports = [
+        ./home-config/common.nix
+        ./home-config/desktop.nix
+        ./profiles/dev.nix
+        ./profiles/writing.nix
+        ./profiles/vrvis.nix
+    ];
+
+  };
+
+  # syncthing config
+  services.syncthing = {
+    enable = true;
+    user = "torsney-weir";
+    dataDir = "/home/torsney-weir";
+  };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "21.05"; # Did you read the comment?
+
 }
+
