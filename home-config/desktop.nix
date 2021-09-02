@@ -53,6 +53,17 @@
   };
 
   services = {
+    picom = {
+      enable = true;
+      experimentalBackends = true;
+
+      # see https://nixos.wiki/wiki/Nvidia#Fix_app_flickering_with_Picom
+      extraOptions = ''
+        unredir-if-possible = false;
+      '';
+      backend = "xrender";
+      vSync = true;
+    };
     dunst = {
       enable = true;
       settings = {
