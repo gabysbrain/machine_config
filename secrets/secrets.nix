@@ -1,5 +1,5 @@
 let
-  tom = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJQREmqaoPzlEQZfnOVZqH7rWkYaUuWmoQ2T5daJ/uU tom@tomtorsneyweir.com";
+  tom = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJQREmqaoPzlEQZfnOVZqH7rWkYaUuWmoQ2T5daJ/uU";
   users = [ tom ];
 
   philadelphia = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGAYMK3yvisKXVemHBGQ80/rxxOgdAhLMxVmBo3ILD6o";
@@ -8,9 +8,8 @@ let
 
 in
 {
-  # FIXME: personal stuff should be encrypted with my public key
-  "google-vdirsyncer.age".publicKeys = tom;
-  "vrvis.age".publicKeys = tom;
+  "google-vdirsyncer.age".publicKeys = [tom];
+  "vrvis.age".publicKeys = [tom];
 
   "wasabi.age".publicKeys = systems;
   "restic.age".publicKeys = systems;
