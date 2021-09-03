@@ -15,7 +15,7 @@ class SubFolderNameFilter(Filter):
                folder_lowercases='', subfolder=''):
     super().__init__(database)
 
-    self._filename_pattern = 'dsgjadfgasfas'
+    self._filename_pattern = None
     if subfolder != '':
       self._filename_pattern = \
          '{mail_root}/{mail_subfolder}/(?P<maildirs>.*)/(cur|new)/[^/]+'.format(
