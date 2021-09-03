@@ -149,7 +149,7 @@ myKeys conf = let
   in
   -- TODO: split this into applications, utilities (like speaker or passwords), system (e.g. volume), and window manager things
   subKeys "system"
-    [ ((myModMask, xK_q), addName "Restart and recompile xmonad" $ spawn "xmonad --recompile; xmonad --restart")
+    [ ((myModMask, xK_q), addName "Restart and recompile xmonad" $ spawn "xmonad --restart")
     , ((myModMask, xK_F7), addName "Select speaker" $ spawn "speakerselect")
     , ((myModMask, xK_F8), addName "Select display" $ spawn "screenselect")
     , ((myModMask, xK_Print), addName "Take screenshot" $ spawn "screenshot")
