@@ -84,7 +84,26 @@
       tapping = false;
     };
 
-    displayManager.lightdm.enable = true;
+    displayManager.lightdm = {
+      enable = true;
+      extraSeatDefaults = ''
+        greeter-show-manual-login = true
+        greeter-hide-users = true
+        allow-guest = false
+        hide-user-image = true
+      '';
+      #greeters.tiny.enable = true;
+      greeters.gtk.enable = true;
+      greeters.gtk = {
+        theme.package = pkgs.arc-theme;
+        theme.name = "Arc-Darker";
+
+        iconTheme.package = pkgs.arc-icon-theme;
+        iconTheme.name = "Arc";
+
+        indicators = [ "~spacer" "~host" "~spacer" "~clock" "~session" "~power" ];
+      };
+    };
     displayManager.defaultSession = "none+xmonad";
     desktopManager.xterm.enable = false;
     windowManager.xmonad = {
