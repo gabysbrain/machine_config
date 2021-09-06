@@ -1,4 +1,5 @@
 let
+  # NOTE: secrets need to be assigned to both users (for agenix command) and systems (for agenix serivce)
   tom = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJQREmqaoPzlEQZfnOVZqH7rWkYaUuWmoQ2T5daJ/uU";
   torsney-weir = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJQREmqaoPzlEQZfnOVZqH7rWkYaUuWmoQ2T5daJ/uU";
   me = [ tom torsney-weir ];
@@ -9,11 +10,10 @@ let
 
 in
 {
-  "google-vdirsyncer.age".publicKeys = me;
-  "vrvis.age".publicKeys = me;
+  "google-vdirsyncer.age".publicKeys = me ++ systems;
+  "vrvis.age".publicKeys = me ++ systems;
 
-  "wasabi.age".publicKeys = systems;
-  "restic.age".publicKeys = systems;
-  "diskstation-smb.age".publicKeys = systems;
-  "diskstation-key.age".publicKeys = systems;
+  "wasabi.age".publicKeys = me ++ [ philadelphia ];
+  "restic.age".publicKeys = me ++ [ philadelphia ];
+  "diskstation-key.age".publicKeys = me ++ [ philadelphia ];
 }
