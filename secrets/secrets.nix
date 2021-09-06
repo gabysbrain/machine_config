@@ -12,6 +12,7 @@ in
 {
   "google-vdirsyncer.age".publicKeys = me ++ systems;
   "vrvis.age".publicKeys = me ++ systems;
+  "vrvis-smb.age".publicKeys = me ++ systems;
 
   "wasabi.age".publicKeys = me ++ [ philadelphia ];
   "restic.age".publicKeys = me ++ [ philadelphia ];

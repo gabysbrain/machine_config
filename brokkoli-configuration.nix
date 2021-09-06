@@ -18,6 +18,17 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  age.secrets.vrvis-smb.file = ./secrets/vrvis-smb.age;
+  fileSystems."/mnt/stone/torsney-weir" = {
+    device = "//stone.vrvis.lan/torsney-weir";
+    fsType = "cifs";
+    options = let
+      # this line prevents hanging on network split
+      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+
+    in ["${automount_opts},credentials=/run/secrets/vrvis-smb"]; # FIXME: should reference age path
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
 
