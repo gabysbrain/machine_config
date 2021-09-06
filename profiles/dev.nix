@@ -32,6 +32,7 @@ in
 {
   imports = [
     ../config/julia/default.nix
+    ../config/vscode/default.nix
   ];
 
   # virtualbox
@@ -92,7 +93,6 @@ in
     #R-with-my-packages
 
     # Julia stuff
-    vscode # for julia-vscode
     (callPackage ../pkgs/julia.nix {})
     (callPackage ../pkgs/julia-vim {})
 
