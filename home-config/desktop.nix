@@ -7,7 +7,6 @@
     ../config/termite.nix
     ../config/xmonad/default.nix
     ../config/mimeo/default.nix
-    ../config/julia/default.nix
   ];
   xsession = {
     enable = true;

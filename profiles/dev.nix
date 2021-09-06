@@ -30,6 +30,10 @@ let #my-hdf5r = pkgs.rPackages.hdf5r.override {
     ];
 in
 {
+  imports = [
+    ../config/julia/default.nix
+  ];
+
   # virtualbox
   #virtualisation.virtualbox.host.enable = true;
   #virtualisation.virtualbox.host.enableExtensionPack = true;
