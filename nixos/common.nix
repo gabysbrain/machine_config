@@ -31,7 +31,8 @@
   };
 
   # figure out correct time zone
-  services.localtime.enable = true; 
+  # FIXME: this is currently broken in nixos: https://github.com/NixOS/nixpkgs/issues/68489
+  #services.localtime.enable = true; 
 
   # font config
   fonts = {
