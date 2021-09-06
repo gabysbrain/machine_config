@@ -64,7 +64,7 @@
 
       extraOptions = ''
         blur-method = "dual_kawase";
-        blur-strength = 10;
+        blur-strength = 8;
         no-dnd-blur = true;
 
         unredir-if-possible = false;
