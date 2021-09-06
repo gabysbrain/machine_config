@@ -74,6 +74,9 @@ in
     # python
     python3
 
+    # go
+    go
+
     # general
     gnumake
     cmake
