@@ -25,8 +25,10 @@
     options = let
       # this line prevents hanging on network split
       automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+      user_opts = "uid=1000,gid=100";
+      cred_path = "/run/secrets/vrvis-smb";
 
-    in ["${automount_opts},credentials=/run/secrets/vrvis-smb"]; # FIXME: should reference age path
+    in ["${automount_opts},${user_opts},credentials=${cred_path}"]; # FIXME: should reference age path
   };
 
   # Set your time zone.
