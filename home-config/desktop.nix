@@ -237,7 +237,7 @@
     (callPackage ../pkgs/gopass-dmenu.nix {})
     (callPackage ../pkgs/syncthing-quick-status.nix {})
 
-    #(haskellPackages.callPackage ../pkgs/zk {}) # notes
+    (haskellPackages.callPackage ../pkgs/zk {}) # notes
     obsidian
 
     firefox
