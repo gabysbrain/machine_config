@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 
+let system-icons = pkgs.callPackage ../pkgs/system-icons {};
+in
 {
   # Select internationalisation properties.
   # i18n = {
@@ -102,6 +104,10 @@
         iconTheme.name = "Arc";
 
         indicators = [ "~spacer" "~host" "~spacer" "~clock" "~session" "~power" ];
+
+        extraConfig = ''
+          default-user-image = ${system-icons}/share/icons/64x64/${config.networking.hostName}.png
+        '';
       };
     };
     displayManager.defaultSession = "none+xmonad";
