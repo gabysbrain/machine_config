@@ -243,7 +243,7 @@ scratchpads =
        (centerFloat 0.6 0.6)
   , NS "work_tasks" "alacritty -t Tasks -e tasks"
   -- , NS "work_tasks" "termite -t Tasks -r tasks -e tasks"
-       (stringProperty "WM_WINDOW_ROLE" =? "tasks") (centerFloat 0.8 0.8)
+       (stringProperty "WM_NAME" =? "Tasks") (centerFloat 0.8 0.8)
   ]
 
 -- Event handling
