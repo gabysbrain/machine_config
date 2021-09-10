@@ -1,7 +1,7 @@
 #!/bin/sh
 
 MAILDIR=~/.mail
-GMAILACCTS="personal work sfu"
+GMAILACCTS="personal swansea sfu"
 
 echo ---------- send pending messages --------------
 msmtp-queue -r

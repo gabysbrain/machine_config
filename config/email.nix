@@ -24,7 +24,7 @@ in
     maildirBasePath = ".mail";
     accounts = {
       personal = gmail {name="personal"; email="torsneyt@gmail.com"; primary=true;};
-      work = gmail {name="work"; email="t.d.torsneyweir@gmail.com";};
+      swansea = gmail {name="swansea"; email="t.d.torsneyweir@gmail.com";};
       sfu = gmail {name="sfu"; email="ttorsney.sfu@gmail.com";};
       vrvis = {
         realName = "Thomas Torsney-Weir";

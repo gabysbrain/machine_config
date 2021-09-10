@@ -2,7 +2,7 @@ set realname = "Thomas Torsney-Weir"
 set from = "torsneyt@gmail.com"
 alternates "torsney-weir@vrvis\.at"
 
-# Make sure replies to swansea stuff comes from my work address
+# Make sure replies to vrvis stuff comes from my work address
 reply-hook "~t .*@vrvis\.at" "my_hdr From: torsney-weir@vrvis.at"
 
 # Color scheme (nord) --------------------------------
@@ -37,13 +37,10 @@ set pager_context = 3
 set pager_stop = yes
 
 # Set from header before sending ---------------------
-#alias identity_work Thomas Torsney-Weir <t.d.torsney-weir@swansea.ac.uk>
 alias identity_work Thomas Torsney-Weir <torsney-weir@vrvis.at>
 alias identity_home Thomas Torsney-Weir <torsneyt@gmail.com>
 macro compose v "<edit-from>^Uidentity\_<tab>" "Select from"
 
-#fcc-hook '~f t\.d\.torsneyweir@swansea\.ac\.uk' +work/sent
-#fcc-hook '~f torsneyt@gmail\.com' +personal/sent
 fcc-hook '~f torsney-weir@vrvis.at' +vrvis/Sent
 
 # Message formats ------------------------------------
