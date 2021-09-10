@@ -8,8 +8,8 @@
         "WINIT_HIDPI_FACTOR" = "1"; # fix alacritty font scaling issue
       };
       window = {
-        padding.x = 3;
-        padding.y = 3;
+        padding.x = 1;
+        padding.y = 1;
         #decorations = "buttonless";
       };
       scrolling.history = 10000;
