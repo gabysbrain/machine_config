@@ -6,8 +6,8 @@ GMAILACCTS="personal swansea sfu"
 echo ---------- send pending messages --------------
 msmtp-queue -r
 
-echo ----------- moving tags to folders ------------
-afew -m
+#echo ----------- moving tags to folders ------------
+#afew -m
 #archive_mails vrvis
 
 echo ---------------- email sync -------------------
