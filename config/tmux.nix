@@ -29,8 +29,8 @@
       bind r source-file ~/.tmux.conf
 
       # get true color working
-      set-option -ga terminal-overrides ',xterm-termite:RGB'
-      #set-option -ga terminal-overrides ',*-256color*:Tc'
+      #set-option -ga terminal-overrides ',xterm-termite:RGB'
+      set-option -ga terminal-overrides ',*-256color*:Tc'
 
       # split panes using | and -
       bind | split-window -h
