@@ -88,7 +88,7 @@ projects =
 --- derived from https://gist.github.com/Tzbob/7362371
 ---
 
-myTerminal = "alacritty"
+myTerminal = "kitty"
 myBrowser = "firefox"
 
 myFocusFollowsMouse = True
@@ -241,7 +241,7 @@ scratchpads =
   [ NS "spotify" "spotify" (className =? fst spotifyFloat) (snd spotifyFloat)
   , NS "mixer" "pavucontrol" (className =? "Pavucontrol")
        (centerFloat 0.6 0.6)
-  , NS "work_tasks" "alacritty -t Tasks -e tasks"
+  , NS "work_tasks" "kitty --title Tasks tasks"
   -- , NS "work_tasks" "termite -t Tasks -r tasks -e tasks"
        (stringProperty "WM_NAME" =? "Tasks") (centerFloat 0.8 0.8)
   ]
