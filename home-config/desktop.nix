@@ -2,10 +2,9 @@
 
 {
   imports = [
-    ../config/alacritty.nix
     ../config/direnv.nix
+    ../config/kitty.nix
     ../config/pim.nix
-    #../config/termite.nix
     ../config/xmonad/default.nix
     ../config/mimeo/default.nix
   ];
