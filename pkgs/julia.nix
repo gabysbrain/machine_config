@@ -16,8 +16,8 @@ let
   julia = stdenv.mkDerivation { # FIXME: julia seems constantly broken in nixos :(
     name = "julia";
     src = pkgs.fetchurl {
-      url = "https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.2-linux-x86_64.tar.gz";
-      sha256 = "0c26b11qy4csws6vvi27lsl0nmqszaf7lk1ya0jrg8zgvkx099vd";
+      url = "https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.2-linux-x86_64.tar.gz";
+      sha256 = "0h1jh8gbvxb0pl1an0fbbg4lbd0sa24yj2f4yqwavw8dbdvvbd1y";
     };
     installPhase = ''
       mkdir $out
