@@ -50,6 +50,10 @@
       open = "mimeo";
       gvim = "vim -g";
 
+      # drag and drop things
+      drag = "dragon --and-exit";
+      drop = "dragon --target --and-exit";
+
       # Git stuff
       ga = "git add";
       gb = "git branch";

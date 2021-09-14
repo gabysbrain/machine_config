@@ -228,6 +228,7 @@
 
     xclip
     xdotool
+    dragon-drop
     feh
     sxiv
     (callPackage ../pkgs/screenshot {})
