@@ -210,6 +210,7 @@
     shotcut
     xfce.ristretto
     xfce.tumbler # needed for ristretto image previews
+    zulip
 
     youtube-dl
 
