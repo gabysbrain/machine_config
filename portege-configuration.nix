@@ -126,7 +126,6 @@ in
       ./home-config/desktop.nix
       ./profiles/dev.nix
       ./profiles/writing.nix
-      ./profiles/vrvis.nix
     ];
   };
 
