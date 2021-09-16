@@ -47,7 +47,7 @@
     };
     Timer = {
       OnBootSec="3min";
-      OnUnitActiveSec="1h";
+      OnUnitActiveSec="8h";
     };
   };
 }
