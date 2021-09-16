@@ -13,9 +13,6 @@
 # Files
 data.location=~/.task
 
-# Color theme (uncomment one to use)
-include ~/.task/nord.theme
-
 # sync settings
 taskd.key=~/keys/freecinc/freecinc_24b0104f.key.pem
 taskd.certificate=~/keys/freecinc/freecinc_24b0104f.cert.pem

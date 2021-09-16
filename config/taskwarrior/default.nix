@@ -1,9 +1,12 @@
 { pkgs, ... }:
 {
   home.file = {
-    ".taskrc".source = ./dot-taskrc;
-    ".task/baserc".source = ./dot-taskwarrior/baserc;
-    ".task/nord.theme".source = ./dot-taskwarrior/nord.theme;
+    ".taskrc".text = ''
+        ${builtins.readFile ./baserc}
+
+        # color theme
+        ${builtins.readFile ./nord.theme}
+    '';
   };
   home.packages = [
     # task management stuff
