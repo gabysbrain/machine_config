@@ -124,6 +124,11 @@
               fi
           fi
       }
+
+      # open taskwarrior task in jira
+      function twjira {
+        open `task _get "$1".jiraurl`
+      }
     '';
   };
 }
