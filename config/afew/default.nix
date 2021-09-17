@@ -23,8 +23,8 @@
       # rules for moving mails
       vrvis/Inbox = 'tag:trash':vrvis/Trash 'tag:sent':vrvis/Sent 'tag:larvalbrain':vrvis/larvalbrain
       vrvis/Sent = 'tag:trash':vrvis/Trash 'tag:inbox':vrvis/Inbox
-      vrvis/Trash = 'tag:inbox':vrvis/Inbox 'tag:sent':vrvis/Archive
-      vrvis/Archive = 'tag:trash':vrvis/Trash 'tag:inbox':vrvis/Inbox 'tag:sent':vrvis/Archive 'tag:larvalbrain':vrvis/larvalbrain
+      vrvis/Trash = 'tag:inbox':vrvis/Inbox 'tag:sent':vrvis/Sent
+      vrvis/Archive = 'tag:trash':vrvis/Trash 'tag:inbox':vrvis/Inbox 'tag:sent':vrvis/Sent 'tag:larvalbrain':vrvis/larvalbrain
       vrvis/larvalbrain = 'tag:trash':vrvis/Trash 'tag:inbox':vrvis/Inbox
     '';
   };
