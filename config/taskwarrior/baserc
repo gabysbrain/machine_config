@@ -21,6 +21,9 @@ taskd.server=freecinc.com:53589
 taskd.credentials=FreeCinc/freecinc_24b0104f/441588d3-43ec-417c-ae9f-e7f2df4b7053
 #taskd.trust=ignore hostname
 
+# prevent multiple recurring tasks
+recurrence=off
+
 # setup urgency computation
 urgency.user.tag.next.coefficient  = 15.0 # +next tag
 urgency.due.coefficient            = 12.0 # overdue or near due date
