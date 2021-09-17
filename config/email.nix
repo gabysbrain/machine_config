@@ -79,7 +79,7 @@ in
     neomutt
     (callPackage ../pkgs/addr_search {})
     (callPackage ../pkgs/syncmail {})
-    #(callPackage ../pkgs/archive_mails {})
+    (callPackage ../pkgs/archive_mails {})
 
     alot
     notmuch
