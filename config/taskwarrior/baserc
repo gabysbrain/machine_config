@@ -40,21 +40,6 @@ urgency.project.coefficient        =  0.0 # assigned to any project
 urgency.waiting.coefficient        =  0.0 # waiting task
 urgency.blocked.coefficient        =  0.0 # blocked by other tasks
 
-report.next.labels=ID,Project,Recur,Start,Due,Description,Urg
-report.next.columns=id,project,recur,scheduled.countdown,due.relative,description,urgency
-
-report.next.filter=urgency>1 status:pending
-
-report.today.description=Tasks for today
-report.today.columns=id,project,scheduled.countdown,due.relative,description,urgency
-report.today.sort=due+,scheduled+,urgency-
-report.today.filter=(scheduled.before:tomorrow or due.before:yesterday) and status:pending
-
-report.week.description=Tasks for the next week
-report.week.columns=id,project,scheduled.countdown,due.relative,description,urgency
-report.week.sort=due+,scheduled+,urgency-
-report.week.filter=(scheduled.before:today+7days or due.before:today+7days) and status:pending
-
 # Task review
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed

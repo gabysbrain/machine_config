@@ -10,6 +10,9 @@
     ".taskrc".text = ''
         ${builtins.readFile ./baserc}
 
+        # reports
+        ${builtins.readFile ./reports}
+
         # bugwarrior udas
         ${builtins.readFile ./bugwarrior.udas}
 

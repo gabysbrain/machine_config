@@ -1,0 +1,32 @@
+
+# next filter
+report.next.labels=ID,Project,Recur,Start,Due,Description,Urg
+report.next.columns=id,project,recur,scheduled.countdown,due.relative,description,urgency
+report.next.filter=urgency>1 status:pending
+
+# things to do today
+report.today.description=Tasks for today
+report.today.columns=id,project,scheduled.countdown,due.relative,description,urgency
+report.today.sort=due+,scheduled+,urgency-
+report.today.filter=(scheduled.before:tomorrow or due.before:yesterday) and status:pending
+
+# Things to do the next week
+report.week.description=Tasks for the next week
+report.week.columns=id,project,scheduled.countdown,due.relative,description,urgency
+report.week.sort=due+,scheduled+,urgency-
+report.week.filter=(scheduled.before:today+7days or due.before:today+7days) and status:pending
+
+# Tasks that need following up on
+report.followup.description=Things for followup/review
+report.followup.columns=id,description,project,status
+report.followup.filter=+followup
+
+# Report for the weekly progress meeting
+# run as `task weeklymeeting modified.after:2021-09-15`
+report.weeklymeeting.description=VRVis weekly meeting progress
+report.weeklymeeting.columns=id,description.desc,project,depends,tags,jiraurl,depends,status
+#report.weeklymeeting.labels=id,description,project,tags,jira link
+report.weeklymeeting.filter=+vrvis and (status:completed or status:pending)
+report.weeklymeeting.sort=status
+
+
