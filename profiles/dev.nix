@@ -55,6 +55,7 @@ in
     # for nix dev
     niv
     cachix
+    nixos-shell
 
     # haskell
     cabal-install
