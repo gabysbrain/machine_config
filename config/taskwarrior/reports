@@ -24,7 +24,7 @@ report.followup.filter=+followup
 # Report for the weekly progress meeting
 # run as `task weeklymeeting modified.after:2021-09-15`
 report.weeklymeeting.description=VRVis weekly meeting progress
-report.weeklymeeting.columns=id,description.desc,project,depends,tags,jiraurl,depends,status
+report.weeklymeeting.columns=uuid.short,description.desc,project,depends,tags,jiraurl,depends,status
 #report.weeklymeeting.labels=id,description,project,tags,jira link
 report.weeklymeeting.filter=+vrvis and (status:completed or status:pending)
 report.weeklymeeting.sort=status
