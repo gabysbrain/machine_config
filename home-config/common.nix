@@ -17,6 +17,10 @@
         credential = {
           helper = "store";
         };
+
+        init = {
+          defaultBranch = "dev";
+        };
       };
     };
     bat = {
