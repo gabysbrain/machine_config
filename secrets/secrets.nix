@@ -11,6 +11,8 @@ let
 in
 {
   "google-vdirsyncer.age".publicKeys = me ++ systems;
+  "github.age".publicKeys = me ++ systems;
+  "github_token.age".publicKeys = me ++ systems;
   "vrvis.age".publicKeys = me ++ systems;
   "vrvis-smb.age".publicKeys = me ++ systems;
 

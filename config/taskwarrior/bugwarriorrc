@@ -1,6 +1,6 @@
 
 [general]
-targets = vrvis_jira
+targets = vrvis_jira,gabysbrain_github
 shorten = False
 
 [vrvis_jira]
@@ -14,4 +14,15 @@ jira.label_template = jira_{{label}}
 jira.import_labels_as_tags = True
 jira.project_template = {{ {"LARVAE2": "larvalbrain"}[project] | default(project) }}
 
+[gabysbrain_github]
+service = github
+github.login = gabysbrain
+github.username = gabysbrain
+github.token = @oracle:eval:cat /var/run/secrets/github
+github.import_labels_as_tags = True
+github.add_tags = github
+github.label_template = github_{{label}}
+github.description_template = {{githubtitle}}
+# pull everything I'm involved in
+github.involved_issues = True 
 

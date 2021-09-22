@@ -9,6 +9,10 @@
       file = ./vrvis.age;
       owner = "tom";
     };
+    github = {
+      file = ./github.age;
+      owner = "tom";
+    };
   };
 }
 
