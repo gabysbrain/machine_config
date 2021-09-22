@@ -1,4 +1,8 @@
 { pkgs, lib, ... }:
+
+let
+  sysconfig = (import <nixpkgs/nixos> {}).config;
+in
 {
   nixpkgs.overlays = [
     # taskw 1.3.0 has a bug with recent taskwarrior
@@ -9,6 +13,9 @@
   home.file = {
     ".taskrc".text = ''
         ${builtins.readFile ./baserc}
+
+        # only 1 system should do recurrence
+        recurrence=${if (sysconfig.networking.hostName == "brokkoli") then "on" else "off"}
 
         # reports
         ${builtins.readFile ./reports}
