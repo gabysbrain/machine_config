@@ -81,6 +81,13 @@
     user = "torsney-weir";
     dataDir = "/home/torsney-weir";
   };
+  
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true; # alias podman to docker
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     openconnect
