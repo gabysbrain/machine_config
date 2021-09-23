@@ -151,32 +151,6 @@
       '';
     };
   };
-  systemd.user = {
-    services = {
-      vdirsyncer = {
-        Unit = {
-          Description="sync vcard/vcal servers";
-        };
-        Service = {
-          ExecStart = "${pkgs.vdirsyncer}/bin/vdirsyncer sync";
-        };
-      };
-    };
-    timers = {
-      vdirsyncer = {
-        Unit = {
-          Description="sync vcard/vcal servers";
-        };
-        Timer = {
-          OnBootSec = "2m";
-          OnUnitInactiveSec = "15m";
-        };
-        Install = {
-          WantedBy = ["timers.target"];
-        };
-      };
-    };
-  };
 
   home.packages = with pkgs; [
     haskellPackages.xmobar
