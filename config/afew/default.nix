@@ -10,11 +10,12 @@
 
       [SubFolderNameFilter]
       subfolder = vrvis
+      folder_blacklist = Archive
       folder_lowercases = true
 
-      [Filter.ArchiveMails]
-      query = 'tag:archive'
-      tags = -archive;-inbox;-new;-sent;-spam
+      #[Filter.ArchiveMails]
+      #query = 'tag:archive'
+      #tags = -archive;-inbox;-new;-sent;-spam
 
       [InboxFilter]
       tags = -important
