@@ -100,7 +100,7 @@ in
     #R-with-my-packages
 
     # Julia stuff
-    (callPackage ../pkgs/julia.nix {})
+    julia_16-bin
     (callPackage ../pkgs/julia-vim {})
 
     # Problog
