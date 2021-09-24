@@ -45,6 +45,14 @@
           sha256 = "0b7nna4jz1ib217czizqrmdz0yw4apg3gl8kvxr0h10ygwmxh77x";
         };
       }
+      { name = "zsh-image-extension";
+        src = pkgs.fetchFromGitHub {
+          owner = "gabysbrain";
+          repo = "zsh-image-extension";
+          rev = "master";
+          sha256 = "1f55h59z6jz5ypxwhhxihm71537v6yn41hawwpmy8w1n97n54gk6";
+        };
+      }
     ];
     shellAliases = {
       open = "mimeo";
