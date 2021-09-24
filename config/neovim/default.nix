@@ -39,7 +39,6 @@ in
       pkgs.vimPlugins.lightline-vim
       pkgs.vimPlugins.lightline-bufferline
       pkgs.vimPlugins.vim-obsession
-      pkgs.vimPlugins.vimwiki
       pkgs.vimPlugins.vimproc
       pkgs.vimPlugins.vim-easy-align
       pkgs.vimPlugins.vim-slime
