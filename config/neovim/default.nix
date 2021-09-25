@@ -17,13 +17,13 @@ in
     extraConfig = ''
       ${builtins.readFile ./vimrc}
 
-      # universal packages
+      " universal packages
       ${builtins.readFile ./lightline.vim}
       ${builtins.readFile ./nerdtree.vim}
       ${builtins.readFile ./ctags.vim}
       ${builtins.readFile ./syntastic.vim}
 
-      # languages
+      " languages
       ${builtins.readFile ./html.vim}
       ${builtins.readFile ./json.vim}
       ${builtins.readFile ./markdown.vim}
