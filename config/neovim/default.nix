@@ -14,7 +14,26 @@ in
 {
   programs.neovim = {
     enable = true;
-    extraConfig = builtins.readFile ./vimrc;
+    extraConfig = ''
+      ${builtins.readFile ./vimrc}
+
+      # universal packages
+      ${builtins.readFile ./lightline.vim}
+      ${builtins.readFile ./nerdtree.vim}
+      ${builtins.readFile ./ctags.vim}
+      ${builtins.readFile ./syntastic.vim}
+
+      # languages
+      ${builtins.readFile ./html.vim}
+      ${builtins.readFile ./json.vim}
+      ${builtins.readFile ./markdown.vim}
+
+      ${builtins.readFile ./tex.vim}
+
+      ${builtins.readFile ./haskell.vim}
+      ${builtins.readFile ./julia.vim}
+      ${builtins.readFile ./python.vim}
+    '';
     viAlias = true;
     vimAlias = true;
     #vimdiffAlias = true;
