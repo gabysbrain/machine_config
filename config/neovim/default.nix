@@ -51,5 +51,9 @@ in
   home.packages = [
     pkgs.neovim-remote
   ];
+
+  nixpkgs.overlays = [
+    (import ../../overlays/neovim.nix)
+  ];
 }
 
