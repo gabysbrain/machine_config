@@ -107,7 +107,7 @@ myBorderWidth = 0
 myTopBarHeight = 5
 myTabBarHeight = 13
 myGap = 6
-myFont = "xft:Anonymice Nerd Font:size=9"
+myFont = "xft:Anonymice Nerd Font:size=10"
 
 myTopBar = def
   { inactiveBorderColor = myInactiveColor
@@ -256,19 +256,19 @@ myEventHook = mconcat
 
 -- Status bars and logging
 -------------------------------------------------------------------------------
-addPad = wrap " " " "
-
-myPP statusPipe = xmobarPP {
-    ppOutput = hPutStrLn statusPipe
-  , ppCurrent = xmobarColor myMainColor myBgColor . addPad
-  , ppHidden = xmobarColor myLowColor "" . addPad
-  , ppHiddenNoWindows = xmobarColor myLowColor "" . addPad
-  , ppTitle = xmobarColor myTextColor ""
-  , ppSep = xmobarColor myMainColor myBgColor "  |  "
+workspaceFormatter statusPipe = xmobarPP {
+    ppOutput          = hPutStrLn statusPipe
+  , ppCurrent         = xmobarColor myMainColor myBgColor . wrap "[" "]"
+  , ppVisible         = xmobarColor myMainColor myBgColor . wrap "(" ")"
+  , ppHidden          = xmobarColor myMainColor ""
+  , ppHiddenNoWindows = xmobarColor myLowColor ""
+  , ppTitle           = xmobarColor myTextColor ""
+  , ppSep             = xmobarColor myMainColor myBgColor "  |  "
+  , ppWsSep           = "  "
 }
 
 myLogHook h = do
-  let pp = myPP h 
+  let pp = workspaceFormatter h 
   dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP pp
   updatePointer (0.25, 0.25) (0.25, 0.25)
 
