@@ -101,7 +101,7 @@ in
 
     # Julia stuff
     julia_16-bin
-    (callPackage ../pkgs/julia-vim {})
+    (callPackage ../pkgs/jl { juliaPkg = julia_16-bin; pkgs=pkgs; })
 
     # Problog
     (callPackage ../pkgs/problog {})
