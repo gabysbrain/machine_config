@@ -1,7 +1,0 @@
-#!/bin/sh
-
-nm-applet &
-dropbox start
-
-nitrogen --set-scaled /home/tom/.xmonad/bird.jpg
-
