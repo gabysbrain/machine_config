@@ -64,9 +64,9 @@ color.overdue=bold red
 #+---------+
 #+ Reports +
 #+---------+
-color.burndown.done=bold black on cyan
-color.burndown.pending=black on bright cyan
-color.burndown.started=black on blue
+color.burndown.done=bold black on green
+color.burndown.pending=black on blue
+color.burndown.started=black on red
 
 color.history.add=bold black on blue
 color.history.delete=bright white on bold black
