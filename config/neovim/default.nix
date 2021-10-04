@@ -10,6 +10,15 @@ let
       sha256 = "1la51jyjprjp7cvm6mfjs5365m2kfn02cqh599j8ciylr5arjcyq";
     };
   };
+  customPlugins.nvim-jqx = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-jqx";
+    src = pkgs.fetchFromGitHub {
+      owner = "gennaro-tedesco";
+      repo = "nvim-jqx";
+      rev = "master";
+      sha256 = "0kavcpmn066lyajf2zhci5ki3hjm6xv5dqkbh5fknzkl6as4fi4s";
+    };
+  };
 in 
 {
   programs.neovim = {
@@ -50,6 +59,7 @@ in
       pkgs.vimPlugins.The_NERD_tree
       pkgs.vimPlugins.fugitive
       pkgs.vimPlugins.julia-vim
+      customPlugins.nvim-jqx # json
       pkgs.vimPlugins.vim-gitgutter
       pkgs.vimPlugins.Supertab
       pkgs.vimPlugins.ctrlp
