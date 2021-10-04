@@ -18,7 +18,7 @@ report.week.filter=(scheduled.before:today+7days or due.before:today+7days) and 
 
 # Tasks that need following up on
 report.followup.description=Things for followup/review
-report.followup.columns=id,description,project,status
+report.followup.columns=id,uuid.short,description,project,status
 report.followup.filter=+followup
 
 # Report for the weekly progress meeting
