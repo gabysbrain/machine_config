@@ -42,7 +42,6 @@ in
       nord-vim
 
       polyglot
-      pkgs.vimPlugins.ale
       customPlugins.vim-criticmarkup
       pkgs.vimPlugins.Tagbar
       pkgs.vimPlugins.Tabular
@@ -63,7 +62,6 @@ in
       pkgs.vimPlugins.vim-slime
       pkgs.vimPlugins.vimtex
       pkgs.vimPlugins.bracey-vim
-      pkgs.vimPlugins.vim-hindent
     ];
   };
   home.packages = [
