@@ -134,7 +134,7 @@
       }
 
       # open taskwarrior task in jira
-      function to_jira {
+      function tw_jira {
         open `task _get "$1".jiraurl`
       }
     '';
