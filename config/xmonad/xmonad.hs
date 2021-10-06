@@ -98,6 +98,7 @@ myMainColor = "#333333"
 myBgColor = "#FEFEFE"
 myTextColor = "#282828"
 myLowColor = "#999999"
+myLowerColor = "#DDDDDD"
 greenColor = "#75b92d"
 
 myActiveColor = greenColor
@@ -258,10 +259,10 @@ myEventHook = mconcat
 -------------------------------------------------------------------------------
 workspaceFormatter statusPipe = xmobarPP {
     ppOutput          = hPutStrLn statusPipe
-  , ppCurrent         = xmobarColor myMainColor myBgColor . wrap "[" "]"
+  , ppCurrent         = xmobarColor myMainColor myBgColor
   , ppVisible         = xmobarColor myMainColor myBgColor . wrap "(" ")"
-  , ppHidden          = xmobarColor myMainColor ""
-  , ppHiddenNoWindows = xmobarColor myLowColor ""
+  , ppHidden          = xmobarColor myLowColor ""
+  , ppHiddenNoWindows = xmobarColor myLowerColor ""
   , ppTitle           = xmobarColor myTextColor ""
   , ppSep             = xmobarColor myMainColor myBgColor "  |  "
   , ppWsSep           = "  "

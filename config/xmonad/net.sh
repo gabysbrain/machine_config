@@ -7,13 +7,13 @@ net_up () {
 if net_up wlp2s0; then
   WLAN=
 else
-  WLAN="<fc=#eeeeee></fc>"
+  WLAN="<fc=#dddddd></fc>"
 fi
 
 if net_up eth0; then
   ETH=
 else
-  ETH="<fc=#eeeeee></fc>"
+  ETH="<fc=#dddddd></fc>"
 fi
 
 echo "${WLAN} ${ETH}"
