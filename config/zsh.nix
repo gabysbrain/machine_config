@@ -112,25 +112,13 @@
       # fancy globbing
       setopt extendedglob
 
-      bindkey -s '^o' 'lfcd\n'
+      # ctrl-g to open broot
+      # br comes from home-manager broot zsh integration
+      bindkey -s '^g' 'br\n'
 
       # from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/history/history.plugin.zsh
       function hs {
         history 0 | grep -i $*
-      }
-
-      lfcd () {
-          tmp="$(mktemp)"
-          lf -last-dir-path="$tmp" "$@"
-          if [ -f "$tmp" ]; then
-              dir="$(cat "$tmp")"
-              rm -f "$tmp"
-              if [ -d "$dir" ]; then
-                  if [ "$dir" != "$(pwd)" ]; then
-                      cd "$dir"
-                  fi
-              fi
-          fi
       }
 
       # open taskwarrior task in jira
