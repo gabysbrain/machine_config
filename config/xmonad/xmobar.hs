@@ -7,7 +7,12 @@ Config
   , commands = [
       Run Com "/home/tom/.xmonad/xmobar-syncthing-status.sh" [] "st" 30
     , Run Com "/home/tom/.xmonad/net.sh" [] "netstat" 30
-    , Run Battery ["-t", "<left><acstatus>", "--", "-O", "+", "-i", "", "-o", " <timeleft>", "-L", "15", "-l", "red"] 60
+    , Run Battery ["-t", "<left><acstatus>"
+                  , "--"
+                  , "-O", "+", "-i", "", "-o", " <timeleft>"
+                  , "-L", "15", "-l", "red"
+                  , "-A", "2", "-a", "notify-send -u critical 'battery very low\nplug in now'"
+                  ] 60
     , Run MultiCpu ["-t", "<total>"] 30
     , Run CpuFreq ["-t", "<cpu0>"] 30
     , Run Date "%_d %#B %Y <fc=#333333>|</fc> %H:%M" "date" 600
