@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ../config/broot/default.nix
     ../config/zsh.nix
     ../config/tmux.nix
     ../config/lf/default.nix
@@ -31,10 +32,6 @@
         theme = "Nord";
       };
     };
-    broot = {
-      enable = true;
-      enableZshIntegration = true;
-    };
   };
   home.sessionVariables = {
     EDITOR = "vim";
@@ -48,9 +45,6 @@
 
     silver-searcher
   ];
-  home.file = {
-    ".config/broot/launcher/refused".source = ../config/broot/broot-refused;
-  };
 
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
