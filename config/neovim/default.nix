@@ -10,6 +10,15 @@ let
       sha256 = "1la51jyjprjp7cvm6mfjs5365m2kfn02cqh599j8ciylr5arjcyq";
     };
   };
+  customPlugins.vim-convert-color-to = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-convert-color-to";
+    src = pkgs.fetchFromGitHub {
+      owner = "amadeus";
+      repo = "vim-convert-color-to";
+      rev = "5eb519e33e697606dcace57009e7308761261b46";
+      sha256 = "0z6n82zdm219q1bblmis1473ciq31v3dwhmwkl4sld8ahff0cqc3";
+    };
+  };
   customPlugins.nvim-jqx = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-jqx";
     src = pkgs.fetchFromGitHub {
@@ -60,6 +69,7 @@ in
       pkgs.vimPlugins.fugitive
       pkgs.vimPlugins.julia-vim
       customPlugins.nvim-jqx # json
+      customPlugins.vim-convert-color-to
       pkgs.vimPlugins.vim-gitgutter
       pkgs.vimPlugins.Supertab
       pkgs.vimPlugins.ctrlp
