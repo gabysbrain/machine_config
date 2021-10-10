@@ -170,6 +170,7 @@
     connman-gtk
     connman_dmenu
     pavucontrol
+    bpytop # monitoring
 
     libreoffice-unwrapped
     spotify

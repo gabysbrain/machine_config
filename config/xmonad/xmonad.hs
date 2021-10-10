@@ -54,6 +54,7 @@ wsSys = "Sys"
 spotifyFloat = ("Spotify", centerFloat 0.8 0.8)
 launchMail = rit "Email" "neomutt"
 launchCal = rit "Calendar" "ikhal"
+launchMon = rit "Monitor" "bpytop"
 
 -- things to show in the launcher
 launcherApps :: [String]
@@ -77,6 +78,11 @@ projects =
             , projectStartHook = Just $ do
                 launchMail
                 launchCal
+            }
+  , Project { projectName = wsSys
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ do
+                launchMon
             }
   ] -- ++ map workProject [ wsWk1, wsWk2, wsWk3 ]
   -- Project { projectName = wsSys
