@@ -217,6 +217,7 @@
 
     firefox
 
+    xournal # editing pdfs
     okular
     zathura
     breeze-icons # needed for okular
