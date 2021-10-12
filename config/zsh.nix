@@ -122,7 +122,7 @@
       }
 
       # open taskwarrior task in jira
-      function tw_jira {
+      function jira_open {
         open `task _get "$1".jiraurl`
       }
     '';
