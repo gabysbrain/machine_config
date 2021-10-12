@@ -4,9 +4,10 @@
   imports = [
     ../config/direnv.nix
     ../config/kitty.nix
-    ../config/pim/default.nix
     ../config/xmonad/default.nix
     ../config/mimeo/default.nix
+
+    ../profiles/pim/default.nix
   ];
   xsession = {
     enable = true;
