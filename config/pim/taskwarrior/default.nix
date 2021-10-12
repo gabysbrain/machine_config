@@ -7,7 +7,7 @@ in
   nixpkgs.overlays = [
     # taskw 1.3.0 has a bug with recent taskwarrior
     # see https://github.com/ralphbean/taskw/pull/141
-    (import ../../overlays/taskw.nix)
+    (import ../../../overlays/taskw.nix)
   ];
 
   home.file = {
@@ -33,8 +33,8 @@ in
     pkgs.taskwarrior
     pkgs.timewarrior
     pkgs.python38Packages.bugwarrior
-    (pkgs.callPackage ../../pkgs/tasks {})
-    (pkgs.callPackage ../../pkgs/weekly-review {})
+    (pkgs.callPackage ../../../pkgs/tasks {})
+    (pkgs.callPackage ../../../pkgs/weekly-review {})
   ];
   systemd.user.services.bugwarrior-pull = {
     #path = [

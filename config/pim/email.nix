@@ -18,7 +18,8 @@ let
 in 
 {
   imports = [
-    ../config/afew/default.nix
+    ./afew/default.nix
+    ./neomutt/default.nix
   ];
   accounts.email = {
     maildirBasePath = ".mail";
@@ -76,24 +77,11 @@ in
   };
   */
   home.packages = with pkgs; [
-    neomutt
-    (callPackage ../pkgs/addr_search {})
-    (callPackage ../pkgs/syncmail {})
-    (callPackage ../pkgs/notmuch-imap-tag-mover {})
+    (callPackage ../../pkgs/addr_search {})
+    (callPackage ../../pkgs/syncmail {})
+    (callPackage ../../pkgs/notmuch-imap-tag-mover {})
 
-    alot
     notmuch
     gmailieer
-    urlscan
-    w3m
   ];
-  home.file = {
-    # neomutt
-    ".config/neomutt/neomuttrc".source = ./neomutt/dot-neomuttrc;
-    ".config/neomutt/nord.mutt".source = ./neomutt/dot-neomutt/nord.mutt;
-
-    ".urlview".source = ./neomutt/dot-urlview;
-    ".mailcap".source = ./neomutt/dot-mailcap;
-    ".config/alot/themes/tender".source = ./alot/tender;
-  };
 }

@@ -4,7 +4,7 @@
   imports = [
     ../config/direnv.nix
     ../config/kitty.nix
-    ../config/pim.nix
+    ../config/pim/default.nix
     ../config/xmonad/default.nix
     ../config/mimeo/default.nix
   ];
