@@ -38,8 +38,6 @@ in
       " universal packages
       ${builtins.readFile ./lightline.vim}
       ${builtins.readFile ./nerdtree.vim}
-      ${builtins.readFile ./ctags.vim}
-      ${builtins.readFile ./syntastic.vim}
 
       " languages
       ${builtins.readFile ./html.vim}
