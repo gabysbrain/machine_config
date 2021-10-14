@@ -38,6 +38,7 @@ in
       " universal packages
       ${builtins.readFile ./lightline.vim}
       ${builtins.readFile ./nerdtree.vim}
+      ${builtins.readFile ./slime.vim}
 
       " languages
       ${builtins.readFile ./html.vim}
@@ -47,7 +48,6 @@ in
       ${builtins.readFile ./tex.vim}
 
       ${builtins.readFile ./haskell.vim}
-      ${builtins.readFile ./julia.vim}
       ${builtins.readFile ./python.vim}
     '';
     viAlias = true;
