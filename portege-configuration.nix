@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 let nasMount = remotePath: {
-      device = "//192.168.0.14/${remotePath}";
+      device = "//diskstation.lan/${remotePath}";
       fsType = "cifs";
       options = let
         # this line prevents hanging on network split
@@ -129,6 +129,7 @@ in
     ];
   };
 
+  age.secrets.diskstation-smb.file = ./secrets/diskstation-smb.age;
   fileSystems."/mnt/diskstation" = nasMount "homes";
   fileSystems."/mnt/media/videos" = nasMount "videos";
   fileSystems."/mnt/media/music" = nasMount "music";
@@ -140,7 +141,7 @@ in
   services.restic.backups = {
     local = {
       paths = [ "/home" ];
-      repository = "sftp:backup@192.168.0.14:/backup";
+      repository = "sftp:backup@diskstation.lan:/backup";
       passwordFile = "/run/secrets/restic"; # FIXME: this should use age.secrets.restic.path somehow
       extraBackupArgs = [
         "--exclude='home/tom/Downloads'"
@@ -158,7 +159,7 @@ in
         "--keep-last 2"
       ];
       extraOptions = [
-        "sftp.command='ssh backup@192.168.0.14 -i /run/secrets/diskstation-key -s sftp'"
+        "sftp.command='ssh backup@diskstation.lan -i /run/secrets/diskstation-key -s sftp'"
       ];
       timerConfig = {
         OnBootSec = "2m";

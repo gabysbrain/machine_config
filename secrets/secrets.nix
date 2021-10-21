@@ -19,4 +19,5 @@ in
   "wasabi.age".publicKeys = me ++ [ philadelphia ];
   "restic.age".publicKeys = me ++ [ philadelphia ];
   "diskstation-key.age".publicKeys = me ++ [ philadelphia ];
+  "diskstation-smb.age".publicKeys = me ++ [ philadelphia ];
 }

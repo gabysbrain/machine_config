@@ -84,7 +84,7 @@
       wiki = "vim -c ':VimwikiIndex'";
 
       # restic backups
-      restic-local = "restic -r sftp:backup@192.168.0.14:/backup/ -o 'sftp.command=ssh -i /home/tom/keys/diskstation.rsa backup@192.168.0.14 -s sftp'";
+      restic-local = "restic -r sftp:backup@diskstation.lan:/backup/ -o 'sftp.command=ssh -i /home/tom/keys/diskstation.rsa backup@diskstation.lan -s sftp'";
       restic-remote = "export $(cat /home/tom/keys/wasabi | xargs) && restic -r s3:https://s3.wasabisys.com/gabysbrain-restic";
     };
     history = {
