@@ -1,11 +1,15 @@
 #!/bin/sh
 
+if [ "$#" -ne 1 ]; then
+  echo "Specify rpi version (3 or 4)"
+  exit 1
+fi
+
+rpiver=$1
+
 SD=/dev/mmcblk0
 
-BUILDLOG=`nixos-generate -f sd-aarch64 --system aarch64-linux -c image.nix -I nixpkgs=/nix/var/nix/profiles/per-user/root/channels/unstable`
-IMGDIR=$(dirname $(echo $BUILDLOG | tail -1))/..
-
-SDIMG=$(ls $IMGDIR/sd-image/*.img)
+SDIMG=`nix-build '<nixpkgs/nixos>' --no-out-link -A config.system.build.sdImage --argstr system aarch64-linux -I nixos-config=./image-${rpiver}.nix`
 
 echo $SDIMG
 

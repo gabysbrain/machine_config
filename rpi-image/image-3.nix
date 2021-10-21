@@ -2,7 +2,7 @@
 { config, pkgs, lib, options, ... }:
 {
   imports = [
-    ../rpi-configuration.nix
+    ./rpi3-configuration.nix
   ];
 
   networking.hostName = "newrpi";
@@ -18,7 +18,7 @@
     extraGroups = [ "wheel" "networkmanager" "video" ];
     initialPassword = "nixos";
   };
-  services.mingetty.autologinUser = "nixos";
+  services.getty.autologinUser = "nixos";
 
   users.users.root.initialPassword = "nixos"; # Log in without a password
 

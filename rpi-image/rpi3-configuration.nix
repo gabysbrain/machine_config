@@ -2,7 +2,6 @@
 {
   imports = [
     #<home-manager/nixos>
-    ./wireless.nix
   ];
 
   # Boot
@@ -40,20 +39,22 @@
   #networking.hostName = "nixpi"; # unleash your creativity!
 
   networking.enableIPv6 = false;
+  /*
   networking.wireless = {
     enable = true;
     interfaces = ["wlan0"];
   };
+  */
 
   # Packages
   environment.systemPackages = with pkgs; [
     # customize as needed!
     bash zsh vim git
-    raspberrypi-tools
+    libraspberrypi
   ];
 
   # Miscellaneous
-  time.timeZone = "Europe/London"; 
+  time.timeZone = "Europe/Vienna"; 
 
   # server doesn't compile on raspberry pi
   services.localtime.enable = pkgs.lib.mkForce false;
@@ -75,5 +76,5 @@
   documentation.nixos.enable = false;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "20.09";
+  system.stateVersion = "21.03";
 }
