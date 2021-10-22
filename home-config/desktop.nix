@@ -182,6 +182,7 @@
     inkscape
     darktable
     gimp
+    krita
     imagemagick
     shotcut
     xfce.ristretto
