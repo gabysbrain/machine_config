@@ -17,7 +17,7 @@
 
   # Kernel configuration
   #boot.kernelPackages = pkgs.linuxPackages_5_4;
-  boot.kernelPackages = pkgs.linuxPackages_4_19;
+  #boot.kernelPackages = pkgs.linuxPackages_4_19;
   boot.kernelParams = ["cma=256M"];
 
   # Enable additional firmware (such as Wi-Fi drivers).
@@ -38,6 +38,7 @@
   # Networking (see official manual or `/config/sd-image.nix` in this repo for other options)
   #networking.hostName = "nixpi"; # unleash your creativity!
 
+  networking.useDHCP = true;
   networking.enableIPv6 = false;
   /*
   networking.wireless = {

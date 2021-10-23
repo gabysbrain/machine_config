@@ -48,6 +48,7 @@
   # Networking (see official manual or `/config/sd-image.nix` in this repo for other options)
   #networking.hostName = "nixpi"; # unleash your creativity!
 
+  networking.useDHCP = true;
   networking.enableIPv6 = false;
 
   # Packages
