@@ -9,8 +9,15 @@ rpiver=$1
 
 SD=/dev/mmcblk0
 
-SDIMG=`nix-build '<nixpkgs/nixos>' --no-out-link -A config.system.build.sdImage --argstr system aarch64-linux -I nixos-config=./image-${rpiver}.nix`
+SDIMGDIR=`nix-build '<nixpkgs/nixos>' --no-out-link -A config.system.build.sdImage --argstr system aarch64-linux -I nixos-config=./image-${rpiver}.nix`
 
+# if any errors then we should stop
+success=$?
+if [ "$success" -ne 0 ]; then
+  exit $success
+fi
+
+SDIMG=`ls ${SDIMGDIR}/sd-image/*.img | head -1`
 echo $SDIMG
 
 echo "copying image to ${SD}"
