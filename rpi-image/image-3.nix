@@ -2,6 +2,7 @@
 { config, pkgs, lib, options, ... }:
 {
   imports = [
+     <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
     ./rpi3-configuration.nix
   ];
 
