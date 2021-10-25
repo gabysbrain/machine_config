@@ -22,7 +22,6 @@ in
 
   environment.systemPackages = with pkgs; [
     alsaUtils
-    gnome3.dconf
     hicolor-icon-theme
     rxvt_unicode-with-plugins
     shared_mime_info
@@ -31,6 +30,7 @@ in
 
     nix-index
   ];
+  programs.dconf.enable = true;
   programs.slock.enable = true;
   environment.pathsToLink = [ "/share" ];
 
