@@ -6,6 +6,6 @@ pkgs.runCommand "jl" {
 } ''
   mkdir -p $out/bin
   cp ${./jl} $out/bin/jl
-  sed -i "2 i export PATH=$PATH" $out/bin/jl
+  #sed -i "2 i export PATH=$PATH" $out/bin/jl
 ''
 
