@@ -188,6 +188,7 @@
     krita
     imagemagick
     imagej
+    bftools
     shotcut
     xfce.ristretto
     xfce.tumbler # needed for ristretto image previews
