@@ -9,6 +9,9 @@
 
     ../profiles/pim/default.nix
   ];
+  nixpkgs.overlays = [
+    (import ../overlays/imagej.nix)
+  ];
   xsession = {
     enable = true;
 
@@ -184,6 +187,7 @@
     gimp
     krita
     imagemagick
+    imagej
     shotcut
     xfce.ristretto
     xfce.tumbler # needed for ristretto image previews
