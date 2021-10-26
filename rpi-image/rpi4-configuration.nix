@@ -10,9 +10,6 @@
   boot.loader.raspberryPi.enable = true;
   boot.loader.raspberryPi.version = 4;
   boot.loader.raspberryPi.uboot.enable = true;
-  boot.loader.raspberryPi.firmwareConfig = ''
-     gpu_mem=0
-  '';
 
   boot.consoleLogLevel = 7;
 
@@ -48,7 +45,7 @@
   # Networking (see official manual or `/config/sd-image.nix` in this repo for other options)
   #networking.hostName = "nixpi"; # unleash your creativity!
 
-  networking.useDHCP = true;
+  networking.networkmanager.enable = true;
   networking.enableIPv6 = false;
 
   # Packages
@@ -81,5 +78,5 @@
   documentation.nixos.enable = false;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "21.03";
+  system.stateVersion = "21.05";
 }
