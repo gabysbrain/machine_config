@@ -18,6 +18,9 @@ in
           text = builtins.readFile smbCreds;
           #destDir = "/secrets";
         };
+        router-pw = {
+          text = builtins.readFile ./secrets/router.prometheus;
+        };
       };
 
       nixpkgs.system = "aarch64-linux";
@@ -103,12 +106,37 @@ in
             enabledCollectors = [ "systemd" "textfile" ];
             port = 9002;
           };
+          mikrotik = {
+            enable = true;
+            configuration = {
+              devices = [
+                { name = "main_router";
+                  address = "10.0.0.1";
+                  user = "prometheus";
+                  #password_file = "/run/keys/router-pw";
+                  password = "changeme";
+                }
+              ];
+              features = {
+                bgp = true;
+                dhcp = true;
+                routes = true;
+                optics = true;
+              };
+            };
+          };
         };
         scrapeConfigs = [
           {
             job_name = "monitor";
             static_configs = [{
               targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
+            }];
+          }
+          {
+            job_name = "mikrotik";
+            static_configs = [{
+              targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.mikrotik.port}" ];
             }];
           }
         ];
