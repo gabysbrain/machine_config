@@ -16,6 +16,8 @@
     vim
     atool
     file
+
+    (import <agenix> {}).agenix
   ];
 
   programs.zsh = {
