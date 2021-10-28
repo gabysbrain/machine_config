@@ -90,7 +90,7 @@ in
         };
       };
   
-      # nginx reverse proxy
+      # nginx reverse proxy for grafana
       services.nginx.virtualHosts.${config.services.grafana.domain} = {
         locations."/" = {
             proxyPass = "http://127.0.0.1:${toString config.services.grafana.port}";
@@ -132,10 +132,14 @@ in
               };
             };
           };
+          snmp = {
+            enable = true;
+            configurationPath = "${pkgs.prometheus-snmp-exporter.src}/snmp.yml";
+          };
         };
         scrapeConfigs = [
           {
-            job_name = "monitor";
+            job_name = "node";
             static_configs = [{
               targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
             }];
@@ -189,9 +193,9 @@ in
             {
               job_name = "syslog";
               syslog = {
-                listen_address = "0.0.0.0:1514";
+                listen_address = "127.0.0.1:1514";
                 idle_timeout = "60s";
-                label_structured_data = "yes";
+                label_structured_data = true;
                 labels = {
                   job = "syslog";
                 };
