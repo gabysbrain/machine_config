@@ -135,20 +135,38 @@ in
             { url = "http://127.0.0.1:3100/loki/api/v1/push"; }
           ];
 
-          scrape_configs = [ { 
-            job_name = "journal";
-            journal = {
-              max_age = "12h";
-              labels = {
-                job = "systemd-journal";
-                host = "monitor";
+          scrape_configs = [ 
+            # local journal scraping
+            { 
+              job_name = "journal";
+              journal = {
+                max_age = "12h";
+                labels = {
+                  job = "systemd-journal";
+                  host = "monitor";
+                };
               };
-            };
-            relabel_configs = [ {
-              source_labels = [ "__journal__systemd_unit" ];
-              target_label = "unit";
-            } ];
-          } ];
+              relabel_configs = [ {
+                source_labels = [ "__journal__systemd_unit" ];
+                target_label = "unit";
+              } ];
+            } 
+            {
+              job_name = "syslog";
+              syslog = {
+                listen_address = "0.0.0.0:1514";
+                idle_timeout = "60s";
+                label_structured_data = "yes";
+                labels = {
+                  job = "syslog";
+                };
+              };
+              relabel_configs = [ {
+                source_labels = [ "__syslog_message_hostname" ];
+                target_label = "host";
+              } ];
+            }
+          ];
         };
       };
     };
