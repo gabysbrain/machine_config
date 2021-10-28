@@ -61,7 +61,10 @@ in
 
       networking.firewall.allowedTCPPorts = [ 
         53 80 443 
-        #3100 # grafana
+        601 # syslog-ng receiver
+      ];
+      networking.firewall.allowedUDPPorts = [ 
+        514 # syslog-ng receiver
       ];
 
       services.nginx = {
@@ -99,6 +102,10 @@ in
       services.prometheus = {
         enable = true;
         port = 9001;
+
+        globalConfig = {
+          scrape_timeout = "1m";
+        };
 
         exporters = {
           node = {
@@ -196,6 +203,27 @@ in
             }
           ];
         };
+      };
+      services.syslog-ng = {
+        enable = true;
+        extraConfig = ''
+          source s_tcp {
+            syslog( port(601) transport("tcp"));
+          };
+          source s_udp {
+            network( port(514) transport("udp"));
+          };
+
+          destination d_loki {
+            syslog("localhost" transport("tcp") port(1514));
+          };
+
+          log {
+            source(s_udp);
+            source(s_tcp);
+            destination(d_loki);
+          };
+        '';
       };
     };
 }
