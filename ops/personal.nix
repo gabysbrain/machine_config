@@ -150,6 +150,30 @@ in
               targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.mikrotik.port}" ];
             }];
           }
+          {
+            job_name = "snmp";
+            static_configs = [{
+              targets = [ nas ];
+            }];
+            metrics_path = "/snmp";
+            params = {
+              module = [ "synology" ];
+            };
+            relabel_configs = [
+              {
+                source_labels = [ "__address__" ];
+                target_label = "__param_target";
+              }
+              {
+                source_labels = [ "__param_target" ];
+                target_label = "instance";
+              }
+              {
+                target_label = "__address__";
+                replacement = "127.0.0.1:${toString config.services.prometheus.exporters.snmp.port}";
+              }
+            ];
+          }
         ];
       };
 
