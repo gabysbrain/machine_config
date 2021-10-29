@@ -40,6 +40,10 @@ in
       ${builtins.readFile ./nerdtree.vim}
       ${builtins.readFile ./slime.vim}
 
+      lua << EOF
+      ${builtins.readFile ./lsp.lua}
+      EOF
+
       " languages
       ${builtins.readFile ./html.vim}
       ${builtins.readFile ./json.vim}
@@ -64,6 +68,7 @@ in
       pkgs.vimPlugins.vim-buffergator
       pkgs.vimPlugins.The_NERD_Commenter
       pkgs.vimPlugins.The_NERD_tree
+      pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.fugitive
       pkgs.vimPlugins.julia-vim
       customPlugins.nvim-jqx # json
