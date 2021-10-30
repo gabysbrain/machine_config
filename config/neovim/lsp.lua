@@ -1,3 +1,6 @@
+--local lsp_status = require('lsp-status')
+--lsp_status.register_progress()
+
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -35,12 +38,18 @@ local on_attach = function(client, bufnr)
 
 end
 
+--local onattach = function(client)
+  --lsp_status.on_attach(client)
+--end
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'julials' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
+    --on_attach = onattach,
+    --capabilities = lsp_status.capabilities,
     flags = {
       debounce_text_changes = 150,
     }

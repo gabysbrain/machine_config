@@ -19,6 +19,15 @@ let
       sha256 = "0z6n82zdm219q1bblmis1473ciq31v3dwhmwkl4sld8ahff0cqc3";
     };
   };
+  customPlugins.lightline-lsp = pkgs.vimUtils.buildVimPlugin {
+    name = "lightline-lsp";
+    src = pkgs.fetchFromGitHub {
+      owner = "spywhere";
+      repo = "lightline-lsp";
+      rev = "393c0b2d498142061ee34d811f5af18dca7a3d42";
+      sha256 = "1fd5baay5an5alnnxjqa4nm692zrr1f5ii61ps07wv03hpmqj19y";
+    };
+  };
   customPlugins.nvim-jqx = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-jqx";
     src = pkgs.fetchFromGitHub {
@@ -85,6 +94,8 @@ in
       pkgs.vimPlugins.vim-slime
       pkgs.vimPlugins.vimtex
       pkgs.vimPlugins.bracey-vim
+      #pkgs.vimPlugins.lsp-status-nvim
+      customPlugins.lightline-lsp
     ];
   };
   home.packages = [
