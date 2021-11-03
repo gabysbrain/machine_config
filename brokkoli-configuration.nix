@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -81,7 +81,29 @@
     user = "torsney-weir";
     dataDir = "/home/torsney-weir";
   };
+
+  # postgres for webdev
+  services.postgresql = {
+    enable = true;
+    enableTCPIP = true;
+    package = pkgs.postgresql_11;
+    authentication = lib.mkOverride 10 ''
+      local all all trust
+      host all all ::1/128 trust
+      host all all 10.0.0.0/16 trust
+    '';
+    # needs to be SUPERUSER b/c of way db is configured
+    initialScript = pkgs.writeText "pg-initScript" ''
+      CREATE ROLE bbadmin WITH LOGIN SUPERUSER;
+      CREATE ROLE bbweb WITH LOGIN;
+      CREATE ROLE bbsync WITH LOGIN;
+
+      CREATE ROLE annotator WITH LOGIN;
+      CREATE ROLE usr WITH LOGIN;
+    '';
+  };
   
+  # lots of dealing with docker containers
   virtualisation = {
     podman = {
       enable = true;
