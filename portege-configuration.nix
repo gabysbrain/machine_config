@@ -48,7 +48,7 @@ in
   # Select internationalisation properties.
   services.xserver.layout = "gb,us";
   services.xserver.exportConfiguration = true;
-  services.xserver.xkbOptions = "grp:win_caps_toggle, compose:menu, terminate:ctrl_alt_bksp";
+  services.xserver.xkbOptions = "grp:win_caps_toggle,compose:menu,terminate:ctrl_alt_bksp";
   console.useXkbConfig = true;
 
   # Video drivers setup
@@ -193,46 +193,6 @@ in
     };
   };
 
-  # send restic logs for prometheus
-  /*
-  systemd.services.restic-backups-remote-metrics = {
-    description = "Generate prometheus metrics from restic";
-    wantedBy = [ "multi-user.target" ];
-
-    #preStart = "mkdir -p /metrics";
-    environment = {
-      RESTIC_PASSWORD_FILE = "/etc/nixos/secrets/restic-password";
-      RESTIC_REPOSITORY = "s3:https://s3.wasabisys.com/gabysbrain-restic";
-      RESTIC_CACHE_DIR = "/root/.cache/restic";
-    };
-    serviceConfig = {
-      ExecStart = ''
-        ${pkgs.callPackage ./pkgs/restic-metrics {}}/bin/restic-metrics
-      '';
-      EnvironmentFile = "/etc/nixos/secrets/wasabi";
-    };
-  };
-  systemd.timers.restic-backups-remote-metrics = {
-    description = "Regenerate restic prometheus metrics";
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnBootSec = "5m";
-      OnUnitInactiveSec = "24h"; 
-    };
-  };
-
-  # promtail to get logs into loki
-  systemd.services.promtail = {
-    description = "Promtail service for Loki";
-    wantedBy = [ "multi-user.target" ];
-
-    serviceConfig = {
-      ExecStart = ''
-        ${pkgs.grafana-loki}/bin/promtail --config.file ${./promtail.yaml}
-      '';
-    };
-  };
-  */
   # virtualbox
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;

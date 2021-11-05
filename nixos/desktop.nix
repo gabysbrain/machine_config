@@ -74,9 +74,6 @@ in
     #autorun = false;
     enable = true;
     
-    # use compose key and switch layouts with caps lock
-    xkbOptions = "grp:caps_toggle,compose:menu";
-
     libinput.enable = true;
     libinput.touchpad = {
       accelProfile = "adaptive";
