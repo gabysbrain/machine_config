@@ -41,15 +41,28 @@ local on_attach = function(client, bufnr)
   lsp_spinner.on_attach(client, bufnr)
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { 'julials' }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150,
-    }
+-- setup each language server here
+-- julia
+local julia_startup = [[
+  using LanguageServer, LanguageServer.SymbolServer
+  import Pkg
+
+  # figure out if there's a projcet to connect to
+  projfile = Base.current_project();
+  if projfile == nothing
+    projfile = Pkg.Types.Context().env.project_file;
+  end
+  env_path = dirname(projfile);
+  server = LanguageServer.LanguageServerInstance(stdin, stdout, env_path, "");
+  server.runlinter = true;
+  run(server);
+]]
+nvim_lsp['julials'].setup {
+  cmd = { "julia", "--startup-file=no", "--history-file=no", "-e", julia_startup },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
   }
-end
+}
+
