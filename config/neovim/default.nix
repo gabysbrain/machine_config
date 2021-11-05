@@ -1,4 +1,4 @@
-{pkgs,...}:
+{pkgs, lib, ...}:
 
 let
   customPlugins.vim-criticmarkup = pkgs.vimUtils.buildVimPlugin {
@@ -71,6 +71,9 @@ in
 
       ${builtins.readFile ./haskell.vim}
       ${builtins.readFile ./python.vim}
+
+      runtime scratch.vim
+      lua require('scratch')
     '';
     viAlias = true;
     vimAlias = true;
@@ -112,6 +115,17 @@ in
   home.packages = [
     pkgs.neovim-remote
   ];
+  home.activation = {
+    neovimScratchFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      if [ ! -f $HOME/.config/nvim/scratch.vim ]; then
+        $DRY_RUN_CMD touch $HOME/.config/nvim/scratch.vim
+      fi
+      if [ ! -f $HOME/.config/nvim/lua/scratch.lua ]; then
+        $DRY_RUN_CMD mkdir -p $HOME/.config/nvim/lua
+        $DRY_RUN_CMD touch $HOME/.config/nvim/lua/scratch.lua
+      fi
+    '';
+  };
 
   nixpkgs.overlays = [
     (import ../../overlays/neovim.nix)
