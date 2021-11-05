@@ -35,11 +35,6 @@ in
     ../config/vscode/default.nix
   ];
 
-  # virtualbox
-  #virtualisation.virtualbox.host.enable = true;
-  #virtualisation.virtualbox.host.enableExtensionPack = true;
-  #users.extraGroups.vboxusers.members = [ "tom" ];
-
   home.packages = with pkgs; [
     # git things
     git

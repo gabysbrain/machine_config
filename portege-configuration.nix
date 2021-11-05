@@ -233,6 +233,10 @@ in
     };
   };
   */
+  # virtualbox
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "tom" ];
 
   # android dev stuff
   programs.adb.enable = true;
