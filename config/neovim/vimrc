@@ -41,3 +41,6 @@ vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
 
+" need a faster update time
+set updatetime=100
+

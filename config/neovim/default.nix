@@ -88,10 +88,11 @@ in
       pkgs.vimPlugins.The_NERD_tree
       pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.fugitive
+      pkgs.vimPlugins.vim-lawrencium
       pkgs.vimPlugins.julia-vim
       customPlugins.nvim-jqx # json
       customPlugins.vim-convert-color-to
-      pkgs.vimPlugins.vim-gitgutter
+      pkgs.vimPlugins.vim-signify
       pkgs.vimPlugins.Supertab
       pkgs.vimPlugins.ctrlp
       pkgs.vimPlugins.vim-addon-nix
