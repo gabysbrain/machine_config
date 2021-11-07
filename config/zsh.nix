@@ -121,6 +121,20 @@
       function jira_open {
         open `task _get "$1".jiraurl`
       }
+
+      # taskwarrior shortcuts
+      function ta {
+        task add $*
+      }
+      function td {
+        task $* done
+      }
+      function trs {
+        readonly datespec=$${1:?"The reschedule data must be specified."}
+        # TODO: make sure some task ids are specified
+        shift 1
+        task $* modify scheduled:"$datespec"
+      }
     '';
   };
 }
