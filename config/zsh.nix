@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, lib, ...}:
 {
   programs.zsh  = {
     enable = true;
@@ -135,6 +135,18 @@
         shift 1
         task $* modify scheduled:"$datespec"
       }
+
+      if [ -f ~/.config/zsh/scratch.zsh ]; then
+        source ~/.config/zsh/scratch.zsh
+      fi
+    '';
+  };
+  home.activation = {
+    zshScratchFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      if [ ! -f $HOME/.config/zsh/scratch.zsh ]; then
+        $DRY_RUN_CMD mkdir -p $HOME/.config/zsh/
+        $DRY_RUN_CMD touch $HOME/.config/zsh/scratch.zsh
+      fi
     '';
   };
 }
