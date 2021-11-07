@@ -56,7 +56,6 @@
     ];
     shellAliases = {
       open = "mimeo";
-      gvim = "vim -g";
 
       # drag and drop things
       drag = "dragon --and-exit";
@@ -79,9 +78,6 @@
 
       # history aliases
       h = "history 0";
-
-      # open vim wiki
-      wiki = "vim -c ':VimwikiIndex'";
 
       # restic backups
       restic-local = "restic -r sftp:backup@diskstation.lan:/backup/ -o 'sftp.command=ssh -i /home/tom/keys/diskstation.rsa backup@diskstation.lan -s sftp'";
