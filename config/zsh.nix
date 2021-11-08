@@ -129,6 +129,9 @@
       function td {
         task $* done
       }
+      function ts {
+        task sync
+      }
       function trs {
         readonly datespec=$${1:?"The reschedule data must be specified."}
         # TODO: make sure some task ids are specified
