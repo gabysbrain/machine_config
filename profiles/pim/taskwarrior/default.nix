@@ -39,7 +39,7 @@ in
   programs.zsh.initExtra = ''
     # open taskwarrior task in jira
     function twjira {
-      readonly twid=$${1:?"A task id must be specified."}
+      readonly twid=''${1:?"A task id must be specified."}
       open `task _get "$twid".jiraurl`
     }
 
@@ -57,7 +57,7 @@ in
     }
 
     function twrs {
-      readonly datespec=$${1:?"The reschedule data must be specified."}
+      readonly datespec=''${1:?"The reschedule data must be specified."}
       # TODO: make sure some task ids are specified
       shift 1
       task $* modify scheduled:"$datespec"
