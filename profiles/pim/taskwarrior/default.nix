@@ -36,6 +36,33 @@ in
     (pkgs.callPackage ../../../pkgs/tasks {})
     (pkgs.callPackage ../../../pkgs/weekly-review {})
   ];
+  programs.zsh.initExtra = ''
+    # open taskwarrior task in jira
+    function twjira {
+      readonly twid=$${1:?"A task id must be specified."}
+      open `task _get "$twid".jiraurl`
+    }
+
+    # taskwarrior shortcuts
+    function twa {
+      task add $*
+    }
+
+    function twd {
+      task $* done
+    }
+
+    function tws {
+      task sync
+    }
+
+    function twrs {
+      readonly datespec=$${1:?"The reschedule data must be specified."}
+      # TODO: make sure some task ids are specified
+      shift 1
+      task $* modify scheduled:"$datespec"
+    }
+  '';
   systemd.user.services.bugwarrior-pull = {
     #path = [
       #"${pkgs.taskwarrior}/bin"

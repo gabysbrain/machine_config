@@ -117,28 +117,6 @@
         history 0 | grep -i $*
       }
 
-      # open taskwarrior task in jira
-      function tjira {
-        open `task _get "$1".jiraurl`
-      }
-
-      # taskwarrior shortcuts
-      function ta {
-        task add $*
-      }
-      function td {
-        task $* done
-      }
-      function ts {
-        task sync
-      }
-      function trs {
-        readonly datespec=$${1:?"The reschedule data must be specified."}
-        # TODO: make sure some task ids are specified
-        shift 1
-        task $* modify scheduled:"$datespec"
-      }
-
       if [ -f ~/.config/zsh/scratch.zsh ]; then
         source ~/.config/zsh/scratch.zsh
       fi
