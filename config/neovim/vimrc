@@ -33,9 +33,6 @@ set autoindent
 " show numbers in margin
 set number
 
-" F5 to switch buffers fast
-nnoremap <F5> :buffers<CR>:buffer<Space>
-
 " tablular
 vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
@@ -43,4 +40,17 @@ vmap a- :Tabularize /-><CR>
 
 " need a faster update time
 set updatetime=100
+
+" commands to edit and reload config
+" things are weird because 
+nnoremap <leader>ev :e $HOME/.config/nvim/scratch.vim<CR>
+nnoremap <leader>sv :so $MYVIMRC<CR>
+
+" make the Y command consistent with C and D
+nnoremap Y y$
+
+" quick clipboard commands especially since "+y is hard to type correctly :)
+vmap <leader>y "+y
+vmap <leader>d "+d
+vmap <leader>p "+p
 

@@ -3,7 +3,12 @@ let g:slime_target = "tmux"
 let g:slime_default_config = { "socket_name": "default", "target_pane": "" }
 let g:slime_paste_file = tempname()
 let g:slime_cell_delimiter = "#%%"
+
+" convenient keyboard shortcuts
 nmap <c-c><c-r> <Plug>SlimeSendCell
+" run slime from start of file to current location
+nmap <c-c><c-x> :1,.SlimeSend<CR> 
+
 
 " needs to be a function for custom completion
 function! TmuxPanes(txt,L,P)
