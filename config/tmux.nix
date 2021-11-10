@@ -79,13 +79,13 @@
   };
   programs.zsh.shellAliases = {
     # tmux stuff
-    ta = "tmux attach -t";
-    tad = "tmux attach -d -t";
-    ts = "tmux new-session -s";
-    tl = "tmux list-sessions";
-    tkss = "tmux kill-session -t";
+    ma = "tmux attach -t";
+    mad = "tmux attach -d -t";
+    ms = "tmux new-session -s";
+    ml = "tmux list-sessions";
+    mkss = "tmux kill-session -t";
   };
   home.packages = [
-    (pkgs.callPackage ../pkgs/tat {})
+    (pkgs.callPackage ../pkgs/mat {})
   ];
 }
