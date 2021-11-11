@@ -42,7 +42,7 @@ in
   # since I lock down my data drive
   boot.initrd.luks.devices = {
     root = {
-      device = "/dev/nvme0n1p4";
+      device = "/dev/nvme0n1p2";
       preLVM = true;
       allowDiscards = true;
     };
