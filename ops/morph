@@ -1,0 +1,11 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -p morph  -i bash
+
+# die on errors
+set -e
+
+morph build --keep-result ./personal.nix
+
+morph push ./personal.nix
+
+morph deploy ./personal.nix switch
