@@ -28,5 +28,20 @@ in
         ./monitoring.nix
       ];
     };
+
+  grocy = 
+    { config, pkgs, nodes, ... }:
+    { 
+      deployment.targetHost = "10.0.0.53";
+      deployment.targetUser = "root";
+
+      networking.hostName = "grocy";
+
+      imports = [
+        ./grocy.nix
+      ];
+    };
+
+
 }
 
