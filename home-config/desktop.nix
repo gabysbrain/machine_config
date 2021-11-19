@@ -188,6 +188,7 @@
     krita
     imagemagick
     imagej
+    ffmpeg
     bftools
     shotcut
     xfce.ristretto
