@@ -25,6 +25,8 @@ in
       };
 
       imports = [
+        ./rpi-3.nix
+        ./common.nix
         ./monitoring.nix
       ];
     };
@@ -38,6 +40,8 @@ in
       networking.hostName = "grocy";
 
       imports = [
+        ./rpi-3.nix
+        ./common.nix
         ./grocy.nix
       ];
     };

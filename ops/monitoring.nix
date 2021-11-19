@@ -1,19 +1,5 @@
 { config, pkgs, nodes, ... }:
 { 
-  nixpkgs.system = "aarch64-linux";
-
-  services.openssh = {
-    enable = true;
-    permitRootLogin = "prohibit-password";
-    passwordAuthentication = false;
-    challengeResponseAuthentication = false;
-    extraConfig = "Compression no";
-  };
-  
-  imports = [
-    ../rpi-image/rpi3-configuration.nix
-  ];
-
   fileSystems = {
     # for loki and prometheus
     "/var/lib" = {
@@ -72,11 +58,6 @@
     };
 
     exporters = {
-      node = {
-        enable = true;
-        enabledCollectors = [ "systemd" "textfile" ];
-        port = 9002;
-      };
       mikrotik = {
         enable = true;
         configuration = {
