@@ -61,6 +61,13 @@
     dates = "weekly";
     options = "--delete-older-than 10d";
   };
+  nix.autoOptimiseStore = true;
+
+  # limit the systemd journal so it doesn't just fill up
+  services.journald.extraConfig = ''
+    SystemMaxUse=100M
+    MaxFileSec=7day
+  '';
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
