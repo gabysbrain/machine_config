@@ -31,13 +31,13 @@ in
       ];
     };
 
-  grocy = 
+  util = 
     { config, pkgs, nodes, ... }:
     { 
       deployment.targetHost = "10.0.0.53";
       deployment.targetUser = "root";
 
-      networking.hostName = "grocy";
+      networking.hostName = "util";
 
       imports = [
         ./rpi-3.nix
