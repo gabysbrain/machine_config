@@ -81,6 +81,14 @@
         enable = true;
         configurationPath = "${pkgs.prometheus-snmp-exporter.src}/snmp.yml";
       };
+      fritzbox = {
+        enable = true;
+        gatewayAddress = "192.168.178.1";
+        extraFlags = [
+          "-username" "admin"
+          "-password" "spring6068"
+        ];
+      };
     };
     scrapeConfigs = [
       {
@@ -95,7 +103,12 @@
           targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.mikrotik.port}" ];
         }];
       }
-      /*
+      {
+        job_name = "fritzbox";
+        static_configs = [{
+          targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.fritzbox.port}" ];
+        }];
+      }
       {
         job_name = "snmp";
         static_configs = [{
@@ -120,7 +133,6 @@
           }
         ];
       }
-      */
     ];
   };
 
