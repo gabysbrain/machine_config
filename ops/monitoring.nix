@@ -114,11 +114,12 @@
       {
         job_name = "snmp";
         static_configs = [{
-          targets = [ nas ];
+          targets = [ "lr-switch.lan" ];
         }];
         metrics_path = "/snmp";
         params = {
-          module = [ "synology" ];
+          module = [ "mikrotik" ];
+          #walk = 
         };
         relabel_configs = [
           {
