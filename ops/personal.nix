@@ -43,6 +43,7 @@ in
         ./rpi-3.nix
         ./common.nix
         ./grocy.nix
+        ./dns.nix
       ];
     };
 
