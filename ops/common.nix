@@ -1,5 +1,9 @@
 { config, pkgs, nodes, ... }:
 { 
+  imports = [
+    <agenix/modules/age.nix>
+  ];
+
   services.openssh = {
     enable = true;
     permitRootLogin = "prohibit-password";

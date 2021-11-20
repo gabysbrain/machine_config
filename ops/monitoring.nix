@@ -48,6 +48,18 @@
     };
   };
 
+  # secrets for prometheus things
+  age.secrets = {
+    router-pw = {
+      file = ../secrets/router-pw.age;
+      owner = config.services.prometheus.exporters.mikrotik.user;
+    };
+    fritzbox-pw = {
+      file = ../secrets/fritzbox-pw.age;
+      owner = config.services.prometheus.exporters.fritzbox.user;
+    };
+  };
+
   # prometheus database
   services.prometheus = {
     enable = true;
@@ -65,8 +77,8 @@
             { name = "main_router";
               address = "10.0.0.1";
               user = "prometheus";
-              #password_file = "/run/keys/router-pw";
-              password = "changeme";
+              password_file = "/run/secrets/router-pw";
+              #password = "`cat /run/secrets/router-pw`";
             }
           ];
           features = {
@@ -86,7 +98,7 @@
         gatewayAddress = "192.168.178.1";
         extraFlags = [
           "-username" "admin"
-          "-password" "spring6068"
+          "-password" "`cat /run/secrets/fritzbox-pw`"
         ];
       };
     };
@@ -135,6 +147,12 @@
             replacement = "127.0.0.1:${toString config.services.prometheus.exporters.snmp.port}";
           }
         ];
+      }
+      {
+        job_name = "unbound";
+        static_configs = [{
+          targets = [ "util.lan:${toString config.services.prometheus.exporters.unbound.port}" ];
+        }];
       }
     ];
   };
