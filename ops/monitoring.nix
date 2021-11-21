@@ -10,6 +10,7 @@
 
   networking.firewall.allowedTCPPorts = [ 
     53 80 443 
+    3100 # loki receiver
     601 # syslog-ng receiver
   ];
   networking.firewall.allowedUDPPorts = [ 
@@ -52,11 +53,11 @@
   age.secrets = {
     router-pw = {
       file = ../secrets/router-pw.age;
-      owner = config.services.prometheus.exporters.mikrotik.user;
+      owner = "${config.services.prometheus.exporters.mikrotik.user}";
     };
     fritzbox-pw = {
       file = ../secrets/fritzbox-pw.age;
-      owner = config.services.prometheus.exporters.fritzbox.user;
+      owner = "${config.services.prometheus.exporters.fritzbox.user}";
     };
   };
 
@@ -162,6 +163,7 @@
     enable = true;
     configFile = ./loki.yaml;
   };
+  /*
   services.promtail = {
     enable = true;
     configuration = {
@@ -212,6 +214,8 @@
       ];
     };
   };
+  */
+  /*
   services.syslog-ng = {
     enable = true;
     extraConfig = ''
@@ -233,4 +237,5 @@
       };
     '';
   };
+  */
 }
