@@ -20,9 +20,10 @@ function! TmuxPanes(txt,L,P)
   let l:panetxt = system("tmux " . l:socket_option . " " . shellescape(b:slime_config["socket_name"]) . " " . l:command)
   let l:panes = split(l:panetxt, "\n")
 
+  " filter out panes based on the filetype
+  " FIXME: not all commands may work with this (like haskell), might need a lookup table
   if a:txt !~ '\s\+'
-    "filter(l:panes, 'v:val =~ "' . a:txt . '"')
-    let l:panes = filter(l:panes, 'v:val =~ "julia"')
+    let l:panes = filter(l:panes, 'v:val =~ "' . a:txt . '"')
   endif
   return l:panes
 endfunction
