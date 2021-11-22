@@ -57,7 +57,7 @@
   users.users.torsney-weir = {
     home = "/home/torsney-weir";
     description = "Thomas Torsney-Weir";
-    extraGroups = [ "wheel" "lp" "lpadmin" ];
+    extraGroups = [ "wheel" "lp" "lpadmin" "adbusers" ];
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
@@ -119,6 +119,8 @@
     vpn-slice
   ];
 
+  # android development stuff
+  programs.adb.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
