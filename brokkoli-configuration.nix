@@ -93,6 +93,7 @@
     authentication = lib.mkOverride 10 ''
       local all all trust
       host all all ::1/128 trust
+      host all all 127.0.0.1/24 trust
       host all all 10.0.0.0/8 trust
     '';
     # needs to be SUPERUSER b/c of way db is configured
