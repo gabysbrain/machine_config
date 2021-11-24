@@ -39,7 +39,7 @@ in
         };
         imap.host = "mail.vrvis.at";
         smtp.host = "mail.vrvis.at";
-        passwordCommand = "cat /run/secrets/vrvis";
+        passwordCommand = "cat /run/agenix/vrvis";
         msmtp.enable = true;
         notmuch.enable = true;
         mbsync = {
