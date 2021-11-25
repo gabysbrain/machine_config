@@ -10,7 +10,7 @@ let nasMount = remotePath: {
       options = let
         # this line prevents hanging on network split
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
-      in ["${automount_opts},credentials=/run/secrets/diskstation-smb,vers=1.0"];
+      in ["${automount_opts},credentials=/run/agenix/diskstation-smb,vers=1.0"];
     };
 in
 {
@@ -150,7 +150,7 @@ in
     local = {
       paths = [ "/home" ];
       repository = "sftp:backup@diskstation.lan:/backup";
-      passwordFile = "/run/secrets/restic"; # FIXME: this should use age.secrets.restic.path somehow
+      passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
       extraBackupArgs = [
         "--exclude='home/tom/Downloads'"
         "--exclude='home/tom/Sync'"
@@ -167,7 +167,7 @@ in
         "--keep-last 2"
       ];
       extraOptions = [
-        "sftp.command='ssh backup@diskstation.lan -i /run/secrets/diskstation-key -s sftp'"
+        "sftp.command='ssh backup@diskstation.lan -i /run/agenix/diskstation-key -s sftp'"
       ];
       timerConfig = {
         OnBootSec = "2m";
@@ -177,8 +177,8 @@ in
     remote = {
       paths = [ "/home" ];
       repository = "s3:https://s3.eu-central-1.wasabisys.com/gabysbrain-restic";
-      passwordFile = "/run/secrets/restic"; # FIXME: this should use age.secrets.restic.path somehow
-      s3CredentialsFile = "/run/secrets/wasabi"; # FIXME: this should use age.secrets.wasbi.path
+      passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
+      s3CredentialsFile = "/run/agenix/wasabi"; # FIXME: this should use age.secrets.wasbi.path
       extraBackupArgs = [
         "--exclude='home/tom/Downloads'"
         "--exclude='home/tom/Sync'"
