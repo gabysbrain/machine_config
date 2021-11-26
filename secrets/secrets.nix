@@ -9,8 +9,9 @@ let
   interactiveSystems = [ philadelphia brokkoli ];
 
   monitor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC4aiKG9pWpXlFaTFGN3y9JaN53x5dzb+TOjKcay1WbT";
-  util = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA20Dwsc3NRv2eq3dCK3bcOBiQZ2FkFwsggmI8Q9L10U";
+  util = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGsw2m068/jBie+dL8NyoH2kTqLX6oegETMk0wkT7MG3";
   servers = [ util monitor ];
+  backup = [ philadelphia util ];
 
 in
 {
@@ -20,8 +21,9 @@ in
   "vrvis.age".publicKeys = me ++ interactiveSystems;
   "vrvis-smb.age".publicKeys = me ++ interactiveSystems;
 
-  "wasabi.age".publicKeys = me ++ [ philadelphia ];
-  "restic.age".publicKeys = me ++ [ philadelphia ];
+  "wasabi.age".publicKeys = me ++ backup;
+  "restic.age".publicKeys = me ++ backup;
+
   "diskstation-key.age".publicKeys = me ++ [ philadelphia ];
   "diskstation-smb.age".publicKeys = me ++ [ philadelphia ];
 
