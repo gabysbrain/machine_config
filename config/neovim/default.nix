@@ -112,8 +112,12 @@ in
       customPlugins.lsp-spinner
     ];
   };
-  home.packages = [
-    pkgs.neovim-remote
+  home.packages = with pkgs; [
+    neovim-remote
+
+    # language servers
+    flow
+    gopls
   ];
   home.activation = {
     neovimScratchFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''

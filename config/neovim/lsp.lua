@@ -47,7 +47,7 @@ local julia_startup = [[
   using LanguageServer, LanguageServer.SymbolServer
   import Pkg
 
-  # figure out if there's a projcet to connect to
+  # figure out if there's a project to connect to
   projfile = Base.current_project();
   if projfile == nothing
     projfile = Pkg.Types.Context().env.project_file;
@@ -64,5 +64,16 @@ nvim_lsp['julials'].setup {
   flags = {
     debounce_text_changes = 150,
   }
+}
+
+nvim_lsp['flow'].setup {
+  --cmd = { "julia", "--startup-file=no", "--history-file=no", "-e", julia_startup },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp['gopls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
