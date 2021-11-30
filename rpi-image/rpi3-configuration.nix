@@ -9,9 +9,6 @@
   boot.loader.raspberryPi.enable = true;
   boot.loader.raspberryPi.version = 3;
   boot.loader.raspberryPi.uboot.enable = true;
-  boot.loader.raspberryPi.firmwareConfig = ''
-     gpu_mem=0
-  '';
 
   boot.consoleLogLevel = 7;
 
