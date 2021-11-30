@@ -56,7 +56,7 @@ in
   # Select internationalisation properties.
   services.xserver.layout = "gb,us";
   services.xserver.exportConfiguration = true;
-  services.xserver.xkbOptions = "grp:win_caps_toggle,compose:menu,terminate:ctrl_alt_bksp";
+  services.xserver.xkbOptions = "grp:caps_toggle,compose:menu,terminate:ctrl_alt_bksp";
   console.useXkbConfig = true;
 
   # Video drivers setup
