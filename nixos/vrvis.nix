@@ -26,4 +26,14 @@ in
       updateResolvConf = true;
     };
   };
+  security.sudo.extraRules = [
+    { 
+      groups = [ "wheel" ]; 
+      commands = [
+        { command = "/usr/bin/systemctl restart openvpn-vrvisVPN.service"; options = [ "NOPASSWD" ]; }
+        { command = "/usr/bin/systemctl stop openvpn-vrvisVPN.service"; options = [ "NOPASSWD" ]; }
+        { command = "/usr/bin/systemctl start openvpn-vrvisVPN.service"; options = [ "NOPASSWD" ]; }
+      ];
+    }
+  ];
 }
