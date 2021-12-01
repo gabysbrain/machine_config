@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+MNTBASE=$HOME/vrvis
+
+echo -n "connecting to VPN..."
+sudo systemctl start openvpn-vrvisVPN.service
+echo "done"
+
+sleep 3
+
+# mount brokkoli's drives
+echo -n "mounting filesystems..."
+mkdir -p $MNTBASE/home
+mkdir -p $MNTBASE/data
+
+sshfs torsney-weir@brokkoli.vrvis.lan:. $MNTBASE/home
+sshfs torsney-weir@brokkoli.vrvis.lan:/data $MNTBASE/data
+echo "done"
+

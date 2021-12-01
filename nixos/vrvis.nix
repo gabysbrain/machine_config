@@ -36,4 +36,8 @@ in
       ];
     }
   ];
+
+  environment.systemPackages = with pkgs; [
+    (callPackage ../pkgs/vrvis {})
+  ];
 }

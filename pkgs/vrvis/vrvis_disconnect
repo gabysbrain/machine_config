@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+MNTBASE=$HOME/vrvis
+
+set -e # any errors just stop, likely files are still open
+
+echo -n "unmounting filesystems..."
+umount $MNTBASE/home
+umount $MNTBASE/data
+
+# mount brokkoli's drives
+rmdir $MNTBASE/home
+rmdir $MNTBASE/data
+rmdir --ignore-fail-on-non-empty $MNTBASE
+echo "done"
+
+echo -n "disconnecting VPN..."
+sudo systemctl stop openvpn-vrvisVPN.service
+echo "done"
+
