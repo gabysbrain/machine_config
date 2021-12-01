@@ -38,6 +38,14 @@ in
       }];
 
     };
+    localControlSocketPath = "/run/unbound/unbound.ctl";
+  };
+
+  services.prometheus.exporters.unbound = {
+    enable = true;
+    group = config.services.unbound.group;
+    openFirewall = true;
+    controlInterface = config.services.unbound.localControlSocketPath;
   };
 }
 
