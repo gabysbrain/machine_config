@@ -99,7 +99,6 @@ in
       customPlugins.vim-convert-color-to
       pkgs.vimPlugins.vim-signify
       pkgs.vimPlugins.Supertab
-      pkgs.vimPlugins.ctrlp
       pkgs.vimPlugins.vim-addon-nix
       pkgs.vimPlugins.lightline-vim
       pkgs.vimPlugins.lightline-bufferline
