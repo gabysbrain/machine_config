@@ -108,12 +108,17 @@
   };
   
   # lots of dealing with docker containers
+  /*
   virtualisation = {
     podman = {
       enable = true;
       dockerCompat = true; # alias podman to docker
     };
   };
+  */
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "tom" ];
+
 
   environment.systemPackages = with pkgs; [
     openconnect
@@ -122,10 +127,6 @@
 
   # android development stuff
   programs.adb.enable = true;
-
-  # virtualization
-  virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = [ "tom" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
