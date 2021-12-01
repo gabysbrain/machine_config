@@ -15,7 +15,8 @@
   # Kernel configuration
   #boot.kernelPackages = pkgs.linuxPackages_5_4;
   #boot.kernelPackages = pkgs.linuxPackages_4_19;
-  boot.kernelParams = ["cma=256M"];
+  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelParams = [ "console=ttyS1,115200n8" "cma=256M"];
 
   # Enable additional firmware (such as Wi-Fi drivers).
   hardware.enableRedistributableFirmware = true;
