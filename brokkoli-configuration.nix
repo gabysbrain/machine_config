@@ -117,7 +117,7 @@
   };
   */
   virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = [ "tom" ];
+  users.extraGroups.docker.members = [ "torsney-weir" ];
 
 
   environment.systemPackages = with pkgs; [
