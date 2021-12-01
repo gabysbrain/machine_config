@@ -57,6 +57,7 @@ in
       ${builtins.readFile ./lightline.vim}
       ${builtins.readFile ./nerdtree.vim}
       ${builtins.readFile ./slime.vim}
+      ${builtins.readFile ./telescope.vim}
 
       lua << EOF
       ${builtins.readFile ./lsp.lua}
@@ -89,6 +90,7 @@ in
       pkgs.vimPlugins.vim-buffergator
       pkgs.vimPlugins.The_NERD_Commenter
       pkgs.vimPlugins.The_NERD_tree
+      pkgs.vimPlugins.telescope-nvim
       pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.fugitive
       pkgs.vimPlugins.vim-lawrencium
