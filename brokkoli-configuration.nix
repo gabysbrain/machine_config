@@ -123,6 +123,10 @@
   # android development stuff
   programs.adb.enable = true;
 
+  # virtualization
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "tom" ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
