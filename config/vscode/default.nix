@@ -7,8 +7,8 @@
     extensions = (with pkgs.vscode-extensions; [
       vscodevim.vim
 
-      bbenoist.Nix
-      golang.Go
+      bbenoist.nix
+      golang.go
     ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
       publisher = "arcticicestudio";
       name = "nord-visual-studio-code";

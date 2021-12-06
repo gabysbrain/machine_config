@@ -43,7 +43,7 @@ let
       owner = "gennaro-tedesco";
       repo = "nvim-jqx";
       rev = "master";
-      sha256 = "0kavcpmn066lyajf2zhci5ki3hjm6xv5dqkbh5fknzkl6as4fi4s";
+      sha256 = "1dh4yb6rr593nx8kbhskpbb50l211b9z47rvhxd1n07d31bc0lmc";
     };
   };
 in 

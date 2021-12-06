@@ -9,7 +9,7 @@ final: prev: {
           repo = "taskw";
           rev = "develop";
           #sha256 = "0000000000000000000000000000000000000000000000000000";
-          sha256 = "0xjv8ivi7037j6my76dk8l4xg6nazw41hp9cc0k74dhk42cx0r3h";
+          sha256 = "19h2h6jdcyxjvbbn1lwqjb3lkabfqvljcjyahak0xwch3rzxlqcp";
         };
       });
     };

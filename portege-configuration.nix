@@ -123,7 +123,7 @@ in
   users.users.tom = {
     home = "/home/tom";
     description = "Thomas Torsney-Weir";
-    extraGroups = [ "wheel" "lp" "lpadmin" "adbusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "lp" "lpadmin" "adbusers" "dialout" ]; # Enable ‘sudo’ for the user.
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
@@ -180,7 +180,7 @@ in
       paths = [ "/home" ];
       repository = "s3:https://s3.eu-central-1.wasabisys.com/gabysbrain-restic";
       passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
-      s3CredentialsFile = "/run/agenix/wasabi"; # FIXME: this should use age.secrets.wasbi.path
+      environmentFile = "/run/agenix/wasabi"; # FIXME: this should use age.secrets.wasbi.path
       extraBackupArgs = [
         "--exclude='home/tom/Downloads'"
         "--exclude='home/tom/Sync'"
