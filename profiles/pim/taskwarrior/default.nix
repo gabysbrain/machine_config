@@ -38,25 +38,25 @@ in
   ];
   programs.zsh.initExtra = ''
     # open taskwarrior task in jira
-    function tjira {
+    function twjira {
       readonly twid=''${1:?"A task id must be specified."}
       open `task _get "$twid".jiraurl`
     }
 
     # taskwarrior shortcuts
-    function ta {
+    function twa {
       task add $*
     }
 
-    function td {
+    function twd {
       task $* done
     }
 
-    function ts {
+    function tws {
       task sync
     }
 
-    function trs {
+    function twrs {
       readonly datespec=''${1:?"The reschedule data must be specified."}
       # TODO: make sure some task ids are specified
       shift 1

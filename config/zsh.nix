@@ -108,10 +108,6 @@
       # fancy globbing
       setopt extendedglob
 
-      # ctrl-g to open broot
-      # br comes from home-manager broot zsh integration
-      bindkey -s '^g' 'br\n'
-
       # from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/history/history.plugin.zsh
       function hs {
         history 0 | grep -i $*

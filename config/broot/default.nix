@@ -77,4 +77,11 @@ in
   home.file = {
     ".config/broot/launcher/refused".source = ./broot-refused;
   };
+  programs.zsh  = {
+    initExtra = ''
+      # ctrl-g to open broot
+      # br comes from home-manager broot zsh integration
+      bindkey -s '^g' 'br\n'
+    '';
+  };
 }
