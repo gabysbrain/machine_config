@@ -9,7 +9,7 @@ let
   interactiveSystems = [ philadelphia brokkoli ];
 
   monitor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC4aiKG9pWpXlFaTFGN3y9JaN53x5dzb+TOjKcay1WbT";
-  util = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGsw2m068/jBie+dL8NyoH2kTqLX6oegETMk0wkT7MG3";
+  util = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP+73cAn9HiapOEeTQVwRwDDpaAxzeqdBG53XKV0k9yT";
   servers = [ util monitor ];
   backup = [ philadelphia util ];
 
