@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MNTBASE=$HOME/vrvis
+MNTBASE=$HOME/vrvis/mnt
 
 echo -n "connecting to VPN..."
 sudo systemctl start openvpn-vrvisVPN.service
