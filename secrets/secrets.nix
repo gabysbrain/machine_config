@@ -5,13 +5,15 @@ let
   me = [ tom torsney-weir ];
 
   philadelphia = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGAYMK3yvisKXVemHBGQ80/rxxOgdAhLMxVmBo3ILD6o";
+  katana = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBX/H11Ur29rHfI4X3zTz5KSYoW0XyIXtOxFUYwxn/r+";
   brokkoli = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA1HIzwzLMlZINSD1p36schK1NmxoiRr3jKoZKtsO6j";
-  interactiveSystems = [ philadelphia brokkoli ];
+  interactiveSystems = [ philadelphia katana brokkoli ];
 
   monitor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC4aiKG9pWpXlFaTFGN3y9JaN53x5dzb+TOjKcay1WbT";
   util = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP+73cAn9HiapOEeTQVwRwDDpaAxzeqdBG53XKV0k9yT";
   servers = [ util monitor ];
-  backup = [ philadelphia util ];
+
+  backup = [ philadelphia katana util ];
 
 in
 {
