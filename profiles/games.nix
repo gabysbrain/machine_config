@@ -7,8 +7,9 @@
 
     # steam comes from the above programs.steam option
     vassal # mmm board games
-    lutris # windows games
+    wyvern # GOG games
 
+    minecraft
     nethack
     wesnoth
     zeroad # 0 a.d.
