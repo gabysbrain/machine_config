@@ -115,7 +115,7 @@ myBorderWidth = 0
 myTopBarHeight = 5
 myTabBarHeight = 13
 myGap = 6
-myFont = "xft:Anonymice Nerd Font:size=10"
+myFont = "xft:Anonymice Nerd Font:size=9"
 
 maxNormalScreenWidth = 1280
 
@@ -212,7 +212,7 @@ normalLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
       $ topbar
       $ spacing myGap
       $ ResizableTall 1 0.03 0.5 []
-    tabbedL = named "Tabbed"
+    tabbedL = named "Full"
       $ fsSpacing myGap
       $ tabbed shrinkText myTabBar
     bspL = named "BSP"
@@ -229,13 +229,17 @@ normalLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
     topbar = noFrillsDeco shrinkText myTopBar
     named n = renamed [(XMonad.Layout.Renamed.Replace n)]
 
-wideLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
+wideLayout = smartBorders $ avoidStruts $ col3L ||| col2L ||| gridL ||| tabbedL
   where
-    tiledL = named "Tiled"
+    col3L = named "3Col"
       $ topbar
       $ spacing myGap
       $ ThreeColMid 1 (3/100) (1/2)
-    tabbedL = named "Tabbed"
+    col2L = named "2Col"
+      $ topbar
+      $ spacing myGap
+      $ ResizableTall 1 0.03 0.5 []
+    tabbedL = named "Full"
       $ fsSpacing myGap
       $ tabbed shrinkText myTabBar
     gridL = named "Grid"
