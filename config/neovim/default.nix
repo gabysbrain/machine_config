@@ -19,15 +19,6 @@ let
       sha256 = "0z6n82zdm219q1bblmis1473ciq31v3dwhmwkl4sld8ahff0cqc3";
     };
   };
-  customPlugins.lightline-lsp = pkgs.vimUtils.buildVimPlugin {
-    name = "lightline-lsp";
-    src = pkgs.fetchFromGitHub {
-      owner = "spywhere";
-      repo = "lightline-lsp";
-      rev = "393c0b2d498142061ee34d811f5af18dca7a3d42";
-      sha256 = "1fd5baay5an5alnnxjqa4nm692zrr1f5ii61ps07wv03hpmqj19y";
-    };
-  };
   customPlugins.nvim-jqx = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-jqx";
     src = pkgs.fetchFromGitHub {
@@ -45,7 +36,9 @@ in
       ${builtins.readFile ./vimrc}
 
       " universal packages
-      ${builtins.readFile ./lightline.vim}
+      lua << EOF
+      ${builtins.readFile ./lualine.lua}
+      EOF
       ${builtins.readFile ./nerdtree.vim}
       ${builtins.readFile ./slime.vim}
       ${builtins.readFile ./telescope.vim}
@@ -76,6 +69,7 @@ in
 
       polyglot
       customPlugins.vim-criticmarkup
+      lualine-nvim
       pkgs.vimPlugins.Tagbar
       pkgs.vimPlugins.Tabular
       pkgs.vimPlugins.vim-buffergator
@@ -91,8 +85,6 @@ in
       pkgs.vimPlugins.vim-signify
       pkgs.vimPlugins.Supertab
       pkgs.vimPlugins.vim-addon-nix
-      pkgs.vimPlugins.lightline-vim
-      pkgs.vimPlugins.lightline-bufferline
       pkgs.vimPlugins.vim-obsession
       pkgs.vimPlugins.vimproc
       pkgs.vimPlugins.vim-easy-align
@@ -100,7 +92,6 @@ in
       pkgs.vimPlugins.vimtex
       pkgs.vimPlugins.bracey-vim
       pkgs.vimPlugins.lsp-status-nvim
-      customPlugins.lightline-lsp
     ];
   };
   home.packages = with pkgs; [

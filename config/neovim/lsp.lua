@@ -1,7 +1,7 @@
 local lsp_status = require('lsp-status')
 
-lsp_status.config({
-})
+--lsp_status.config({
+--})
 lsp_status.register_progress()
 
 local nvim_lsp = require('lspconfig')
