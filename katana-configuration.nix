@@ -12,7 +12,7 @@
       ./nixos/games.nix
       ./nixos/desktop.nix
       ./nixos/vrvis.nix
-      #./nixos/rgb.nix
+      ./nixos/rgb.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -50,7 +50,7 @@
 
   # this machine uses 27 inch 4k displays
   hardware.video.hidpi.enable = true;
-  services.xserver.dpi = 157; # got his off the internet...
+  services.xserver.dpi = 157; # got this off the internet...
 
   # The remaining syncthing config
   services.syncthing = {
