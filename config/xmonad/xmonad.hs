@@ -18,6 +18,7 @@ import           XMonad.Layout.BinarySpacePartition
 import           XMonad.Layout.Grid
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.NoFrillsDecoration
+import           XMonad.Layout.PerScreen
 import           XMonad.Layout.Renamed
 import           XMonad.Layout.ResizableTile
 import           XMonad.Layout.Spacing
@@ -116,6 +117,8 @@ myTabBarHeight = 13
 myGap = 6
 myFont = "xft:Anonymice Nerd Font:size=10"
 
+maxNormalScreenWidth = 1280
+
 myTopBar = def
   { inactiveBorderColor = myInactiveColor
   , inactiveColor = myInactiveColor
@@ -201,7 +204,9 @@ myKeys conf = let
 
 -- Layouts
 ------------------------------------------------------------------------
-myLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
+myLayout = ifWider maxNormalScreenWidth wideLayout normalLayout
+
+normalLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
   where
     tiledL = named "Tiled"
       $ topbar
@@ -214,6 +219,25 @@ myLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
       $ topbar
       $ spacing myGap
       $ emptyBSP
+    gridL = named "Grid"
+      $ topbar
+      $ spacing myGap
+      $ Grid
+
+    spacing x = spacingRaw False (Border 0 0 0 0) False (Border x x x x) True
+    fsSpacing x = spacingRaw False (Border x x x x) True (Border 0 0 0 0) False
+    topbar = noFrillsDeco shrinkText myTopBar
+    named n = renamed [(XMonad.Layout.Renamed.Replace n)]
+
+wideLayout = smartBorders $ avoidStruts $ tiledL ||| gridL ||| tabbedL
+  where
+    tiledL = named "Tiled"
+      $ topbar
+      $ spacing myGap
+      $ ThreeColMid 1 (3/100) (1/2)
+    tabbedL = named "Tabbed"
+      $ fsSpacing myGap
+      $ tabbed shrinkText myTabBar
     gridL = named "Grid"
       $ topbar
       $ spacing myGap
