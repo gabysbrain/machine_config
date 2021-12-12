@@ -85,7 +85,7 @@ in
     universal-ctags
 
     # deployment
-    nixopsUnstable
+    morph
     heroku
 
     chromium
