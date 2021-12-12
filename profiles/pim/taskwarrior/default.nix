@@ -52,6 +52,10 @@ in
       task $* done
     }
 
+    function twrm {
+      task $* delete
+    }
+
     function tws {
       task sync
     }
