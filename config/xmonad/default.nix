@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
+let
+  sysconfig = (import <nixpkgs/nixos> {}).config;
+in
 {
   xsession = {
     enable = true;
@@ -14,7 +17,8 @@
     ###############################
     # XMonad utilities
     ###############################
-    ".xmonad/xmobar.hs".source = ./xmobar.hs;
+    # TODO: make this configure based on machine capabilities
+    ".xmonad/xmobar.hs".source = ./. + "/xmobar-${sysconfig.networking.hostName}.hs";
     ".xmonad/net.sh" = {
       source = ./net.sh;
       executable = true;
