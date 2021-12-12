@@ -28,15 +28,6 @@ let
       sha256 = "1fd5baay5an5alnnxjqa4nm692zrr1f5ii61ps07wv03hpmqj19y";
     };
   };
-  customPlugins.lsp-spinner = pkgs.vimUtils.buildVimPlugin {
-    name = "lsp-spinner";
-    src = pkgs.fetchFromGitHub {
-      owner = "doums";
-      repo = "lsp_spinner.nvim";
-      rev = "880e72a3744bc11948ab46a16c682a3dd3d247a3";
-      sha256 = "0zrn12zv7wjx5icr7qinnr1p99zgy05lg27fc5irdrgizwka4yzy";
-    };
-  };
   customPlugins.nvim-jqx = pkgs.vimUtils.buildVimPlugin {
     name = "nvim-jqx";
     src = pkgs.fetchFromGitHub {
@@ -108,9 +99,8 @@ in
       pkgs.vimPlugins.vim-slime
       pkgs.vimPlugins.vimtex
       pkgs.vimPlugins.bracey-vim
-      #pkgs.vimPlugins.lsp-status-nvim
+      pkgs.vimPlugins.lsp-status-nvim
       customPlugins.lightline-lsp
-      customPlugins.lsp-spinner
     ];
   };
   home.packages = with pkgs; [

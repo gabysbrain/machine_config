@@ -5,10 +5,10 @@ let g:lightline#lsp#indicator_warnings = "\uf071"
 let g:lightline#lsp#indicator_errors = "\uf05e"
 let g:lightline#lsp#indicator_ok = "\uf00c"
 
-" function for getting the spinner from lsp_spinner
-function! LspSpinner() abort
+" extract lsp status from lua
+function! LspStatus() abort
   if luaeval('#vim.lsp.buf_get_clients() > 0')
-    return luaeval("require('lsp_spinner').status()")
+    return luaeval("require('lsp-status').status()")
   endif
 
   return ''
@@ -23,14 +23,13 @@ let g:lightline = {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
   \             [ 'lspstatus' ] ],
-  \   'right': [ [ 'lspspinner' ],
-  \              [ 'lsp_errors', 'lsp_warnings', 'lsp_infos', 'lsp_hints', 'lsp_ok' ],
+  \   'right': [ [ 'lsp_errors', 'lsp_warnings', 'lsp_infos', 'lsp_hints', 'lsp_ok' ],
   \              [ 'lineinfo' ],
   \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
   \ },
   \ 'component_function': {
   \   'gitbranch': 'FugitiveHead',
-  \   'lspspinner': 'LspSpinner',
+  \   'lspstatus': 'LspStatus',
   \ },
   \ 'tabline': {
   \   'left': [[ 'buffers' ]], 
