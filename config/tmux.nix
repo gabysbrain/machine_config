@@ -44,7 +44,12 @@
       bind -n M-Up select-pane -U
       bind -n M-Down select-pane -D
 
-      #urxvt tab like window switching (-n: no prior escape seq)
+      # new windows should open in current dir
+      bind '"' split-window -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
+
+      # urxvt tab like window switching (-n: no prior escape seq)
       bind -n S-down new-window
       bind -n S-left prev
       bind -n S-right next
