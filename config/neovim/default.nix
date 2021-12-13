@@ -38,6 +38,7 @@ in
       " universal packages
       lua << EOF
       ${builtins.readFile ./lualine.lua}
+      ${builtins.readFile ./barbar.lua}
       EOF
       ${builtins.readFile ./nerdtree.vim}
       ${builtins.readFile ./slime.vim}
@@ -70,6 +71,7 @@ in
       polyglot
       customPlugins.vim-criticmarkup
       lualine-nvim
+      barbar-nvim
       pkgs.vimPlugins.Tagbar
       pkgs.vimPlugins.Tabular
       pkgs.vimPlugins.vim-buffergator
