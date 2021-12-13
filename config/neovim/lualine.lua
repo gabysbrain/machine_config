@@ -20,7 +20,7 @@ lualine.setup {
     lualine_b = {{'branch', icon = ''}, 'diff', 'diagnostics'},
     lualine_c = {'filename', lspStatus},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
+    lualine_y = {},
     lualine_z = {'location'}
   }
 }
