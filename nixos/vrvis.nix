@@ -21,7 +21,7 @@ in
   # vpn
   services.openvpn.servers = {
     vrvisVPN = { 
-      config = '' config /etc/nixos/secrets/vrvisVPN/torsney-weir_philadelphia_vrvis.ovpn ''; 
+      config = '' config /etc/nixos/secrets/vrvisVPN/torsney-weir_${toString config.networking.hostName}_vrvis.ovpn ''; 
       autoStart = false;
       updateResolvConf = true;
     };
