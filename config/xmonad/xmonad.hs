@@ -234,7 +234,7 @@ wideLayout = smartBorders $ avoidStruts $ col3L ||| col2L ||| gridL ||| tabbedL
     col3L = named "3Col"
       $ topbar
       $ spacing myGap
-      $ ThreeColMid 1 (3/100) (1/2)
+      $ ThreeColMid 1 (3/100) (4/9)
     col2L = named "2Col"
       $ topbar
       $ spacing myGap
