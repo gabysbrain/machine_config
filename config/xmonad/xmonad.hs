@@ -117,7 +117,7 @@ myTabBarHeight = 13
 myGap = 6
 myFont = "xft:Anonymice Nerd Font:size=9"
 
-maxNormalScreenWidth = 1280
+maxNormalScreenWidth = 1920
 
 myTopBar = def
   { inactiveBorderColor = myInactiveColor
