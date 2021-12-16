@@ -92,6 +92,8 @@ in
       pkgs.vimPlugins.vim-easy-align
       pkgs.vimPlugins.vim-slime
       pkgs.vimPlugins.vimtex
+      pkgs.vimPlugins.typescript-vim
+      pkgs.vimPlugins.vim-jsx-typescript
       pkgs.vimPlugins.bracey-vim
       pkgs.vimPlugins.lsp-status-nvim
     ];
@@ -100,8 +102,9 @@ in
     neovim-remote
 
     # language servers
-    flow
     gopls
+    nodePackages.typescript-language-server
+    # julia ts is installed as julia module
   ];
   home.activation = {
     neovimScratchFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''

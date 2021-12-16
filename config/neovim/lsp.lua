@@ -5,6 +5,7 @@ local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 
 local nvim_lsp = require('lspconfig')
+local util = nvim_lsp.util
 
 --local capabilities = vim.lsp.protocol.make_client_capabilities()
 local capabilities = lsp_status.capabilities
@@ -71,8 +72,7 @@ nvim_lsp['julials'].setup {
   }
 }
 
-nvim_lsp['flow'].setup {
-  --cmd = { "julia", "--startup-file=no", "--history-file=no", "-e", julia_startup },
+nvim_lsp['tsserver'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
