@@ -3,13 +3,13 @@
 
 pkgs.buildGoModule rec {
   pname = "notmuch-imap-tag-mover";
-  version = "2021-11-03";
+  version = "2021-12-20";
 
   src = pkgs.fetchFromGitHub {
     owner = "gabysbrain";
     repo = "${pname}";
-    rev = "91137c2fe839d16bab02e95b18224daca2f4414a";
-    sha256 = "0vq8blih7kpgdn9jx3n7gv81cgkz5jrpc10fgd8sb1f3lyxif5a0";
+    rev = "a1c1b53f8b9c147243f928b0cddf3b83ba37ae88";
+    sha256 = "08xs8r392wdk4wwd9rr9h4z7xvfdni78h5lnm619qx4b34zand92";
   };
 
   # will need a bump when deps change
