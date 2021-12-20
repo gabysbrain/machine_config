@@ -83,46 +83,18 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 
-    5432 # postgres 
-  ];
-  # postgres for webdev
-  services.postgresql = {
-    enable = true;
-    enableTCPIP = true;
-    package = pkgs.postgresql_11;
-    authentication = lib.mkOverride 10 ''
-      local all all trust
-      host all all ::1/128 trust
-      host all all 127.0.0.1/24 trust
-      host all all 10.0.0.0/8 trust
-    '';
-    # needs to be SUPERUSER b/c of way db is configured
-    initialScript = pkgs.writeText "pg-initScript" ''
-      CREATE ROLE bbadmin WITH LOGIN SUPERUSER;
-      CREATE ROLE bbweb WITH LOGIN;
-      CREATE ROLE bbsync WITH LOGIN;
 
-      CREATE ROLE annotator WITH LOGIN;
-      CREATE ROLE usr WITH LOGIN;
-    '';
-  };
+  ];
   
   # lots of dealing with docker containers
-  /*
-  virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true; # alias podman to docker
-    };
-  };
-  */
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "torsney-weir" ];
-
 
   environment.systemPackages = with pkgs; [
     openconnect
     vpn-slice
+
+    docker-compose # for docker dev
   ];
 
   # android development stuff
