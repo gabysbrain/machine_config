@@ -89,6 +89,7 @@
     ts = "tmux new-session -s";
     tl = "tmux list-sessions";
     tkss = "tmux kill-session -t";
+    tt = "tmux new-session -t";
   };
   home.packages = [
     (pkgs.callPackage ../pkgs/tat {})
