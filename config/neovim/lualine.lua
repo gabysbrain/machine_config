@@ -19,8 +19,8 @@ lualine.setup {
     lualine_a = {'mode'},
     lualine_b = {{'branch', icon = ''}, 'diff', 'diagnostics'},
     lualine_c = {'filename', lspStatus},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {},
+    lualine_x = {'encoding', 'fileformat'},
+    lualine_y = {'filetype'},
     lualine_z = {'location'}
   }
 }
