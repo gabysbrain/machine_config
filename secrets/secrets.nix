@@ -9,7 +9,7 @@ let
   brokkoli = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA1HIzwzLMlZINSD1p36schK1NmxoiRr3jKoZKtsO6j";
   interactiveSystems = [ philadelphia katana brokkoli ];
 
-  monitor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC4aiKG9pWpXlFaTFGN3y9JaN53x5dzb+TOjKcay1WbT";
+  monitor = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG6NDnkgBhim0cyNvsjt94RMqdPDnzmE12zW8FV3OMq7";
   util = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILmEI64SnaAwNsyPFw0hPTZvM8SI3XdncrEpa1DF95OS";
   servers = [ util monitor ];
 
