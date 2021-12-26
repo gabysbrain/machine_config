@@ -1,33 +1,44 @@
-#!/bin/sh
+#! /usr/bin/env bash
+
+# Original idea from https://github.com/thoughtbot/dotfiles/blob/master/bin/tat
+# Attach or create tmux session (and group) named the same as current directory
 #
-# from https://github.com/thoughtbot/dotfiles/blob/master/bin/tat
-# Attach or create tmux session named the same as current directory.
+# If there's already a session then find an unattached session of the group
+# to attach to, otherwise create a new session in the same group
 
 
 path_name="$(basename "$PWD" | tr . -)"
 session_name=${1-$path_name}
 
-not_in_tmux() {
-  [ -z "$TMUX" ]
+group_exists() {
+  group_name="$1"
+  tmux list-sessions -F '#{?session_group,#{session_group},#{session_name}}' | grep -q "^${group_name}$"
 }
 
-session_exists() {
-  tmux has-session -t "=$session_name"
-}
+# FIXME: might need TMUX='' before new-session commands in case we're inside tmux already
 
-create_detached_session() {
-  (TMUX='' tmux new-session -Ad -s "$session_name")
-}
-
-create_if_needed_and_attach() {
-  if not_in_tmux; then
-    tmux new-session -As "$session_name"
-  else
-    if ! session_exists; then
-      create_detached_session
-    fi
-    tmux switch-client -t "$session_name"
+# check to see if there's a group already
+if group_exists "${session_name}"; then
+  # figure out if there's an unattached session in the group and attach to it
+  attach_session=`tmux list-sessions -F '#{session_attached},#{?session_group,#{session_group},#{session_name}},#{window_id}' | grep '^0,'"${session_name}"',' | cut -d, -f 3 | sort | head -1`
+  if [ -z "$attach_session" ]; then
+    ## if there's no unattached session then create a new one in the group
+    new_session=`TMUX='' tmux new-session -P -d -t "${session_name}"`
+    attach_session=`tmux new-window -P -t "${new_session}"`
   fi
-}
+else
+  # create the group with new-session as detached 
+  # and name the session with CWD
 
-create_if_needed_and_attach
+  # -P prints the name of the new session
+  # -s instead of -t forces the session name to not have the numeric extension
+  attach_session=`TMUX='' tmux new-session -P -d -s "${session_name}"`
+fi
+
+# finally! 
+if [ -z "$TMUX" ]; then # see if we're in tmux already
+  tmux attach-session -t "${attach_session}"
+else
+  tmux switch-client -t "${attach_session}"
+fi
+
