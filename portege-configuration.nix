@@ -161,13 +161,6 @@ in
         "--exclude='home/*/.mozilla'"
         "--exclude='home/**/vrvis'"
       ];
-      pruneOpts = [
-        "--keep-daily 7"
-        "--keep-weekly 8"
-        "--keep-monthly 24"
-        "--keep-yearly 5"
-        "--keep-last 2"
-      ];
       extraOptions = [
         "sftp.command='ssh backup@diskstation.lan -i /run/agenix/diskstation-key -s sftp'"
       ];
@@ -190,13 +183,6 @@ in
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
         "--exclude='home/**/vrvis'"
-      ];
-      pruneOpts = [
-        "--keep-daily 7"
-        "--keep-weekly 8"
-        "--keep-monthly 24"
-        "--keep-yearly 5"
-        "--keep-last 2"
       ];
       timerConfig = {
         OnBootSec = "2m";
