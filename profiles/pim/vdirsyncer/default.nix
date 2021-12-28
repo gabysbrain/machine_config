@@ -6,7 +6,7 @@
   };
 
   home.packages = with pkgs; [
-    isync
+     vdirsyncer # to put vdirsyncer in my path
   ];
 
   systemd.user = {
