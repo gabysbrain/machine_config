@@ -11,7 +11,7 @@ import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.EwmhDesktops
 
 import           XMonad.Actions.DynamicProjects
-import           XMonad.Actions.GridSelect
+import           XMonad.Actions.TreeSelect
 import           XMonad.Actions.UpdatePointer
 
 import           XMonad.Layout.BinarySpacePartition
@@ -38,6 +38,8 @@ import           System.IO
 import           System.Posix.Env (putEnv)
 import           Control.Monad (void)
 
+import qualified MyAppTree
+
 import qualified Data.Map                           as M
 import qualified XMonad.StackSet                    as W
 
@@ -56,12 +58,6 @@ spotifyFloat = ("Spotify", centerFloat 0.8 0.8)
 launchMail = rit "Email" "neomutt"
 launchCal = rit "Calendar" "ikhal"
 launchMon = rit "Monitor" "bpytop"
-
--- things to show in the launcher
-launcherApps :: [String]
-launcherApps = [ "zoom", "zulip", "Discord", "obs", "gimp", 
-                 "inkscape", "code", "zotero", "libreoffice", 
-                 "obsidian", "remmina" ]
 
 -- Projects
 workProject :: String -> Project
@@ -186,7 +182,7 @@ myKeys conf = let
     , ((myModMask .|. shiftMask, xK_n), addName "Wiki" $ spawn "nvim -c 'VimwikiIndex'")
     , ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks")
     , ((myModMask .|. controlMask, xK_p), addName "Password" $ spawn "gopass-dmenu")
-    , ((myModMask .|. shiftMask, xK_p), addName "Grid launcher" $ spawnSelected defaultGSConfig launcherApps)
+    , ((myModMask .|. shiftMask, xK_p), addName "Launcher" $ treeselectAction myTreeConf MyAppTree.myApps)
     ] ^++^
 
   subKeys "shortcuts"
@@ -201,6 +197,14 @@ myKeys conf = let
     , ((myModMask, xK_y), addName "Hide status bar" $ sendMessage ToggleStruts)
     , ((myModMask .|. shiftMask, xK_space), addName "reset layout" $ setLayout $ XMonad.layoutHook conf)
     ]
+
+myTreeConf = def { ts_font         = myFont
+                 , ts_background   = 0x00000000
+                 , ts_node         = (0xffeceff4, 0xff4c566a)
+                 , ts_nodealt      = (0xffeceff4, 0xff3b4252)
+                 , ts_highlight    = (0xffeceff4, 0xff88c0d0)
+                 , ts_extra        = 0xffd0d0d0
+                 }
 
 -- Layouts
 ------------------------------------------------------------------------
@@ -324,9 +328,6 @@ myConfig statusPipe = def {
   , logHook            = myLogHook statusPipe
   , startupHook        = ewmhDesktopsStartup
 }
-
--- put grid select colors, etc here
-launchGridSelect = spawnSelected defaultGSConfig 
 
 -- Run xmonad with the settings specified. No need to modify this.
 -------------------------------------------------------------------------------
