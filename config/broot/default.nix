@@ -24,6 +24,16 @@ in
   programs.broot = {
     enable = true;
     enableZshIntegration = true;
+    verbs = [
+      { 
+        invocation = "work";
+        external = "cd {directory}; tat"; 
+        key = "ctrl-g";
+        shortcut = "t";
+        apply_to = "directory";
+        from_shell = true;
+      }
+    ];
     # based on broot solarized dark and neovim nord themes
     skin = with nordColors; {
       default = "${nord4} ${nord0} / ${nord3} ${nord1}";
@@ -79,9 +89,11 @@ in
   };
   programs.zsh  = {
     initExtra = ''
-      # ctrl-g to open broot
+      # ctrl-l to open broot
       # br comes from home-manager broot zsh integration
-      bindkey -s '^g' 'br\n'
+      bindkey -s '^l' 'br\n'
+      # ctrl-g to open directory search
+      bindkey -s '^g' 'br --cmd " files" ~\n'
     '';
   };
 }
