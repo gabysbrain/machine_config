@@ -177,7 +177,6 @@
     spotify
     discord
     zotero
-    meld
 
     inkscape
     darktable

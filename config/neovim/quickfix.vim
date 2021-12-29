@@ -7,7 +7,7 @@ nnoremap <C-k> :cnext<CR>zz
 nnoremap <C-j> :cprev<CR>zz
 
 " local list things
-nnoremap <localleader>q :call togglequickfix#ToggleLocation()<CR>
-nnoremap <localleader>k :lnext<CR>zz
-nnoremap <localleader>j :lprev<CR>zz
+nnoremap <leader>q :call togglequickfix#ToggleLocation()<CR>
+nnoremap <leader>k :lnext<CR>zz
+nnoremap <leader>j :lprev<CR>zz
 

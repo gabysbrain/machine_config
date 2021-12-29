@@ -18,7 +18,12 @@
         credential = {
           helper = "store";
         };
-
+        pull.rebase = true;
+        merge = {
+          tool = "vimdiff";
+          conflictstyle = "diff3";
+        };
+        mergetool.vimdiff.cmd = ''nvim -d "$LOCAL" "$MERGED" "$REMOTE"'';
         init = {
           defaultBranch = "dev";
         };

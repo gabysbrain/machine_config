@@ -53,6 +53,7 @@ in
       ${builtins.readFile ./slime.vim}
       ${builtins.readFile ./telescope.vim}
       ${builtins.readFile ./quickfix.vim}
+      ${builtins.readFile ./vimdiff.vim}
 
       lua << EOF
       ${builtins.readFile ./lsp.lua}
@@ -73,7 +74,7 @@ in
     '';
     viAlias = true;
     vimAlias = true;
-    #vimdiffAlias = true;
+    vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       # themes
       nord-vim
