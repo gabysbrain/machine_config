@@ -26,10 +26,17 @@
     extraConfig = ''
       # reload config
       unbind r
-      bind r source-file ~/.tmux.conf
+      bind r source-file ~/.config/tmux/tmux.conf
+
+      # windows start at 1
+      set -g base-index 1
+
+      # Vi copypaste mode
+      set-window-option -g mode-keys vi
+      bind-key -T copy-mode-vi 'v' send -X begin-selection
+      bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
 
       # get true color working
-      #set-option -ga terminal-overrides ',xterm-termite:RGB'
       set-option -ga terminal-overrides ',*-256color*:Tc'
 
       # split panes using | and -
@@ -49,22 +56,15 @@
       bind % split-window -h -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
 
-      # urxvt tab like window switching (-n: no prior escape seq)
-      bind -n S-down new-window
-      bind -n S-left prev
-      bind -n S-right next
-      bind -n C-left swap-window -t -1
-      bind -n C-right swap-window -t +1
-
       # Turn on mouse mode
       set -g mouse on
 
       # status bar styling
-      set-option -g status-position top
+      set-option -g status-position bottom
       set -g status-justify left
       set -g status-style 'bg=#323232 fg=#eeeeee dim'
       set -g status-left ' '
-      set -g status-right ' '
+      set -g status-right '#{?session_group,#{session_group},#{session_name}}'
       set -g status-right-length 50
       set -g status-left-length 20
 
