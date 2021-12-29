@@ -77,7 +77,8 @@ in
       pkgs.vimPlugins.vim-buffergator
       pkgs.vimPlugins.The_NERD_Commenter
       pkgs.vimPlugins.The_NERD_tree
-      pkgs.vimPlugins.telescope-nvim
+      telescope-nvim
+      telescope-fzf-native-nvim
       pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.fugitive
       pkgs.vimPlugins.vim-lawrencium
