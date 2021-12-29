@@ -27,14 +27,15 @@ in
         ${builtins.readFile ./nord.theme}
     '';
     ".config/bugwarrior/bugwarriorrc".source = ./bugwarriorrc;
+    ".tmuxp/Tasks.yaml".source = ./Tasks.yaml;
   };
-  home.packages = [
+  home.packages = with pkgs; [
     # task management stuff
-    pkgs.taskwarrior
-    pkgs.timewarrior
-    pkgs.python38Packages.bugwarrior
-    (pkgs.callPackage ../../../pkgs/tasks {})
-    (pkgs.callPackage ../../../pkgs/weekly-review {})
+    taskwarrior
+    timewarrior
+    python38Packages.bugwarrior
+    tmuxp
+    (callPackage ../../../pkgs/weekly-review {})
   ];
   programs.zsh.initExtra = ''
     # open taskwarrior task in jira
