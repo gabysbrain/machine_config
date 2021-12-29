@@ -28,6 +28,15 @@ let
       sha256 = "1dh4yb6rr593nx8kbhskpbb50l211b9z47rvhxd1n07d31bc0lmc";
     };
   };
+  customPlugins.vim-toggle-quickfix = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-toggle-quickfix";
+    src = pkgs.fetchFromGitHub {
+      owner = "drmingdrmer";
+      repo = "vim-toggle-quickfix";
+      rev = "04ca155dc8d8bd6b9e882b916ba827fa80f7b576";
+      sha256 = "1jd0j8n1h964yg2lbgzdhg4c2j9a71h07qxw3zpbcxv1ack8v0ib";
+    };
+  };
 in 
 {
   programs.neovim = {
@@ -43,6 +52,7 @@ in
       ${builtins.readFile ./nerdtree.vim}
       ${builtins.readFile ./slime.vim}
       ${builtins.readFile ./telescope.vim}
+      ${builtins.readFile ./quickfix.vim}
 
       lua << EOF
       ${builtins.readFile ./lsp.lua}
@@ -85,6 +95,7 @@ in
       pkgs.vimPlugins.julia-vim
       customPlugins.nvim-jqx # json
       customPlugins.vim-convert-color-to
+      customPlugins.vim-toggle-quickfix
       pkgs.vimPlugins.vim-signify
       pkgs.vimPlugins.Supertab
       pkgs.vimPlugins.vim-addon-nix
