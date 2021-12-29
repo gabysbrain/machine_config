@@ -55,5 +55,5 @@ vmap <leader>d "+d
 vmap <leader>p "+p
 
 " clear search highlight
-nnoremap <leader><space> :noh
+nnoremap <leader><space> :noh<CR>
 
