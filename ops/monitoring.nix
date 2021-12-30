@@ -59,7 +59,9 @@
     };
     fritzbox-pw = {
       file = ../secrets/fritzbox-pw.age;
-      owner = "${config.services.prometheus.exporters.fritzbox.user}";
+      # FIXME: the service doesn't create an actual user and I can't figure out how to do that
+      #owner = "${toString config.services.prometheus.exporters.fritzbox.user}";
+      mode = "0666";
     };
   };
 
@@ -86,7 +88,7 @@
         gatewayAddress = "192.168.178.1";
         extraFlags = [
           "-username" "admin"
-          "-password" "`cat /run/secrets/fritzbox-pw`"
+          "-password" "`cat /run/agenix/fritzbox-pw`"
         ];
       };
     };
