@@ -49,11 +49,13 @@
     };
   };
 
-  # secrets for prometheus things
+  # secrets/secret configs for prometheus things
   age.secrets = {
-    router-pw = {
-      file = ../secrets/router-pw.age;
-      owner = "${config.services.prometheus.exporters.mikrotik.user}";
+    "mikrotik-prometheus-config.yml" = {
+      file = ../secrets/mikrotik-prometheus-config.yml.age;
+      # FIXME: the service doesn't create an actual user and I can't figure out how to do that
+      #owner = "${config.services.prometheus.exporters.mikrotik.user}";
+      mode = "0666";
     };
     fritzbox-pw = {
       file = ../secrets/fritzbox-pw.age;
@@ -73,22 +75,7 @@
     exporters = {
       mikrotik = {
         enable = true;
-        configuration = {
-          devices = [
-            { name = "main_router";
-              address = "10.0.0.1";
-              user = "prometheus";
-              password_file = "/run/secrets/router-pw";
-              #password = "`cat /run/secrets/router-pw`";
-            }
-          ];
-          features = {
-            bgp = true;
-            dhcp = true;
-            routes = true;
-            optics = true;
-          };
-        };
+        configFile = /run/agenix/mikrotik-prometheus-config.yml;
       };
       snmp = {
         enable = true;

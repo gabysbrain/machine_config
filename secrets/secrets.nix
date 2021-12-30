@@ -29,6 +29,6 @@ in
   "diskstation-key.age".publicKeys = me ++ [ philadelphia ];
   "diskstation-smb.age".publicKeys = me ++ [ philadelphia ];
 
-  "router-pw.age".publicKeys = me ++ servers;
-  "fritzbox-pw.age".publicKeys = me ++ servers;
+  "mikrotik-prometheus-config.yml.age".publicKeys = me ++ [ monitor ];
+  "fritzbox-pw.age".publicKeys = me ++ [ monitor ];
 }
