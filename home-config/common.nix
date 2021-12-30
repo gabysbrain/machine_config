@@ -23,7 +23,7 @@
           tool = "vimdiff";
           conflictstyle = "diff3";
         };
-        mergetool.vimdiff.cmd = ''nvim -d "$LOCAL" "$MERGED" "$REMOTE"'';
+        mergetool.vimdiff.cmd = ''nvim -d -M "$LOCAL" "$MERGED" "$REMOTE" -c "wincmd w" -c "set modifiable" -c "set write"'';
         init = {
           defaultBranch = "dev";
         };
