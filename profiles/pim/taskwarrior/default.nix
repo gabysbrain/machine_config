@@ -15,7 +15,7 @@ in
         ${builtins.readFile ./baserc}
 
         # only 1 system should do recurrence
-        recurrence=${if (sysconfig.networking.hostName == "brokkoli") then "on" else "off"}
+        recurrence=${if (sysconfig.networking.hostName == "katana") then "on" else "off"}
 
         # reports
         ${builtins.readFile ./reports}
