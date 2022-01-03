@@ -35,8 +35,8 @@
       userEmail = "torsney-weir@vrvis.at"; # only really use mercurial at work
       extraConfig = {
         extensions = {
-          rebase = true;
-          bookmarks = true;
+          rebase = "";
+          bookmarks = "";
         };
         merge-tools = {
           "vimdiff.executable" = "nvim -d";
