@@ -52,6 +52,15 @@
         theme = "Nord";
       };
     };
+    ssh = {
+      enable = true;
+      matchBlocks = {
+        "gitlab.com" = {
+          hostname = "gitlab.com";
+          identityFile = "~/keys/id_gitlab";
+        };
+      };
+    };
   };
   home.sessionVariables = {
     EDITOR = "vim";
