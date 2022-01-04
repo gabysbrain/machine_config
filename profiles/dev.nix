@@ -76,6 +76,9 @@ in
     # go
     go
 
+    # databases
+    dbeaver
+
     # general
     gnumake
     cmake
