@@ -37,6 +37,7 @@
         extensions = {
           rebase = "";
           bookmarks = "";
+          record = "";
         };
         merge-tools = {
           "vimdiff.executable" = "nvim -d";
