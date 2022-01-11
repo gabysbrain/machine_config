@@ -9,8 +9,8 @@
       file = ./vrvis.age;
       owner = "tom";
     };
-    github = {
-      file = ./github.age;
+    github-bugwarrior = {
+      file = ./github-bugwarrior.age;
       owner = "tom";
     };
   };
