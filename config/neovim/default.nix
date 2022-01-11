@@ -1,6 +1,8 @@
 {pkgs, lib, ...}:
 
 let
+  unstable = import <unstable> {};
+
   customPlugins.vim-criticmarkup = pkgs.vimUtils.buildVimPlugin {
     name = "vim-criticmarkup";
     src = pkgs.fetchFromGitHub {
@@ -37,6 +39,7 @@ let
       sha256 = "1jd0j8n1h964yg2lbgzdhg4c2j9a71h07qxw3zpbcxv1ack8v0ib";
     };
   };
+  customPlugins.unstable-lualine-nvim = unstable.vimPlugins.lualine-nvim;
 in 
 {
   programs.neovim = {
@@ -81,34 +84,34 @@ in
 
       polyglot
       customPlugins.vim-criticmarkup
-      lualine-nvim
+      customPlugins.unstable-lualine-nvim
       barbar-nvim
-      pkgs.vimPlugins.Tagbar
-      pkgs.vimPlugins.Tabular
-      pkgs.vimPlugins.vim-buffergator
-      pkgs.vimPlugins.The_NERD_Commenter
-      pkgs.vimPlugins.The_NERD_tree
+      Tagbar
+      Tabular
+      vim-buffergator
+      The_NERD_Commenter
+      The_NERD_tree
       telescope-nvim
       telescope-fzf-native-nvim
-      pkgs.vimPlugins.nvim-lspconfig
-      pkgs.vimPlugins.fugitive
-      pkgs.vimPlugins.vim-lawrencium
-      pkgs.vimPlugins.julia-vim
+      nvim-lspconfig
+      fugitive
+      vim-lawrencium
+      julia-vim
       customPlugins.nvim-jqx # json
       customPlugins.vim-convert-color-to
       customPlugins.vim-toggle-quickfix
-      pkgs.vimPlugins.vim-signify
-      pkgs.vimPlugins.Supertab
-      pkgs.vimPlugins.vim-addon-nix
-      pkgs.vimPlugins.vim-obsession
-      pkgs.vimPlugins.vimproc
-      pkgs.vimPlugins.vim-easy-align
-      pkgs.vimPlugins.vim-slime
-      pkgs.vimPlugins.vimtex
-      pkgs.vimPlugins.typescript-vim
-      pkgs.vimPlugins.vim-jsx-typescript
-      pkgs.vimPlugins.bracey-vim
-      pkgs.vimPlugins.lsp-status-nvim
+      vim-signify
+      Supertab
+      vim-addon-nix
+      vim-obsession
+      vimproc
+      vim-easy-align
+      vim-slime
+      vimtex
+      typescript-vim
+      vim-jsx-typescript
+      bracey-vim
+      lsp-status-nvim
     ];
   };
   home.packages = with pkgs; [
