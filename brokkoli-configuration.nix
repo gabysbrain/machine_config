@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ../hardware-configuration.nix
+      ./nixos/nvidia-fix.nix
       ./nixos/common.nix
       ./nixos/desktop.nix
       ./nixos/vrvis.nix

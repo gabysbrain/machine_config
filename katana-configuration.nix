@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ../hardware-configuration.nix
+      ./nixos/nvidia-fix.nix
       ./nixos/common.nix
       ./nixos/games.nix
       ./nixos/desktop.nix
@@ -23,23 +24,6 @@
 
   # Video drivers setup
   services.xserver.videoDrivers = [ "nvidia" ];
-  systemd.services.nvidia-fake-powerd = {
-    wantedBy = [ "default.target" ];
-    aliases = [ "dbus-nvidia.fake-powerd.service" ];
-    description = "NVIDIA fake powerd service";
-    serviceConfig = {
-      Type = "dbus";
-      BusName = "nvidia.powerd.server";
-      ExecStart = "${pkgs.dbus}/bin/dbus-test-tool black-hole --system --name=nvidia.powerd.server";
-      User = "messagebus";
-      Group = "messagebus";
-      LimitNPROC=2;
-      ProtectHome = true;
-      ProtectSystem = "full";
-    };
-  };
-  services.dbus.packages = [ (pkgs.callPackage pkgs/nvidia-fake-powerd.nix {}) ];
-
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
