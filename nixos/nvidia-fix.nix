@@ -34,6 +34,6 @@ in
       ProtectSystem = "full";
     };
   };
-  services.dbus.packages = [ (pkgs.callPackage pkgs/nvidia-fake-powerd.nix {}) ];
+  services.dbus.packages = [ dbus-service ];
 
 }
