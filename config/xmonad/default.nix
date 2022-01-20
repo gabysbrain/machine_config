@@ -37,6 +37,12 @@ in
             , Node (TSNode "Development" "Z" (return ()))
                 [ Node (TSNode "VS code" "Z" (spawn "${pkgs.vscode}/bin/code")) []
                 ]
+            , Node (TSNode "Meetings" "video chat" (return ()))
+                [ Node (TSNode "Zoom" "zoom" (spawn "${pkgs.zoom-us}/bin/zoom")) []
+                , Node (TSNode "Jitsi" "jitsi" (spawn "${pkgs.jitsi-meet-electron}/bin/jitsi-meet-electron")) []
+                , Node (TSNode "MS Teams" "teams" (spawn "${pkgs.teams}/bin/teams")) []
+                , Node (TSNode "Skype" "skype" (spawn "${pkgs.skypeforlinux}/bin/skype")) []
+                ]
             ]
         '';
       };
