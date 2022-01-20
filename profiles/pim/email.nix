@@ -14,12 +14,19 @@ let
     msmtp.enable = true;
     notmuch.enable = true;
     lieer.enable = true;
+    alot.contactCompletion = {
+      type = "shellcommand";
+      command = "khard email --parsable";
+      regexp = "'^(?P<email>[^@]+@[^\t]+)\t+(?P<name>[^\t]+)'";
+      ignorecase = "True";
+    };
   };
 in 
 {
   imports = [
     ./afew/default.nix
     ./neomutt/default.nix
+    ./alot.nix
   ];
   accounts.email = {
     maildirBasePath = ".mail";
@@ -46,6 +53,12 @@ in
           enable = true;
           create = "both";
           expunge = "both";
+        };
+        alot.contactCompletion = {
+          type = "shellcommand";
+          command = "khard email --parsable";
+          regexp = "'^(?P<email>[^@]+@[^\t]+)\t+(?P<name>[^\t]+)'";
+          ignorecase = "True";
         };
       };
     };
