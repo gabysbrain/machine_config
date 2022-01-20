@@ -36,9 +36,11 @@
       extraConfig = ''
         theme = mutt
         tabwidth = 2
+
         search_threads_sort_order = newest_first
-        ask_subject = False
         thread_authors_order_by = latest_message
+
+        edit_headers_whitelist = From, To, Cc, Bcc, Subject
       '';
     };
   };
