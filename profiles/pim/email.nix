@@ -25,7 +25,6 @@ in
 {
   imports = [
     ./afew/default.nix
-    ./neomutt/default.nix
     ./alot.nix
   ];
   accounts.email = {
