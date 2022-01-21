@@ -44,5 +44,9 @@
       '';
     };
   };
+  home.file = {
+    ".urlview".source = ./dot-urlview;
+    ".mailcap".source = ./dot-mailcap;
+  };
 }
 
