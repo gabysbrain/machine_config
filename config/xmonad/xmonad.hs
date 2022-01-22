@@ -55,7 +55,7 @@ wsTmp = "Tmp"
 wsSys = "Sys"
 
 spotifyFloat = ("Spotify", centerFloat 0.8 0.8)
-launchMail = rit "Email" "neomutt"
+launchMail = rit "Email" "alot"
 launchCal = rit "Calendar" "ikhal"
 launchMon = rit "Monitor" "bpytop"
 
