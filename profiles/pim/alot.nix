@@ -15,6 +15,7 @@
       bindings.thread = {
         "q" = "bclose";
         "v" = "pipeto urlscan 2>/dev/null";
+        " " = "fold; untag unread; move next unfolded";
         # tags
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
@@ -36,6 +37,8 @@
       extraConfig = ''
         theme = mutt
         tabwidth = 2
+
+        initial_command = "search tag:inbox AND NOT tag:killed; search date:today; search date:yesterday; buffer 0"
 
         search_threads_sort_order = newest_first
         thread_authors_order_by = latest_message
