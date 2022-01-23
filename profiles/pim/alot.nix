@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs = {
@@ -42,10 +42,11 @@
         edit_headers_whitelist = "From, To, Cc, Bcc, Subject";
         auto_remove_unread = true;
       };
-      extraConfig = ''
-      '';
     };
   };
+  home.packages = with pkgs; [
+    w3m
+  ];
   home.file = {
     ".urlview".source = ./dot-urlview;
     ".mailcap".source = ./dot-mailcap;
