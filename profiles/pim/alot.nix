@@ -7,7 +7,6 @@
       bindings.global = {
         "%" = "shellescape 'syncmail'; refresh";
         "ctrl f" = "move page down";
-        " " = "move page down";
         "ctrl b" = "move page up";
         "q" = "bclose";
         "Q" = "exit";
@@ -34,16 +33,16 @@
         "j" = "retag spam";
         "u" = "toggletags unread";
       };
+      settings = {
+        theme = "mutt";
+        tabwidth = 2;
+        initial_command = "search tag:inbox AND NOT tag:killed; search date:today; search date:yesterday; buffer 0";
+        search_threads_sort_order = "newest_first";
+        thread_authors_order_by = "latest_message";
+        edit_headers_whitelist = "From, To, Cc, Bcc, Subject";
+        auto_remove_unread = true;
+      };
       extraConfig = ''
-        theme = mutt
-        tabwidth = 2
-
-        initial_command = "search tag:inbox AND NOT tag:killed; search date:today; search date:yesterday; buffer 0"
-
-        search_threads_sort_order = newest_first
-        thread_authors_order_by = latest_message
-
-        edit_headers_whitelist = From, To, Cc, Bcc, Subject
       '';
     };
   };
