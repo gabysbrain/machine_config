@@ -1,5 +1,10 @@
 let
   nas = "diskstation.lan";
+  diskMon = devs: {
+    enable = true;
+    devices = devs;
+    openFirewall = true;
+  };
 in
 {
   network.description = "Home network";
@@ -22,6 +27,12 @@ in
           destination = "/var/secrets/router-pw";
           action = ["sudo" "systemctl" "restart" "prometheus.service"];
         };
+      };
+
+      services.prometheus.exporters.smartctl = {
+        enable = true;
+        devices = [ "/dev/sda" ];
+        openFirewall = true;
       };
 
       imports = [
