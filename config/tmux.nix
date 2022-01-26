@@ -4,25 +4,6 @@
     enable = true;
     shortcut = "a";
     terminal = "screen-256color";
-    plugins = with pkgs; [
-      {
-        plugin = tmuxPlugins.resurrect;
-        extraConfig = ''
-          set -g @resurrect-strategy-vim 'session'
-          set -g @resurrect-strategy-nvim 'session'
-
-          # resurrect taskwarrior programs
-          set -g @resurrect-processes '~task'
-        '';
-      }
-      {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '60' # minutes
-        '';
-      }
-    ];
     extraConfig = ''
       # reload config
       unbind r
