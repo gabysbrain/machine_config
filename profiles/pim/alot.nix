@@ -46,9 +46,9 @@
   };
   home.packages = with pkgs; [
     w3m
+    urlscan
   ];
   home.file = {
-    ".urlview".source = ./dot-urlview;
     ".mailcap".source = ./dot-mailcap;
   };
 }
