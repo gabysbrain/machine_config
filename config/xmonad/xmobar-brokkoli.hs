@@ -15,6 +15,6 @@ Config
     ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = " %StdinReader% }{<fc=#333333>net</fc> <action=`connman-gtk`>%netstat%</action> <fc=#333333>kb</fc> %kbd% <fc=#333333>st</fc> %st% <fc=#333333>cpu</fc> %multicpu%~%cpufreq% <fc=#333333>vol</fc> %alsa:default:Master% <fc=#333333>|</fc> %date% "
+  , template = " %StdinReader% }{<fc=#333333>net</fc> <action=`connman-gtk`>%netstat%</action> <fc=#333333>kb</fc> %kbd% <fc=#333333>st</fc> %st% <fc=#333333>cpu</fc> %multicpu% <fc=#333333>vol</fc> %alsa:default:Master% <fc=#333333>|</fc> %date% "
   }
 
