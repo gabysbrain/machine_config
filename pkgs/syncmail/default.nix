@@ -2,7 +2,10 @@
 #with import <nixpkgs> {};
 
 pkgs.runCommand "syncmail" {
-  buildInputs = with pkgs; [ gmailieer ];
+  buildInputs = with pkgs; [ 
+    gmailieer 
+    (callPackage ../notmuch-tag {})
+  ];
 } ''
   mkdir -p $out/bin
   cp ${./syncmail} $out/bin/syncmail

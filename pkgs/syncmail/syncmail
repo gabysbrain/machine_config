@@ -21,7 +21,7 @@ echo ----------------- notmuch ---------------------
 notmuch new
 
 echo -----------------  tags   ---------------------
-afew --tag --new
+notmuch-tag --new
 
 echo done
 

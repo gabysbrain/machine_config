@@ -24,7 +24,6 @@ let
 in 
 {
   imports = [
-    ./afew/default.nix
     ./alot.nix
   ];
   accounts.email = {
@@ -91,6 +90,7 @@ in
   home.packages = with pkgs; [
     (callPackage ../../pkgs/addr_search {})
     (callPackage ../../pkgs/syncmail {})
+    (callPackage ../../pkgs/notmuch-tag {})
     (callPackage ../../pkgs/notmuch-imap-tag-mover {})
 
     notmuch
