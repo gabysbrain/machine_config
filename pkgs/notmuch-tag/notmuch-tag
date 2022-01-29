@@ -19,7 +19,7 @@ done
 # don't assign tags for mails in these imap folders
 declare -a NOTAG_FOLDERS=(Archive Junk) 
 
-echo "=Updating tags for mail="
+echo "Updating tags for mail"
 
 # make sure the notmuch db is current
 notmuch new
@@ -63,7 +63,6 @@ echo "Leaving archive mails"
 notmuch tag -new -- folder:vrvis/Archive and tag:new
 
 # emails can't be in inbox and archive
-echo "Remaining mails to inbox"
 notmuch tag -inbox -- ${NEW_TAG} folder:vrvis/Archive and tag:inbox
 
 # TODO: tag threads: https://notmuchmail.org/faq/
@@ -73,7 +72,8 @@ notmuch tag -inbox -- ${NEW_TAG} folder:vrvis/Archive and tag:inbox
 #done
 
 # any other new emails fall through to inbox
+echo "Remaining mails to inbox"
 notmuch tag +inbox -new -- tag:new and not tag:inbox
 
-echo "=Done="
+echo "Done"
 
