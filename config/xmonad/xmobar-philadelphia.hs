@@ -2,7 +2,7 @@ Config
   { font = "xft:Anonymice Nerd Font:size=10"
   , bgColor = "#FEFEFE"
   , fgColor = "#999999"
-  , position = Static { xpos = 1, ypos = 1, width = 1909, height = 20 }
+  , position = Static { xpos = 1, ypos = 1, width = 1918, height = 20 }
   , lowerOnStart = False
   , commands = [
       Run Com "/home/tom/.xmonad/xmobar-syncthing-status.sh" [] "st" 30
