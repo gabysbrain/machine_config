@@ -30,7 +30,7 @@ notmuch tag -important -- ${NEW_TAG} tag:important
 
 # Mark all email from myself
 echo "tagging sent mail"
-notmuch tag +sent -- from:$(notmuch config get user.primary_email) and not tag:sent
+notmuch tag +sent -new -- ${NEW_TAG} from:$(notmuch config get user.primary_email) and not tag:sent
 for addr in `notmuch config get user.other_email`; do
   notmuch tag +sent -new -- ${NEW_TAG} from:${addr} and not tag:sent
 done
