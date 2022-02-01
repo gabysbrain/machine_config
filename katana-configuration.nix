@@ -20,6 +20,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # for building nixos on other systems (e.g. raspberry pi)
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   networking.hostName = "katana"; # Define your hostname.
 
   # Video drivers setup
