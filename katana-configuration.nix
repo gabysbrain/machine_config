@@ -98,10 +98,10 @@
         "--exclude='home/**/vrvis'"
       ];
       pruneOpts = [
-        "--keep-daily 7"
-        "--keep-weekly 8"
-        "--keep-monthly 24"
-        "--keep-yearly 5"
+        "--keep-within-daily 7d"
+        "--keep-within-weekly 2m"
+        "--keep-within-monthly 2y"
+        "--keep-within-yearly 20y"
         "--keep-last 2"
       ];
       timerConfig = {
