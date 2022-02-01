@@ -40,6 +40,7 @@
         search_threads_sort_order = "newest_first";
         thread_authors_order_by = "latest_message";
         edit_headers_whitelist = "From, To, Cc, Bcc, Subject";
+        ask_subject = false;
         auto_remove_unread = true;
       };
     };
