@@ -72,8 +72,8 @@ notmuch tag -inbox -- ${NEW_TAG} folder:vrvis/Archive and tag:inbox
 #done
 
 # any other new emails fall through to inbox
-echo "Remaining mails to inbox"
-notmuch tag +inbox -new -- tag:new and not tag:inbox
+echo "Unmark remaining mails to inbox"
+notmuch tag -new -- tag:new
 
 echo "Done"
 
