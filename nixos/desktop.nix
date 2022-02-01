@@ -45,7 +45,7 @@ in
       anonymousPro
       emojione
       carlito
-      nerdfonts
+      (nerdfonts.override { fonts = [ "AnonymousPro" "DroidSansMono" ]; })
       gyre-fonts
     ];
   };
