@@ -94,8 +94,6 @@
   environment.systemPackages = with pkgs; [
     openconnect
     vpn-slice
-
-    docker-compose # for docker dev
   ];
 
   # android development stuff
