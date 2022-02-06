@@ -1,7 +1,7 @@
 {pkgs, lib, ...}:
 
 let
-  unstable = import <unstable> {};
+  unstable = pkgs.unstable;
 
   customPlugins.vim-criticmarkup = pkgs.vimUtils.buildVimPlugin {
     name = "vim-criticmarkup";

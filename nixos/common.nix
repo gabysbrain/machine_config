@@ -1,9 +1,16 @@
 { config, pkgs, ... }:
 
 {
+  nix = {
+    package = pkgs.nixUnstable; # or versioned attributes like nix_2_4
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   imports = [
-    <home-manager/nixos>
-    <agenix/modules/age.nix>
+    #<home-manager/nixos>
+    #<agenix/modules/age.nix>
     ../secrets/home-manager.nix
   ];
 
@@ -17,7 +24,7 @@
     atool
     file
 
-    (import <agenix> {}).agenix
+    agenix.defaultPackage.x86_64-linux
   ];
 
   programs.zsh = {
@@ -76,7 +83,4 @@
   # services.printing.enable = true;
 
   hardware.enableAllFirmware = true;
-
-  # keep a backup of the configuration
-  system.copySystemConfiguration = true;
 }
