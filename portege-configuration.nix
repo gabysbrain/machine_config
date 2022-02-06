@@ -76,9 +76,9 @@ in
   networking.wireless.interfaces = [ "wlp2s0" ];
 
   # Select internationalisation properties.
-  services.xserver.layout = "gb,us";
+  services.xserver.layout = "us";
   services.xserver.exportConfiguration = true;
-  services.xserver.xkbOptions = "grp:caps_toggle,compose:menu,terminate:ctrl_alt_bksp";
+  services.xserver.xkbOptions = "grp:caps_toggle";
   console.useXkbConfig = true;
 
   # Video drivers setup
