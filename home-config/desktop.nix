@@ -200,8 +200,7 @@
     hledger
     hledger-interest
 
-    mimeo
-    peco
+    peco # for history search
 
     xclip
     xdotool
