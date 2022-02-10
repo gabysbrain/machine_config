@@ -16,6 +16,7 @@
         "v" = "pipeto urlscan 2>/dev/null";
         " " = "fold; untag unread; move next unfolded";
         # tags
+        "l" = "retagprompt";
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
         "j" = "retag spam";
@@ -28,6 +29,7 @@
       bindings.search = {
         "enter" = "untag unread; select";
         # tags
+        "l" = "retagprompt";
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
         "j" = "retag spam";
