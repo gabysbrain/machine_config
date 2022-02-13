@@ -213,7 +213,6 @@
     (callPackage ../pkgs/syncthing-quick-status.nix {})
 
     (callPackage ../pkgs/zk.nix {}) # notes
-    obsidian
 
     firefox
 
