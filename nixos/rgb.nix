@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.overlays = [
+    (import ../overlays/openrgb.nix)
+  ];
 
   environment.systemPackages = with pkgs; [ openrgb ];
 
