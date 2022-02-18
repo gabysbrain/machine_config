@@ -111,7 +111,7 @@
   age.secrets.restic.file = ./secrets/restic.age;
   services.restic.backups = {
     remote = {
-      paths = [ "/home" ];
+      paths = [ "/home" "/photos" ];
       repository = "s3:https://s3.eu-central-1.wasabisys.com/gabysbrain-restic";
       passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
       environmentFile = "/run/agenix/wasabi"; # FIXME: this should use age.secrets.wasbi.path
