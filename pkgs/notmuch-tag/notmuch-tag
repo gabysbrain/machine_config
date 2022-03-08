@@ -27,6 +27,8 @@ notmuch new
 # Tags to just remove
 echo "removing extraneous tags"
 notmuch tag -important -- ${NEW_TAG} tag:important
+notmuch tag --remove-all +trash -- ${NEW_TAG} tag:trash
+notmuch tag --remove-all +spam  -- ${NEW_TAG} tag:spam
 
 # Mark all email from myself
 echo "tagging sent mail"
@@ -51,7 +53,7 @@ for folder in `notmuch search --output=files folder:'/vrvis.*/' | grep '/.mail/v
   fi
 done
 # vrvis Junk folder is where spam lives
-notmuch tag +spam -new -- ${NEW_TAG} folder:vrvis/Junk and not tag:spam
+notmuch tag --remove-all +spam -new -- ${NEW_TAG} folder:vrvis/Junk and not tag:spam
 
 # Skip spam and trash
 notmuch tag -new -- ${NEW_TAG} tag:spam 
