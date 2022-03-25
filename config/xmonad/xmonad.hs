@@ -57,6 +57,7 @@ wsSys = "Sys"
 spotifyFloat = ("Spotify", centerFloat 0.8 0.8)
 launchMail = rit "Email" "alot"
 launchCal = rit "Calendar" "ikhal"
+launchChat = spawn "zulip"
 launchMon = rit "Monitor" "bpytop"
 
 -- Projects
@@ -75,6 +76,7 @@ projects =
             , projectStartHook = Just $ do
                 launchMail
                 launchCal
+                launchChat
             }
   , Project { projectName = wsSys
             , projectDirectory = "~/"
