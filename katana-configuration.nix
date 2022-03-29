@@ -98,7 +98,7 @@
         "--exclude='home/*/.julia'"
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
-        "--exclude='home/**/vrvis'"
+        "--exclude='home/**/vrvis/mnt'"
       ];
       pruneOpts = [
         "--keep-within-daily 7d"
