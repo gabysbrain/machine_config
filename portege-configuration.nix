@@ -173,7 +173,7 @@ in
         "--exclude='home/*/.julia'"
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
-        "--exclude='home/**/vrvis'"
+        "--exclude='home/**/vrvis/mnt'"
       ];
       extraOptions = [
         "sftp.command='ssh backup@diskstation.lan -i /run/agenix/diskstation-key -s sftp'"
@@ -196,7 +196,7 @@ in
         "--exclude='home/*/.julia'"
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
-        "--exclude='home/**/vrvis'"
+        "--exclude='home/**/vrvis/mnt'"
       ];
       timerConfig = {
         OnBootSec = "2m";
