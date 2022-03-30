@@ -88,15 +88,6 @@
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
   };
-  home-manager.users.torsney-weir = { pkgs, ...} : {
-    imports = [
-        ./home-config/common.nix
-        ./home-config/desktop.nix
-        ./profiles/dev.nix
-        ./profiles/writing.nix
-    ];
-
-  };
 
   # forward xsessions
   services.openssh.forwardX11 = true;
