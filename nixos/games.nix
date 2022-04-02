@@ -2,11 +2,6 @@
 
 # TODO: unify this with profiles/games
 {
-  hardware.pulseaudio = {
-    enable = true;
-  };
-  nixpkgs.config.pulseaudio = true;
-
   # see https://nixos.wiki/wiki/Steam
   # needed for steam 32 bit
   hardware.opengl.driSupport32Bit = true;
