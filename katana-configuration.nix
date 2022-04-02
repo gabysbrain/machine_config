@@ -55,6 +55,11 @@
   hardware.video.hidpi.enable = true;
   services.xserver.dpi = 157; # got this off the internet...
 
+  # allow nvidia overclocking and overvolting (8 + 16 respectively)
+  services.xserver.deviceSection = ''
+    Option "Coolbits" "24"
+  '';
+
   # The remaining syncthing config
   services.syncthing = {
     enable = true;
@@ -115,9 +120,10 @@
   };
 
   # virtualization
-  #virtualisation.virtualbox.host.enable = true;
-  #virtualisation.virtualbox.host.enableExtensionPack = true;
-  #users.extraGroups.vboxusers.members = [ "tom" ];
+  virtualisation.libvirtd.enable = true;
+  users.extraGroups.libvirtd.members = [ "tom" ];
+  #boot.extraModprobeConfig = "options kvm ignore_msrs=1";
+
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "tom" ];
 
