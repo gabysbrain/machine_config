@@ -55,18 +55,18 @@ in
   services.devmon.enable = true;
 
   # audio config
-  hardware.pulseaudio = {
+  services.pipewire = {
     enable = true;
-    daemon.config = {
-      flat-volumes = "no";
-      default-sample-format = "s24le";
-      default-sample-rate = "192000";
-      resample-method = "speex-float-10";
-      avoid-resampling = "true";
-    };
-    package = pkgs.pulseaudioFull;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
   };
-  nixpkgs.config.pulseaudio = true;
 
   # Enable the X11 windowing system.
   services.xserver = {
