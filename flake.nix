@@ -60,6 +60,9 @@
                 ./profiles/games.nix
                 ./profiles/writing.nix
               ];
+
+              # adjust terminal for high dpi screen
+              programs.kitty.font.size = 14;
             };
           }
         ];
