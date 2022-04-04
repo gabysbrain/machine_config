@@ -84,6 +84,8 @@
       ./profiles/games.nix
       ./profiles/writing.nix
     ];
+
+    programs.kitty.font.size = 14;
   };
 
   # home backup
