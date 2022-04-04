@@ -121,14 +121,17 @@
       passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
       environmentFile = "/run/agenix/wasabi"; # FIXME: this should use age.secrets.wasbi.path
       extraBackupArgs = [
-        "--exclude='home/tom/Downloads'"
-        "--exclude='home/tom/Sync'"
+        "--exclude='**/.cache'"
+        "--exclude='**/cache'"
+        "--exclude='home/**/Downloads'"
+        "--exclude='home/**/Sync'"
         "--exclude='home/*/.cache'"
         "--exclude='home/*/.config'"
         "--exclude='home/*/.julia'"
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
         "--exclude='home/**/vrvis/mnt'"
+        "--exclude='photos/photoprism-data/sidecar'"
       ];
       pruneOpts = [
         "--keep-within-daily 7d"
