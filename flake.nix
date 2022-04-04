@@ -62,7 +62,7 @@
               ];
 
               # adjust terminal for high dpi screen
-              programs.kitty.font.size = 14;
+              programs.kitty.font.size = pkgs.lib.mkForce 14;
             };
           }
         ];
