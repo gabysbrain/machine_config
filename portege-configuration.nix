@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let nasMount = remotePath: {
       device = "//diskstation.lan/${remotePath}";
@@ -15,13 +15,35 @@ let nasMount = remotePath: {
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ../hardware-configuration.nix
+    [ 
+      #<nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ./nixos/common.nix
       ./nixos/laptop.nix
       ./nixos/desktop.nix
       ./nixos/vrvis.nix
     ];
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-label/root";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/EAE3-7760";
+      fsType = "vfat";
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-label/swap"; }
+    ];
+
+  nix.maxJobs = lib.mkDefault 8;
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -54,9 +76,9 @@ in
   networking.wireless.interfaces = [ "wlp2s0" ];
 
   # Select internationalisation properties.
-  services.xserver.layout = "gb,us";
+  services.xserver.layout = "us";
   services.xserver.exportConfiguration = true;
-  services.xserver.xkbOptions = "grp:caps_toggle,compose:menu,terminate:ctrl_alt_bksp";
+  services.xserver.xkbOptions = "grp:caps_toggle";
   console.useXkbConfig = true;
 
   # Video drivers setup
@@ -127,14 +149,6 @@ in
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
-  };
-  home-manager.users.tom = { pkgs, ... }: {
-    imports = [
-      ./home-config/common.nix
-      ./home-config/desktop.nix
-      ./profiles/dev.nix
-      ./profiles/writing.nix
-    ];
   };
 
   age.secrets.diskstation-smb.file = ./secrets/diskstation-smb.age;

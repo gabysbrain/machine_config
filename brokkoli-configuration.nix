@@ -6,8 +6,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ../hardware-configuration.nix
+    [
       ./nixos/nvidia-fix.nix
       ./nixos/common.nix
       ./nixos/desktop.nix
@@ -18,6 +17,32 @@
   # use UEFI boot loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # kernel modules
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/5fa1b0df-4dee-4791-9cc5-81a0448f4f73";
+      fsType = "ext4";
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/ff43a8ff-665e-482f-906a-7705d2a0c435";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/925D-E65B";
+      fsType = "vfat";
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/6035c430-9da5-4288-84dd-dbcfd3232121"; }
+    ];
+
 
   age.secrets.vrvis-smb.file = ./secrets/vrvis-smb.age;
   fileSystems."/mnt/stone/torsney-weir" = {
@@ -62,15 +87,6 @@
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
-  };
-  home-manager.users.torsney-weir = { pkgs, ...} : {
-    imports = [
-        ./home-config/common.nix
-        ./home-config/desktop.nix
-        ./profiles/dev.nix
-        ./profiles/writing.nix
-    ];
-
   };
 
   # forward xsessions

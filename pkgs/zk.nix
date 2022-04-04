@@ -6,4 +6,4 @@ let src = pkgs.fetchFromGitHub {
     sha256 = "12fh8vp8bjy149bwf0xg35xq19sf4bqvvwpnqq2xin2wwmzw02h3";
   };
 in
-import "${src}/release.nix"
+pkgs.haskellPackages.callPackage "${src}/default.nix" {}

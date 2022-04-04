@@ -2,13 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ../hardware-configuration.nix
-      ./nixos/nvidia-fix.nix
+    [ ./nixos/nvidia-fix.nix
       ./nixos/common.nix
       ./nixos/games.nix
       ./nixos/desktop.nix
@@ -22,6 +20,42 @@
 
   # for building nixos on other systems (e.g. raspberry pi)
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/home";
+      fsType = "ext4";
+    };
+
+  fileSystems."/photos" =
+    { device = "/dev/disk/by-label/photos";
+      fsType = "ext4";
+    };
+
+  fileSystems."/games" =
+    { device = "/dev/disk/by-label/games";
+      fsType = "ext4";
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-label/swap"; }
+    ];
+
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   networking.hostName = "katana"; # Define your hostname.
 
@@ -75,17 +109,6 @@
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
-  };
-  home-manager.users.tom = { pkgs, ... }: {
-    imports = [
-      ./home-config/common.nix
-      ./home-config/desktop.nix
-      ./profiles/dev.nix
-      ./profiles/games.nix
-      ./profiles/writing.nix
-    ];
-
-    programs.kitty.font.size = pkgs.lib.mkForce 14;
   };
 
   # home backup
