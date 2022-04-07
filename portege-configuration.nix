@@ -206,9 +206,9 @@ in
   };
 
   # virtualization
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "tom" ];
+  #virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
+  #users.extraGroups.vboxusers.members = [ "tom" ];
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "tom" ];
 
