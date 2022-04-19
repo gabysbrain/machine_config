@@ -11,6 +11,7 @@
   ];
   nixpkgs.overlays = [
     (import ../overlays/imagej.nix)
+    (import ../overlays/zotero.nix)
   ];
   xsession = {
     enable = true;
