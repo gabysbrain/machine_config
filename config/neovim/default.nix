@@ -44,6 +44,7 @@ in
 {
   programs.neovim = {
     enable = true;
+    package = pkgs.unstable.neovim-unwrapped;
     extraConfig = ''
       ${builtins.readFile ./vimrc}
 
@@ -133,9 +134,5 @@ in
       fi
     '';
   };
-
-  nixpkgs.overlays = [
-    (import ../../overlays/neovim.nix)
-  ];
 }
 

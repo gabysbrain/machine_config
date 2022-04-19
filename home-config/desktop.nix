@@ -11,7 +11,6 @@
   ];
   nixpkgs.overlays = [
     (import ../overlays/imagej.nix)
-    (import ../overlays/zotero.nix)
   ];
   xsession = {
     enable = true;
@@ -177,7 +176,7 @@
     libreoffice-unwrapped
     spotify
     discord
-    zotero
+    unstable.zotero
 
     inkscape
     darktable
