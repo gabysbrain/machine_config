@@ -28,7 +28,7 @@
                 [ Node (TSNode "Krita" "Z" (spawn "${pkgs.krita}/bin/krita")) []
                 , Node (TSNode "Gimp" "Z" (spawn "${pkgs.gimp}/bin/gimp")) []
                 , Node (TSNode "Inkscape" "Z" (spawn "${pkgs.inkscape}/bin/inkscape")) []
-                , Node (TSNode "yEd" "Z" (spawn "${pkgs.yed}/bin/yed")) []
+                , Node (TSNode "yEd" "Z" (spawn "${pkgs.unstable.yed}/bin/yed")) []
                 , Node (TSNode "OBS" "Z" (spawn "${pkgs.obs-studio}/bin/obs")) []
                 ]
             , Node (TSNode "Development" "Z" (return ()))
