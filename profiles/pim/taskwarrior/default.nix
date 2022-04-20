@@ -1,12 +1,9 @@
 { pkgs, lib, nixosConfig, ... }:
 
+let
+  bugwarrior-pkg = pkgs.unstable.python39Packages.bugwarrior;
+in
 {
-  nixpkgs.overlays = [
-    # taskw 1.3.0 has a bug with recent taskwarrior
-    # see https://github.com/ralphbean/taskw/pull/141
-    (import ../../../overlays/taskw.nix)
-  ];
-
   # FIXME: need to get the system hostname to do the check in this module
   home.file = {
     ".taskrc".text = ''
@@ -31,7 +28,7 @@
     # task management stuff
     taskwarrior
     timewarrior
-    python38Packages.bugwarrior
+    bugwarrior-pkg
     tmuxp
     (callPackage ../../../pkgs/weekly-review {})
   ];
@@ -78,7 +75,7 @@
       Environment = "PATH=${
         lib.makeBinPath (with pkgs; [ taskwarrior coreutils gnugrep ])
       }";
-      ExecStart = "${pkgs.python38Packages.bugwarrior}/bin/bugwarrior-pull";
+      ExecStart = "${bugwarrior-pkg}/bin/bugwarrior-pull";
     };
   };
   systemd.user.timers.bugwarrior-pull = {
