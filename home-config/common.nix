@@ -38,6 +38,7 @@
           rebase = "";
           bookmarks = "";
           record = "";
+          histedit = "";
         };
         merge-tools = {
           "vimdiff.executable" = "nvim -d";
