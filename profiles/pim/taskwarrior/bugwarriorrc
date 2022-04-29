@@ -1,5 +1,6 @@
 
 [general]
+taskrc = ~/.config/task/taskrc
 targets = vrvis_jira,gabysbrain_github
 shorten = False
 
