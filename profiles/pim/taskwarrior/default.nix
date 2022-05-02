@@ -123,7 +123,7 @@ in
     # task management stuff
     timewarrior
     bugwarrior-pkg
-    tmuxp
+    tmuxp # for the task view
     (callPackage ../../../pkgs/weekly-review {})
   ];
   programs.zsh.initExtra = ''
@@ -158,14 +158,10 @@ in
     }
   '';
   systemd.user.services.bugwarrior-pull = {
-    #path = [
-      #"${pkgs.taskwarrior}/bin"
-    #];
     Unit = {
       Description = "sync tasks with external sources using bugwarrior-pull";
     };
     Service = {
-      #Environment = "DISPLAY=:0";
       Environment = "PATH=${
         lib.makeBinPath (with pkgs; [ taskwarrior coreutils gnugrep ])
       }";

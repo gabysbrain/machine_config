@@ -5,10 +5,10 @@ windows:
   layout: 9ec6,192x56,0,0[192x42,0,0{95x42,0,0[95x16,0,0,6,95x25,0,17,9],96x42,96,0[96x27,96,0,8,96x14,96,28,10]},192x13,0,43,7]
   options: {}
   panes:
-  - find ~/.task -type 'f' | entr -c task next limit:10
-  - find ~/.task -type 'f' | entr -c task today
-  - find ~/.task -type 'f' | entr -c task week
-  - find ~/.task -type 'f' | entr -c task calendar
+  - find ~/.local/share/task -type 'f' | entr -c task next limit:10
+  - find ~/.local/share/task -type 'f' | entr -c task today
+  - find ~/.local/share/task -type 'f' | entr -c task week
+  - find ~/.local/share/task -type 'f' | entr -c task calendar
   - focus: 'true'
   start_directory: /home/tom
 - window_name: Scratch
