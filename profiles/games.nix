@@ -11,7 +11,6 @@
     frotz  # infocom games
     vassal # for wargames
 
-    abuse
     minecraft
     nethack
     wesnoth
