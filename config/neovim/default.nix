@@ -39,6 +39,15 @@ let
       sha256 = "1jd0j8n1h964yg2lbgzdhg4c2j9a71h07qxw3zpbcxv1ack8v0ib";
     };
   };
+  customPlugins.telescope-bibtex = pkgs.vimUtils.buildVimPlugin {
+    name = "telescope-bibtex";
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-telescope";
+      repo = "telescope-bibtex.nvim";
+      rev = "cd2640e74657f154b50e2278a279ad02ba523e97";
+      sha256 = "0AOEhmeeXbNc2Ge+J+/o6OBUEudyKv5HmZgpcqWu8As=";
+    };
+  };
   customPlugins.unstable-lualine-nvim = unstable.vimPlugins.lualine-nvim;
 in 
 {
@@ -94,6 +103,7 @@ in
       The_NERD_tree
       telescope-nvim
       telescope-fzf-native-nvim
+      customPlugins.telescope-bibtex
       nvim-lspconfig
       fugitive
       vim-lawrencium
