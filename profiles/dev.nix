@@ -28,6 +28,7 @@ let #my-hdf5r = pkgs.rPackages.hdf5r.override {
       usethis
       xml2
     ];
+    juliaPkg = pkgs.julia_16-bin;
 in
 {
   imports = [
@@ -98,8 +99,8 @@ in
     #R-with-my-packages
 
     # Julia stuff
-    julia_16-bin
-    (callPackage ../pkgs/jl { juliaPkg = julia_16-bin; pkgs=pkgs; })
+    juliaPkg
+    (callPackage ../pkgs/jl { juliaPkg = juliaPkg; pkgs=pkgs; })
 
     # Problog
     (callPackage ../pkgs/problog {})
