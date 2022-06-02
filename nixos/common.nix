@@ -30,6 +30,9 @@
   programs.zsh = {
     enable = true;
   };
+
+  # hack to allow certain programs to run
+  programs.nix-ld.enable = true;
   #programs.gnupg.agent.enable = true;
 	
   services.syncthing = {

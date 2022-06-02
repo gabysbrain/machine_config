@@ -24,7 +24,7 @@ in
     alsaUtils
     hicolor-icon-theme
     rxvt_unicode-with-plugins
-    shared_mime_info
+    shared-mime-info
     plasma-workspace
     gnome3.zenity
 

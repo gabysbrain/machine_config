@@ -13,8 +13,8 @@ pkgs.buildGoModule rec {
   };
 
   # will need a bump when deps change
-  vendorSha256 = "11n1wsym39x89bf0pgyq69nbm71pf23jy3wsx21vvyppaygsp1b6";
-  runVend = true;
+  vendorSha256 = "1i/NctOsgB324C7GijpJE46JwLEJMUHLN1XghsyI1Wo=";
+  proxyVendor = true;
 
   buildInputs = [ pkgs.notmuch ];
 }
