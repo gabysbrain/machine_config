@@ -188,7 +188,7 @@ myKeys conf = let
     ] ^++^
 
   subKeys "shortcuts"
-    [ ((myModMask, xK_a), addName "Create new appointment" $ apptPrompt def ["work", "home", "talks"])
+    [ --((myModMask, xK_a), addName "Create new appointment" $ apptPrompt def ["work", "home", "talks"])
     ] ^++^
 
   subKeys "layouts"
@@ -365,14 +365,14 @@ rit n = runInTerm ("--title \"" ++ n ++"\"")
 rit' c = rit c c
 
 -- | Prompt the user for information and add an appointment using \'khal\'
-apptPrompt :: XPConfig -> [String] -> X ()
-apptPrompt c calNames =
-  inputPromptWithCompl c "Cal" (mkComplFunFromList calNames) ?+ \cal ->
-  inputPrompt c "Title" ?+ \ttl ->
-  inputPrompt c "Start" ?+ \start ->
-  inputPrompt c "End" ?+ \end ->
-  void $ safeSpawn "khal" ["new", "-a", cal, start, end, ttl]
-    -- >> return ()
+--apptPrompt :: XPConfig -> [String] -> X ()
+--apptPrompt c calNames =
+  --inputPromptWithCompl c "Cal" (mkComplFunFromList calNames) ?+ \cal ->
+  --inputPrompt c "Title" ?+ \ttl ->
+  --inputPrompt c "Start" ?+ \start ->
+  --inputPrompt c "End" ?+ \end ->
+  --void $ safeSpawn "khal" ["new", "-a", cal, start, end, ttl]
+    ---- >> return ()
 
 -- stuff to specify floating window sizes
 centerFloat w h = customFloating $ W.RationalRect ((1-w)/2) ((1-h)/2) w h
