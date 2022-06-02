@@ -69,7 +69,6 @@ in
     # purescript
     purescript
     spago
-    (callPackage ../pkgs/parcel {})."parcel-1.10.x"
 
     # python
     python3
