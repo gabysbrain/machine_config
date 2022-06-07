@@ -49,6 +49,7 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  /*
   boot.extraModprobeConfig = ''
     "options iwlwifi 11n_disable=1"
     "options iwlwifi swcrypto=0"
@@ -57,6 +58,7 @@ in
     "options iwlwifi uapsd_disable=1"
     "options iwlmvm power_scheme=1"
   '';
+  */
 
   # for building nixos on other systems (e.g. raspberry pi)
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
