@@ -69,6 +69,7 @@ in
       ${builtins.readFile ./vimdiff.vim}
 
       lua << EOF
+      ${builtins.readFile ./completion.lua}
       ${builtins.readFile ./lsp.lua}
       EOF
 
@@ -91,6 +92,12 @@ in
     plugins = with pkgs.vimPlugins; [
       # themes
       nord-vim
+
+      # completion
+      nvim-cmp
+      cmp-nvim-lsp
+      cmp-buffer
+      luasnip
 
       polyglot
       customPlugins.vim-criticmarkup
