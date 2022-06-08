@@ -72,6 +72,7 @@ in
       ${builtins.readFile ./completion.lua}
       ${builtins.readFile ./lsp.lua}
       EOF
+      ${builtins.readFile ./lint.vim}
 
       " languages
       ${builtins.readFile ./html.vim}
@@ -98,6 +99,8 @@ in
       cmp-nvim-lsp
       cmp-buffer
       luasnip
+
+      nvim-lint
 
       polyglot
       customPlugins.vim-criticmarkup
