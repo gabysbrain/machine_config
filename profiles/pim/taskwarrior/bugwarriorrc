@@ -13,6 +13,7 @@ jira.add_tags = vrvis,work
 jira.description_template = {{jirasummary}}
 jira.label_template = jira_{{label}}
 jira.import_labels_as_tags = True
+jira.import_sprints_as_tags = True
 jira.project_template = {{ {"LARVAE2": "larvalbrain"}[project] | default(project) }}
 
 [gabysbrain_github]
