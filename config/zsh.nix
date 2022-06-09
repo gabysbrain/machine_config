@@ -82,6 +82,9 @@
       # restic backups
       restic-local = "restic -r sftp:backup@diskstation.lan:/backup/ -o 'sftp.command=ssh -i /home/tom/keys/diskstation.rsa backup@diskstation.lan -s sftp'";
       restic-remote = "export $(cat /home/tom/keys/wasabi | xargs) && restic -r s3:https://s3.wasabisys.com/gabysbrain-restic";
+
+      # I can never remember the command to fill pdfs
+      fillpdf = "${pkgs.xournal}/bin/xournal";
     };
     history = {
       extended = true;
