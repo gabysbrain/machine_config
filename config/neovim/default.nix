@@ -141,6 +141,8 @@ in
     # language servers
     gopls
     nodePackages.typescript-language-server
+    nodePackages.eslint
+    vale # markdown linter
     # julia ts is installed as julia module
   ];
   home.activation = {
