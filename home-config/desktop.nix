@@ -188,7 +188,7 @@
     bftools
     zulip
 
-    youtube-dl
+    yt-dlp
 
     exiftool
     poppler_utils
