@@ -143,6 +143,7 @@ in
     nodePackages.typescript-language-server
     nodePackages.eslint
     vale # markdown linter
+    haskell-language-server
     # julia ts is installed as julia module
   ];
   home.activation = {

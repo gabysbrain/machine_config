@@ -83,3 +83,8 @@ nvim_lsp['gopls'].setup {
   capabilities = capabilities,
 }
 
+nvim_lsp['hls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
