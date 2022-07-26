@@ -38,8 +38,6 @@ import           System.IO
 import           System.Posix.Env (putEnv)
 import           Control.Monad (void)
 
-import qualified MyAppTree
-
 import qualified Data.Map                           as M
 import qualified XMonad.StackSet                    as W
 
@@ -184,7 +182,6 @@ myKeys conf = let
     , ((myModMask .|. shiftMask, xK_n), addName "Wiki" $ spawn "nvim -c 'VimwikiIndex'")
     , ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks")
     , ((myModMask .|. controlMask, xK_p), addName "Password" $ spawn "gopass-dmenu")
-    , ((myModMask .|. shiftMask, xK_p), addName "Launcher" $ treeselectAction myTreeConf MyAppTree.myApps)
     ] ^++^
 
   subKeys "shortcuts"
