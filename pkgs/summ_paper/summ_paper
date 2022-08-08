@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 # Directory config. Where the template file and the summary files go
-TEMPLATE=~/Projects/paper_summaries/paper_summary_template.md
+TEMPLATE=~/projects/paper_summaries/paper_summary_template.md
 SUMMDIR=$(dirname ${TEMPLATE})/site/summaries
 PAPERDIR=~/Papers/papers
 
