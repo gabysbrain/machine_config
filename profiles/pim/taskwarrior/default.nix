@@ -1,7 +1,8 @@
 { pkgs, lib, nixosConfig, ... }:
 
 let
-  bugwarrior-pkg = pkgs.unstable.python39Packages.bugwarrior;
+  #bugwarrior-pkg = pkgs.unstable.python39Packages.bugwarrior;
+  bugwarrior-pkg = pkgs.python39Packages.bugwarrior;
 
   # Report definitions
   reports = {
