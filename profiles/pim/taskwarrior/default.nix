@@ -60,7 +60,7 @@ in
 
     config = {
       # only 1 machine should do recurrence
-      recurrence = nixosConfig.networking.hostName == "katana";
+      recurrence = nixosConfig.networking.hostName == "brokkoli";
 
       # sync settings
       taskd = {
