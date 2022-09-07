@@ -2,33 +2,12 @@
 
 today=`date -I`
 
-revfile=~/Sync/Notes/weekly_review_${today}.md 
+zkdir=~/Sync/Notes
+
+revfile=${zkdir}/weekly_review_${today}.md 
 
 # write the template file
-cat << EOF > ${revfile}
----
-title: $today weekly update
-tags: #update
-related: 
-...
-
-# Wins
-
-
-
-# Lessons learned
-
-
-
-# Things I'm grateful for
-
-
-
-# Plans for next week
-
-
-
-EOF
+cp ${zkdir}/templates/weekly.md ${revfile}
 
 vim ${revfile}
 
