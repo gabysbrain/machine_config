@@ -28,7 +28,7 @@ let #my-hdf5r = pkgs.rPackages.hdf5r.override {
       usethis
       xml2
     ];
-    juliaPkg = pkgs.unstable.julia_17-bin;
+    juliaPkg = pkgs.unstable.julia_18-bin;
 in
 {
   imports = [
