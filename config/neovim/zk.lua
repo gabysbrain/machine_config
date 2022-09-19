@@ -44,11 +44,11 @@ require('telekasten').setup({
 
   -- template for new notes (new_note, follow_link)
   -- set to `nil` or do not specify if you do not want a template
-  template_new_note = home .. '/' .. 'templates/new_note.md',
+  template_new_note = nil,
 
   -- template for newly created daily notes (goto_today)
   -- set to `nil` or do not specify if you do not want a template
-  template_new_daily = home .. '/' .. 'templates/daily.md',
+  template_new_daily = nil,
 
   -- template for newly created weekly notes (goto_thisweek)
   -- set to `nil` or do not specify if you do not want a template
@@ -81,7 +81,7 @@ require('telekasten').setup({
   tag_notation = "#tag",
 
   -- command palette theme: dropdown (window) or ivy (bottom panel)
-  command_palette_theme = "ivy",
+  command_palette_theme = "dropdown",
 
   -- tag list theme:
   -- get_cursor: small tag list at cursor; ivy and dropdown like above
@@ -139,4 +139,14 @@ require('telekasten').setup({
   -- "catimg-previewer" if you have catimg installed
   media_previewer = "viu-previewer",
 })
+
+-- keybindings
+vim.api.nvim_set_keymap('n', '<leader>zf', '<cmd>lua require(\'telekasten\').find_notes()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>zd', '<cmd>lua require(\'telekasten\').find_daily_notes()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>zg', '<cmd>lua require(\'telekasten\').search_notes()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>zz', '<cmd>lua require(\'telekasten\').follow_link()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>#', '<cmd>lua require(\'telekasten\').show_tags()<CR>', {noremap = true})
+
+-- on hesitation, bring up the panel
+vim.api.nvim_set_keymap('n', '<leader>z', '<cmd>lua require(\'telekasten\').panel()<CR>', {noremap = true})
 

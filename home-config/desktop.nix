@@ -207,6 +207,7 @@
     xdragon
     feh
     sxiv
+    viu
     (callPackage ../pkgs/screenshot {})
 
     (callPackage ../pkgs/gopass-dmenu.nix {})

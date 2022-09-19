@@ -48,6 +48,25 @@ let
       sha256 = "0AOEhmeeXbNc2Ge+J+/o6OBUEudyKv5HmZgpcqWu8As=";
     };
   };
+  customPlugins.telekasten-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "telekasten-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "renerocksai";
+      repo = "telekasten.nvim";
+      rev = "fdb089daf6d66e9d559645e664a172ff5b6a5ddd";
+      sha256 = "32IEcVyutwbqIErCZGKRiTmlJE25cg+yTHU+Q7ttGJs=";
+    };
+  };
+  customPlugins.calendar-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "calendar-vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "renerocksai";
+      repo = "calendar-vim";
+      rev = "a7e73e02c92566bf427b2a1d6a61a8f23542cc21";
+      sha256 = "4XeDd+myM+wtHUsr3s1H9+GAwIjK8fAqBbFnBCeatPo=";
+    };
+    buildInputs = [ pkgs.zip ];
+  };
   customPlugins.unstable-lualine-nvim = unstable.vimPlugins.lualine-nvim;
 in 
 {
@@ -83,6 +102,11 @@ in
 
       ${builtins.readFile ./haskell.vim}
       ${builtins.readFile ./python.vim}
+
+      " journaling
+      lua << EOF
+      ${builtins.readFile ./zk.lua}
+      EOF
 
       runtime scratch.vim
       lua require('scratch')
@@ -133,6 +157,9 @@ in
       vim-jsx-typescript
       bracey-vim
       lsp-status-nvim
+
+      customPlugins.telekasten-nvim
+      customPlugins.calendar-vim
     ];
   };
   home.packages = with pkgs; [
@@ -145,6 +172,8 @@ in
     vale # markdown linter
     haskell-language-server
     # julia ts is installed as julia module
+
+    ripgrep # telekasten.nvim uses this
   ];
   home.activation = {
     neovimScratchFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
