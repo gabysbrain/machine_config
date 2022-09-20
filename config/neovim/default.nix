@@ -142,6 +142,7 @@ in
       fugitive
       vim-lawrencium
       julia-vim
+      vim-go
       customPlugins.nvim-jqx # json
       customPlugins.vim-convert-color-to
       customPlugins.vim-toggle-quickfix
