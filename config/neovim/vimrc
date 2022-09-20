@@ -57,3 +57,10 @@ vmap <leader>p "+p
 " clear search highlight
 nnoremap <leader><space> :noh<CR>
 
+" Paste over currently selected text without yanking it
+vnoremap p "_dpP
+
+" Switch buffer
+nnoremap <S-h> :bprevious<CR>
+nnoremap <S-l> :bnext<CR>
+
