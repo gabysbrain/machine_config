@@ -100,7 +100,7 @@ in
 
       # Contexts
       context = {
-        home="+home";
+        home="-work";
         work="+work";
       };
 
