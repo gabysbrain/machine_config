@@ -151,6 +151,10 @@ in
       task sync
     }
 
+    function twc {
+      task context $1
+    }
+
     function twrs {
       readonly datespec=''${1:?"The reschedule data must be specified."}
       # TODO: make sure some task ids are specified
