@@ -1,13 +1,4 @@
 #!/usr/bin/env bash
 
-today=`date -I`
-
-zkdir=~/Sync/Notes
-
-revfile=${zkdir}/weekly_review_${today}.md 
-
-# write the template file
-cp ${zkdir}/templates/weekly.md ${revfile}
-
-vim ${revfile}
+vim -c :Telekasten goto_thisweek
 
