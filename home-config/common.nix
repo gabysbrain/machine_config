@@ -75,6 +75,8 @@
     gnupg
 
     silver-searcher
+
+    nix-template
   ];
 
   #nixpkgs.config.allowUnfree = true;
