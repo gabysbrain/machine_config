@@ -67,6 +67,7 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
+  networking.interfaces.enp4s0.wakeOnLan.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
