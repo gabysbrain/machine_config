@@ -69,6 +69,11 @@
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.enp4s0.wakeOnLan.enable = true;
 
+  # Configure VRVis proxy 
+  #networking.proxy.httpProxy  = "http://proxy.vrvis.at:3128";
+  #networking.proxy.httpsProxy = "http://proxy.vrvis.at:3128";
+  #networking.proxy.noProxy    = "127.0.0.1,localhost,vrvis.lan,vrvis.at";
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
