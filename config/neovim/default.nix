@@ -72,7 +72,8 @@ in
 {
   programs.neovim = {
     enable = true;
-    package = pkgs.unstable.neovim-unwrapped;
+    #package = pkgs.unstable.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped;
     extraConfig = ''
       ${builtins.readFile ./vimrc}
 
