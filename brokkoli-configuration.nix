@@ -36,7 +36,7 @@
 
   fileSystems."/datasets" =
     { device = "/dev/disk/by-uuid/5324214a-fa8b-4edf-a5c1-02d1b35f048f";
-      fsType = "vfat";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
