@@ -64,11 +64,12 @@ in
 
       # sync settings
       taskd = {
-        key="~/keys/freecinc/freecinc_24b0104f.key.pem";
-        certificate="~/keys/freecinc/freecinc_24b0104f.cert.pem";
-        ca="~/keys/freecinc/freecinc_24b0104f.ca.pem";
-        server="freecinc.com:53589";
-        credentials="FreeCinc/freecinc_24b0104f/441588d3-43ec-417c-ae9f-e7f2df4b7053";
+        key="~/keys/inthe.am/private.key.pem";
+        certificate="~/keys/inthe.am/private.certificate.pem";
+        ca="~/keys/inthe.am/ca.cert.pem";
+        server="inthe.am:53589";
+        credentials="inthe_am/torsneyt/70baf2c9-22cb-4fb6-8879-0c8810883fc5";
+        trust="strict";
         #taskd.trust=ignore hostname
       };
 
