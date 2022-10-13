@@ -111,6 +111,10 @@
       # fancy globbing
       setopt extendedglob
 
+      function ff {
+        find . -name "$1" ''${@:2}
+      }
+
       # from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/history/history.plugin.zsh
       function hs {
         history 0 | grep -i $*
