@@ -171,6 +171,7 @@ in
     gopls
     nodePackages.typescript-language-server
     nodePackages.eslint
+    nodePackages.vscode-langservers-extracted
     vale # markdown linter
     haskell-language-server
     # julia ts is installed as julia module

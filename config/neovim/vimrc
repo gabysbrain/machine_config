@@ -64,3 +64,6 @@ vnoremap p "_dpP
 nnoremap <S-h> :bprevious<CR>
 nnoremap <S-l> :bnext<CR>
 
+" autocommands
+autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
+
