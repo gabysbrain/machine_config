@@ -56,5 +56,5 @@ url = "https://sogo.vrvis.at/SOGo/dav"
 username = "torsney-weir"
 password.fetch = ["command", "cat", "/run/agenix/vrvis"]
 verify = false
-verify_fingerprint = "69:46:46:65:36:a7:17:43:d9:66:87:39:fb:6c:c5:bb:22:84:9b:bc"
+verify_fingerprint = "3f:a3:54:c7:6e:a3:c3:be:50:90:4b:9d:42:2d:af:3d:dc:da:99:38"
 
