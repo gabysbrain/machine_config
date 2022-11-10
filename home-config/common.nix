@@ -61,6 +61,10 @@
           hostname = "gitlab.com";
           identityFile = "~/keys/id_gitlab";
         };
+        "github.com" = {
+          hostname = "github.com";
+          identityFile = "~/keys/id_github";
+        };
       };
     };
   };
