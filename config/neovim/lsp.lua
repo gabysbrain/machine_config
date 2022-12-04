@@ -96,3 +96,5 @@ nvim_lsp['hls'].setup {
   capabilities = capabilities,
 }
 
+nvim_lsp['rust_analyzer'].setup {}
+

@@ -76,6 +76,11 @@ in
     # go
     go
 
+    # rust
+    gcc
+    cargo
+    rustc
+
     # databases
     dbeaver
 
