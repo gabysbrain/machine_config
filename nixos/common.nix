@@ -54,7 +54,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # set build cores automatically
-  nix.buildCores = 0;
+  nix.settings.cores = 0;
 
   # List services that you want to enable
 
@@ -64,7 +64,7 @@
     dates = "weekly";
     options = "--delete-older-than 10d";
   };
-  nix.autoOptimiseStore = true;
+  nix.settings.auto-optimise-store = true;
 
   # limit the systemd journal so it doesn't just fill up
   services.journald.extraConfig = ''

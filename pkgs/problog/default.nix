@@ -4,12 +4,12 @@ with pkgs.python3Packages;
 
 buildPythonPackage rec {
   pname = "problog";
-  version = "2.1.0.42";
+  version = "2.2.4";
 
   src = fetchPypi {
     inherit pname version;
     extension = "tar.gz";
-    sha256 = "bc1fad5d51304f3f071589ee280e56ef70d13c97100c006d84ee14450fe3ef51";
+    sha256 = "sha256-N96os6CYgNmAURfVR2J9B8n6DrssURYytwdUvIlLa80=";
   };
 
   # Required at running time

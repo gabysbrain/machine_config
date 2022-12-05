@@ -24,7 +24,7 @@ in
   programs.broot = {
     enable = true;
     enableZshIntegration = true;
-    verbs = [
+    settings.verbs = [
       { 
         invocation = "work";
         external = "cd {directory}; tat"; 
@@ -35,7 +35,7 @@ in
       }
     ];
     # based on broot solarized dark and neovim nord themes
-    skin = with nordColors; {
+    settings.skin = with nordColors; {
       default = "${nord4} ${nord0} / ${nord3} ${nord1}";
       tree = "${nord3} none";
       file = "none none";

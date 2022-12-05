@@ -57,18 +57,16 @@
   services = {
     picom = {
       enable = true;
-      experimentalBackends = true;
 
       shadow = true;
-      blur = true;
-
-      extraOptions = ''
-        blur-method = "dual_kawase";
-        blur-strength = 8;
+      settings = {
+        blur = { 
+          method = "dual_kawase";
+          strength = 8;
+        };
         no-dnd-blur = true;
-
         unredir-if-possible = false;
-      '';
+      };
 
       # see https://nixos.wiki/wiki/Nvidia#Fix_app_flickering_with_Picom
       backend = "glx";
