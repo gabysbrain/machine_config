@@ -38,6 +38,10 @@ import           System.IO
 import           System.Posix.Env (putEnv)
 import           Control.Monad (void)
 
+import qualified DBus as D
+import qualified DBus.Client as D
+import qualified Codec.Binary.UTF8.String as UTF8
+
 import qualified Data.Map                           as M
 import qualified XMonad.StackSet                    as W
 
@@ -294,20 +298,32 @@ myEventHook = mconcat
 
 -- Status bars and logging
 -------------------------------------------------------------------------------
-workspaceFormatter statusPipe = xmobarPP {
-    ppOutput          = hPutStrLn statusPipe
-  , ppCurrent         = xmobarColor myMainColor myBgColor
-  , ppVisible         = xmobarColor myMainColor myBgColor . wrap "(" ")"
-  , ppHidden          = xmobarColor myLowColor ""
-  , ppHiddenNoWindows = xmobarColor myLowerColor ""
-  , ppTitle           = xmobarColor myTextColor ""
-  , ppSep             = xmobarColor myMainColor myBgColor "  |  "
-  , ppWsSep           = "  "
+workspaceFormatter dbus = def {
+    ppOutput          = dbusOutput dbus
+  , ppTitle           = shorten 40
+  --, ppCurrent         = xmobarColor myMainColor myBgColor
+  --, ppVisible         = xmobarColor myMainColor myBgColor . wrap "(" ")"
+  --, ppHidden          = xmobarColor myLowColor ""
+  --, ppHiddenNoWindows = xmobarColor myLowerColor ""
+  , ppSep             = " | "
+  --, ppWsSep           = "  "
 }
 
-myLogHook h = do
-  let pp = workspaceFormatter h 
+dbusOutput :: D.Client -> String -> IO ()
+dbusOutput dbus str = do
+    let signal = (D.signal objectPath interfaceName memberName) {
+            D.signalBody = [D.toVariant $ UTF8.decodeString str]
+        }
+    D.emit dbus signal
+  where
+    objectPath = D.objectPath_ "/org/xmonad/Log"
+    interfaceName = D.interfaceName_ "org.xmonad.Log"
+    memberName = D.memberName_ "Update"
+
+myLogHook dbus = do
+  let pp = workspaceFormatter dbus
   dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP pp
+  -- put mouse in focused window
   updatePointer (0.25, 0.25) (0.25, 0.25)
 
 -- Configuration structure
@@ -331,13 +347,19 @@ myConfig statusPipe = def {
 -- Run xmonad with the settings specified. No need to modify this.
 -------------------------------------------------------------------------------
 main = do
+  -- for java things
   putEnv "_JAVA_AWT_WM_NONREPARENTING=1"
-  statusPipe <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
+  -- setup dbus for polybar
+  dbus <- D.connectSession
+  -- Request access to the DBus name
+  D.requestName dbus (D.busName_ "org.xmonad.Log")
+    [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
+
   xmonad
     $ dynamicProjects projects
     $ ewmh
     $ addDescrKeys ((myModMask, xK_F1), showKeybindings) myKeys
-    $ myConfig statusPipe
+    $ myConfig dbus
 
 -- from:
 -- https://github.com/pjones/xmonadrc/blob/master/src/XMonad/Local/Action.hs
@@ -345,7 +367,6 @@ main = do
 -- Useful when a floating window requests stupid dimensions.  There
 -- was a bug in Handbrake that would pop up the file dialog with
 -- almost no height due to one of my rotated monitors.
-
 forceCenterFloat :: ManageHook
 forceCenterFloat = doFloatDep move
   where
