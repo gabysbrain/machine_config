@@ -1,8 +1,8 @@
 { pkgs, lib, nixosConfig, ... }:
 
 let
-  #bugwarrior-pkg = pkgs.unstable.python310Packages.bugwarrior;
-  bugwarrior-pkg = pkgs.python310Packages.bugwarrior;
+  bugwarrior-pkg = pkgs.unstable.python310Packages.bugwarrior;
+  #bugwarrior-pkg = pkgs.python310Packages.bugwarrior;
 
   # Report definitions
   reports = {
