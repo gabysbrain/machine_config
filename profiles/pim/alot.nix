@@ -19,7 +19,7 @@
         "l" = "retagprompt";
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
-        "j" = "retag spam";
+        "s" = "retag spam";
         "u" = "toggletags unread";
       };
       bindings.bufferlist = {
@@ -32,7 +32,7 @@
         "l" = "retagprompt";
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
-        "j" = "retag spam";
+        "s" = "retag spam";
         "u" = "toggletags unread";
       };
       settings = {
