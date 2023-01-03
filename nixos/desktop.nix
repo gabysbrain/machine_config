@@ -16,10 +16,6 @@ in
     allowUnfree = true;
   };
 
-  nixpkgs.overlays = [
-    (import ../overlays/slock.nix)
-  ];
-
   environment.systemPackages = with pkgs; [
     alsaUtils
     hicolor-icon-theme

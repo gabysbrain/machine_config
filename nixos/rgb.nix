@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  nixpkgs.overlays = [
-    (import ../overlays/openrgb.nix)
-  ];
-
   environment.systemPackages = with pkgs; [ openrgb ];
 
   boot.kernelModules = [ "i2c-dev" "i2c-piix4" ];

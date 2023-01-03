@@ -126,8 +126,8 @@ in
     '';
   };
 
-  /*
   nixpkgs.overlays = [
+    /*
     (
       self: super: {
         R-with-my-packages = super.rWrapper.override { 
@@ -138,7 +138,7 @@ in
         };
       }
     )
+    */
   ];
-  */
 
 }
