@@ -113,3 +113,5 @@ nvim_lsp['hls'].setup {
 
 nvim_lsp['rust_analyzer'].setup {}
 
+nvim_lsp['texlab'].setup {}
+

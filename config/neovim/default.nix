@@ -174,6 +174,7 @@ in
     nodePackages.vscode-langservers-extracted
     haskell-language-server
     rust-analyzer
+    texlab
     # julia ts is installed as julia module
 
     ripgrep # telekasten.nvim uses this
