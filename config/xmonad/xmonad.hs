@@ -302,9 +302,9 @@ workspaceFormatter dbus = def {
     ppOutput          = dbusOutput dbus
   , ppTitle           = shorten 40
   --, ppCurrent         = xmobarColor myMainColor myBgColor
-  --, ppVisible         = xmobarColor myMainColor myBgColor . wrap "(" ")"
-  --, ppHidden          = xmobarColor myLowColor ""
-  --, ppHiddenNoWindows = xmobarColor myLowerColor ""
+  , ppVisible         = wrap "(" ")"
+  , ppHidden          = wrap ("%{F}" ++ myLowColor ++ "} ") " %{F-}"
+  , ppHiddenNoWindows = wrap ("%{F}" ++ myLowerColor ++ "} ") " %{F-}"
   , ppSep             = " | "
   --, ppWsSep           = "  "
 }
