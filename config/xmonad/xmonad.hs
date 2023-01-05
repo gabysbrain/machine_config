@@ -300,13 +300,14 @@ myEventHook = mconcat
 -------------------------------------------------------------------------------
 workspaceFormatter dbus = def {
     ppOutput          = dbusOutput dbus
-  , ppTitle           = shorten 40
+  , ppTitle           = shorten 80
   --, ppCurrent         = xmobarColor myMainColor myBgColor
+  , ppCurrent         = wrap "" ""
   , ppVisible         = wrap "(" ")"
-  , ppHidden          = wrap ("%{F}" ++ myLowColor ++ "} ") " %{F-}"
-  , ppHiddenNoWindows = wrap ("%{F}" ++ myLowerColor ++ "} ") " %{F-}"
+  , ppHidden          = wrap ("%{F" ++ myLowColor ++ "}") "%{F-}"
+  , ppHiddenNoWindows = wrap ("%{F" ++ myLowerColor ++ "}") "%{F-}"
   , ppSep             = " | "
-  --, ppWsSep           = "  "
+  , ppWsSep           = "  "
 }
 
 dbusOutput :: D.Client -> String -> IO ()

@@ -152,7 +152,7 @@
   };
 
   home.packages = with pkgs; [
-    haskellPackages.xmobar
+    #haskellPackages.xmobar
     dmenu
 
     (callPackage ../pkgs/preview.nix {})
