@@ -20,6 +20,9 @@ execute "set colorcolumn=" . join(range(79,335), ',')
 set backupdir=/var/tmp/
 set directory=/var/tmp/
 
+" set window title to current file name
+set title titlestring=Vim\ -\ %(%{expand(\"%:~:.:h\")}%)/%t
+
 " disable the f1 help key
 map <F1> <Nop>
 
