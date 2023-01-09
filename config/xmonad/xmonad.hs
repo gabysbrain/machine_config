@@ -350,9 +350,13 @@ myConfig statusPipe = def {
 main = do
   -- for java things
   putEnv "_JAVA_AWT_WM_NONREPARENTING=1"
+
+  -- create log files to dump window and workspace info for polybar
+  --forM_ [".xmonad-workspace-log", ".xmonad-title-log"] $ \file -> safeSpawn "mkfifo" ["/tmp/" ++ file]
+
   -- setup dbus for polybar
   dbus <- D.connectSession
-  -- Request access to the DBus name
+  ---- Request access to the DBus name
   D.requestName dbus (D.busName_ "org.xmonad.Log")
     [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
 

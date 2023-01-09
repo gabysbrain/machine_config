@@ -34,8 +34,8 @@ in
         screenchange-reload = true;
       };
       "bar/main" = {
-        #monitor = "DVI-D-0";
-        monitor = "eDP1";
+        monitor = "DVI-D-0";
+        #monitor = "eDP1";
         width = "100%";
         height = "20";
         padding-left = 1;
@@ -48,7 +48,7 @@ in
 
         separator = " | ";
         modules-left = "xmonad";
-        modules-right = "cpu syncthing wireless-network audio battery date";
+        modules-right = "cpu syncthing wired-net wireless-net audio battery date";
       };
       "module/xmonad" = {
         type = "custom/script";
@@ -65,14 +65,14 @@ in
         format = "cpu <label>";
         label = "%percentage%";
       };
-      "module/wired-network" = {
+      "module/wired-net" = {
         type = "internal/network";
         interface = "enp4s0";
         format-connected = "<label-connected>";
         label-connected = "";
         label-disconnected = "%{F#dddddd}%{F-}";
       };
-      "module/wireless-network" = {
+      "module/wireless-net" = {
         type = "internal/network";
         interface = "wlp2s0";
         format-connected = "<label-connected>";
