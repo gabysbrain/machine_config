@@ -62,7 +62,7 @@
       settings = {
         blur = { 
           method = "dual_kawase";
-          strength = 8;
+          strength = 23;
         };
         no-dnd-blur = true;
         unredir-if-possible = false;
