@@ -44,10 +44,10 @@
 
   gtk = {
     enable = true;
-    theme.name = "Arc-Darker";
-    theme.package = pkgs.arc-theme;
-    iconTheme.name = "Arc";
-    iconTheme.package = pkgs.arc-icon-theme;
+    theme.package = pkgs.juno-theme;
+    theme.name = "Juno";
+    iconTheme.package = pkgs.flat-remix-icon-theme;
+    iconTheme.name = "Flat-Remix-Green-Dark";
   };
   qt = {
     enable = true;

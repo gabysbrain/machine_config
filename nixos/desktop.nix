@@ -137,11 +137,11 @@ in
       #greeters.tiny.enable = true;
       greeters.gtk.enable = true;
       greeters.gtk = {
-        theme.package = pkgs.arc-theme;
-        theme.name = "Arc-Darker";
+        theme.package = pkgs.juno-theme;
+        theme.name = "Juno";
 
-        iconTheme.package = pkgs.arc-icon-theme;
-        iconTheme.name = "Arc";
+        iconTheme.package = pkgs.flat-remix-icon-theme;
+        iconTheme.name = "Flat-Remix-Green-Dark";
 
         indicators = [ "~spacer" "~host" "~spacer" "~clock" "~session" "~power" ];
 
