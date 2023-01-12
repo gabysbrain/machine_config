@@ -48,7 +48,7 @@ in
         screenchange-reload = true;
       };
       "bar/main" = {
-        monitor = "DVI-D-0";
+        #monitor = "DVI-D-0";
         #monitor = "eDP1";
         width = "100%";
         height = "20";
@@ -102,16 +102,17 @@ in
       "module/battery" = {
         type = "internal/battery";
         battery = "BAT1";
-        format-charging = "bat <label-charging>";
-        format-discharging = "bat <label-discharging>";
+
+        format-charging = "<label-charging>";
+        format-discharging = "<label-discharging>";
         label-charging = "%percentage%+";
         label-discharging = "%percentage% %time%";
 
         format-charging-prefix = "bat";
-        format-charging-foreground = colors.fg-alt;
+        format-charging-prefix-foreground = colors.fg-alt;
         format-charging-prefix-padding = 1;
         format-discharging-prefix = "bat";
-        format-discharging-foreground = colors.fg-alt;
+        format-discharging-prefix-foreground = colors.fg-alt;
         format-discharging-prefix-padding = 1;
       };
       "module/audio" = {
