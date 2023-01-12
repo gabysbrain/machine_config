@@ -15,6 +15,26 @@ let
     bg = "#fefefe";
     fg = "#333333";
     fg-alt = "#999999";
+
+    # nord colors
+    #bg = "#2E3440";
+    #bg-alt = "#3B4252";
+    #fg = "#ECEFF4";
+    #fg-alt = "#E5E9F0";
+
+    #blue = "#81A1C1";
+    #cyan = "#88C0D0";
+    #green = "#A3BE8C";
+    #orange = "#D08770";
+    #purple = "#B48EAD";
+    #red = "#BF616A";
+    #yellow = "#EBCB8B";
+
+    #black = "#000";
+    #white = "#FFF";
+
+    #trans = "#00000000";
+    #semi-trans-black = "#aa000000";
   };
 in
 {
