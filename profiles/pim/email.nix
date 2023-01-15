@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 let 
   gmail = {name, email, primary ? false}: {
     primary = primary;
@@ -23,6 +23,7 @@ let
   };
 in 
 {
+  homeage.file.vrvis.source = ../../secrets/vrvis.age;
   imports = [
     ./alot.nix
   ];
@@ -44,7 +45,7 @@ in
         };
         imap.host = "mail.vrvis.at";
         smtp.host = "mail.vrvis.at";
-        passwordCommand = "cat /run/agenix/vrvis";
+        passwordCommand = "cat ${config.homeage.file.vrvis.path}";
         msmtp.enable = true;
         notmuch.enable = true;
         mbsync = {

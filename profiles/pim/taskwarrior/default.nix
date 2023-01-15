@@ -54,6 +54,7 @@ let
   };
 in
 {
+  homeage.file.github-bugwarrior.source = ../../../secrets/github-bugwarrior.age;
   programs.taskwarrior = {
     enable = true;
 

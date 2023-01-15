@@ -3,10 +3,6 @@
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  imports = [
-    ../secrets/home-manager.nix
-  ];
-
   # firewall config
   networking.firewall.enable = true;
 

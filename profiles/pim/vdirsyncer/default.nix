@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 
 {
+  homeage.file.google-vdirsyncer.source = ../../../secrets/google-vdirsyncer.age;
   home.file = {
     ".vdirsyncer/config".source = ./dot-vdirsyncer;
   };

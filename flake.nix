@@ -9,9 +9,18 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
+    homeage.url = "github:jordanisaacs/homeage";
+    homeage.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix }:
+  outputs = { 
+    self, 
+    nixpkgs, 
+    nixpkgs-unstable, 
+    home-manager, 
+    agenix, 
+    homeage 
+  }@inputs:
     let
       extra-pkgs-overlay = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -35,11 +44,15 @@
             home-manager.useUserPackages = true;
             home-manager.users.tom = { pkgs, nixosConfig, ... }: {
               home.stateVersion = "20.09";
+
               imports = [
                 ./home-config/common.nix
                 ./home-config/desktop.nix
                 ./profiles/dev.nix
                 ./profiles/writing.nix
+
+                # FIXME: not sure why this breaks in home-config/common...
+                homeage.homeManagerModules.homeage
               ];
             };
           }
@@ -62,6 +75,9 @@
                 ./profiles/dev.nix
                 ./profiles/games.nix
                 ./profiles/writing.nix
+
+                # FIXME: not sure why this breaks in home-config/common...
+                homeage.homeManagerModules.homeage
               ];
 
               # adjust terminal for high dpi screen
@@ -86,6 +102,9 @@
                 ./home-config/desktop.nix
                 ./profiles/dev.nix
                 ./profiles/writing.nix
+
+                # FIXME: not sure why this breaks in home-config/common...
+                homeage.homeManagerModules.homeage
               ];
             };
           }

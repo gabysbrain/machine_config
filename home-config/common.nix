@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, homeage, ... }:
 {
   imports = [
     ../config/broot/default.nix
@@ -7,7 +7,16 @@
     ../config/lf/default.nix
 
     ../config/neovim/default.nix
+
+    #homeage.homeManagerModule.homeage
   ];
+  homeage = {
+    identityPaths = [ "~/.ssh/id_ed25519" ];
+
+    # FIXME: systemd activation is buggy. Secrets aren't always created
+    #installationType = "activation";
+    installationType = "systemd";
+  };
   programs = {
     git = {
       enable = true;
