@@ -103,6 +103,7 @@ in
         type = "internal/battery";
         battery = "BAT1";
 
+        time-format = "%H:%M";
         format-charging = "<label-charging>";
         format-discharging = "<label-discharging>";
         label-charging = "%percentage%+";
