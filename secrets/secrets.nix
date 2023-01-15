@@ -17,9 +17,9 @@ let
 
 in
 {
-  "google-vdirsyncer.age".publicKeys = me ++ interactiveSystems;
-  "github-bugwarrior.age".publicKeys = me ++ interactiveSystems;
-  "vrvis.age".publicKeys = me ++ interactiveSystems;
+  "google-vdirsyncer.age".publicKeys = me;
+  "github-bugwarrior.age".publicKeys = me;
+  "vrvis.age".publicKeys = me;
   "vrvis-smb.age".publicKeys = me ++ interactiveSystems;
 
   "wasabi.age".publicKeys = me ++ backup;
