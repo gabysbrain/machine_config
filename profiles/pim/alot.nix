@@ -10,6 +10,7 @@
         "ctrl b" = "move page up";
         "q" = "bclose";
         "Q" = "exit";
+        "/" = "prompt 'search '";
       };
       bindings.thread = {
         "q" = "bclose";
