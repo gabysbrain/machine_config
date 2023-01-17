@@ -20,7 +20,7 @@
         "l" = "retagprompt";
         "a" = "untag inbox; untag todo";
         "d" = "retag trash";
-        "s" = "retag spam";
+        #"s" = "retag spam";
         "u" = "toggletags unread";
       };
       bindings.bufferlist = {
