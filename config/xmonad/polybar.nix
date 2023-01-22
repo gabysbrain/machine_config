@@ -103,12 +103,18 @@ in
         type = "internal/battery";
         battery = "BAT1";
 
+        full-at = "80";
         time-format = "%H:%M";
         format-charging = "<label-charging>";
         format-discharging = "<label-discharging>";
         label-charging = "%percentage%+";
         label-discharging = "%percentage% %time%";
+        label-full = "%percentage%";
 
+        format-low-foreground = "#ff0000";
+        format-full-prefix = "bat";
+        format-full-prefix-foreground = colors.fg-alt;
+        format-full-prefix-padding = 1;
         format-charging-prefix = "bat";
         format-charging-prefix-foreground = colors.fg-alt;
         format-charging-prefix-padding = 1;
