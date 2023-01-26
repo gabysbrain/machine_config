@@ -1,4 +1,8 @@
 {pkgs, ...}:
+
+let
+  tmux-projs = pkgs.callPackage ../pkgs/tmux-projs {};
+in
 {
   programs.tmux = {
     enable = true;
@@ -11,6 +15,9 @@
 
       # windows start at 1
       set -g base-index 1
+
+      # bring up project switcher like in zsh
+      bind-key C-g new-window ${tmux-projs}/bin/tmux-projs
 
       # Vi copypaste mode
       set-window-option -g mode-keys vi
