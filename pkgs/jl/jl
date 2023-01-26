@@ -1,9 +1,0 @@
-#! /usr/bin/env bash
-
-# just run julia if we're already in a tmux session
-if [ -n "$TMUX" ]; then
-  julia --project $@
-else
-  tmux new-session "julia --project $@"
-fi
-

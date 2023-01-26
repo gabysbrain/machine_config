@@ -12,8 +12,8 @@ notmuch-imap-tag-mover
 echo ---------------- email sync -------------------
 for gm in ${GMAILACCTS};
 do
-  echo syncing ${gm}
-  (cd ${MAILDIR}/${gm} && gmi sync)
+  echo syncing "${gm}"
+  (cd "${MAILDIR}/${gm}" && gmi sync)
 done
 mbsync -a
 
@@ -23,5 +23,5 @@ notmuch new
 echo -----------------  tags   ---------------------
 notmuch-tag 
 
-echo done
+echo "done"
 

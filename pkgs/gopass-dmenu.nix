@@ -1,10 +1,12 @@
 {pkgs ? import <nixpkgs>}:
 
-pkgs.writeShellScriptBin "gopass-dmenu" ''
-    GOPASS=${pkgs.gopass}/bin/gopass
-    MENU=${pkgs.dmenu}/bin/dmenu
-    XDO=${pkgs.xdotool}/bin/xdotool
+pkgs.writeShellApplication {
+  name = "gopass-dmenu";
+  runtimeInputs = with pkgs; [ gopass dmenu xdotool ];
+  text = ''
+    MENU=dmenu
 
-    $GOPASS ls --flat | $MENU | xargs --no-run-if-empty $GOPASS show -o -f | head -n 1 | $XDO type --clearmodifiers --file -
-''
+    gopass ls --flat | $MENU | xargs --no-run-if-empty gopass show -o -f | head -n 1 | xdotool type --clearmodifiers --file -
+  '';
+}
 

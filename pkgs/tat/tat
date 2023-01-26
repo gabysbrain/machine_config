@@ -26,11 +26,11 @@ group_exists() {
 # check to see if there's a group already
 if group_exists "${session_name}"; then
   # figure out if there's an unattached session in the group and attach to it
-  attach_session=`tmux list-sessions -F '#{session_attached},#{?session_group,#{session_group},#{session_name}},#{window_id}' | grep '^0,'"${session_name}"',' | cut -d, -f 3 | sort | head -1`
+  attach_session=$(tmux list-sessions -F '#{session_attached},#{?session_group,#{session_group},#{session_name}},#{window_id}' | grep '^0,'"${session_name}"',' | cut -d, -f 3 | sort | head -1)
   if [ -z "$attach_session" ]; then
     ## if there's no unattached session then create a new one in the group
-    new_session=`TMUX='' tmux new-session -P -d -t "${session_name}" -c "${workdir}"`
-    attach_session=`tmux new-window -P -t "${new_session}"`
+    new_session=$(TMUX='' tmux new-session -P -d -t "${session_name}" -c "${workdir}")
+    attach_session=$(tmux new-window -P -t "${new_session}")
   fi
 else
   # create the group with new-session as detached 
@@ -38,7 +38,7 @@ else
 
   # -P prints the name of the new session
   # -s instead of -t forces the session name to not have the numeric extension
-  attach_session=`TMUX='' tmux new-session -P -d -s "${session_name}" -c "${workdir}"`
+  attach_session=$(TMUX='' tmux new-session -P -d -s "${session_name}" -c "${workdir}")
 fi
 
 # finally! 

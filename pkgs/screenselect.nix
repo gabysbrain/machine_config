@@ -1,14 +1,19 @@
 {pkgs ? import <nixpkgs>}:
 #with import <nixpkgs> {};
 
-pkgs.writeShellScriptBin "screenselect" ''
+pkgs.writeShellApplication {
+  name = "screenselect"; 
+
+  runtimeInputs = with pkgs; [ xrandr arandr xkb-switch ];
+
+  text = ''
     MAIN="eDP1"
 
     # default keyboard
     DEFAULTKB=gb
-    XRANDR=${pkgs.xorg.xrandr}/bin/xrandr
-    ARANDR=${pkgs.arandr}/bin/arandr
-    KBSWITCH=${pkgs.xkb-switch}/bin/xkb-switch
+    XRANDR=xrandr
+    ARANDR=arandr
+    KBSWITCH=xkb-switch
 
     # Gives a number of options for connecting to different screens
 
@@ -46,5 +51,6 @@ pkgs.writeShellScriptBin "screenselect" ''
 
     # set kb map
     $KBSWITCH -s $kbmap
-''
+  '';
+}
 

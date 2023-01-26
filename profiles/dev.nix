@@ -104,7 +104,6 @@ in
 
     # Julia stuff
     juliaPkg
-    (callPackage ../pkgs/jl { juliaPkg = juliaPkg; pkgs=pkgs; })
 
     # Problog
     (callPackage ../pkgs/problog {})

@@ -3,8 +3,8 @@
 query=$1
 
 # khard for all main addresses
-khard email --parsable -- ${query}
+khard email --parsable -- "${query}"
 
 # goobook for group search
-goobook query ${query} | grep '(group)'
+goobook query "${query}" | grep '(group)'
 

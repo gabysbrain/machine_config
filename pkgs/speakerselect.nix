@@ -1,14 +1,17 @@
 {pkgs ? import <nixpkgs>}:
 #with import <nixpkgs> {};
 
-pkgs.writeShellScriptBin "speakerselect" ''
-    PACMD=${pkgs.pulseaudio}/bin/pacmd
-    PACTL=${pkgs.pulseaudio}/bin/pactl
+pkgs.writeShellApplication {
+  name = "speakerselect";
 
+  runtimeInputs = with pkgs; [
+    pulseaudio
+  ];
 
-    sink_ids=$($PACTL list sinks | grep 'Sink ' | cut -d '#' -f 2)
-    sink_descs=$($PACTL list sinks | grep 'Description:' | cut -d ' ' -f 3-)
-    cur_sources=$($PACTL list sink-inputs | grep 'Sink Input' | cut -d '#' -f 2)
+  text = ''
+    sink_ids=$(pactl list sinks | grep 'Sink ' | cut -d '#' -f 2)
+    sink_descs=$(pactl list sinks | grep 'Description:' | cut -d ' ' -f 3-)
+    cur_sources=$(pactl list sink-inputs | grep 'Sink Input' | cut -d '#' -f 2)
 
     declare -A desc_ids
 
@@ -33,5 +36,6 @@ pkgs.writeShellScriptBin "speakerselect" ''
         pacmd move-sink-input $source $output_id
       done
     fi
-''
+  '';
+}
 
