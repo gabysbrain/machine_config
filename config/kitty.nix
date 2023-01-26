@@ -35,8 +35,11 @@ in
       cursor_blink_interval = 0;
     };
 
+    # cursor color needs to be below nord colors to override
     extraConfig = ''
       include ${kitty-nord-theme}/share/config/kitty/nord.conf
+
+      cursor #5e81ac
     '';
   };
 }
