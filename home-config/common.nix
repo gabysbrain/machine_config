@@ -2,6 +2,7 @@
 {
   imports = [
     ../config/broot/default.nix
+    ../config/fzf.nix
     ../config/zsh.nix
     ../config/tmux.nix
     ../config/lf/default.nix

@@ -21,14 +21,6 @@
           sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
         };
       }
-      { name = "zsh-peco-history";
-        src = pkgs.fetchFromGitHub {
-          owner = "jimeh";
-          repo = "zsh-peco-history";
-          rev = "0.9.1";
-          sha256 = "1kadc2ylqxs9yrscbx4fxhcalj5k9bgakm2rpk6zk205kl36a2gg";
-        };
-      }
       { name = "zsh-system-clipboard";
         src = pkgs.fetchFromGitHub {
           owner = "zsh-vi-more";
@@ -141,6 +133,10 @@
         source ~/.config/zsh/scratch.zsh
       fi
     '';
+  };
+  programs.fzf = {
+    enable = true; # needed for fzf history search
+    enableZshIntegration = true;
   };
   home.activation = {
     zshScratchFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
