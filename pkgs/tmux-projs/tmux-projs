@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+PROJ_DIRS=(~/projects ~/projects/brainstar ~/projects/brainstar/deployments ~/projects/brainstar/features ~/projects/papers ~/projects/proposals)
+
+selected=$(find "${PROJ_DIRS[@]}" -mindepth 1 -maxdepth 1 -type d | fzf)
+
+# if we don't select everything just quit
+if [ -z "$selected" ]; then
+  exit 0
+fi
+
+tat "$selected"
+

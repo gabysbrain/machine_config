@@ -92,8 +92,6 @@ in
       # ctrl-l to open broot
       # br comes from home-manager broot zsh integration
       bindkey -s '^l' 'br\n'
-      # ctrl-g to open directory search
-      bindkey -s '^g' 'br --cmd " files" ~\n'
     '';
   };
 }

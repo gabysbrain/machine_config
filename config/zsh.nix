@@ -1,4 +1,8 @@
 {pkgs, lib, ...}:
+
+let 
+  tmux-projs = pkgs.callPackage ../pkgs/tmux-projs {};
+in
 {
   programs.zsh  = {
     enable = true;
@@ -128,6 +132,8 @@
         ssh -N -L ''${myport}:localhost:''${dstport} ''${conn}
       }
 
+      # ctrl-g to open directory search
+      bindkey -s '^g' '${tmux-projs}/bin/tmux-projs\n'
 
       if [ -f ~/.config/zsh/scratch.zsh ]; then
         source ~/.config/zsh/scratch.zsh
