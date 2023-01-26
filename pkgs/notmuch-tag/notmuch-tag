@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 NEW_TAG=""
 
@@ -47,7 +47,7 @@ echo "Tag with IMAP folders"
 declare -A NOTAG_MAP=() # convert to associative array for membership checking
 for k in "${NOTAG_FOLDERS[@]}"; do NOTAG_MAP[$k]=1; done
 for folder in $(notmuch search --output=files folder:'/vrvis.*/' | grep '/.mail/vrvis/' | sed 's#.*/vrvis/\([^/]*\)/.*#\1#' | sort -u); do
-  if [ -z "${NOTAG_MAP[$folder]}" ]; then
+  if [ -z "${NOTAG_MAP[$folder]+x}" ]; then
     tag="${folder,,}"
     notmuch tag "+${tag}" -new -- "${NEW_TAG}" folder:"vrvis/${folder}" and not tag:"${tag}"
   fi
