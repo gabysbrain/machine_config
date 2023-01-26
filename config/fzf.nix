@@ -3,7 +3,7 @@
   programs.fzf = {
     colors = {
       # nord colors from https://github.com/ianchesal/nord-fzf
-      fg = "e5e9f0";
+      fg = "#e5e9f0";
       bg = "#3b4252";
       hl = "#81a1c1";
       "fg+" = "#e5e9f0";
