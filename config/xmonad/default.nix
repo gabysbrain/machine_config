@@ -27,17 +27,6 @@ in
       ];
     };
   };
-  home.file = {
-    ###############################
-    # XMonad utilities
-    ###############################
-    # TODO: make this configure based on machine capabilities
-    #".xmonad/xmobar.hs".source = ./. + "/xmobar-${nixosConfig.networking.hostName}.hs";
-    #".xmonad/net.sh" = {
-      #source = ./net.sh;
-      #executable = true;
-    #};
-  };
   home.packages = with pkgs; [
     xmonad-log
   ];
