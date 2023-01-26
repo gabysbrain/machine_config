@@ -42,7 +42,7 @@ else
 fi
 
 # finally! 
-if [ -z "$TMUX" ]; then # see if we're in tmux already
+if [ -z "${TMUX+x}" ]; then # see if we're in tmux already
   tmux attach-session -t "${attach_session}"
 else
   tmux switch-client -t "${attach_session}"
