@@ -15,6 +15,7 @@ let
     bg = "#fefefe";
     fg = "#333333";
     fg-alt = "#999999";
+    lightgray = "#cccccc";
 
     # nord colors
     #bg = "#2E3440";
@@ -27,7 +28,7 @@ let
     #green = "#A3BE8C";
     #orange = "#D08770";
     #purple = "#B48EAD";
-    #red = "#BF616A";
+    red = "#BF616A";
     #yellow = "#EBCB8B";
 
     #black = "#000";
@@ -95,7 +96,12 @@ in
       "module/wireless-net" = {
         type = "internal/network";
         interface = "wlp2s0";
+
         format-connected = "<label-connected>";
+        format-connected-prefix = "net";
+        format-connected-prefix-foreground = colors.fg-alt;
+        format-connected-prefix-padding = 1;
+
         label-connected = "直";
         label-disconnected = "%{F#dddddd}睊%{F-}";
       };
@@ -111,7 +117,7 @@ in
         label-discharging = "%percentage% %time%";
         label-full = "%percentage%";
 
-        format-low-foreground = "#ff0000";
+        format-low-foreground = colors.red;
         format-full-prefix = "bat";
         format-full-prefix-foreground = colors.fg-alt;
         format-full-prefix-padding = 1;
@@ -126,9 +132,19 @@ in
         type = "internal/alsa";
 
         label-volume = "%percentage%";
+        label-muted = "%percentage%";
+        label-muted-foreground = colors.lightgray;
+
+        format-volume = "<label-volume>";
         format-volume-prefix = "vol";
         format-volume-prefix-foreground = colors.fg-alt;
         format-volume-prefix-padding = 1;
+
+        format-muted = "<label-muted>";
+        format-muted-foreground = colors.lightgray;
+        format-muted-prefix = "vol";
+        format-muted-prefix-foreground = colors.fg-alt;
+        format-muted-prefix-padding = 1;
       };
       "module/date" = {
         type = "internal/date";
