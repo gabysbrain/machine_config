@@ -4,7 +4,7 @@
 pkgs.writeShellApplication {
   name = "screenselect"; 
 
-  runtimeInputs = with pkgs; [ xrandr arandr xkb-switch ];
+  runtimeInputs = with pkgs; [ arandr xkb-switch ];
 
   text = ''
     MAIN="eDP1"
@@ -38,10 +38,10 @@ pkgs.writeShellApplication {
         $XRANDR --output eDP1 --mode '1920x1080' --right-of HDMI1
         ;;
       dual) 
-        $XRANDR --output $MAIN --auto $(echo "$connscreens" | grep -v $MAIN | awk -v main=$MAIN '{print "--output", $1, "--same-as", main}' | tr '\n' ' ') 
+        $XRANDR --output $MAIN --auto "$(echo "$connscreens" | grep -v $MAIN | awk -v main=$MAIN '{print "--output", $1, "--same-as", main}' | tr '\n' ' ')"
         ;;
       main) 
-        $XRANDR --output $MAIN --auto $(echo "$screens" | grep -v $MAIN | awk '{print "--output", $1, "--off"}' | tr '\n' ' ') 
+        $XRANDR --output $MAIN --auto "$(echo "$screens" | grep -v $MAIN | awk '{print "--output", $1, "--off"}' | tr '\n' ' ')"
         ;;
       other) 
         $ARANDR

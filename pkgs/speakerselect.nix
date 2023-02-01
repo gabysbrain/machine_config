@@ -9,9 +9,9 @@ pkgs.writeShellApplication {
   ];
 
   text = ''
-    sink_ids=$(pactl list sinks | grep 'Sink ' | cut -d '#' -f 2)
-    sink_descs=$(pactl list sinks | grep 'Description:' | cut -d ' ' -f 3-)
-    cur_sources=$(pactl list sink-inputs | grep 'Sink Input' | cut -d '#' -f 2)
+    sink_ids="$(pactl list sinks | grep 'Sink ' | cut -d '#' -f 2)"
+    sink_descs="$(pactl list sinks | grep 'Description:' | cut -d ' ' -f 3-)"
+    cur_sources="$(pactl list sink-inputs | grep 'Sink Input' | cut -d '#' -f 2)"
 
     declare -A desc_ids
 
@@ -27,15 +27,17 @@ pkgs.writeShellApplication {
     chosen=$(printf "%s" "$sink_descs" | dmenu -i -p "Select output:")
 
     # only move things if the command completed successfully
-    if [ $? -eq 0 ]; then
-      output_id="''${desc_ids[$chosen]}"
-
-      # move everything over to the new output
-      pacmd set-default-sink $output_id
-      for source in $cur_sources; do
-        pacmd move-sink-input $source $output_id
-      done
+    if [[ -z "$chosen" ]]; then
+      exit 0
     fi
+
+    output_id="''${desc_ids[$chosen]}"
+
+    # move everything over to the new output
+    pacmd set-default-sink "$output_id"
+    for source in $cur_sources; do
+      pacmd move-sink-input "$source" "$output_id"
+    done
   '';
 }
 
