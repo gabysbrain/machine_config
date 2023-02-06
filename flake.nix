@@ -38,7 +38,7 @@
         modules = [ 
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ extra-pkgs-overlay ]; })
           ./portege-configuration.nix 
-          agenix.nixosModules.age
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -63,7 +63,7 @@
         modules = [ 
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ extra-pkgs-overlay ]; })
           ./katana-configuration.nix 
-          agenix.nixosModules.age
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -91,7 +91,7 @@
         modules = [ 
           ({ config, pkgs, ... }: { nixpkgs.overlays = [ extra-pkgs-overlay my-overrides ]; })
           ./brokkoli-configuration.nix 
-          agenix.nixosModules.age
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
