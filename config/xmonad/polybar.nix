@@ -41,8 +41,9 @@ in
 {
   services.polybar = {
     enable = true;
+    # need to sleep to wait for alsa to get it's act together
     script = ''
-      polybar main &
+      (${pkgs.coreutils}/bin/sleep 10; polybar main) &
     '';
     settings = {
       "settings" = {
