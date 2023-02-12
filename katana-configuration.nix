@@ -139,6 +139,7 @@
         "--keep-within-monthly 2y"
         "--keep-within-yearly 20y"
         "--keep-last 2"
+        "--compression max"
       ];
       timerConfig = {
         OnBootSec = "2m";
