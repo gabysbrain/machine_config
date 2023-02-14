@@ -109,22 +109,6 @@ in
     (callPackage ../pkgs/problog {})
   ];
 
-  home.file = {
-    ".jira.d/config.yml".text = ''
-      endpoint: https://jira.vrvis.at
-      user: torsney-weir
-
-      assignee: torsney-weir
-      project: LARVAE2
-
-      custom-commands:
-        - name: mine
-          help: display issues assigned to me
-          script: |-
-            {{jira}} list --template table --query "resolution=unresolved and assignee=currentuser() ORDER BY priority asc, created"
-    '';
-  };
-
   nixpkgs.overlays = [
     /*
     (

@@ -19,8 +19,6 @@ in
 {
   "google-vdirsyncer.age".publicKeys = me;
   "github-bugwarrior.age".publicKeys = me;
-  "vrvis.age".publicKeys = me;
-  "vrvis-smb.age".publicKeys = me ++ interactiveSystems;
 
   "wasabi.age".publicKeys = me ++ backup;
   "restic.age".publicKeys = me ++ backup;

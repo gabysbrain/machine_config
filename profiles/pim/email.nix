@@ -23,7 +23,6 @@ let
   };
 in 
 {
-  homeage.file.vrvis.source = ../../secrets/vrvis.age;
   imports = [
     ./alot.nix
   ];
@@ -33,33 +32,6 @@ in
       personal = gmail {name="personal"; email="torsneyt@gmail.com"; primary=true;};
       swansea = gmail {name="swansea"; email="t.d.torsneyweir@gmail.com";};
       sfu = gmail {name="sfu"; email="ttorsney.sfu@gmail.com";};
-      vrvis = {
-        realName = "Thomas Torsney-Weir";
-        userName = "torsney-weir";
-        address = "torsney-weir@vrvis.at";
-        flavor = "plain";
-        folders = {
-          drafts = "Drafts";
-          sent = "Sent";
-          trash = "Trash";
-        };
-        imap.host = "mail.vrvis.at";
-        smtp.host = "mail.vrvis.at";
-        passwordCommand = "cat ${config.homeage.file.vrvis.path}";
-        msmtp.enable = true;
-        notmuch.enable = true;
-        mbsync = {
-          enable = true;
-          create = "both";
-          expunge = "both";
-        };
-        alot.contactCompletion = {
-          type = "shellcommand";
-          command = "khard email --parsable";
-          regexp = "'^(?P<email>[^@]+@[^\t]+)\t+(?P<name>[^\t]+)'";
-          ignorecase = "True";
-        };
-      };
     };
   };
   programs = {

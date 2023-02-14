@@ -35,16 +35,6 @@ let
       filter = "+followup";
     };
 
-    # Report for the weekly progress meeting
-    # run as `task weeklymeeting modified.after:2021-09-15`
-    weeklymeeting = {
-      description = "VRVis weekly meeting progress";
-      columns = [ "uuid.short" "description.desc" "project" "depends" "tags" "jiraurl" "depends" "status" ];
-      #labels=id" "description" "project" "tags" "jira link
-      filter = "+vrvis and (status:completed or status:pending)";
-      sort = "status";
-    };
-
     _reviewed = {
       description="Tasksh review report. Adjust the filter to your needs.";
       columns="uuid";

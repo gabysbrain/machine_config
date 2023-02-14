@@ -3,7 +3,7 @@
 
 pkgs.writeShellApplication {
   name = "tat"; 
-  runtimeInputs = with pkgs; [ tmux ];
+  runtimeInputs = with pkgs; [ tmux gnugrep ];
   text = builtins.readFile ./tat;
 }
 

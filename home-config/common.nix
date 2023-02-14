@@ -39,23 +39,6 @@
         };
       };
     };
-    mercurial = {
-      enable = true;
-      userName = "Thomas Torsney-Weir";
-      userEmail = "torsney-weir@vrvis.at"; # only really use mercurial at work
-      extraConfig = {
-        extensions = {
-          rebase = "";
-          bookmarks = "";
-          record = "";
-          histedit = "";
-        };
-        merge-tools = {
-          "vimdiff.executable" = "nvim -d";
-          "vimdiff.args" = ''-M "$LOCAL" "$MERGED" "$REMOTE" -c "wincmd w" -c "set modifiable" -c "set write"'';
-        };
-      };
-    };
     bat = {
       enable = true;
       config = {

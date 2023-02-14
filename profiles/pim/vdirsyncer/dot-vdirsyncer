@@ -14,11 +14,6 @@ a = "my_calendars_local"
 b = "gcalendars"
 collections = ["from a", "from b"]
 
-[pair vrvis_calendars]
-a = "vrvis_calendars_local"
-b = "vrvis"
-collections = ["from a", "from b"]
-
 ##### Local storages
 
 [storage my_contacts_local]
@@ -29,11 +24,6 @@ fileext = ".vcf"
 [storage my_calendars_local]
 type = "filesystem"
 path = "~/.calendars/personal"
-fileext = ".ics"
-
-[storage vrvis_calendars_local]
-type = "filesystem"
-path = "~/.calendars/vrvis"
 fileext = ".ics"
 
 ##### Remote storages
@@ -49,12 +39,4 @@ type = "google_calendar"
 token_file = "~/.vdirsyncer/gcalendar_token"
 client_id.fetch = ["command", "sed", "-n", "1p", "/run/user/1000/secrets/google-vdirsyncer"]
 client_secret.fetch = ["command", "sed", "-n", "2p", "/run/user/1000/secrets/google-vdirsyncer"]
-
-[storage vrvis]
-type = "caldav"
-url = "https://sogo.vrvis.at/SOGo/dav"
-username = "torsney-weir"
-password.fetch = ["command", "cat", "/run/user/1000/secrets/vrvis"]
-verify = false
-verify_fingerprint = "3f:a3:54:c7:6e:a3:c3:be:50:90:4b:9d:42:2d:af:3d:dc:da:99:38"
 

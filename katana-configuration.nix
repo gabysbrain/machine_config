@@ -10,7 +10,6 @@
       ./nixos/common.nix
       ./nixos/games.nix
       ./nixos/desktop.nix
-      ./nixos/vrvis.nix
       ./nixos/rgb.nix
     ];
 
@@ -130,7 +129,6 @@
         "--exclude='home/*/.julia'"
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
-        "--exclude='home/**/vrvis/mnt'"
         "--exclude='photos/photoprism-data/sidecar'"
       ];
       pruneOpts = [

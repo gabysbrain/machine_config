@@ -16,9 +16,6 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-# don't assign tags for mails in these imap folders
-declare -a NOTAG_FOLDERS=(Archive Junk) 
-
 echo "Updating tags for mail"
 
 # make sure the notmuch db is current
@@ -40,32 +37,9 @@ done
 # remove unread from sent mails (hopefully I read these before sending)
 notmuch tag -unread -- "${NEW_TAG}" tag:sent
 
-# emails in a folder should get the lowercase folder name as a tag
-# this is special for imap accounts
-# also remove the new tag so already filed messages don't end up in the inbox
-echo "Tag with IMAP folders"
-declare -A NOTAG_MAP=() # convert to associative array for membership checking
-for k in "${NOTAG_FOLDERS[@]}"; do NOTAG_MAP[$k]=1; done
-for folder in $(notmuch search --output=files folder:'/vrvis.*/' | grep '/.mail/vrvis/' | sed 's#.*/vrvis/\([^/]*\)/.*#\1#' | sort -u); do
-  if [ -z "${NOTAG_MAP[$folder]+x}" ]; then
-    tag="${folder,,}"
-    notmuch tag "+${tag}" -new -- "${NEW_TAG}" folder:"vrvis/${folder}" and not tag:"${tag}"
-  fi
-done
-# vrvis Junk folder is where spam lives
-notmuch tag --remove-all +spam -new -- "${NEW_TAG}" folder:vrvis/Junk and not tag:spam
-
 # Skip spam and trash
 notmuch tag -new -- "${NEW_TAG}" tag:spam 
 notmuch tag -new -- "${NEW_TAG}" tag:trash 
-
-# remove new from imap archive messages so they don't end up in the inbox
-# they don't get tags to stay consistent with gmail
-echo "Leaving archive mails"
-notmuch tag -new -- folder:vrvis/Archive and tag:new
-
-# emails can't be in inbox and archive
-notmuch tag -inbox -- "${NEW_TAG}" folder:vrvis/Archive and tag:inbox
 
 # TODO: tag threads: https://notmuchmail.org/faq/
 #THREAD_TAGS="muted"

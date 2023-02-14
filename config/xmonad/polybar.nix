@@ -110,7 +110,7 @@ in
         type = "internal/battery";
         battery = "BAT1";
 
-        full-at = 80;
+        full-at = 79;
         low-at = 5;
 
         time-format = "%H:%M";
