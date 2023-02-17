@@ -37,6 +37,7 @@ let
     #trans = "#00000000";
     #semi-trans-black = "#aa000000";
   };
+  wlan-config = "${pkgs.connman-gtk}/bin/connman-gtk";
 in
 {
   services.polybar = {
@@ -102,9 +103,13 @@ in
         format-connected-prefix = "net";
         format-connected-prefix-foreground = colors.fg-alt;
         format-connected-prefix-padding = 1;
+        format-disconnected = "<label-disconnected>";
+        format-disconnected-prefix = "net";
+        format-disconnected-prefix-foreground = colors.fg-alt;
+        format-disconnected-prefix-padding = 1;
 
-        label-connected = "直";
-        label-disconnected = "%{F#dddddd}睊%{F-}";
+        label-connected = "%{A1:${wlan-config}:}直%{A}";
+        label-disconnected = "%{F#dddddd}%{A1:${wlan-config}:}睊%{A}%{F-}";
       };
       "module/battery" = {
         type = "internal/battery";
