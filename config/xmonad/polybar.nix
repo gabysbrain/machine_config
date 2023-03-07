@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 let 
+  ethInterface = "enp4s0";
+  wifiInterface = "wlp2s0";
   syncthing-status = pkgs.runCommand "syncthing-status" {
     buildInputs = with pkgs; [
       (callPackage ../../pkgs/syncthing-quick-status.nix {})
@@ -90,14 +92,14 @@ in
       };
       "module/wired-net" = {
         type = "internal/network";
-        interface = "enp4s0";
+        interface = ethInterface;
         format-connected = "<label-connected>";
         label-connected = "";
         label-disconnected = "%{F#dddddd}%{F-}";
       };
       "module/wireless-net" = {
         type = "internal/network";
-        interface = "wlp2s0";
+        interface = wifiInterface;
 
         format-connected = "<label-connected>";
         format-connected-prefix = "net";
