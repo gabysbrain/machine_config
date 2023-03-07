@@ -25,14 +25,40 @@
       extra-pkgs-overlay = final: prev: {
         unstable = import nixpkgs-unstable {
           system=prev.system;
-          config.allowUnfree = true;
+          config.allowUnfree = true; # FIXME: doesn't work with nixos-install
         };
         inherit agenix;
       };
       my-overrides = import overlays/default.nix;
     in {
 
+    # FIXME: tom user should be created and have zsh shell
     nixosConfigurations = {
+      raicoon = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ 
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ extra-pkgs-overlay ]; })
+          ./raicoon-configuration.nix 
+          agenix.nixosModules.default
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.tom = { pkgs, nixosConfig, ... }: {
+              home.stateVersion = "21.11";
+
+              imports = [
+                ./home-config/common.nix
+                ./home-config/desktop.nix
+                ./profiles/dev.nix
+                #./profiles/writing.nix
+
+                # FIXME: not sure why this breaks in home-config/common...
+                homeage.homeManagerModules.homeage
+              ];
+            };
+          }
+        ];
+      };
       philadelphia = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
