@@ -50,6 +50,7 @@
                 ./home-config/common.nix
                 ./home-config/desktop.nix
                 ./profiles/dev.nix
+                ./profiles/work.nix
                 #./profiles/writing.nix
 
                 # FIXME: not sure why this breaks in home-config/common...
