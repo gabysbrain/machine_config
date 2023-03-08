@@ -36,8 +36,8 @@ local on_attach = function(client, bufnr)
   -- error handling
   buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '<leader>Q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
   -- TODO: see if I ever want these
   --buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -112,9 +112,18 @@ nvim_lsp['hls'].setup {
   capabilities = capabilities,
 }
 
-nvim_lsp['pyright'].setup {}
+nvim_lsp['pyright'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
-nvim_lsp['rust_analyzer'].setup {}
+nvim_lsp['rust_analyzer'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
-nvim_lsp['texlab'].setup {}
+nvim_lsp['texlab'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
