@@ -93,7 +93,16 @@ in
       "module/wired-net" = {
         type = "internal/network";
         interface = ethInterface;
+
         format-connected = "<label-connected>";
+        format-connected-prefix = "eth";
+        format-connected-prefix-foreground = colors.fg-alt;
+        format-connected-prefix-padding = 1;
+        format-disconnected = "<label-disconnected>";
+        format-disconnected-prefix = "eth";
+        format-disconnected-prefix-foreground = colors.fg-alt;
+        format-disconnected-prefix-padding = 1;
+
         label-connected = "";
         label-disconnected = "%{F#dddddd}%{F-}";
       };
@@ -102,11 +111,11 @@ in
         interface = wifiInterface;
 
         format-connected = "<label-connected>";
-        format-connected-prefix = "net";
+        format-connected-prefix = "wifi";
         format-connected-prefix-foreground = colors.fg-alt;
         format-connected-prefix-padding = 1;
         format-disconnected = "<label-disconnected>";
-        format-disconnected-prefix = "net";
+        format-disconnected-prefix = "wifi";
         format-disconnected-prefix-foreground = colors.fg-alt;
         format-disconnected-prefix-padding = 1;
 
