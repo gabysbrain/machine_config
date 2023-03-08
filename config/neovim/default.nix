@@ -141,7 +141,6 @@ in
       customPlugins.telescope-bibtex
       nvim-lspconfig
       fugitive
-      vim-lawrencium
       julia-vim
       vim-go
       customPlugins.nvim-jqx # json

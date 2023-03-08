@@ -172,9 +172,8 @@
     bpytop # monitoring
 
     libreoffice-unwrapped
-    spotify
     discord
-    unstable.zotero
+    unstable.zotero # TODO: move to a research profile (with latex and stuff from writing)
 
     inkscape
     darktable
@@ -184,7 +183,6 @@
     imagej
     ffmpeg
     bftools
-    zulip
 
     yt-dlp
 
