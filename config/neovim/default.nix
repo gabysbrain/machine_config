@@ -174,6 +174,7 @@ in
     haskell-language-server
     rust-analyzer
     texlab
+    pyright
     # julia ts is installed as julia module
 
     ripgrep # telekasten.nvim uses this

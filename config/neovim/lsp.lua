@@ -112,6 +112,8 @@ nvim_lsp['hls'].setup {
   capabilities = capabilities,
 }
 
+nvim_lsp['pyright'].setup {}
+
 nvim_lsp['rust_analyzer'].setup {}
 
 nvim_lsp['texlab'].setup {}
