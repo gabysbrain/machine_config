@@ -36,6 +36,9 @@ set autoindent
 " show numbers in margin
 set number
 
+" leader key mapping
+let mapleader = " "
+
 " tablular
 vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
@@ -45,7 +48,6 @@ vmap a- :Tabularize /-><CR>
 set updatetime=100
 
 " commands to edit and reload config
-" things are weird because 
 nnoremap <leader>ev :e $HOME/.config/nvim/scratch.vim<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 
