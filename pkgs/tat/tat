@@ -25,10 +25,10 @@ group_exists() {
 if group_exists "${session_name}"; then
   # figure out if there's an unattached session in the group and attach to it
   TMUX='' tmux list-sessions -F '#{session_attached},#{?session_group,#{session_group},#{session_name}},#{window_id}' | grep '^1,'"${session_name}"',' | cut -d, -f 3 | sort | head -1
-  attach_session=$(TMUX='' tmux list-sessions -F '#{session_attached},#{?session_group,#{session_group},#{session_name}},#{window_id}' | grep '^1,'"${session_name}"',' | cut -d, -f 3 | sort | head -1)
+  attach_session=$(TMUX='' tmux list-sessions -F '#{session_attached},#{?session_group,#{session_group},#{session_name}},#{window_id}' | grep '^0,'"${session_name}"',' | cut -d, -f 3 | sort | head -1)
 
-  if [ -z "$attach_session" ]; then
-    ## if there's no unattached session then create a new one in the group
+  # if there's no unattached session then create a new one in the group
+  if [ -z "${attach_session}" ]; then
     new_session=$(TMUX='' tmux new-session -P -d -t "${session_name}" -c "${workdir}")
     attach_session=$(TMUX='' tmux new-window -P -t "${new_session}")
   fi
