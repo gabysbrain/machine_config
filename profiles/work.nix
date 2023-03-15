@@ -19,5 +19,6 @@
   home.packages = with pkgs; [
     slack
     bump2version
+    dbeaver
   ];
 }

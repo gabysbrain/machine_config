@@ -144,8 +144,9 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  # lots of dealing with docker containers
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "tom" ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
