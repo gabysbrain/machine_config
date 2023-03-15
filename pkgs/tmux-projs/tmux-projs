@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-PROJ_DIRS=(~/projects ~/projects/brainstar ~/projects/brainstar/deployments ~/projects/brainstar/features ~/projects/papers ~/projects/proposals)
+PROJ_DIRS=(~/projects ~/raicoon)
 
 selected=$(find "${PROJ_DIRS[@]}" -mindepth 1 -maxdepth 1 -type d | fzf)
 
