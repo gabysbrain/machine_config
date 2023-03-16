@@ -14,6 +14,11 @@ a = "my_calendars_local"
 b = "gcalendars"
 collections = ["from a", "from b"]
 
+[pair raicoon_calendars]
+a = "raicoon_calendars_local"
+b = "outlookcal"
+collections = ["from a", "from b"]
+
 ##### Local storages
 
 [storage my_contacts_local]
@@ -24,6 +29,11 @@ fileext = ".vcf"
 [storage my_calendars_local]
 type = "filesystem"
 path = "~/.calendars/personal"
+fileext = ".ics"
+
+[storage raicoon_calendars_local]
+type = "filesystem"
+path = "~/.calendars/raicoon"
 fileext = ".ics"
 
 ##### Remote storages
@@ -39,4 +49,10 @@ type = "google_calendar"
 token_file = "~/.vdirsyncer/gcalendar_token"
 client_id.fetch = ["command", "sed", "-n", "1p", "/run/user/1000/secrets/google-vdirsyncer"]
 client_secret.fetch = ["command", "sed", "-n", "2p", "/run/user/1000/secrets/google-vdirsyncer"]
+
+[storage outlookcal]
+type = "caldav"
+url = "http://localhost:1080/users/t.torsney@raicoon.com/calendar/"
+username = "t.torsney@raicoon.com"
+password.fetch = ["command", "cat", "/run/user/1000/secrets/raicoon"]
 
