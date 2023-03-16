@@ -14,9 +14,6 @@ color = dark green
 path = ~/.calendars/personal/c5i68sj5edpm4rrfdchm6rreehgm6t3j81jn4rrle0n7cbj3c5m6arj4c5p2sprfdtjmop9ecdnmq@virtual/
 color = '#800080'
 readonly = True
-[[work]]
-path = ~/.calendars/raicoon/calendar/
-color = '#FF8C00'
 
 [[my_contacts_local]]
 path = ~/.contacts/*
