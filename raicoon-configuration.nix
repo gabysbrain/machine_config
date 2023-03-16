@@ -85,29 +85,6 @@
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-
-  
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = {
-  #   "eurosign:e";
-  #   "caps:escape" # map caps to escape.
-  # };
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tom = {
     home = "/home/tom";
@@ -127,6 +104,8 @@
     git
   ];
 
+  # List services that you want to enable:
+
   # The remaining syncthing config
   services.syncthing = {
     enable = true;
@@ -142,7 +121,19 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
+
+  # set up sleep/hiberante
+  services.logind = {
+    lidSwitch = "hibernate";
+    #lidSwitchDocked = "hibernate";
+    lidSwitchExternalPower = "hibernate";
+    extraConfig = ''
+      HandleSuspendKey = hibernate
+    '';
+  };
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
   # lots of dealing with docker containers
   virtualisation.docker.enable = true;
