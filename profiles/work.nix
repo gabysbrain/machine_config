@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
+  homeage.file.raicoon-envvars.source = ../secrets/raicoon-envvars.age;
   programs = {
     git = {
       includes = [
@@ -14,6 +15,10 @@
         }
       ];
     };
+    zsh.initExtra = ''
+      # work envvars for services
+      source "${config.homeage.file.raicoon-envvars.path}"
+    '';
   };
 
   home.packages = with pkgs; [

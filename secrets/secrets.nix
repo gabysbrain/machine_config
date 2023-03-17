@@ -31,4 +31,5 @@ in
 
   "raicoon.age".publicKeys = [ tom-work ];
   "raicoon-davmail.age".publicKeys = [ tom-work ];
+  "raicoon-envvars.age".publicKeys = [ tom-work ];
 }
