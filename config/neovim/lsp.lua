@@ -34,8 +34,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   -- error handling
-  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.open_float()<CR>', opts)
-  buf_set_keymap('n', '<leader>Q', '<cmd>lua vim.lsp.diagnostic.setloclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '<leader>Q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
