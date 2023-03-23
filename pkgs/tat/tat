@@ -6,26 +6,36 @@
 # If there's already a session then find an unattached session of the group
 # to attach to, otherwise create a new session in the same group
 
+set +o pipefail
+
+clean_session_name() {
+  #local session_name="$1"
+  local full_path
+  local session_name
+  full_path="$(realpath "$workdir" | tr . -)"
+  session_name="${full_path#"$HOME/"}"
+  echo "${session_name}"
+}
+
+group_exists() {
+  local group_name="$1"
+  tmux list-sessions -F '#{?session_group,#{session_group},#{session_name}}' | grep -q "^${group_name}$"
+}
+
 # if we give a directory then tat to that
 if [ $# -eq 1 ]; then
-  workdir=$1
+  workdir="$1"
 else
   workdir="$PWD"
 fi
 
-path_name="$(basename "$workdir" | tr . -)"
-session_name=${1-$path_name}
-
-group_exists() {
-  group_name="$1"
-  tmux list-sessions -F '#{?session_group,#{session_group},#{session_name}}' | grep -q "^${group_name}$"
-}
+# tmux can't handle periods
+session_name="$(clean_session_name "$workdir")"
 
 # check to see if there's a group already
 if group_exists "${session_name}"; then
   # figure out if there's an unattached session in the group and attach to it
-  TMUX='' tmux list-sessions -F '#{session_attached},#{?session_group,#{session_group},#{session_name}},#{window_id}' | grep '^1,'"${session_name}"',' | cut -d, -f 3 | sort | head -1
-  attach_session=$(TMUX='' tmux list-sessions -F '#{session_attached},#{?session_group,#{session_group},#{session_name}},#{window_id}' | grep '^0,'"${session_name}"',' | cut -d, -f 3 | sort | head -1)
+  attach_session=$(TMUX='' tmux list-sessions -F '#{session_attached},#{?session_group,#{session_group},#{session_name}},#{window_id}' | grep "^0,""${session_name}""," | cut -d, -f 3 | sort | head -1)
 
   # if there's no unattached session then create a new one in the group
   if [ -z "${attach_session}" ]; then
@@ -45,6 +55,7 @@ if [ -z "$attach_session" ]; then
   echo "no session found to attach!" 1>&2
   exit 3
 fi
+
 
 # finally! 
 if [ -z "${TMUX+x}" ]; then # see if we're in tmux already
