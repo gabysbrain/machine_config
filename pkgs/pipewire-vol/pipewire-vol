@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# defaults
+primecolor="#fff"
+mutecolor="#aaa"
+
+# pull out foreground and background colors
+while getopts "p:m:" arg; do
+  case "$arg" in
+    p)
+      primecolor=$OPTARG
+      ;;
+    m)
+      mutecolor=$OPTARG
+      ;;
+    *) # ignore unused args
+      ;;
+  esac
+done
+
+if [ "$(pamixer --get-mute)" == "true" ]; then
+  volcolor="${mutecolor}"
+else
+  volcolor="${primecolor}"
+fi
+
+# will still have value even if muted
+vol="$(pamixer --get-volume)"
+
+echo "%{F${volcolor}}${vol}%{F-}"
+

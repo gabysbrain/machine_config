@@ -40,13 +40,13 @@ let
     #semi-trans-black = "#aa000000";
   };
   wlan-config = "${pkgs.connman-gtk}/bin/connman-gtk";
+  pipewire-vol = "${pkgs.callPackage ../../pkgs/pipewire-vol {}}/bin/pipewire-vol";
 in
 {
   services.polybar = {
     enable = true;
-    # need to sleep to wait for alsa to get it's act together
     script = ''
-      (${pkgs.coreutils}/bin/sleep 10; polybar main) &
+      polybar main &
     '';
     settings = {
       "settings" = {
@@ -152,22 +152,15 @@ in
         format-discharging-prefix-padding = 1;
       };
       "module/audio" = {
-        type = "internal/alsa";
+        type = "custom/script";
 
-        label-volume = "%percentage%";
-        label-muted = "%percentage%";
-        label-muted-foreground = colors.lightgray;
+        exec = "${pipewire-vol} -p '${colors.fg}' -m '${colors.lightgray}'";
+        interval = 10;
 
-        format-volume = "<label-volume>";
-        format-volume-prefix = "vol";
-        format-volume-prefix-foreground = colors.fg-alt;
-        format-volume-prefix-padding = 1;
-
-        format-muted = "<label-muted>";
-        format-muted-foreground = colors.lightgray;
-        format-muted-prefix = "vol";
-        format-muted-prefix-foreground = colors.fg-alt;
-        format-muted-prefix-padding = 1;
+        format = "<label>";
+        format-prefix = "vol";
+        format-prefix-foreground = colors.fg-alt;
+        format-prefix-padding = 1;
       };
       "module/date" = {
         type = "internal/date";
