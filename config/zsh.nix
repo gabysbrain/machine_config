@@ -149,6 +149,12 @@ in
           source venv/bin/activate
       }
 
+      # create git worktree branch from origin name
+      function gbwt {
+          readonly branch=''${1:?"A branch name is required"}
+          git worktree add --track -b ''${branch} ''${branch} origin/''${branch}
+      }
+
       # ctrl-g to open directory search
       bindkey -s '^g' '${tmux-projs}/bin/tmux-projs\n'
 
