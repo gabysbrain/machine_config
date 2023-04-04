@@ -42,8 +42,7 @@ in
     gitAndTools.git-annex
     gitAndTools.git-annex-remote-rclone
     gitAndTools.gh
-
-    mercurial
+    glab
 
     circleci-cli
     go-jira
@@ -72,6 +71,7 @@ in
 
     # python
     python3
+    isort
 
     # go
     go
