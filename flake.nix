@@ -102,6 +102,7 @@
                 ./profiles/dev.nix
                 ./profiles/games.nix
                 ./profiles/writing.nix
+                ./profiles/work.nix
 
                 # FIXME: not sure why this breaks in home-config/common...
                 homeage.homeManagerModules.homeage
