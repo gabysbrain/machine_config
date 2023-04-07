@@ -29,7 +29,7 @@ in
   "mikrotik-prometheus-config.yml.age".publicKeys = [ tom monitor ];
   "fritzbox-pw.age".publicKeys = [ tom monitor ];
 
-  "raicoon.age".publicKeys = [ tom-work ];
-  "raicoon-davmail.age".publicKeys = [ tom-work ];
-  "raicoon-envvars.age".publicKeys = [ tom-work ];
+  "raicoon.age".publicKeys = me;
+  "raicoon-davmail.age".publicKeys = me;
+  "raicoon-envvars.age".publicKeys = me;
 }
