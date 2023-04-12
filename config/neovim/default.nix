@@ -90,6 +90,7 @@ in
 
       lua << EOF
       ${builtins.readFile ./completion.lua}
+      ${builtins.readFile ./treesitter.lua}
       ${builtins.readFile ./lsp.lua}
       EOF
       ${builtins.readFile ./lint.vim}
@@ -127,6 +128,22 @@ in
 
       nvim-lint
 
+      # can also use nvim-treesitter.withAllGrammars and be done
+      (nvim-treesitter.withPlugins (
+        plugins: with plugins; [
+          bash
+          nix
+          python
+          go
+          haskell
+          json
+          markdown
+          lua
+          sql
+          julia
+          vim
+        ]
+      ))
       polyglot
       customPlugins.vim-criticmarkup
       customPlugins.unstable-lualine-nvim
