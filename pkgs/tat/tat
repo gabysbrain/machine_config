@@ -56,7 +56,6 @@ if [ -z "$attach_session" ]; then
   exit 3
 fi
 
-
 # finally! 
 if [ -z "${TMUX+x}" ]; then # see if we're in tmux already
   tmux attach-session -t "${attach_session}"

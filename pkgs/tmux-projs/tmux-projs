@@ -2,7 +2,7 @@
 
 PROJ_DIRS=(~/projects ~/raicoon)
 
-selected=$(find "${PROJ_DIRS[@]}" -type d -execdir test -e "{}/.git" \; -print | fzf)
+selected=$(find "${PROJ_DIRS[@]}" -name '.git' | sed 's#/\.git##' | fzf)
 
 # if we don't select everything just quit
 if [ -z "$selected" ]; then
