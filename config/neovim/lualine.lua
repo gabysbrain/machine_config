@@ -1,9 +1,14 @@
 local lualine = require('lualine')
---local lspstatus = require('lsp-status')
+local lspstatus = require('lsp-status')
+
+lspstatus.config {
+  diagnostics = false,
+}
 
 local function lspStatus()
   if #vim.lsp.buf_get_clients() > 0 then
-    return require('lsp-status').status()
+    -- TODO: one day customize this more
+    return lspstatus.status()
   end
 
   return ''
@@ -17,7 +22,7 @@ lualine.setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {{'branch', icon = ''}, 'diff', 'diagnostics'},
+    lualine_b = {{'branch', icon = ''}, 'diagnostics'},
     lualine_c = {'filename', lspStatus},
     lualine_x = {'encoding', 'fileformat'},
     lualine_y = {'filetype'},
