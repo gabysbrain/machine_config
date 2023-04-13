@@ -81,6 +81,7 @@ in
       lua << EOF
       ${builtins.readFile ./lualine.lua}
       ${builtins.readFile ./barbar.lua}
+      ${builtins.readFile ./todos.lua}
       EOF
       ${builtins.readFile ./nerdtree.vim}
       ${builtins.readFile ./slime.vim}
@@ -158,6 +159,7 @@ in
       customPlugins.telescope-bibtex
       nvim-lspconfig
       fugitive
+      todo-comments-nvim
       julia-vim
       vim-go
       customPlugins.nvim-jqx # json
