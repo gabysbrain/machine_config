@@ -7,7 +7,6 @@
 
     # steam comes from the above programs.steam option
     vassal # mmm board games
-    wyvern # GOG games
     frotz  # infocom games
     vassal # for wargames
 
