@@ -72,6 +72,8 @@ in
     # python
     python3
     isort
+    black
+    mypy
 
     # go
     go
