@@ -74,6 +74,7 @@ in
     isort
     black
     mypy
+    python310Packages.flake8
 
     # go
     go
