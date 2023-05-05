@@ -77,6 +77,7 @@
 
     silver-searcher
 
+    (callPackage ../pkgs/fwdport {})
     nix-template
   ];
 

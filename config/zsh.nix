@@ -69,6 +69,13 @@ in
       gst = "git status";
       gu = "git pull --rebase";
 
+      # nix conveniences
+      #ns = "nix shell";
+      ns = "nix search nixpkgs";
+      nrt = "sudo nixos-rebuild test --flake ~/projects/machine_config";
+      nrs = "sudo nixos-rebuild switch --flake ~/projects/machine_config";
+      nrl = "sudo nixos-rebuild dry-build --flake ~/projects/machine_config";
+
       # list dir stack
       d = "dirs -v | head -10";
 
@@ -114,22 +121,6 @@ in
       # from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/history/history.plugin.zsh
       function hs {
         history 0 | grep -i $*
-      }
-
-      # function for easy port forwarding
-      function fwdport {
-        readonly conn=''${1:?"The host must be specified"}
-        readonly myport=''${2:?"The port must be specified"}
-
-        # if only one port is given then just use it for both
-        if [ -z "$3" ]; then
-          readonly dstport=$myport
-        else
-          readonly dstport=$3
-        fi
-
-        #ssh -N -L ''${srcport}:''${host}:''${dstport} ''${conn}
-        ssh -N -L ''${myport}:localhost:''${dstport} ''${conn}
       }
 
       # autoload python venv
