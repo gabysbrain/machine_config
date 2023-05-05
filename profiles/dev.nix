@@ -33,7 +33,6 @@ in
 {
   imports = [
     ../config/julia/default.nix
-    ../config/vscode/default.nix
   ];
 
   home.packages = with pkgs; [
