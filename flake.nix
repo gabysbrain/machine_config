@@ -114,30 +114,6 @@
           }
         ];
       };
-      brokkoli = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ extra-pkgs-overlay my-overrides ]; })
-          ./brokkoli-configuration.nix 
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.torsney-weir = { pkgs, nixosConfig, ... }: {
-              home.stateVersion = "20.09";
-              imports = [
-                ./home-config/common.nix
-                ./home-config/desktop.nix
-                ./profiles/dev.nix
-                ./profiles/writing.nix
-
-                # FIXME: not sure why this breaks in home-config/common...
-                homeage.homeManagerModules.homeage
-              ];
-            };
-          }
-        ];
-      };
     };
 
   };
