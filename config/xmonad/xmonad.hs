@@ -272,6 +272,7 @@ myManageHook = manageDocks <+> composeOne
     , className =? "Qpdfview" -?> doFloat
     , className =? "Skype"    -?> doFloat
     , className =? "Gksqt"    -?> doFloat
+    , className =? "gksqt"    -?> doFloat
     ] <+> namedScratchpadManageHook scratchpads
   where
   isBrowserDialog = isDialog <&&> (className =? "Chromium-browser" <||> className =? "Firefox")
