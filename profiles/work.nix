@@ -25,5 +25,6 @@
     slack
     bump2version
     dbeaver
+    magic-wormhole
   ];
 }
