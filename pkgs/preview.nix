@@ -114,8 +114,6 @@ pkgs.writeShellApplication {
     handle_extension
     handle_mime "$MIMETYPE"
     handle_fallback
-
-    exit 1
   '';
 }
 
