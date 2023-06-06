@@ -63,7 +63,7 @@ in
         background = colors.bg;
         foreground = colors.fg;
 
-        font-0 = "Anonymice Nerd Font:size=10";
+        font-0 = "Anonymous Pro:size=10";
 
         separator = " | ";
         modules-left = "xmonad";

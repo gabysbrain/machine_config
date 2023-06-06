@@ -6,7 +6,7 @@ set modeline " make sure per-file vim configs work
 filetype plugin indent on " required
 
 " appearance
-set guifont=Anonymice\ Nerd\ Font\ 11
+set guifont=AnonymicePro\ Nerd\ Font\ 11
 set termguicolors " enable true color support
 colorscheme nord
 set noshowmode

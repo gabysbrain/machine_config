@@ -24,8 +24,7 @@ in
   programs.kitty = {
     enable = true;
     font = {
-      package = (pkgs.nerdfonts.override { fonts = [ "AnonymousPro" "DroidSansMono" ]; });
-      name = "Anonymice Nerd Font";
+      name = "AnonymicePro Nerd Font";
       size = 11;
     };
     settings = {
