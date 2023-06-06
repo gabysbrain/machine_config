@@ -60,7 +60,7 @@ spotifyFloat = ("Spotify", centerFloat 0.8 0.8)
 launchMail = rit "Email" "alot"
 launchCal = rit "Calendar" "ikhal"
 --launchChat = spawn "zulip"
-launchMon = rit "Monitor" "bpytop"
+launchMon = rit "Monitor" "btop"
 
 -- Projects
 workProject :: String -> Project

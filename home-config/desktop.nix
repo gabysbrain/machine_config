@@ -169,7 +169,7 @@
     connman-gtk
     connman_dmenu
     pavucontrol
-    bpytop # monitoring
+    btop # monitoring
 
     libreoffice-unwrapped
     discord
