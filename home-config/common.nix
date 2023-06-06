@@ -18,6 +18,7 @@
     #installationType = "activation";
     installationType = "systemd";
   };
+  fonts.fontconfig.enable = true;
   programs = {
     git = {
       enable = true;
