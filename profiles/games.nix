@@ -13,6 +13,5 @@
     minecraft
     nethack
     wesnoth
-    zeroad # 0 a.d.
   ];
 }
