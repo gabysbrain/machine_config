@@ -163,8 +163,8 @@ in
   services.restic.backups = {
     local = {
       paths = [ "/home" ];
-      repository = "rest:http://backup.joukamachi.net:8000/";
-      passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
+      repository = "rest:https://backup.joukamachi.net/";
+      passwordFile = config.age.secrets.restic.path;
       extraBackupArgs = [
         "--exclude='**/.cache'"
         "--exclude='**/cache'"
