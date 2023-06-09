@@ -110,14 +110,12 @@
   };
 
   # home backup
-  age.secrets.wasabi.file = ./secrets/wasabi.age;
   age.secrets.restic.file = ./secrets/restic.age;
   services.restic.backups = {
-    remote = {
-      paths = [ "/home" "/photos" ];
-      repository = "s3:https://s3.eu-central-1.wasabisys.com/gabysbrain-restic";
+    local = {
+      paths = [ "/home" ];
+      repository = "rest:http://backup.joukamachi.net:8000/";
       passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
-      environmentFile = "/run/agenix/wasabi"; # FIXME: this should use age.secrets.wasbi.path
       extraBackupArgs = [
         "--exclude='**/.cache'"
         "--exclude='**/cache'"
@@ -129,14 +127,6 @@
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
         "--exclude='photos/photoprism-data/sidecar'"
-      ];
-      pruneOpts = [
-        "--keep-within-daily 7d"
-        "--keep-within-weekly 2m"
-        "--keep-within-monthly 2y"
-        "--keep-within-yearly 20y"
-        "--keep-last 2"
-        "--compression max"
       ];
       timerConfig = {
         OnBootSec = "2m";

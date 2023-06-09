@@ -83,7 +83,7 @@ in
       h = "history 0";
 
       # restic backups
-      restic-local = "restic -r sftp:backup@diskstation.lan:/backup/ -o 'sftp.command=ssh -i /home/tom/keys/diskstation.rsa backup@diskstation.lan -s sftp'";
+      restic-local = "restic -r 'rest:http://backup.joukamachi.net:8000/'";
       restic-remote = "export $(cat /home/tom/keys/wasabi | xargs) && restic -r s3:https://s3.eu-central-1.wasabisys.com/gabysbrain-restic";
 
       # I can never remember the command to fill pdfs

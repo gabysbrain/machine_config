@@ -159,44 +159,23 @@ in
   fileSystems."/mnt/media/music" = nasMount "music";
 
   # home backup
-  age.secrets.wasabi.file = ./secrets/wasabi.age;
   age.secrets.restic.file = ./secrets/restic.age;
-  age.secrets.diskstation-key.file = ./secrets/diskstation-key.age;
   services.restic.backups = {
     local = {
       paths = [ "/home" ];
-      repository = "sftp:backup@diskstation.lan:/backup";
+      repository = "rest:http://backup.joukamachi.net:8000/";
       passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
       extraBackupArgs = [
-        "--exclude='home/tom/Downloads'"
-        "--exclude='home/tom/Sync'"
+        "--exclude='**/.cache'"
+        "--exclude='**/cache'"
+        "--exclude='home/**/Downloads'"
+        "--exclude='home/**/Sync'"
         "--exclude='home/*/.cache'"
         "--exclude='home/*/.config'"
         "--exclude='home/*/.julia'"
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
-      ];
-      extraOptions = [
-        "sftp.command='ssh backup@diskstation.lan -i /run/agenix/diskstation-key -s sftp'"
-      ];
-      timerConfig = {
-        OnBootSec = "2m";
-        OnUnitInactiveSec = "1d";
-      };
-    };
-    remote = {
-      paths = [ "/home" ];
-      repository = "s3:https://s3.eu-central-1.wasabisys.com/gabysbrain-restic";
-      passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
-      environmentFile = "/run/agenix/wasabi"; # FIXME: this should use age.secrets.wasbi.path
-      extraBackupArgs = [
-        "--exclude='home/*/Downloads'"
-        "--exclude='home/*/Sync'"
-        "--exclude='home/*/.cache'"
-        "--exclude='home/*/.config'"
-        "--exclude='home/*/.julia'"
-        "--exclude='home/*/.local'"
-        "--exclude='home/*/.mozilla'"
+        "--exclude='photos/photoprism-data/sidecar'"
       ];
       timerConfig = {
         OnBootSec = "2m";
@@ -204,6 +183,7 @@ in
       };
     };
   };
+
 
   # virtualization
   #virtualisation.virtualbox.host.enable = true;
