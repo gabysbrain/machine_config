@@ -85,7 +85,6 @@
   ### List services that you want to enable:
 
   # this machine uses 27 inch 4k displays
-  hardware.video.hidpi.enable = true;
   services.xserver.dpi = 157; # got this off the internet...
 
   # allow nvidia overclocking and overvolting (8 + 16 respectively)
