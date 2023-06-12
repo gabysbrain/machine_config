@@ -18,6 +18,7 @@ in stdenv.mkDerivation {
     ln -s $src/philadelphia.png $out/share/icons/64x64/
     ln -s $src/brokkoli.png $out/share/icons/64x64/
     ln -s $src/katana.png $out/share/icons/64x64/
+    ln -s $src/raicoon.png $out/share/icons/64x64/
   '';
 } 
 
