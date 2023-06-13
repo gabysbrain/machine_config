@@ -26,5 +26,6 @@
     bump2version
     dbeaver
     magic-wormhole
+    openlens
   ];
 }
