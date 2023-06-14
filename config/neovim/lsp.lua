@@ -112,9 +112,18 @@ nvim_lsp['hls'].setup {
   capabilities = capabilities,
 }
 
-nvim_lsp['pyright'].setup {
+nvim_lsp['pylsp'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        flake8 = { enabled = true, },
+        pyls_mypy = { enabled = true, },
+        mypy = { enabled = true, live_mode = false, dmypy = true, },
+      },
+    },
+  },
 }
 
 nvim_lsp['rust_analyzer'].setup {

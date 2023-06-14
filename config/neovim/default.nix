@@ -193,7 +193,8 @@ in
     haskell-language-server
     rust-analyzer
     texlab
-    pyright
+    python3Packages.python-lsp-server
+    #(callPackage ../../pkgs/pylsp-mypy { inherit pkgs system; })
     # julia ts is installed as julia module
 
     ripgrep # telekasten.nvim uses this
