@@ -40,11 +40,6 @@
       fsType = "ext4";
     };
 
-  fileSystems."/photos" =
-    { device = "/dev/disk/by-label/photos";
-      fsType = "ext4";
-    };
-
   fileSystems."/games" =
     { device = "/dev/disk/by-label/games";
       fsType = "ext4";
@@ -126,7 +121,7 @@
         "--exclude='home/*/.julia'"
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
-        "--exclude='photos/photoprism-data/sidecar'"
+        "--exclude='raicoon'"
       ];
       timerConfig = {
         OnBootSec = "2m";
