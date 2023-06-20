@@ -95,13 +95,17 @@
     isNormalUser = true;
   };
 
+  # vpn stuff
+  services.xl2tpd.enable = true;
+  services.strongswan = {
+    enable = true;
+    secrets = [ "ipsec.d/ipsec.nm-l2tp.secrets" ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
+    thunderbird
   ];
 
   programs.wireshark.enable = true;
