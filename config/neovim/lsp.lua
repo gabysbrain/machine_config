@@ -121,6 +121,8 @@ nvim_lsp['pylsp'].setup {
         flake8 = { enabled = true, },
         pyls_mypy = { enabled = true, },
         mypy = { enabled = true, live_mode = false, dmypy = true, },
+        mccabe = { enabled = true },
+        rope_completion = { enabled = true },
       },
     },
   },
