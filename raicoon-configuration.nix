@@ -89,7 +89,7 @@
   users.users.tom = {
     home = "/home/tom";
     description = "Thomas Torsney-Weir";
-    extraGroups = [ "wheel" "lp" "lpadmin" "adbusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "lp" "lpadmin" "adbusers" "wireshark" ]; # Enable ‘sudo’ for the user.
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
@@ -103,6 +103,8 @@
     wget
     git
   ];
+
+  programs.wireshark.enable = true;
 
   # List services that you want to enable:
 
