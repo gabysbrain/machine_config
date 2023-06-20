@@ -26,6 +26,9 @@
     bump2version
     dbeaver
     magic-wormhole
+
+    # kubernetes
     openlens
+    kubectl
   ];
 }
