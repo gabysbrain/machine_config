@@ -138,6 +138,8 @@ in
           mydir=$(basename $PWD)
           python -m venv --prompt "$mydir" venv
           source venv/bin/activate
+          find . -name 'requirements*.txt' -exec pip install -r '{}' ';'
+          find requirements -name '*.txt' -exec pip install -r '{}' ';'
       }
 
       # create git worktree branch from origin name
