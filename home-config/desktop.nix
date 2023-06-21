@@ -166,6 +166,8 @@
 
     blueman
     wpa_supplicant_gui
+    cifs-utils
+    samba
     connman-gtk
     connman_dmenu
     pavucontrol
