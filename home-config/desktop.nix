@@ -10,7 +10,6 @@
     ../profiles/pim/default.nix
   ];
   nixpkgs.overlays = [
-    (import ../overlays/imagej.nix)
   ];
   xsession = {
     enable = true;
@@ -173,7 +172,6 @@
     gimp
     krita
     imagemagick
-    imagej
     ffmpeg
     bftools
 
