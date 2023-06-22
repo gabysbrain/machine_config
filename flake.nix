@@ -37,7 +37,7 @@
       raicoon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ extra-pkgs-overlay ]; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ my-overrides extra-pkgs-overlay ]; })
           ./raicoon-configuration.nix 
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager {
@@ -63,7 +63,7 @@
       philadelphia = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ extra-pkgs-overlay ]; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ my-overrides extra-pkgs-overlay ]; })
           ./portege-configuration.nix 
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager {
@@ -88,7 +88,7 @@
       katana = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ extra-pkgs-overlay ]; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ my-overrides extra-pkgs-overlay ]; })
           ./katana-configuration.nix 
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager {
