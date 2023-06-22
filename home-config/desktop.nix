@@ -62,7 +62,7 @@
       settings = {
         blur = { 
           method = "dual_kawase";
-          strength = 23;
+          strength = 8;
         };
         no-dnd-blur = true;
         unredir-if-possible = false;
@@ -71,15 +71,6 @@
       # see https://nixos.wiki/wiki/Nvidia#Fix_app_flickering_with_Picom
       backend = "glx";
       vSync = true;
-
-      package = pkgs.picom.overrideAttrs(o: {
-        src = pkgs.fetchFromGitHub {
-          repo = "picom";
-          owner = "ibhagwan";
-          rev = "60eb00ce1b52aee46d343481d0530d5013ab850b";
-          sha256 = "1m17znhl42sa6ry31yiy05j5ql6razajzd6s3k2wz4c63rc2fd1w";
-        };
-      });
     };
     dunst = {
       enable = true;
