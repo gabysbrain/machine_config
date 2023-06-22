@@ -10,6 +10,8 @@
     ../profiles/pim/default.nix
   ];
   nixpkgs.overlays = [
+    # TODO: move the slock overlay to the user level
+    #(import ../overlays/slock.nix)
   ];
   xsession = {
     enable = true;
