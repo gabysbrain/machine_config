@@ -112,6 +112,11 @@ nvim_lsp['hls'].setup {
   capabilities = capabilities,
 }
 
+nvim_lsp['nil_ls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 nvim_lsp['pylsp'].setup {
   on_attach = on_attach,
   capabilities = capabilities,

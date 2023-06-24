@@ -190,6 +190,7 @@ in
     nodePackages.typescript-language-server
     nodePackages.eslint
     nodePackages.vscode-langservers-extracted
+    nil # nix
     haskell-language-server
     rust-analyzer
     texlab
