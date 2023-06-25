@@ -111,17 +111,19 @@
       paths = [ "/home" ];
       repository = "rest:https://backup.joukamachi.net/";
       passwordFile = "/run/agenix/restic"; # FIXME: this should use age.secrets.restic.path somehow
+      exclude = [
+        "**/.cache"
+        "**/cache"
+        "home/**/Downloads"
+        "home/**/Sync"
+        "home/*/.cache"
+        "home/*/.config"
+        "home/*/.julia"
+        "home/*/.local"
+        "home/*/.mozilla"
+        "home/tom/raicoon"
+      ];
       extraBackupArgs = [
-        "--exclude='**/.cache'"
-        "--exclude='**/cache'"
-        "--exclude='home/**/Downloads'"
-        "--exclude='home/**/Sync'"
-        "--exclude='home/*/.cache'"
-        "--exclude='home/*/.config'"
-        "--exclude='home/*/.julia'"
-        "--exclude='home/*/.local'"
-        "--exclude='home/*/.mozilla'"
-        "--exclude='raicoon'"
       ];
       timerConfig = {
         OnBootSec = "2m";
