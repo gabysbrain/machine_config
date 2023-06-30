@@ -26,6 +26,7 @@
     bump2version
     dbeaver
     magic-wormhole
+    iredis
 
     # kubernetes
     openlens
