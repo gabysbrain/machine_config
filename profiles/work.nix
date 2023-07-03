@@ -27,6 +27,7 @@
     dbeaver
     magic-wormhole
     iredis
+    rclone
 
     # kubernetes
     openlens
