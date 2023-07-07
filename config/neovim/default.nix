@@ -169,6 +169,7 @@ in
       Supertab
       vim-addon-nix
       vim-obsession
+      vim-unimpaired
       vimproc
       vim-easy-align
       vim-slime
