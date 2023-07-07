@@ -35,4 +35,4 @@ fi
 USER=$(whoami)
 
 echo "Connecting as user $USER and forwarding $TARGET_HOST:$TARGET_PORT to localhost:$LOCAL_PORT ..."
-ssh -Cp${SSHPORT} -NL "$LOCAL_PORT":"$TARGET_HOST":"$TARGET_PORT" "$USER"@vpn.gt-d.com
+ssh -i ~/keys/id_ed25519_raicoon -Cp${SSHPORT} -NL "$LOCAL_PORT":"$TARGET_HOST":"$TARGET_PORT" "$USER"@vpn.gt-d.com
