@@ -142,6 +142,7 @@ nvim_lsp['pyright'].setup {
           reportPrivateUsage = "error",
           reportMissingParameterType = "warning",
           reportMatchNotExhaustive = "error",
+          reportMissingTypeStubs = "information",
         },
       }
     }
