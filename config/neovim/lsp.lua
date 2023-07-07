@@ -131,7 +131,18 @@ nvim_lsp['pyright'].setup {
         autoSearchPaths = true,
         diagnosticMode = "workspace",
         typeCheckingMode = "strict",
-        useLibraryCodeForTypes = true
+        useLibraryCodeForTypes = true,
+        diagnosticSeverityOverrides = {
+          reportUnusedImport = "error",
+          reportDuplicateImport = "error",
+          reportUnusedVariable = "warning",
+          reportConstantRedefinition = "error",
+          reportIncompatibleMethodOverride = "warning",
+          reportIncompatibleVariableOverride = "warning",
+          reportPrivateUsage = "error",
+          reportMissingParameterType = "warning",
+          reportMatchNotExhaustive = "error",
+        },
       }
     }
   }
