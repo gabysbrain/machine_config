@@ -117,20 +117,24 @@ nvim_lsp['nil_ls'].setup {
   capabilities = capabilities,
 }
 
-nvim_lsp['pylsp'].setup {
+nvim_lsp['pyright'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
+
   settings = {
-    pylsp = {
-      plugins = {
-        flake8 = { enabled = true, },
-        pyls_mypy = { enabled = true, },
-        mypy = { enabled = true, live_mode = false, dmypy = true, },
-        mccabe = { enabled = true },
-        rope_completion = { enabled = true },
-      },
+    pyright = {
+      -- I run isort on save
+      disableOrganizeInputs = true,
     },
-  },
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "workspace",
+        typeCheckingMode = "strict",
+        useLibraryCodeForTypes = true
+      }
+    }
+  }
 }
 
 nvim_lsp['rust_analyzer'].setup {
