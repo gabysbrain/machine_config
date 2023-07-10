@@ -155,6 +155,11 @@ nvim_lsp['ruff_lsp'].setup {
     client.server_capabilities.hoverProvider = false
   end,
   capabilities = capabilities,
+  init_options = {
+    settings = {
+      args = { "--extend-select", "T", },
+    },
+  },
 }
 
 nvim_lsp['rust_analyzer'].setup {
