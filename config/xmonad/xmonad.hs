@@ -268,6 +268,7 @@ myManageHook = manageDocks <+> composeOne
     , isRole =? "pop-up" -?> forceCenterFloat
 
     -- floating windows
+    , isDialog                -?> doFloat
     , className =? "Pinentry" -?> doFloat
     , className =? "Qpdfview" -?> doFloat
     , className =? "Skype"    -?> doFloat
