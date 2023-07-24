@@ -145,7 +145,7 @@ nvim_lsp['pyright'].setup {
           reportMissingTypeStubs = "information",
           reportUntypedBaseClass = "none",
           reportUntypedFunctionDecorator = "warning",
-          reportUnusedVariable = false, -- ruff will help with this
+          reportUnusedVariable = "none", -- ruff will help with this
         },
       }
     }
