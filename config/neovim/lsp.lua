@@ -133,9 +133,7 @@ nvim_lsp['pyright'].setup {
         typeCheckingMode = "strict",
         useLibraryCodeForTypes = true,
         diagnosticSeverityOverrides = {
-          reportUnusedImport = "error",
           reportDuplicateImport = "error",
-          reportUnusedVariable = "warning",
           reportConstantRedefinition = "error",
           reportIncompatibleMethodOverride = "warning",
           reportIncompatibleVariableOverride = "warning",
@@ -146,6 +144,7 @@ nvim_lsp['pyright'].setup {
           reportUntypedBaseClass = "none",
           reportUntypedFunctionDecorator = "warning",
           reportUnusedVariable = "none", -- ruff will help with this
+          reportUnusedImport = "none", -- ruff will help with this
         },
       }
     }
