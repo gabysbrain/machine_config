@@ -91,8 +91,9 @@ in
 
       # Contexts
       context = {
-        home="-work";
-        work="+work";
+        home.read="-work";
+        work.read="+work";
+        work.write="+work";
       };
 
       report = reports;
