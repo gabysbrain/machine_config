@@ -9,7 +9,7 @@ let
     next = {
       labels = [ "ID" "Project" "Recur" "Start" "Due" "Description" "Urg" ];
       columns = [ "id" "project" "recur" "scheduled.countdown" "due.relative" "description" "urgency" ];
-      filter = "urgency>1 status:pending";
+      filter = "urgency>1 status:pending -WAITING";
     };
 
     # things to do today
@@ -17,7 +17,7 @@ let
       description = "Tasks for today";
       columns = [ "id" "project" "scheduled.countdown" "due.relative" "description" "urgency" ];
       sort = [ "due+" "scheduled+" "urgency-" ];
-      filter = "(scheduled.before:tomorrow or due.before:yesterday) and status:pending";
+      filter = "(scheduled.before:tomorrow or due.before:yesterday) and status:pending -WAITING";
     };
 
     # Things to do the next week
@@ -25,7 +25,7 @@ let
       description = "Tasks for the next week";
       columns = [ "id" "project" "scheduled.countdown" "due.relative" "description" "urgency" ];
       sort = [ "due+" "scheduled+" "urgency-" ];
-      filter = "(scheduled.before:today+7days or due.before:today+7days) and status:pending";
+      filter = "(scheduled.before:today+7days or due.before:today+7days) and status:pending -WAITING";
     };
 
     # Tasks that need following up on
