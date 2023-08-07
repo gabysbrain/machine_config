@@ -24,6 +24,9 @@
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.extraModprobeConfig = ''
+    options snd_usb_audio vid=0x1235 pid=0x8201 device_setup=1
+  '';
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixos";
@@ -75,6 +78,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     restic
+    alsa-scarlett-gui
   ];
 
   ### List services that you want to enable:
