@@ -103,8 +103,8 @@ in
         format-disconnected-prefix-foreground = colors.fg-alt;
         format-disconnected-prefix-padding = 1;
 
-        label-connected = "";
-        label-disconnected = "%{F#dddddd}%{F-}";
+        label-connected = "󰈁";
+        label-disconnected = "%{F#dddddd}󰈂%{F-}";
       };
       "module/wireless-net" = {
         type = "internal/network";
@@ -119,8 +119,8 @@ in
         format-disconnected-prefix-foreground = colors.fg-alt;
         format-disconnected-prefix-padding = 1;
 
-        label-connected = "%{A1:${wlan-config}:}直%{A}";
-        label-disconnected = "%{F#dddddd}%{A1:${wlan-config}:}睊%{A}%{F-}";
+        label-connected = "%{A1:${wlan-config}:}%{A}";
+        label-disconnected = "%{F#dddddd}%{A1:${wlan-config}:}󰖪%{A}%{F-}";
       };
       "module/battery" = {
         type = "internal/battery";
