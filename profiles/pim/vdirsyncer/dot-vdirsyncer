@@ -14,11 +14,6 @@ a = "my_calendars_local"
 b = "gcalendars"
 collections = ["from a", "from b"]
 
-[pair raicoon_calendars]
-a = "raicoon_calendars_local"
-b = "outlookcal"
-collections = ["from a", "from b"]
-
 ##### Local storages
 
 [storage my_contacts_local]
