@@ -39,7 +39,7 @@ let
     #trans = "#00000000";
     #semi-trans-black = "#aa000000";
   };
-  wlan-config = "${pkgs.connman-gtk}/bin/connman-gtk";
+  wlan-config = "${pkgs.iwgtk}/bin/iwgtk";
   pipewire-vol = "${pkgs.callPackage ../../pkgs/pipewire-vol {}}/bin/pipewire-vol";
 in
 {

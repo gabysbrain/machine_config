@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
-  services.connman.enable = true;
+  networking.wireless.iwd.enable = true;
 
   powerManagement = {
     enable = true;
