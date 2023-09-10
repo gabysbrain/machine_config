@@ -74,8 +74,6 @@ in
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "philadelphia"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.wireless.interfaces = [ "wlp2s0" ];
 
   # Select internationalisation properties.
   services.xserver.layout = "us";
