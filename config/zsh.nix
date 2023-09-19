@@ -87,7 +87,8 @@ in
 
       # restic backups
       restic-local = "restic -r 'rest:https://backup.joukamachi.net/'";
-      restic-remote = "export $(cat /home/tom/keys/wasabi | xargs) && restic -r s3:https://s3.eu-central-1.wasabisys.com/gabysbrain-restic";
+      # FIXME: needs to point to backblaze
+      restic-remote = "export $(cat /home/tom/keys/backblaze-backup | xargs) && restic -r s3:https://s3.us-east-005.backblazeb2.com/backupmybackup";
 
       # I can never remember the command to fill pdfs
       fillpdf = "${pkgs.xournal}/bin/xournal";
