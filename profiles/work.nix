@@ -28,6 +28,7 @@
     magic-wormhole
     iredis
     rclone
+    teams-for-linux
 
     # kubernetes
     openlens
