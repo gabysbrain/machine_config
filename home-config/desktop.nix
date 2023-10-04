@@ -171,6 +171,7 @@
     darktable
     gimp
     krita
+    dia
     imagemagick
     ffmpeg
     bftools
