@@ -69,7 +69,7 @@ in
     spago
 
     # python
-    (python3.withPackages (ps: with ps; [ numpy pandas ]))
+    (python311.withPackages (ps: with ps; [ numpy pandas ]))
     isort
     black
     mypy
