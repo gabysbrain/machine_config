@@ -29,6 +29,7 @@
     iredis
     rclone
     teams-for-linux
+    thunderbird
 
     # kubernetes
     openlens
