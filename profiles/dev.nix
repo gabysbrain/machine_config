@@ -73,7 +73,8 @@ in
     isort
     black
     mypy
-    python310Packages.flake8
+    python311Packages.flake8
+    ruff
 
     # go
     go
