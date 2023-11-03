@@ -15,7 +15,6 @@ in
     #odpdown
     pdftk
     graphviz
-    unstable.zotero # TODO: move to a research profile (with latex and stuff from writing)
   ];
 
   /*
