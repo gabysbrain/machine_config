@@ -138,7 +138,7 @@
       defaultCacheTtl = 1800; # 30 minutes
       maxCacheTtl = 604800; # one week
       extraConfig = ''
-        pinentry-program ${pkgs.pinentry_gtk2}/bin/pinentry
+        pinentry-program ${pkgs.pinentry-gtk2}/bin/pinentry
       '';
     };
   };
@@ -201,7 +201,7 @@
     (callPackage ../pkgs/gopass-dmenu.nix {})
     (callPackage ../pkgs/syncthing-quick-status.nix {})
 
-    (callPackage ../pkgs/zk.nix {}) # notes
+    #(callPackage ../pkgs/zk.nix {}) # notes
 
     firefox
 

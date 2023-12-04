@@ -66,7 +66,7 @@ in
 
     # purescript
     purescript
-    spago
+    #spago
 
     # python
     (python311.withPackages (ps: with ps; [ numpy pandas ]))
