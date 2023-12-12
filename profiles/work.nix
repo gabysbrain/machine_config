@@ -15,6 +15,30 @@
         }
       ];
     };
+    k9s = {
+      enable = true;
+      skin = "nord";
+      plugin = {
+        # Defines a plugin to provide a `ctrl-l` shortcut to
+        # tail the logs while in pod view.
+        fred = {
+          shortCut = "Ctrl-L";
+          description = "Pod logs";
+          scopes = [ "po" ];
+          command = "kubectl";
+          background = false;
+          args = [
+            "logs"
+            "-f"
+            "$NAME"
+            "-n"
+            "$NAMESPACE"
+            "--context"
+            "$CLUSTER"
+          ];
+        };
+      };
+    };
     zsh.initExtra = ''
       # work envvars for services
       source "${config.homeage.file.raicoon-envvars.path}"
