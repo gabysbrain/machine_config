@@ -92,6 +92,9 @@ in
 
       # I can never remember the command to fill pdfs
       fillpdf = "${pkgs.xournal}/bin/xournal";
+
+      # or how to create a new devshell
+      initds = "nix flake new -t 'github:numtide/devshell'";
     };
     history = {
       extended = true;
