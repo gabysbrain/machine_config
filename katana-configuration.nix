@@ -143,6 +143,14 @@
   #services.avahi.openFirewall = true;
   services.printing.drivers = [ pkgs.brlaser ];
 
+  #services.openvpn.servers = {
+    #raicoon = { 
+      #config = '' config /home/tom/VPN_GTS-a5d93c92a9bede02703f3e528b5030fb.ovpn ''; 
+      #autoStart = false;
+      ##updateResolvConf = true;
+    #};
+  #};
+
   # virtualization
   virtualisation.libvirtd.enable = true;
   users.extraGroups.libvirtd.members = [ "tom" ];
