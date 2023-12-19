@@ -171,6 +171,10 @@
           };
         };
     };
+    zsh.shellAliases = {
+      k9s_staging = "k9s --kubeconfig ~/.kube/tom-config-staging.yaml";
+      k9s_prod = "k9s --kubeconfig ~/.kube/tom-config-production.yaml";
+    };
     zsh.initExtra = ''
       # work envvars for services
       source "${config.homeage.file.raicoon-envvars.path}"
