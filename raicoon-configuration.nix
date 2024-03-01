@@ -40,7 +40,7 @@
   # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
   # networking.interfaces.wwp0s20f0u8.useDHCP = lib.mkDefault true;
-  networking.nameservers = [ "8.8.8.8" ];
+  #networking.nameservers = [ "8.8.8.8" ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
