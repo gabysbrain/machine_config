@@ -48,7 +48,7 @@ in
 
     # for nix dev
     niv
-    cachix
+    #cachix
     nixos-shell
 
     # haskell
