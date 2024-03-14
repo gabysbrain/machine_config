@@ -54,11 +54,11 @@ in
 
       # sync settings
       taskd = {
-        key="~/keys/inthe.am/private.key.pem";
-        certificate="~/keys/inthe.am/private.certificate.pem";
-        ca="~/keys/inthe.am/ca.cert.pem";
-        server="inthe.am:53589";
-        credentials="inthe_am/torsneyt/70baf2c9-22cb-4fb6-8879-0c8810883fc5";
+        key="~/keys/joukamachi_taskserver/private.key";
+        certificate="~/keys/joukamachi_taskserver/public.key";
+        ca="~/keys/joukamachi_taskserver/ca.cert";
+        server="taskserver.joukamachi.net:53589";
+        credentials="hadleyco/tom/32ddf58f-63cd-4991-b5b6-5d33ae9ac492";
         trust="strict";
         #taskd.trust=ignore hostname
       };
