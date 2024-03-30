@@ -80,6 +80,11 @@ projects =
                 launchCal
                 --launchChat
             }
+  , Project { projectName = wsAV
+            , projectDirectory = "~/"
+            , projectStartHook = Just $ do
+                rit "ncmpcpp" "ncmpcpp"
+            }
   , Project { projectName = wsSys
             , projectDirectory = "~/"
             , projectStartHook = Just $ do
