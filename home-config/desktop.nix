@@ -26,6 +26,12 @@
     '';
   };
   programs = {
+    ncmpcpp = {
+      enable = true;
+      settings = {
+        mpd_host = "ttw.music.joukamachi.net";
+      };
+    };
     zathura = {
       enable = true;
       options = {
