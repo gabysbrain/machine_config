@@ -56,7 +56,6 @@ wsAV  = "AV"
 wsTmp = "Tmp"
 wsSys = "Sys"
 
-spotifyFloat = ("Spotify", centerFloat 0.8 0.8)
 launchMail = rit "Email" "alot"
 launchCal = rit "Calendar" "ikhal"
 --launchChat = spawn "zulip"
@@ -288,8 +287,7 @@ myManageHook = manageDocks <+> composeOne
 -- Scratchpads
 -- Name, launch command, how to find the window, float spec
 scratchpads =
-  [ NS "spotify" "spotify" (className =? fst spotifyFloat) (snd spotifyFloat)
-  , NS "mixer" "pavucontrol" (className =? "Pavucontrol")
+  [ NS "mixer" "pavucontrol" (className =? "Pavucontrol")
        (centerFloat 0.6 0.6)
   , NS "work_tasks" "kitty --title Tasks zsh -c 'tmuxp load Tasks'"
   -- , NS "work_tasks" "termite -t Tasks -r tasks -e tasks"
@@ -300,7 +298,7 @@ scratchpads =
 -------------------------------------------------------------------------------
 myEventHook = mconcat
   [ docksEventHook -- this is needed to properly get xmobar struts working
-  , dynamicPropertyChange "WM_NAME" (title =? (fst spotifyFloat) --> (snd spotifyFloat))
+  --, dynamicPropertyChange "WM_NAME" (title =? (fst spotifyFloat) --> (snd spotifyFloat))
   , fullscreenEventHook
   ]
 
