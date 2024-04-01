@@ -287,7 +287,8 @@ myManageHook = manageDocks <+> composeOne
 -- Scratchpads
 -- Name, launch command, how to find the window, float spec
 scratchpads =
-  [ NS "mixer" "pavucontrol" (className =? "Pavucontrol")
+  --[ NS "mixer" "pavucontrol" (className =? "Pavucontrol")
+  [ NS "mixer" "helvum" (className =? "helvum")
        (centerFloat 0.6 0.6)
   , NS "work_tasks" "kitty --title Tasks zsh -c 'tmuxp load Tasks'"
   -- , NS "work_tasks" "termite -t Tasks -r tasks -e tasks"
