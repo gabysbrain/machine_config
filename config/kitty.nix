@@ -33,6 +33,9 @@ in
       update_check_interval = 0;
       cursor_blink_interval = 0;
     };
+    keybindings = {
+      "f1" = "launch --cwd=current --type=os-window";
+    };
 
     # cursor color needs to be below nord colors to override
     extraConfig = ''
