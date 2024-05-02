@@ -56,6 +56,11 @@
 
   networking.hostName = "katana"; # Define your hostname.
 
+  # Disable roccat tyon working as a joystick
+  services.udev.extraRules = ''
+  SUBSYSTEM=="usb", ATTR{bInterfaceNumber}=="02", ATTRS{idVendor}=="1e7d", ATTRS{idProduct}=="2e4a|2e4b", RUN+="${pkgs.busybox}/bin/sh -c '${pkgs.busybox}/bin/echo -n %k >/sys$${DEVPATH}/driver/unbind'"
+  '';
+
   # Video drivers setup
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl = {
