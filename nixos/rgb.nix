@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
 
+let
+  openrgb = pkgs.openrgb.withPlugins [ pkgs.openrgb-plugin-effects ];
+in
 {
-  environment.systemPackages = with pkgs; [ openrgb ];
-
-  boot.kernelModules = [ "i2c-dev" "i2c-piix4" ];
-  
-  #services.udev.extraRules = "${pkgs.openrgb}/etc/udev/rules.d/60-openrgb.rules";
-  services.udev.packages = [ pkgs.openrgb ];
-  #services.udev.extraRules =  builtins.readFile openrgb-rules;
+  services.hardware.openrgb.enable = true;
+  services.hardware.openrgb.package = openrgb;
 }
