@@ -10,6 +10,7 @@
       ./nixos/common.nix
       ./nixos/desktop.nix
       ./nixos/laptop.nix
+      ./nixos/work.nix
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
