@@ -21,15 +21,6 @@ let
       sha256 = "0z6n82zdm219q1bblmis1473ciq31v3dwhmwkl4sld8ahff0cqc3";
     };
   };
-  customPlugins.nvim-jqx = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-jqx";
-    src = pkgs.fetchFromGitHub {
-      owner = "gennaro-tedesco";
-      repo = "nvim-jqx";
-      rev = "master";
-      sha256 = "1dh4yb6rr593nx8kbhskpbb50l211b9z47rvhxd1n07d31bc0lmc";
-    };
-  };
   customPlugins.vim-toggle-quickfix = pkgs.vimUtils.buildVimPlugin {
     name = "vim-toggle-quickfix";
     src = pkgs.fetchFromGitHub {
@@ -47,25 +38,6 @@ let
       rev = "cd2640e74657f154b50e2278a279ad02ba523e97";
       sha256 = "0AOEhmeeXbNc2Ge+J+/o6OBUEudyKv5HmZgpcqWu8As=";
     };
-  };
-  customPlugins.telekasten-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "telekasten-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "renerocksai";
-      repo = "telekasten.nvim";
-      rev = "fdb089daf6d66e9d559645e664a172ff5b6a5ddd";
-      sha256 = "32IEcVyutwbqIErCZGKRiTmlJE25cg+yTHU+Q7ttGJs=";
-    };
-  };
-  customPlugins.calendar-vim = pkgs.vimUtils.buildVimPlugin {
-    name = "calendar-vim";
-    src = pkgs.fetchFromGitHub {
-      owner = "renerocksai";
-      repo = "calendar-vim";
-      rev = "a7e73e02c92566bf427b2a1d6a61a8f23542cc21";
-      sha256 = "4XeDd+myM+wtHUsr3s1H9+GAwIjK8fAqBbFnBCeatPo=";
-    };
-    buildInputs = [ pkgs.zip ];
   };
   customPlugins.unstable-lualine-nvim = unstable.vimPlugins.lualine-nvim;
 in 
@@ -162,7 +134,7 @@ in
       todo-comments-nvim
       julia-vim
       vim-go
-      customPlugins.nvim-jqx # json
+      nvim-jqx # json
       customPlugins.vim-convert-color-to
       customPlugins.vim-toggle-quickfix
       vim-signify
@@ -179,14 +151,15 @@ in
       bracey-vim
       lsp-status-nvim
 
-      customPlugins.telekasten-nvim
-      customPlugins.calendar-vim
+      telekasten-nvim
+      calendar-vim
     ];
   };
   home.packages = with pkgs; [
     neovim-remote
 
     # language servers
+    java-language-server
     gopls
     nodePackages.typescript-language-server
     nodePackages.eslint
