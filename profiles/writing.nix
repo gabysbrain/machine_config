@@ -15,6 +15,8 @@ in
     #odpdown
     pdftk
     graphviz
+
+    zotero # reference manager
   ];
 
   /*
