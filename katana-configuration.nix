@@ -11,7 +11,6 @@
       ./nixos/games.nix
       ./nixos/desktop.nix
       ./nixos/rgb.nix
-      ./nixos/work.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
