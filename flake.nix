@@ -34,32 +34,6 @@
 
     # FIXME: tom user should be created and have zsh shell
     nixosConfigurations = {
-      raicoon = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ my-overrides extra-pkgs-overlay ]; })
-          ./raicoon-configuration.nix 
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.tom = { pkgs, nixosConfig, ... }: {
-              home.stateVersion = "21.11";
-
-              imports = [
-                ./home-config/common.nix
-                ./home-config/desktop.nix
-                ./profiles/dev.nix
-                ./profiles/work.nix
-                #./profiles/writing.nix
-
-                # FIXME: not sure why this breaks in home-config/common...
-                homeage.homeManagerModules.homeage
-              ];
-            };
-          }
-        ];
-      };
       philadelphia = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
@@ -102,7 +76,6 @@
                 ./profiles/dev.nix
                 ./profiles/games.nix
                 ./profiles/writing.nix
-                ./profiles/work.nix
 
                 # FIXME: not sure why this breaks in home-config/common...
                 homeage.homeManagerModules.homeage
