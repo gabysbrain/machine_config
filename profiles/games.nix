@@ -10,7 +10,6 @@
     frotz  # infocom games
     vassal # for wargames
 
-    minecraft
     nethack
     wesnoth
   ];
