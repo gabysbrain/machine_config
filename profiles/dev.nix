@@ -59,7 +59,7 @@ in
     rustc
 
     # databases
-    dbeaver
+    dbeaver-bin
 
     # general
     gnumake
