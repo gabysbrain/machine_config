@@ -60,21 +60,24 @@ in
     wireplumber.enable = true;
   };
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    autorun = true;
-    #autorun = false;
+  # touchpad stuff
+  services.libinput = {
     enable = true;
-    
-    libinput.enable = true;
-    libinput.touchpad = {
+    touchpad = {
       accelProfile = "adaptive";
       accelSpeed = "0.8";
       naturalScrolling = true;
       scrollMethod = "twofinger";
       tapping = false;
     };
+  };
 
+  # Enable the X11 windowing system.
+  services.xserver = {
+    autorun = true;
+    #autorun = false;
+    enable = true;
+    
     displayManager.lightdm = {
       enable = true;
       extraSeatDefaults = ''
@@ -99,7 +102,6 @@ in
         '';
       };
     };
-    displayManager.defaultSession = "none+xmonad";
     desktopManager.xterm.enable = false;
     windowManager.xmonad = {
       enable = true;
@@ -108,4 +110,5 @@ in
 
   };
   services.gnome.at-spi2-core.enable = true;
+  services.displayManager.defaultSession = "none+xmonad";
 }

@@ -76,9 +76,9 @@ in
   networking.hostName = "philadelphia"; # Define your hostname.
 
   # Select internationalisation properties.
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
   services.xserver.exportConfiguration = true;
-  services.xserver.xkbOptions = "grp:caps_toggle";
+  services.xserver.xkb.options = "grp:caps_toggle";
   console.useXkbConfig = true;
 
   # Video drivers setup
