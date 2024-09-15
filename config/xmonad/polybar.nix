@@ -2,7 +2,7 @@
 
 let 
   ethInterface = "enp4s0";
-  wifiInterface = "wlp2s0";
+  wifiInterface = "wlan0";
   syncthing-status = pkgs.runCommand "syncthing-status" {
     buildInputs = with pkgs; [
       (callPackage ../../pkgs/syncthing-quick-status.nix {})
