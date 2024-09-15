@@ -119,8 +119,8 @@ in
         format-disconnected-prefix-foreground = colors.fg-alt;
         format-disconnected-prefix-padding = 1;
 
-        label-connected = "%{A1:${wlan-config}:}%{A}";
-        label-disconnected = "%{F#dddddd}%{A1:${wlan-config}:}󰖪%{A}%{F-}";
+        label-connected = "%{A1:${wlan-config}:}ok%{A}";
+        label-disconnected = "%{F#dddddd}%{A1:${wlan-config}:}no%{A}%{F-}";
       };
       "module/battery" = {
         type = "internal/battery";
