@@ -151,7 +151,7 @@ nvim_lsp['pyright'].setup {
   }
 }
 
-nvim_lsp['ruff_lsp'].setup {
+nvim_lsp['ruff'].setup {
   on_attach = function(client, bufnr)
     -- disable hover in favor of pyright
     client.server_capabilities.hoverProvider = false

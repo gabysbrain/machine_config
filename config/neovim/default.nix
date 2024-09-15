@@ -169,7 +169,7 @@ in
     rust-analyzer
     texlab
     pyright # python 1
-    python3Packages.ruff-lsp # python 2
+    ruff # python 2
     # julia ts is installed as julia module
 
     ripgrep # telekasten.nvim uses this
