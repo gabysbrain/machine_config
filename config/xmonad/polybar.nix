@@ -136,7 +136,6 @@ in
         label-discharging = "%percentage% %time%";
         label-full = "%percentage%";
 
-        format-low = "<label-discharging>";
         format-low-prefix = "bat";
         format-low-foreground = colors.red;
         format-low-prefix-padding = 1;
