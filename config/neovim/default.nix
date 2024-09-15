@@ -65,6 +65,7 @@ in
       ${builtins.readFile ./completion.lua}
       ${builtins.readFile ./treesitter.lua}
       ${builtins.readFile ./lsp.lua}
+      ${builtins.readFile ./conform.lua}
       EOF
       ${builtins.readFile ./lint.vim}
 
@@ -150,6 +151,7 @@ in
       vim-jsx-typescript
       bracey-vim
       lsp-status-nvim
+      conform-nvim
 
       telekasten-nvim
       calendar-vim
