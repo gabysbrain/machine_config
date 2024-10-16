@@ -23,6 +23,8 @@ in
     shared-mime-info
     plasma-workspace
     gnome3.zenity
+    usbutils
+    pciutils
 
     nix-index
   ];
