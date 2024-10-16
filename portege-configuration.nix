@@ -4,15 +4,6 @@
 
 { config, lib, pkgs, ... }:
 
-let nasMount = remotePath: {
-      device = "//diskstation.lan/${remotePath}";
-      fsType = "cifs";
-      options = let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=10s,file_mode=0660,dir_mode=0770,gid=1,nounix";
-      in ["${automount_opts},credentials=/run/agenix/diskstation-smb,vers=1.0"];
-    };
-in
 {
   imports =
     [ 
@@ -150,11 +141,6 @@ in
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
   };
-
-  age.secrets.diskstation-smb.file = ./secrets/diskstation-smb.age;
-  fileSystems."/mnt/diskstation" = nasMount "homes";
-  fileSystems."/mnt/media/videos" = nasMount "videos";
-  fileSystems."/mnt/media/music" = nasMount "music";
 
   # home backup
   age.secrets.restic.file = ./secrets/restic.age;
