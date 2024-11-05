@@ -10,6 +10,9 @@ in
   #   defaultLocale = "en_US.UTF-8";
   # };
 
+  console.packages = [ pkgs.terminus_font ];
+  # see https://files.ax86.net/terminus-ttf/README.Terminus.txt for font path meaning
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-i14n.psf.gz";
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   nixpkgs.config = {
