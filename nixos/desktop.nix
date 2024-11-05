@@ -116,8 +116,11 @@ in
     enable = true;
     settings = {
       default_session = {
+        # FIXME: ideally this would use the xsession stuff and not hack xinitrc
         command = builtins.concatStringsSep " " [
           "${pkgs.greetd.tuigreet}/bin/tuigreet"
+          "--theme 'border=gray;text=green;prompt=red;time=purple;action=blue;button=yellow;container=black;input=white'"
+          "--window-padding 1"
           "--time"
           "--cmd startx"
         ];
