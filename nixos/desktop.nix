@@ -13,6 +13,26 @@ in
   console.packages = [ pkgs.terminus_font ];
   # see https://files.ax86.net/terminus-ttf/README.Terminus.txt for font path meaning
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-i14n.psf.gz";
+  console.colors = [
+    "282828" # color0
+    "cc241d" # color1
+    "98971a" # color2
+    "d79921" # color3
+    "458588" # color4
+    "b16286" # color5
+    "689d6a" # color6
+    "a89984" # color7
+    "928374" # color8
+    "fb4934" # color9
+    "b8bb26" # color10
+    "fabd2f" # color11
+    "83a598" # color12
+    "d3869b" # color13
+    "8ec07c" # color14
+    "ebdbb2" # color15
+  ];
+
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   nixpkgs.config = {
