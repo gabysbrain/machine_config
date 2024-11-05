@@ -13,6 +13,7 @@
     # TODO: move the slock overlay to the user level
     #(import ../overlays/slock.nix)
   ];
+  home.file.".xinitrc".text = "source ~/.xsession";
   xsession = {
     enable = true;
 
