@@ -10,6 +10,29 @@ in
   #   defaultLocale = "en_US.UTF-8";
   # };
 
+  console.packages = [ pkgs.terminus_font ];
+  # see https://files.ax86.net/terminus-ttf/README.Terminus.txt for font path meaning
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-i14n.psf.gz";
+  console.colors = [
+    "282828" # color0
+    "cc241d" # color1
+    "98971a" # color2
+    "d79921" # color3
+    "458588" # color4
+    "b16286" # color5
+    "689d6a" # color6
+    "a89984" # color7
+    "928374" # color8
+    "fb4934" # color9
+    "b8bb26" # color10
+    "fabd2f" # color11
+    "83a598" # color12
+    "d3869b" # color13
+    "8ec07c" # color14
+    "ebdbb2" # color15
+  ];
+
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   nixpkgs.config = {
@@ -80,37 +103,45 @@ in
     #autorun = false;
     enable = true;
     
-    displayManager.lightdm = {
-      enable = true;
-      extraSeatDefaults = ''
-        greeter-show-manual-login = true
-        greeter-hide-users = true
-        allow-guest = false
-        hide-user-image = true
-      '';
-      #greeters.tiny.enable = true;
-      greeters.gtk.enable = true;
-      greeters.gtk = {
-        theme.package = pkgs.juno-theme;
-        theme.name = "Juno";
-
-        iconTheme.package = pkgs.flat-remix-icon-theme;
-        iconTheme.name = "Flat-Remix-Green-Dark";
-
-        indicators = [ "~spacer" "~host" "~spacer" "~clock" "~session" "~power" ];
-
-        extraConfig = ''
-          default-user-image = ${system-icons}/share/icons/64x64/${config.networking.hostName}.png
-        '';
-      };
-    };
     desktopManager.xterm.enable = false;
+    displayManager.startx.enable = true;
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
     };
 
   };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        # FIXME: ideally this would use the xsession stuff and not hack xinitrc
+        command = builtins.concatStringsSep " " [
+          "${pkgs.greetd.tuigreet}/bin/tuigreet"
+          "--theme 'border=gray;text=green;prompt=red;time=purple;action=blue;button=yellow;container=black;input=white'"
+          "--window-padding 1"
+          "--time"
+          "--cmd startx"
+        ];
+        user = "greeter";
+      };
+      switch = false;
+    };
+  };
+
+  # hat tip: https://www.reddit.com/r/NixOS/comments/u0cdpi/tuigreet_with_xmonad_how/
+  systemd.services.greetd.serviceConfig = {
+    type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal"; # Without this errors will spam on screen
+    # Without these bootlogs will spam on screen
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
+  };
+
   services.gnome.at-spi2-core.enable = true;
   services.displayManager.defaultSession = "none+xmonad";
 }
