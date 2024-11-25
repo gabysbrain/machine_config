@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   networking.wireless.iwd.enable = true;
 
   powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "ondemand";
+    enable = lib.mkDefault true;
+    cpuFreqGovernor = lib.mkDefault "ondemand";
   };
 
   boot.extraModprobeConfig = "options snd_hda_intel power_save=1";
