@@ -16,16 +16,20 @@
   ];
 
   wsl.enable = true;
-  wsl.defaultUser = "tom";
+  wsl.defaultUser = "soy9a";
   
-  users.users.tom = {
-    home = "/home/tom";
+  users.users.soy9a = {
+    home = "/home/soy9a";
     description = "Thomas Torsney-Weir";
     extraGroups = [ "wheel" "lp" "lpadmin" "adbusers" "dialout" ]; # Enable ‘sudo’ for the user.
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
   };
+
+  # docker
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "soy9a" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

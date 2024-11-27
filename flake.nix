@@ -47,7 +47,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.tom = { pkgs, nixosConfig, ... }: {
+            home-manager.users.soy9a = { pkgs, nixosConfig, ... }: {
               home.stateVersion = "24.05";
 
               imports = [
