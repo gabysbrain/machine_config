@@ -42,7 +42,6 @@ in
   environment.systemPackages = with pkgs; [
     alsa-utils
     hicolor-icon-theme
-    rxvt_unicode-with-plugins
     shared-mime-info
     plasma-workspace
     gnome.zenity
