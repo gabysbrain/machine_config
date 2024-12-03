@@ -67,6 +67,6 @@ in
     (callPackage ../../pkgs/notmuch-imap-tag-mover {})
 
     notmuch
-    gmailieer
+    lieer
   ];
 }
