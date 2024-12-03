@@ -3,7 +3,7 @@
 
 pkgs.writeShellApplication {
   name = "syncmail";
-  runtimeInputs = with pkgs; [ gmailieer (callPackage ../notmuch-tag {}) ];
+  runtimeInputs = with pkgs; [ lieer (callPackage ../notmuch-tag {}) ];
   text = builtins.readFile ./syncmail;
 }
 
