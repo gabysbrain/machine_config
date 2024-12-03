@@ -44,7 +44,7 @@ in
     hicolor-icon-theme
     shared-mime-info
     plasma-workspace
-    gnome.zenity
+    zenity
     usbutils
     pciutils
 
