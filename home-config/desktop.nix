@@ -23,7 +23,7 @@
 
       ${pkgs.tmux}/bin/tmux kill-session -t Tasks
       ${pkgs.tmux}/bin/tmux start-server
-      ${pkgs.gnome.gnome-keyring}/bin/gnome-keyring-daemon --start -d --components=pkcs11,secrets,ssh
+      ${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --start -d --components=pkcs11,secrets,ssh
     '';
   };
   programs = {
