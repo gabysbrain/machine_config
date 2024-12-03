@@ -45,7 +45,7 @@ in
     rxvt_unicode-with-plugins
     shared-mime-info
     plasma-workspace
-    gnome3.zenity
+    gnome.zenity
     usbutils
     pciutils
 
