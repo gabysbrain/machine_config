@@ -73,7 +73,7 @@
   console.useXkbConfig = true;
 
   # Video drivers setup
-  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = [ "modesetting" ];
 
   hardware.graphics = {
     enable = true;
