@@ -164,6 +164,12 @@
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "tom" ];
 
+  # LLM stuff
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+  };
+
   # android dev stuff
   programs.adb.enable = true;
 
