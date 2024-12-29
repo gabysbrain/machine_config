@@ -11,6 +11,8 @@ rec {
     };
   });
 
+  alot = prev.unstable.alot;
+
   #openrgb = (import ../overlays/openrgb.nix final prev);
 
 }
