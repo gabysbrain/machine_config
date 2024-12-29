@@ -33,6 +33,7 @@
         inherit agenix;
       };
       my-overrides = import overlays/default.nix;
+      overlays = [ extra-pkgs-overlay my-overrides ];
     in {
 
     # FIXME: tom user should be created and have zsh shell
@@ -40,7 +41,7 @@
       work = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ my-overrides extra-pkgs-overlay ]; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
           nixos-wsl.nixosModules.default
           ./work-configuration.nix 
           #agenix.nixosModules.default
@@ -66,7 +67,7 @@
       philadelphia = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ my-overrides extra-pkgs-overlay ]; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
           ./portege-configuration.nix 
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager {
@@ -91,7 +92,7 @@
       katana = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ my-overrides extra-pkgs-overlay ]; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = overlays; })
           ./katana-configuration.nix 
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager {
