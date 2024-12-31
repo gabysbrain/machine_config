@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 
 {
-  homeage.file.raicoon-envvars.source = ../secrets/raicoon-envvars.age;
   programs = {
     git = {
       includes = [
