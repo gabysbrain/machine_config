@@ -1,6 +1,15 @@
 {
   description = "My system config flake";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://cachix.joukamachi.net/prod"
+    ];
+    extra-trusted-public-keys = [
+      "prod:CnRQj0nKBCzOyHrbfdTvWUxaT1sBxdTcLvLcZbQnU44="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
