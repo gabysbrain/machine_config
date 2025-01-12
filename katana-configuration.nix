@@ -183,9 +183,9 @@
   #};
 
   # virtualization
-  virtualisation.libvirtd.enable = true;
-  users.extraGroups.libvirtd.members = [ "tom" ];
-  #boot.extraModprobeConfig = "options kvm ignore_msrs=1";
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "tom" ];
 
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "tom" ];
