@@ -179,6 +179,7 @@
     darktable
     gimp
     krita
+    scribus
     dia
     imagemagick
     ffmpeg
