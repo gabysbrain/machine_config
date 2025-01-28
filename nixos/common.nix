@@ -2,6 +2,7 @@
 
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "@wheel" ];
   nix.settings.trusted-substituters = [ "https://cachix.joukamachi.net/prod" ];
   nix.settings.trusted-public-keys = [ 
     "prod:CnRQj0nKBCzOyHrbfdTvWUxaT1sBxdTcLvLcZbQnU44="
