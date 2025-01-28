@@ -5,7 +5,7 @@
   nix.settings.trusted-users = [ "@wheel" ];
   nix.settings.trusted-substituters = [ "https://cachix.joukamachi.net/prod" ];
   nix.settings.trusted-public-keys = [ 
-    "prod:CnRQj0nKBCzOyHrbfdTvWUxaT1sBxdTcLvLcZbQnU44="
+    "prod:YvdQaSxvCua1bSMOD3JQj7eexVTZhmeHWWY842+T+aM="
   ];
 
   # firewall config
