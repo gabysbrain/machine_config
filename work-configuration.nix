@@ -8,6 +8,17 @@
 { config, lib, pkgs, ... }:
 
 let proxyServer = "http://proxy-flex.p1at.s-group.cc:8080";
+  certs = [
+
+    ./EGB_SHA2_PrimaryProxyRoot.crt
+    ./EGB_SHA2_PrimaryRoot.crt
+    ./EGB_SHA2_ServerCA.crt
+    ./RootCA-Proxy.crt
+    #"${builtins.fetchurl { url = "https://publish.pki.erste-group.net/cert/EGB_SHA2_PrimaryProxyRoot.crt"; sha256="sha256-lTeyxzJNQeMdu1IVdovNMtgn87jRIhSybLdMbTkf2Ww="; }}"
+    #"${builtins.fetchurl { url = "https://publish.pki.erste-group.net/cert/EGB_SHA2_PrimaryRoot.crt"; sha256="sha256-lTeyxzJNQeMdu1IVdovNMtgn78jRIhSybLdMbTkf2Ww="; }}"
+    #"${builtins.fetchurl { url = "https://publish.pki.erste-group.net/cert/EGB_SHA2_ServerCA.crt"; sha256="sha256-lTeyxzJNQeMdu1IVdovNMtgn77jRIhSybLdMbTkf3Ww="; }}"
+    #"${builtins.fetchurl { url = "https://publish.pki.erste-group.net/cert/RootCA-Proxy.crt"; sha256="sha256-lTeyxzJNQeMdu1IVdovNMtgn77jRIhSybLdMbTkf2WW="; }}"
+  ];
 in
 {
   imports = [
@@ -22,6 +33,7 @@ in
 
   networking.proxy.httpProxy = proxyServer;
   networking.proxy.httpsProxy = proxyServer;
+  security.pki.certificateFiles = certs;
   
   users.users.soy9a = {
     home = "/home/soy9a";
@@ -31,6 +43,7 @@ in
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
   };
+
 
   # docker
   virtualisation.docker.enable = true;
