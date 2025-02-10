@@ -7,6 +7,8 @@
 
 { config, lib, pkgs, ... }:
 
+let proxyServer = "http://proxy-flex.p1at.s-group.cc:8080";
+in
 {
   imports = [
     # NixOS-WSL module is done in flake
@@ -17,6 +19,9 @@
 
   wsl.enable = true;
   wsl.defaultUser = "soy9a";
+
+  networking.proxy.httpProxy = proxyServer;
+  networking.proxy.httpsProxy = proxyServer;
   
   users.users.soy9a = {
     home = "/home/soy9a";
