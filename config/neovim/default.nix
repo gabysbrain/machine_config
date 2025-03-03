@@ -67,7 +67,6 @@ in
       ${builtins.readFile ./lsp.lua}
       ${builtins.readFile ./conform.lua}
       EOF
-      ${builtins.readFile ./lint.vim}
 
       " languages
       ${builtins.readFile ./html.vim}
@@ -99,8 +98,6 @@ in
       cmp-nvim-lsp
       cmp-buffer
       luasnip
-
-      nvim-lint
 
       # can also use nvim-treesitter.withAllGrammars and be done
       (nvim-treesitter.withPlugins (
