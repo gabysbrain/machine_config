@@ -34,7 +34,10 @@
           tool = "vimdiff";
           conflictstyle = "diff3";
         };
-        mergetool.vimdiff.cmd = ''nvim -d -M "$LOCAL" "$MERGED" "$REMOTE" -c "wincmd w" -c "set modifiable" -c "set write"'';
+        # Don't show the attempt at merge, it's messy
+        # only set the merged buffer as writeable
+        # FIXME: ^^^ doesn't work :/ everything's writeable
+        mergetool.vimdiff.cmd = ''cp $BASE $MERGED && nvim -d -M "$LOCAL" "$MERGED" "$REMOTE" -c "wincmd w" -c "set modifiable" -c "set write"'';
         init = {
           defaultBranch = "dev";
         };
