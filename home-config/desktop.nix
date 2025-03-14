@@ -173,7 +173,6 @@
     btop # monitoring
 
     libreoffice
-    discord
 
     inkscape
     darktable
