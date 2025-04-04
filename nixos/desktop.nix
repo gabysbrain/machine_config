@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
-let system-icons = pkgs.callPackage ../pkgs/system-icons {};
-in
 {
   # Select internationalisation properties.
   # i18n = {
