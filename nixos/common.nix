@@ -8,6 +8,9 @@
     "prod:YvdQaSxvCua1bSMOD3JQj7eexVTZhmeHWWY842+T+aM="
   ];
 
+  # make sure tmp directory gets cleaned
+  boot.tmp.cleanOnBoot = true;
+
   # firewall config
   networking.firewall.enable = true;
 
