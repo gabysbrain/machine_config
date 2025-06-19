@@ -16,6 +16,5 @@
   environment.systemPackages = with pkgs; [
     # launchers
     lutris
-    heroic
   ];
 }
