@@ -7,7 +7,7 @@
         { contents = {
             user = {
               name = "Tom Torsney-Weir";
-              email = "soy9a@s-mxs.net";
+              email = "thomas.torsney-weir@boehringer-ingelheim.com";
             };
           };
           #condition = "gitdir:~/raicoon/";
