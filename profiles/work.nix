@@ -19,7 +19,6 @@
   };
 
   home.packages = with pkgs; [
-    bump2version
   ];
   home.file."${config.xdg.configHome}/pip/pip.conf" = { source = ../config/pip.conf; };
 }
