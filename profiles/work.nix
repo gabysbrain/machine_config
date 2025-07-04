@@ -16,17 +16,6 @@
     };
     zsh.shellAliases = {
     };
-    zsh.initExtra = ''
-      # sshing around
-      function essh() {
-        conn="soy9a@$1@pathpsmpp01.eb.lan.at"
-        ssh $conn ''${@:2}
-      }
-    '';
-    #zsh.initExtra = ''
-      ## work envvars for services
-      #source "${config.homeage.file.raicoon-envvars.path}"
-    #'';
   };
 
   home.packages = with pkgs; [
