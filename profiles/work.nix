@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   programs = {
@@ -13,6 +13,14 @@
           #condition = "gitdir:~/raicoon/";
         }
       ];
+    };
+    ssh = {
+      matchBlocks = {
+        "github.com" = {
+          hostname = "github.com";
+          identityFile = lib.mkForce "~/.ssh/id_github";
+        };
+      };
     };
     zsh.shellAliases = {
     };
