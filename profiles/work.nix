@@ -20,5 +20,4 @@
 
   home.packages = with pkgs; [
   ];
-  home.file."${config.xdg.configHome}/pip/pip.conf" = { source = ../config/pip.conf; };
 }
