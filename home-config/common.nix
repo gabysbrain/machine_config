@@ -62,10 +62,6 @@
           hostname = "github.com";
           identityFile = "~/keys/id_github";
         };
-        "smaug.gt-d.com" = {
-          hostname = "smaug.gt-d.com";
-          identityFile = "~/keys/id_raicoon_gitlab";
-        };
       };
     };
   };
