@@ -3,7 +3,7 @@
 
 pkgs.writeShellApplication {
   name = "addr_search"; 
-  runtimeInputs = with pkgs; [ python311Packages.goobook khard ];
+  runtimeInputs = with pkgs; [ goobook khard ];
   text = builtins.readFile ./addr_search;
 }
 
