@@ -103,7 +103,7 @@ in
       ignoreDups = true;
       expireDuplicatesFirst = true;
     };
-    initExtra = ''
+    initContent = ''
       # setup up autopushd
       setopt autopushd pushdignoredups
 

@@ -119,7 +119,7 @@ in
     tmuxp # for the task view
     (callPackage ../../../pkgs/weekly-review {})
   ];
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     # open taskwarrior task in jira
     function twjira {
       readonly twid=''${1:?"A task id must be specified."}
