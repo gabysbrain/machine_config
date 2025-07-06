@@ -91,7 +91,7 @@ in
       restic-remote = "export $(cat /home/tom/keys/backblaze-backup | xargs) && restic -r s3:https://s3.us-east-005.backblazeb2.com/backupmybackup";
 
       # I can never remember the command to fill pdfs
-      fillpdf = "${pkgs.xournal}/bin/xournal";
+      fillpdf = "${pkgs.xournalpp}/bin/xournalpp";
 
       # or how to create a new devshell
       initds = "nix flake new -t 'github:numtide/devshell'";
