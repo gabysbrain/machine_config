@@ -60,10 +60,11 @@
 		  corefonts  # Micrsoft free fonts
 		  unifont # some international languages
       powerline-fonts
-      anonymousPro
+      #anonymousPro
       emojione
       carlito
-      (nerdfonts.override { fonts = [ "AnonymousPro" "DroidSansMono" ]; })
+      nerd-fonts.anonymice
+      nerd-fonts.droid-sans-mono
       gyre-fonts
     ];
   };
