@@ -216,7 +216,7 @@
     xournalpp # editing pdfs
     kdePackages.okular
     zathura
-    kdePackages.breeze-icons # needed for okular
+    #kdePackages.breeze-icons # needed for okular
 
     silver-searcher
     unzip
