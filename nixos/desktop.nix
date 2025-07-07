@@ -41,7 +41,7 @@
     alsa-utils
     hicolor-icon-theme
     shared-mime-info
-    plasma-workspace
+    kdePackages.plasma-workspace
     zenity
     usbutils
     pciutils
