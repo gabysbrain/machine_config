@@ -213,10 +213,10 @@
 
     firefox
 
-    xournal # editing pdfs
-    okular
+    xournalpp # editing pdfs
+    kdePackages.okular
     zathura
-    breeze-icons # needed for okular
+    #kdePackages.breeze-icons # needed for okular
 
     silver-searcher
     unzip

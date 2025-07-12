@@ -88,7 +88,7 @@ in
     ".config/broot/launcher/refused".source = ./broot-refused;
   };
   programs.zsh  = {
-    initExtra = ''
+    initContent = ''
       # ctrl-l to open broot
       # br comes from home-manager broot zsh integration
       bindkey -s '^l' 'br\n'
