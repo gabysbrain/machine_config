@@ -43,11 +43,11 @@ in
     #spago
 
     # python
-    (python311.withPackages (ps: with ps; [ numpy pandas ]))
+    (python313.withPackages (ps: with ps; [ numpy pandas ]))
     isort
     black
     mypy
-    python311Packages.flake8
+    python313Packages.flake8
     ruff
 
     # go
