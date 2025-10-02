@@ -94,7 +94,7 @@ in
       fillpdf = "${pkgs.xournalpp}/bin/xournalpp";
 
       # or how to create a new devshell
-      initds = "nix flake new -t 'github:numtide/devshell'";
+      initds = "nix flake new -t 'github:nix-community/nix-direnv'";
     };
     history = {
       extended = true;
