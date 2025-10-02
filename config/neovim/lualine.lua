@@ -6,7 +6,7 @@ lspstatus.config {
 }
 
 local function lspStatus()
-  if #vim.lsp.buf_get_clients() > 0 then
+  if #vim.lsp.get_clients() > 0 then
     -- TODO: one day customize this more
     return lspstatus.status()
   end
