@@ -86,19 +86,4 @@ in
     (callPackage ../pkgs/problog {})
   ];
 
-  nixpkgs.overlays = [
-    /*
-    (
-      self: super: {
-        R-with-my-packages = super.rWrapper.override { 
-          packages = rpkgs super.rPackages;
-        };
-        rstudio-with-my-packages = super.rstudioWrapper.override {
-          packages = rpkgs super.rPackages;
-        };
-      }
-    )
-    */
-  ];
-
 }
