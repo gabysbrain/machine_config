@@ -39,7 +39,6 @@ let
       sha256 = "0AOEhmeeXbNc2Ge+J+/o6OBUEudyKv5HmZgpcqWu8As=";
     };
   };
-  customPlugins.unstable-lualine-nvim = unstable.vimPlugins.lualine-nvim;
 in 
 {
   programs.neovim = {
@@ -117,7 +116,7 @@ in
       ))
       polyglot
       customPlugins.vim-criticmarkup
-      customPlugins.unstable-lualine-nvim
+      lualine-nvim
       barbar-nvim
       Tagbar
       Tabular
