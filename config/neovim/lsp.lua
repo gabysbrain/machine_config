@@ -21,7 +21,7 @@ local on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -112,6 +112,11 @@ nvim_lsp['hls'].setup {
   capabilities = capabilities,
 }
 
+nvim_lsp['lua_ls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 nvim_lsp['nil_ls'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -144,7 +149,7 @@ nvim_lsp['pyright'].setup {
           reportUntypedBaseClass = "none",
           reportUntypedFunctionDecorator = "warning",
           reportUnusedVariable = "none", -- ruff will help with this
-          reportUnusedImport = "none", -- ruff will help with this
+          reportUnusedImport = "none",   -- ruff will help with this
         },
       }
     }
@@ -173,4 +178,3 @@ nvim_lsp['texlab'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-

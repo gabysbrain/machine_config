@@ -157,6 +157,7 @@ in
     # language servers
     java-language-server
     gopls
+    lua-language-server
     nodePackages.typescript-language-server
     nodePackages.eslint
     nodePackages.vscode-langservers-extracted
