@@ -9,7 +9,7 @@ local util = nvim_lsp.util
 
 --local capabilities = vim.lsp.protocol.make_client_capabilities()
 --local capabilities = lsp_status.capabilities
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer

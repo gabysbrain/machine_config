@@ -93,10 +93,8 @@ in
       nord-vim
 
       # completion
-      nvim-cmp
-      cmp-nvim-lsp
-      cmp-buffer
-      luasnip
+      blink-cmp
+      #luasnip
 
       # can also use nvim-treesitter.withAllGrammars and be done
       (nvim-treesitter.withPlugins (
