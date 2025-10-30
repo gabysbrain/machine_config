@@ -15,6 +15,18 @@ fi
 
 PROJ_DIRS=(~/projects ~/raicoon)
 
+# make sure all PROJ_DIRS exist otherwise wakiness may ensue
+pds=()
+for pd in "${PROJ_DIRS[@]}"
+do
+  if [[ -d "$pd" ]]; then
+    pds+=("$pd")
+  else
+    echo "warning: project dir ${pd} does not exist"
+  fi
+done
+PROJ_DIRS=("${pds[@]}")
+
 selected=$(find "${PROJ_DIRS[@]}" -name '.git' | sed 's#/\.git##' | fzf)
 
 # if we don't select everything just quit
