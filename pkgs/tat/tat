@@ -6,7 +6,18 @@
 # If there's already a session then find an unattached session of the group
 # to attach to, otherwise create a new session in the same group
 
-set +o pipefail
+if [[ "$1" == "-d" ]]; then
+  DEBUG=1
+  shift
+else
+  DEBUG=
+fi
+
+set -eou pipefail
+
+if [[ -n "$DEBUG" ]]; then
+  set -x
+fi
 
 clean_session_name() {
   #local session_name="$1"

@@ -1,13 +1,34 @@
 #! /usr/bin/env bash
 
+if [[ $# -gt 1 && "$1" == "-d" ]]; then
+  DEBUG=1
+  shift
+else
+  DEBUG=
+fi
+
+set -eou pipefail
+
+if [[ -n "$DEBUG" ]]; then
+  set -x
+fi
+
 PROJ_DIRS=(~/projects ~/raicoon)
 
 selected=$(find "${PROJ_DIRS[@]}" -name '.git' | sed 's#/\.git##' | fzf)
 
 # if we don't select everything just quit
 if [ -z "$selected" ]; then
+  if [[ -n "$DEBUG" ]]; then
+    echo "nothing selected, quitting"
+  fi
   exit 0
 fi
 
-tat "$selected"
+if [[ -n "$DEBUG" ]]; then
+  tat -d "$selected"
+else
+  tat "$selected"
+fi
+
 
