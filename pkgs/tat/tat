@@ -40,6 +40,12 @@ else
   workdir="$PWD"
 fi
 
+# make sure the directory exists
+if [[ ! -d "$workdir" ]]; then
+  echo "directory ${workdir} does not exist"
+  exit 1
+fi
+
 # tmux can't handle periods
 session_name="$(clean_session_name "$workdir")"
 
