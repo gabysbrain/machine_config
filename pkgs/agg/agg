@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+
+agargs="$1"
+
+FILELINEREGEX="^([^:]*):([0-9]+):"
+
+selected=$(ag --color "${agargs}" | fzf --ansi)
+if [[ "${selected}" =~ ${FILELINEREGEX} ]]; then
+  filename="${BASH_REMATCH[1]}"
+  lineno="${BASH_REMATCH[2]}"
+
+  vim -c "+${lineno}|norm! zz" "${filename}"
+else
+  echo "no match"
+fi
