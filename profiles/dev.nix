@@ -10,6 +10,8 @@ in
   ];
 
   home.packages = with pkgs; [
+    (callPackage ../pkgs/agg {})
+
     # git things
     git
     gitAndTools.git-annex
