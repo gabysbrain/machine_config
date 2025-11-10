@@ -6,7 +6,7 @@
   # needed for steam 32 bit
   hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
-  hardware.pulseaudio.support32Bit = true;
+  services.pulseaudio.support32Bit = true;
 
   programs.gamemode.enable = true;
 
