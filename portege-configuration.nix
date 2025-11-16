@@ -11,6 +11,7 @@
       ./nixos/common.nix
       ./nixos/laptop.nix
       ./nixos/desktop.nix
+      ./nixos/games.nix
     ];
 
   fileSystems."/" =
