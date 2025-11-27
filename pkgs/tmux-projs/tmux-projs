@@ -13,7 +13,7 @@ if [[ -n "$DEBUG" ]]; then
   set -x
 fi
 
-PROJ_DIRS=(~/projects ~/raicoon)
+PROJ_DIRS=(~/projects)
 
 # make sure all PROJ_DIRS exist otherwise wakiness may ensue
 pds=()
