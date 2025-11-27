@@ -156,7 +156,6 @@
         "home/*/.julia"
         "home/*/.local"
         "home/*/.mozilla"
-        "home/tom/raicoon"
       ];
       extraBackupArgs = [
       ];
@@ -173,14 +172,6 @@
   #services.avahi.nssmdns = true;
   #services.avahi.openFirewall = true;
   services.printing.drivers = [ pkgs.brlaser ];
-
-  #services.openvpn.servers = {
-    #raicoon = { 
-      #config = '' config /home/tom/VPN_GTS-a5d93c92a9bede02703f3e528b5030fb.ovpn ''; 
-      #autoStart = false;
-      ##updateResolvConf = true;
-    #};
-  #};
 
   # virtualization
   #virtualisation.virtualbox.host.enable = true;
