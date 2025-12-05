@@ -1,6 +1,7 @@
 { pkgs, lib, nixosConfig, ... }:
 
 let
+  taskwarrior-pkg = pkgs.taskwarrior2;
   bugwarrior-pkg = pkgs.python312Packages.bugwarrior;
 
   # Report definitions
@@ -160,7 +161,7 @@ in
     };
     Service = {
       Environment = "PATH=${
-        lib.makeBinPath (with pkgs; [ taskwarrior coreutils gnugrep ])
+        lib.makeBinPath (with pkgs; [ taskwarrior-pkg coreutils gnugrep ])
       }";
       ExecStart = "${bugwarrior-pkg}/bin/bugwarrior-pull";
     };
