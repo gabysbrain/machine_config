@@ -61,7 +61,6 @@
 		  unifont # some international languages
       powerline-fonts
       #anonymousPro
-      emojione
       carlito
       nerd-fonts.anonymice
       nerd-fonts.droid-sans-mono
