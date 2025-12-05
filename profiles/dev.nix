@@ -14,7 +14,7 @@ in
 
     # git things
     git
-    gitAndTools.gh
+    gh
     glab
 
     circleci-cli
