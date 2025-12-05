@@ -23,8 +23,10 @@
     git = {
       enable = true;
       lfs.enable = true;
-      userName = "Thomas Torsney-Weir";
-      userEmail = "torsneyt@gmail.com";
+      settings = {
+        user.name = "Thomas Torsney-Weir";
+        user.email = "torsneyt@gmail.com";
+      };
       extraConfig = {
         credential = {
           helper = "store";
