@@ -117,12 +117,12 @@
 
   # set up sleep/hiberante
   services.logind = {
-    # FIXME: why doesn't this work!?!?!
-    lidSwitch = "hibernate";
-    #lidSwitchDocked = "hibernate";
-    lidSwitchExternalPower = "hibernate";
-    powerKey = "hibernate";
-    powerKeyLongPress = "poweroff";
+    settings.Login = {
+      HandleLidSwitch = "hibernate";
+      HandleLidSwitchExternalPower = "hibernate";
+      HandlePowerKey = "hibernate";
+      HandlePowerKeyLongPress = "poweroff";
+    };
   };
 
   # The remaining syncthing config
