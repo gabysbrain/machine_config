@@ -121,9 +121,8 @@
     lidSwitch = "hibernate";
     #lidSwitchDocked = "hibernate";
     lidSwitchExternalPower = "hibernate";
-    extraConfig = ''
-      HandleSuspendKey = hibernate
-    '';
+    powerKey = "hibernate";
+    powerKeyLongPress = "poweroff";
   };
 
   # The remaining syncthing config
