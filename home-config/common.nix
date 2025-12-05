@@ -53,6 +53,7 @@
     };
     ssh = {
       enable = true;
+      enableDefaultConfig = false;
       matchBlocks = {
         "gitlab.com" = {
           hostname = "gitlab.com";
