@@ -26,8 +26,6 @@
       settings = {
         user.name = "Thomas Torsney-Weir";
         user.email = "torsneyt@gmail.com";
-      };
-      extraConfig = {
         credential = {
           helper = "store";
         };
