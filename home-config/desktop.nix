@@ -184,7 +184,7 @@
     yt-dlp
 
     exiftool
-    poppler_utils
+    poppler-utils
     #glib-networking # feedreader needs this for ssl
 
     libnotify
