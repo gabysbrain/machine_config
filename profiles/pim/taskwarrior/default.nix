@@ -1,7 +1,7 @@
 { pkgs, lib, nixosConfig, ... }:
 
 let
-  bugwarrior-pkg = pkgs.python3.pkgs.bugwarrior;
+  bugwarrior-pkg = pkgs.python312Packages.bugwarrior;
 
   # Report definitions
   reports = {
