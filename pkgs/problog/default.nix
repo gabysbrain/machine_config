@@ -6,6 +6,9 @@ buildPythonPackage rec {
   pname = "problog";
   version = "2.2.4";
 
+  pyproject = true;
+  build-system = [ setuptools ];
+
   src = fetchPypi {
     inherit pname version;
     extension = "tar.gz";

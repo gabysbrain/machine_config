@@ -80,8 +80,8 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
+      intel-vaapi-driver
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
     enable32Bit = true;
@@ -117,13 +117,12 @@
 
   # set up sleep/hiberante
   services.logind = {
-    # FIXME: why doesn't this work!?!?!
-    lidSwitch = "hibernate";
-    #lidSwitchDocked = "hibernate";
-    lidSwitchExternalPower = "hibernate";
-    extraConfig = ''
-      HandleSuspendKey = hibernate
-    '';
+    settings.Login = {
+      HandleLidSwitch = "hibernate";
+      HandleLidSwitchExternalPower = "hibernate";
+      HandlePowerKey = "hibernate";
+      HandlePowerKeyLongPress = "poweroff";
+    };
   };
 
   # The remaining syncthing config

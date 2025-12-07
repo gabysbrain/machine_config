@@ -8,6 +8,9 @@ pypkgs.buildPythonApplication rec {
   pname = "pancritic";
   version = "0.3.1";
 
+  pyproject = true;
+  build-system = [ pkgs.python3Packages.setuptools ];
+
   src = pypkgs.fetchPypi {
     inherit pname version;
     sha256 = "1h74x42h8xqgxrrpmgalk5b3wis5njjmyrv3av8ah82wg10p3bhj";

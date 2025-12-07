@@ -14,9 +14,7 @@ in
 
     # git things
     git
-    gitAndTools.git-annex
-    gitAndTools.git-annex-remote-rclone
-    gitAndTools.gh
+    gh
     glab
 
     circleci-cli

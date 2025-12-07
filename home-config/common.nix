@@ -23,9 +23,9 @@
     git = {
       enable = true;
       lfs.enable = true;
-      userName = "Thomas Torsney-Weir";
-      userEmail = "torsneyt@gmail.com";
-      extraConfig = {
+      settings = {
+        user.name = "Thomas Torsney-Weir";
+        user.email = "torsneyt@gmail.com";
         credential = {
           helper = "store";
         };
@@ -53,6 +53,7 @@
     };
     ssh = {
       enable = true;
+      enableDefaultConfig = false;
       matchBlocks = {
         "gitlab.com" = {
           hostname = "gitlab.com";
