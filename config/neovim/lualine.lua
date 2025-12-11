@@ -15,17 +15,17 @@ local function lspStatus()
 end
 
 lualine.setup {
-  options = { 
+  options = {
     theme = 'nord',
     component_separators = { left = '|', right = '|' },
     section_separators = { left = '', right = '' },
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {{'branch', icon = ''}, 'diagnostics'},
-    lualine_c = {'filename', lspStatus},
-    lualine_x = {'encoding', 'fileformat'},
-    lualine_y = {'filetype'},
-    lualine_z = {'location'}
+    lualine_a = { 'mode' },
+    lualine_b = { { 'branch', icon = '' }, 'diagnostics' },
+    lualine_c = { 'filename', lspStatus },
+    lualine_x = { 'encoding', 'fileformat' },
+    lualine_y = { 'filetype' },
+    lualine_z = { 'location' }
   }
 }
