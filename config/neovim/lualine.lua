@@ -1,14 +1,9 @@
 local lualine = require('lualine')
-local lspstatus = require('lsp-status')
-
-lspstatus.config {
-  diagnostics = false,
-}
+local lsp_progress = require('lsp-progress')
 
 local function lspStatus()
   if #vim.lsp.get_clients() > 0 then
-    -- TODO: one day customize this more
-    return lspstatus.status()
+    return lsp_progress.status()
   end
 
   return ''
@@ -29,3 +24,11 @@ lualine.setup {
     lualine_z = { 'location' }
   }
 }
+
+-- listen lsp-progress event and refresh lualine
+vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+  group = "lualine_augroup",
+  pattern = "LspProgressStatusUpdated",
+  callback = require("lualine").refresh,
+})

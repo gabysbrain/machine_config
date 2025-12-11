@@ -144,7 +144,7 @@ in
       typescript-vim
       vim-jsx-typescript
       bracey-vim
-      lsp-status-nvim
+      lsp-progress-nvim
       conform-nvim
 
       telekasten-nvim
