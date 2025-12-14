@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 let
-    # TODO: julia can now use julia.withPackages ["Plots"], e.g.
-    juliaPkg = pkgs.unstable.julia-bin;
+  # TODO: julia can now use julia.withPackages ["Plots"], e.g.
+  juliaPkg = pkgs.unstable.julia-bin;
 in
 {
   imports = [
@@ -10,7 +10,7 @@ in
   ];
 
   home.packages = with pkgs; [
-    (callPackage ../pkgs/agg {})
+    (callPackage ../pkgs/agg { })
 
     # git things
     git
@@ -34,7 +34,7 @@ in
     #haskellPackages.hdevtools
     #haskellPackages.hfmt
 
-    # node 
+    # node
     nodejs
     nodePackages.node2nix
 
@@ -43,7 +43,12 @@ in
     #spago
 
     # python
-    (python313.withPackages (ps: with ps; [ numpy pandas ]))
+    (python313.withPackages (
+      ps: with ps; [
+        numpy
+        pandas
+      ]
+    ))
     isort
     black
     mypy
@@ -83,7 +88,7 @@ in
     juliaPkg
 
     # Problog
-    (callPackage ../pkgs/problog {})
+    (callPackage ../pkgs/problog { })
   ];
 
 }

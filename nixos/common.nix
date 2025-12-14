@@ -1,10 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.trusted-users = [ "@wheel" ];
   nix.settings.trusted-substituters = [ "https://cachix.joukamachi.net/prod" ];
-  nix.settings.trusted-public-keys = [ 
+  nix.settings.trusted-public-keys = [
     "prod:YvdQaSxvCua1bSMOD3JQj7eexVTZhmeHWWY842+T+aM="
   ];
 
@@ -34,7 +37,7 @@
   # hack to allow certain programs to run
   programs.nix-ld.enable = true;
   #programs.gnupg.agent.enable = true;
-	
+
   services.syncthing = {
     enable = true;
     #user = "tom";
@@ -44,18 +47,18 @@
 
   # figure out correct time zone
   # FIXME: this is currently broken in nixos: https://github.com/NixOS/nixpkgs/issues/68489
-  #services.localtime.enable = true; 
+  #services.localtime.enable = true;
 
   # font config
   fonts = {
-		fontDir.enable = true;
-		enableGhostscriptFonts = true;
-		packages = with pkgs; [
-		  corefonts  # Micrsoft free fonts
-		  unifont # some international languages
+    fontDir.enable = true;
+    enableGhostscriptFonts = true;
+    packages = with pkgs; [
+      corefonts # Micrsoft free fonts
+      unifont # some international languages
       powerline-fonts
       anonymousPro
-		];
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
