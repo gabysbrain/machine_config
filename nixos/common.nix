@@ -65,14 +65,6 @@
 
   # List services that you want to enable
 
-  # periodically run GC
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 10d";
-  };
-  nix.settings.auto-optimise-store = true;
-
   # limit the systemd journal so it doesn't just fill up
   services.journald.extraConfig = ''
     SystemMaxUse=100M
@@ -81,6 +73,24 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  # auto clean direnv and old profiles
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 10d";
+  };
+  nix.settings.auto-optimise-store = true;
+
+  # mostly for direnv profiles
+  services.angrr = {
+    enable = true;
+    enableNixGcIntegration = true;
+    period = "10d";
+    timer.enable = true;
+    timer.dates = "daily";
+  };
+  programs.direnv.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
