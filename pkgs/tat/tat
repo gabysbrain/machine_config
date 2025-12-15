@@ -6,7 +6,7 @@
 # If there's already a session then find an unattached session of the group
 # to attach to, otherwise create a new session in the same group
 
-if [[ "$1" == "-d" ]]; then
+if [[ "$#" -ge 1 && "$1" == "-d" ]]; then
   DEBUG=1
   shift
 else
