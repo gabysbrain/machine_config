@@ -42,7 +42,7 @@ fi
 
 # make sure the directory exists
 if [[ ! -d "$workdir" ]]; then
-  echo "directory ${workdir} does not exist"
+  echo "directory ${workdir} does not exist" 1>&2
   exit 1
 fi
 
