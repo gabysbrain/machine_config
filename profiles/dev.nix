@@ -76,7 +76,6 @@ in
 
     # deployment
     morph
-    heroku
 
     chromium
 
