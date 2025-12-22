@@ -1,14 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  # TODO: julia can now use julia.withPackages ["Plots"], e.g.
-  juliaPkg = pkgs.unstable.julia-bin;
-in
 {
-  imports = [
-    ../config/julia/default.nix
-  ];
-
   home.packages = with pkgs; [
     (callPackage ../pkgs/agg { })
 
@@ -82,12 +74,6 @@ in
     # R stuff
     #rstudio-with-my-packages
     #R-with-my-packages
-
-    # Julia stuff
-    juliaPkg
-
-    # Problog
-    (callPackage ../pkgs/problog { })
   ];
 
 }
