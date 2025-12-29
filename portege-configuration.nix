@@ -2,35 +2,45 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ 
-      #<nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ./nixos/common.nix
-      ./nixos/laptop.nix
-      ./nixos/desktop.nix
-      ./nixos/games.nix
-    ];
+  imports = [
+    #<nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+    ./nixos/common.nix
+    ./nixos/laptop.nix
+    ./nixos/desktop.nix
+    ./nixos/games.nix
+  ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/root";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/EAE3-7760";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/EAE3-7760";
+    fsType = "vfat";
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-label/swap"; }
-    ];
+  swapDevices = [
+    { device = "/dev/disk/by-label/swap"; }
+  ];
 
   powerManagement.cpuFreqGovernor = lib.mkForce "powersave";
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "nvme"
+    "usb_storage"
+    "sd_mod"
+    "rtsx_pci_sdmmc"
+  ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
@@ -42,14 +52,14 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   /*
-  boot.extraModprobeConfig = ''
-    "options iwlwifi 11n_disable=1"
-    "options iwlwifi swcrypto=0"
-    "options iwlwifi bt_coex_active=0"
-    "options iwlwifi power_save=0"
-    "options iwlwifi uapsd_disable=1"
-    "options iwlmvm power_scheme=1"
-  '';
+    boot.extraModprobeConfig = ''
+      "options iwlwifi 11n_disable=1"
+      "options iwlwifi swcrypto=0"
+      "options iwlwifi bt_coex_active=0"
+      "options iwlwifi power_save=0"
+      "options iwlwifi uapsd_disable=1"
+      "options iwlmvm power_scheme=1"
+    '';
   */
 
   # for building nixos on other systems (e.g. raspberry pi)
@@ -112,7 +122,10 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.printing.drivers = [pkgs.gutenprint pkgs.gutenprintBin];
+  services.printing.drivers = [
+    pkgs.gutenprint
+    pkgs.gutenprintBin
+  ];
   #services.printing.logLevel = "debug";
 
   # set up sleep/hiberante
@@ -136,7 +149,13 @@
   users.users.tom = {
     home = "/home/tom";
     description = "Thomas Torsney-Weir";
-    extraGroups = [ "wheel" "lp" "lpadmin" "adbusers" "dialout" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "lp"
+      "lpadmin"
+      "adbusers"
+      "dialout"
+    ]; # Enable ‘sudo’ for the user.
     createHome = true;
     shell = "/run/current-system/sw/bin/zsh";
     isNormalUser = true;
@@ -167,7 +186,6 @@
       };
     };
   };
-
 
   # virtualization
   #virtualisation.virtualbox.host.enable = true;
