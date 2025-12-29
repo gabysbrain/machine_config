@@ -105,7 +105,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/Vienna";
+  #time.timeZone = "Europe/Vienna";
   #services.localtime.enable = true;
 
   # List packages installed in system profile. To search, run:

@@ -8,6 +8,8 @@
 {
   networking.wireless.iwd.enable = true;
 
+  services.automatic-timezoned.enable = true;
+
   powerManagement = {
     enable = lib.mkDefault true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
@@ -25,11 +27,11 @@
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
     };
- };
+  };
 
   environment.systemPackages = with pkgs; [
-    (callPackage ../pkgs/screenselect.nix {})
-    (callPackage ../pkgs/speakerselect.nix {})
+    (callPackage ../pkgs/screenselect.nix { })
+    (callPackage ../pkgs/speakerselect.nix { })
     xorg.xbacklight
     powertop
     lm_sensors
