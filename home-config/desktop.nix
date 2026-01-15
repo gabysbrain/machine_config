@@ -41,7 +41,7 @@
     };
     obs-studio = {
       enable = true;
-      plugins = with pkgs; [ 
+      plugins = with pkgs; [
         obs-studio-plugins.wlrobs
       ];
     };
@@ -65,7 +65,7 @@
 
       shadow = true;
       settings = {
-        blur = { 
+        blur = {
           method = "dual_kawase";
           strength = 8;
         };
@@ -112,7 +112,7 @@
           horizontal_padding = 6;
           frame_width = 1;
 
-          startup_notification = "true"; #false
+          startup_notification = "true"; # false
           dmenu = "dmenu -p dunst:";
           browser = "firefox";
           icon_position = "off";
@@ -151,11 +151,11 @@
     #haskellPackages.xmobar
     dmenu
 
-    (callPackage ../pkgs/preview.nix {})
+    (callPackage ../pkgs/preview.nix { })
     xkb-switch
 
     # for reviewing papers
-    (callPackage ../pkgs/summ_paper {})
+    (callPackage ../pkgs/summ_paper { })
 
     # needed for termite to access things
     termite.terminfo
@@ -201,10 +201,10 @@
     feh
     sxiv
     viu
-    (callPackage ../pkgs/screenshot {})
+    (callPackage ../pkgs/screenshot { })
 
-    (callPackage ../pkgs/gopass-dmenu.nix {})
-    (callPackage ../pkgs/syncthing-quick-status.nix {})
+    (callPackage ../pkgs/gopass-dmenu.nix { })
+    (callPackage ../pkgs/syncthing-quick-status.nix { })
 
     #(callPackage ../pkgs/zk.nix {}) # notes
 
