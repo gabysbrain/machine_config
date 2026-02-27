@@ -4,7 +4,6 @@
     ../config/fzf.nix
     ../config/zsh.nix
     ../config/tmux.nix
-    ../config/lf/default.nix
 
     ../config/neovim/default.nix
 

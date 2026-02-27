@@ -69,7 +69,7 @@ workProject ws =
     { projectName = ws,
       projectDirectory = "~/",
       projectStartHook = Just $ do
-        rit "lf" "lf ~/Projects"
+        rit "yazi" "yazi ~/Projects"
         -- spawn myBrowser
     }
 
@@ -207,7 +207,7 @@ myKeys conf =
             ((myModMask, xK_m), addName "Email" launchMail),
             ((myModMask, xK_s), addName "Spotify" $ namedScratchpadAction scratchpads "spotify"),
             ((myModMask .|. shiftMask, xK_m), addName "Pavucontrol mixer" $ namedScratchpadAction scratchpads "mixer"),
-            ((myModMask, xK_n), addName "File browser" $ rit' "lf"),
+            ((myModMask, xK_n), addName "File browser" $ rit' "yazi"),
             ((myModMask .|. shiftMask, xK_n), addName "Wiki" $ spawn "nvim -c 'VimwikiIndex'"),
             ((myModMask .|. shiftMask, xK_t), addName "Work tasks" $ namedScratchpadAction scratchpads "work_tasks"),
             ((myModMask .|. controlMask, xK_p), addName "Password" $ spawn "gopass-dmenu")
@@ -452,4 +452,3 @@ rit' c = rit c c
 
 -- stuff to specify floating window sizes
 centerFloat w h = customFloating $ W.RationalRect ((1 - w) / 2) ((1 - h) / 2) w h
-
