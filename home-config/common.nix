@@ -1,7 +1,6 @@
 { pkgs, homeage, ... }:
 {
   imports = [
-    ../config/broot/default.nix
     ../config/fzf.nix
     ../config/zsh.nix
     ../config/tmux.nix
