@@ -65,6 +65,16 @@
         };
       };
     };
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+      plugins = {
+        nord = pkgs.yaziPlugins.nord;
+      };
+      theme = {
+        flavors.dark = "nord";
+      };
+    };
   };
   home.sessionVariables = {
     EDITOR = "vim";
