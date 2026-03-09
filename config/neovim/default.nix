@@ -1,4 +1,4 @@
-{pkgs, lib, ...}:
+{ pkgs, lib, ... }:
 
 let
   unstable = pkgs.unstable;
@@ -39,7 +39,7 @@ let
       sha256 = "0AOEhmeeXbNc2Ge+J+/o6OBUEudyKv5HmZgpcqWu8As=";
     };
   };
-in 
+in
 {
   programs.neovim = {
     enable = true;
@@ -172,7 +172,7 @@ in
     ripgrep # telekasten.nvim uses this
   ];
   home.activation = {
-    neovimScratchFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    neovimScratchFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if [ ! -f $HOME/.config/nvim/scratch.vim ]; then
         $DRY_RUN_CMD touch $HOME/.config/nvim/scratch.vim
       fi
@@ -183,4 +183,3 @@ in
     '';
   };
 }
-
