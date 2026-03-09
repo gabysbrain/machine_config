@@ -134,7 +134,6 @@ in
       customPlugins.vim-toggle-quickfix
       vim-signify
       Supertab
-      vim-addon-nix
       vim-obsession
       vim-unimpaired
       vimproc
