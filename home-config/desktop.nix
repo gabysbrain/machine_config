@@ -24,11 +24,9 @@
     '';
   };
   programs = {
-    ncmpcpp = {
+    rmpc = {
       enable = true;
-      settings = {
-        mpd_host = "ttw.music.joukamachi.net";
-      };
+      config = builtins.readFile ../config/rmpc.config;
     };
     zathura = {
       enable = true;

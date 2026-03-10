@@ -87,7 +87,7 @@ projects =
       { projectName = wsAV,
         projectDirectory = "~/",
         projectStartHook = Just $ do
-          rit "ncmpcpp" "ncmpcpp"
+          rit "rmpc" "rmpc"
       },
     Project
       { projectName = wsSys,
