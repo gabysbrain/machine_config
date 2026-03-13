@@ -54,8 +54,6 @@
 
   # font config
   fonts = {
-    fontDir.enable = true;
-    enableGhostscriptFonts = true;
     packages = with pkgs; [
 		  corefonts  # Micrsoft free fonts
 		  unifont # some international languages
