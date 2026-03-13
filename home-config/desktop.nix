@@ -140,7 +140,7 @@
       defaultCacheTtl = 1800; # 30 minutes
       maxCacheTtl = 604800; # one week
       extraConfig = ''
-        pinentry-program ${pkgs.pinentry-gtk2}/bin/pinentry
+        pinentry-program ${pkgs.pinentry-gnome3}/bin/pinentry
       '';
     };
   };
