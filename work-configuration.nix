@@ -18,6 +18,23 @@
   wsl.enable = true;
   wsl.defaultUser = "torsneyw";
 
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.torsneyw =
+    { pkgs, nixosConfig, homeage, ... }:
+    {
+      home.stateVersion = "24.11";
+
+      imports = [
+        ./home-config/common.nix
+        ./home-config/work.nix
+        ./profiles/dev.nix
+
+        # FIXME: not sure why this breaks in home-config/common...
+        homeage.homeManagerModules.homeage
+      ];
+    };
+
   users.users.torsneyw = {
     home = "/home/torsneyw";
     description = "Thomas Torsney-Weir";

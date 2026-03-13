@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, homeage, ... }:
 
 {
   imports =
@@ -129,7 +129,28 @@
     dataDir = "/home/tom/";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.tom =
+    { pkgs, nixosConfig, homeage, ... }:
+    {
+      home.stateVersion = "20.09";
+      imports = [
+        ./home-config/common.nix
+        ./home-config/desktop.nix
+        ./profiles/dev.nix
+        ./profiles/games.nix
+        ./profiles/writing.nix
+
+        # FIXME: not sure why this breaks in home-config/common...
+        homeage.homeManagerModules.homeage
+      ];
+
+      # adjust terminal for high dpi screen
+      programs.kitty.font.size = pkgs.lib.mkForce 14;
+    };
+
+  # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.tom = {
     home = "/home/tom";
     description = "Thomas Torsney-Weir";

@@ -6,6 +6,7 @@
   config,
   lib,
   pkgs,
+  homeage,
   ...
 }:
 
@@ -145,7 +146,25 @@
     dataDir = "/home/tom/";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.tom =
+    { pkgs, nixosConfig, homeage, ... }:
+    {
+      home.stateVersion = "20.09";
+
+      imports = [
+        ./home-config/common.nix
+        ./home-config/desktop.nix
+        ./profiles/dev.nix
+        ./profiles/writing.nix
+
+        # FIXME: not sure why this breaks in home-config/common...
+        homeage.homeManagerModules.homeage
+      ];
+    };
+
+  # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.tom = {
     home = "/home/tom";
     description = "Thomas Torsney-Weir";

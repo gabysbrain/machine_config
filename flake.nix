@@ -59,21 +59,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.torsneyw =
-                { pkgs, nixosConfig, ... }:
-                {
-                  home.stateVersion = "24.11";
-
-                  imports = [
-                    ./home-config/common.nix
-                    ./home-config/desktop.nix
-                    ./profiles/dev.nix
-                    ./profiles/work.nix
-
-                    # FIXME: not sure why this breaks in home-config/common...
-                    homeage.homeManagerModules.homeage
-                  ];
-                };
+              home-manager.extraSpecialArgs = { inherit homeage; };
             }
           ];
         };
@@ -92,21 +78,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.tom =
-                { pkgs, nixosConfig, ... }:
-                {
-                  home.stateVersion = "20.09";
-
-                  imports = [
-                    ./home-config/common.nix
-                    ./home-config/desktop.nix
-                    ./profiles/dev.nix
-                    ./profiles/writing.nix
-
-                    # FIXME: not sure why this breaks in home-config/common...
-                    homeage.homeManagerModules.homeage
-                  ];
-                };
+              home-manager.extraSpecialArgs = { inherit homeage; };
             }
           ];
         };
@@ -125,24 +97,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.tom =
-                { pkgs, nixosConfig, ... }:
-                {
-                  home.stateVersion = "20.09";
-                  imports = [
-                    ./home-config/common.nix
-                    ./home-config/desktop.nix
-                    ./profiles/dev.nix
-                    ./profiles/games.nix
-                    ./profiles/writing.nix
-
-                    # FIXME: not sure why this breaks in home-config/common...
-                    homeage.homeManagerModules.homeage
-                  ];
-
-                  # adjust terminal for high dpi screen
-                  programs.kitty.font.size = pkgs.lib.mkForce 14;
-                };
+              home-manager.extraSpecialArgs = { inherit homeage; };
             }
           ];
         };
