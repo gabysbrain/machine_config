@@ -125,7 +125,6 @@
   services.printing.enable = true;
   services.printing.drivers = [
     pkgs.gutenprint
-    pkgs.gutenprintBin
   ];
   #services.printing.logLevel = "debug";
 
