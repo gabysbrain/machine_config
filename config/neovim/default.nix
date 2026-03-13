@@ -85,8 +85,6 @@ in
       runtime scratch.vim
       lua require('scratch')
     '';
-    viAlias = true;
-    vimAlias = true;
     vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       # themes
