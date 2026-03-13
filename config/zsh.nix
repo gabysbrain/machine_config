@@ -7,7 +7,6 @@ in
   programs.zsh  = {
     enable = true;
     #defaultKeymap = "vicmd";
-    enableCompletion = true;
     plugins = [
       { name = "pure";
         src = pkgs.fetchFromGitHub {
