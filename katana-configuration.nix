@@ -94,10 +94,7 @@
     nvidiaSettings = true;
   };
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
+  # Per-interface useDHCP is now the standard; global flag is no longer needed
   networking.interfaces.enp5s0.useDHCP = true;
   #networking.interfaces.wlp4s0.useDHCP = true;
 
