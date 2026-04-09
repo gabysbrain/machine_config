@@ -413,9 +413,10 @@ main = do
 
   xmonad $
     dynamicProjects projects $
-      ewmh $
-        addDescrKeys ((myModMask, xK_F1), showKeybindings) myKeys $
-          myConfig dbus
+      ewmhFullscreen $
+        ewmh $
+          addDescrKeys ((myModMask, xK_F1), showKeybindings) myKeys $
+            myConfig dbus
 
 -- from:
 -- https://github.com/pjones/xmonadrc/blob/master/src/XMonad/Local/Action.hs
