@@ -27,6 +27,7 @@
         credential = {
           helper = "store";
         };
+        pager.diff = "bat --language diff";
         pull.rebase = true;
         merge = {
           tool = "vimdiff";
