@@ -89,8 +89,6 @@ in
       # I can never remember the command to fill pdfs
       fillpdf = "${pkgs.xournalpp}/bin/xournalpp";
 
-      # or how to create a new devshell
-      initds = "nix flake new -t 'github:nix-community/nix-direnv'";
     };
     history = {
       extended = true;
@@ -134,6 +132,12 @@ in
 
       # ctrl-g to open directory search
       bindkey -s '^g' '${tmux-projs}/bin/tmux-projs\n'
+
+      # initialize a project
+      # TODO: one day list the available languages
+      function initproj {
+        nix flake init -t "github:gabysbrain/nix-dev-templates#$1"
+      }
 
       if [ -f ~/.config/zsh/scratch.zsh ]; then
         source ~/.config/zsh/scratch.zsh
