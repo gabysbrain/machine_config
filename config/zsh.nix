@@ -126,25 +126,6 @@ in
         history 0 | grep -i $*
       }
 
-      # autoload python venv
-      # from https://dev.to/moniquelive/auto-activate-and-deactivate-python-venv-using-zsh-4dlm
-      function python_venv {
-        myvenv=./venv
-        # when you cd into a folder that contains $MYVENV
-        [[ -d $myvenv ]] && source $myvenv/bin/activate > /dev/null 2>&1
-        # when you cd into a folder that doesn't
-        [[ ! -d $myvenv ]] && deactivate > /dev/null 2>&1
-      }
-      add-zsh-hook chpwd python_venv
-
-      function mkvenv {
-          mydir=$(basename $PWD)
-          python -m venv --prompt "$mydir" venv
-          source venv/bin/activate
-          find . -name 'requirements*.txt' -exec pip install -r '{}' ';'
-          find requirements -name '*.txt' -exec pip install -r '{}' ';'
-      }
-
       # create git worktree branch from origin name
       function gbwt {
           readonly branch=''${1:?"A branch name is required"}
