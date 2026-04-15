@@ -68,9 +68,6 @@ in
       gst = "git status";
       gu = "git pull --rebase";
 
-      # gitlab/github stuff
-      ci = "glab ci view";
-
       # nix conveniences
       #ns = "nix shell";
       ns = "nix search nixpkgs";
