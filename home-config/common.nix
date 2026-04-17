@@ -75,6 +75,13 @@
       };
     };
   };
+  services = {
+    gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 1800; # 30 minutes
+      maxCacheTtl = 604800; # one week
+    };
+  };
   home.sessionVariables = {
     EDITOR = "vim";
     OPENER = "mimeo";

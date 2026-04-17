@@ -136,9 +136,6 @@
       };
     };
     gpg-agent = {
-      enable = true;
-      defaultCacheTtl = 1800; # 30 minutes
-      maxCacheTtl = 604800; # one week
       pinentry.package = pkgs.pinentry-dmenu;
     };
   };
