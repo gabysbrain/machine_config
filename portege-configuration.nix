@@ -196,6 +196,7 @@
         "--exclude='home/*/.julia'"
         "--exclude='home/*/.local'"
         "--exclude='home/*/.mozilla'"
+        "--exclude='home/*/games'"
         "--exclude='photos/photoprism-data/sidecar'"
       ];
       timerConfig = {
