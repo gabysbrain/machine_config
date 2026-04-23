@@ -17,15 +17,6 @@
     #cachix
     nixos-shell
 
-    # haskell
-    cabal-install
-    ghc
-    stack
-    hlint
-    #haskellPackages.ghc-mod
-    #haskellPackages.hdevtools
-    #haskellPackages.hfmt
-
     # node
     nodejs
     nodePackages.node2nix
