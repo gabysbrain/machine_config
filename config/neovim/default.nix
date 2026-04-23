@@ -161,7 +161,6 @@ in
     nodePackages.eslint
     nodePackages.vscode-langservers-extracted
     nixd # nix
-    haskell-language-server
     rust-analyzer
     texlab
     pyright # python 1
