@@ -19,6 +19,7 @@
 
   environment.systemPackages = with pkgs; [
     nox
+    nix-output-monitor
     git
     vim
     atool
