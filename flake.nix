@@ -28,7 +28,7 @@
     let
       extra-pkgs-overlay = final: prev: {
         unstable = import nixpkgs-unstable {
-          system = prev.system;
+          system = prev.stdenv.hostPlatform.system;
           config.allowUnfree = true; # FIXME: doesn't work with nixos-install
         };
         inherit agenix;
