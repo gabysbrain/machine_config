@@ -53,7 +53,7 @@
     ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks = {
+      settings = {
         "gitlab.com" = {
           hostname = "gitlab.com";
           identityFile = "~/keys/id_gitlab";
