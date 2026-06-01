@@ -150,9 +150,6 @@
     # for reviewing papers
     (callPackage ../pkgs/summ_paper { })
 
-    # needed for termite to access things
-    termite.terminfo
-
     blueman
     wpa_supplicant_gui
     cifs-utils
