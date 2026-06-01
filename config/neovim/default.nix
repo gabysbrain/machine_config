@@ -112,20 +112,20 @@ in
           vim
         ]
       ))
-      polyglot
+      vim-polyglot
       customPlugins.vim-criticmarkup
       lualine-nvim
       barbar-nvim
-      Tagbar
-      Tabular
+      tagbar
+      tabular
       vim-buffergator
-      The_NERD_Commenter
-      The_NERD_tree
+      nerdcommenter
+      nerdtree
       telescope-nvim
       telescope-fzf-native-nvim
       customPlugins.telescope-bibtex
       nvim-lspconfig
-      fugitive
+      vim-fugitive
       todo-comments-nvim
       julia-vim
       vim-go
@@ -133,10 +133,10 @@ in
       customPlugins.vim-convert-color-to
       customPlugins.vim-toggle-quickfix
       vim-signify
-      Supertab
+      supertab
       vim-obsession
       vim-unimpaired
-      vimproc
+      vimproc-vim
       vim-easy-align
       vim-slime
       vimtex
