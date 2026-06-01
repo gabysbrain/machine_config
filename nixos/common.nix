@@ -86,9 +86,33 @@
   services.angrr = {
     enable = true;
     enableNixGcIntegration = true;
-    period = "10d";
     timer.enable = true;
     timer.dates = "daily";
+
+    settings = {
+      profile-policies = {
+        system = {
+          keep-booted-system = true;
+          keep-current-system = true;
+          #keep-latest-n = 5;
+          keep-since = "10d";
+          profile-paths = [
+            "/nix/var/nix/profiles/system"
+          ];
+        };
+        user = {
+          enable = true;
+          keep-booted-system = true;
+          keep-current-system = true;
+          #keep-latest-n = 1;
+          keep-since = "10d";
+          profile-paths = [
+            "~/.local/state/nix/profiles/profile"
+            "/nix/var/nix/profiles/per-user/root/profile"
+          ];
+        };
+      };
+    };
   };
   programs.direnv.enable = true;
 
