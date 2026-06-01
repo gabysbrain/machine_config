@@ -101,7 +101,7 @@ in
       #luasnip
 
       # can also use nvim-treesitter.withAllGrammars and be done
-      (nvim-treesitter.withPlugins (
+      (nvim-treesitter-legacy.withPlugins (
         plugins: with plugins; [
           bash
           nix
