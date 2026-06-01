@@ -19,7 +19,6 @@
 
     # node
     nodejs
-    nodePackages.node2nix
 
     # purescript
     purescript
