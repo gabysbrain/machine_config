@@ -161,9 +161,9 @@ in
     java-language-server
     gopls
     lua-language-server
-    nodePackages.typescript-language-server
-    nodePackages.eslint
-    nodePackages.vscode-langservers-extracted
+    typescript-language-server
+    eslint
+    vscode-langservers-extracted
     nixd # nix
     rust-analyzer
     texlab
