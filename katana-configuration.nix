@@ -204,7 +204,7 @@
   # LLM stuff
   services.ollama = {
     enable = true;
-    acceleration = "cuda";
+    package = pkgs.ollama-cuda;
   };
 
   # This value determines the NixOS release with which your system is to be
