@@ -323,8 +323,8 @@ scratchpads =
   -- [ NS "mixer" "pavucontrol" (className =? "Pavucontrol")
   [ NS
       "mixer"
-      "helvum"
-      (className =? "helvum")
+      "crosspipe"
+      (className =? "crosspipe")
       (centerFloat 0.6 0.6),
     NS
       "work_tasks"

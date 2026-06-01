@@ -156,7 +156,7 @@
     samba
     iwgtk
     pavucontrol
-    helvum # pipewire patchbay
+    crosspipe # pipewire patchbay
     btop # monitoring
 
     libreoffice
