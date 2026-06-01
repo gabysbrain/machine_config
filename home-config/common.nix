@@ -67,6 +67,7 @@
     yazi = {
       enable = true;
       enableZshIntegration = true;
+      shellWrapperName = "yy";
       plugins = {
         nord = pkgs.yaziPlugins.nord;
       };
