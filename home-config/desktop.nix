@@ -45,12 +45,13 @@
     };
   };
 
-  gtk = {
+  gtk = rec {
     enable = true;
     theme.package = pkgs.juno-theme;
     theme.name = "Juno";
     iconTheme.package = pkgs.flat-remix-icon-theme;
     iconTheme.name = "Flat-Remix-Green-Dark";
+    gtk4.theme = theme;
   };
   qt = {
     enable = true;
@@ -150,16 +151,13 @@
     # for reviewing papers
     (callPackage ../pkgs/summ_paper { })
 
-    # needed for termite to access things
-    termite.terminfo
-
     blueman
     wpa_supplicant_gui
     cifs-utils
     samba
     iwgtk
     pavucontrol
-    helvum # pipewire patchbay
+    crosspipe # pipewire patchbay
     btop # monitoring
 
     libreoffice

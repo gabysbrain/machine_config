@@ -107,6 +107,8 @@
   environment.systemPackages = with pkgs; [
     restic
     alsa-scarlett-gui
+
+    android-tools
   ];
 
   ### List services that you want to enable:
@@ -202,11 +204,8 @@
   # LLM stuff
   services.ollama = {
     enable = true;
-    acceleration = "cuda";
+    package = pkgs.ollama-cuda;
   };
-
-  # android dev stuff
-  programs.adb.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

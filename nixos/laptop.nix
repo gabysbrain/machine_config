@@ -32,7 +32,7 @@
   environment.systemPackages = with pkgs; [
     (callPackage ../pkgs/screenselect.nix { })
     (callPackage ../pkgs/speakerselect.nix { })
-    xorg.xbacklight
+    xbacklight
     powertop
     lm_sensors
     acpi

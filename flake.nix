@@ -2,12 +2,12 @@
   description = "My system config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +28,7 @@
     let
       extra-pkgs-overlay = final: prev: {
         unstable = import nixpkgs-unstable {
-          system = prev.system;
+          system = prev.stdenv.hostPlatform.system;
           config.allowUnfree = true; # FIXME: doesn't work with nixos-install
         };
         inherit agenix;

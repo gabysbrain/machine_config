@@ -88,6 +88,10 @@ in
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+
+    withRuby = false;
+    withPython3 = false;
+
     plugins = with pkgs.vimPlugins; [
       # themes
       nord-vim
@@ -97,7 +101,7 @@ in
       #luasnip
 
       # can also use nvim-treesitter.withAllGrammars and be done
-      (nvim-treesitter.withPlugins (
+      (nvim-treesitter-legacy.withPlugins (
         plugins: with plugins; [
           bash
           nix
@@ -112,20 +116,20 @@ in
           vim
         ]
       ))
-      polyglot
+      vim-polyglot
       customPlugins.vim-criticmarkup
       lualine-nvim
       barbar-nvim
-      Tagbar
-      Tabular
+      tagbar
+      tabular
       vim-buffergator
-      The_NERD_Commenter
-      The_NERD_tree
+      nerdcommenter
+      nerdtree
       telescope-nvim
       telescope-fzf-native-nvim
       customPlugins.telescope-bibtex
       nvim-lspconfig
-      fugitive
+      vim-fugitive
       todo-comments-nvim
       julia-vim
       vim-go
@@ -133,10 +137,10 @@ in
       customPlugins.vim-convert-color-to
       customPlugins.vim-toggle-quickfix
       vim-signify
-      Supertab
+      supertab
       vim-obsession
       vim-unimpaired
-      vimproc
+      vimproc-vim
       vim-easy-align
       vim-slime
       vimtex
@@ -157,9 +161,9 @@ in
     java-language-server
     gopls
     lua-language-server
-    nodePackages.typescript-language-server
-    nodePackages.eslint
-    nodePackages.vscode-langservers-extracted
+    typescript-language-server
+    eslint
+    vscode-langservers-extracted
     nixd # nix
     rust-analyzer
     texlab

@@ -115,6 +115,10 @@
     restic
 
     thunderbolt
+
+    # android dev stuff
+    android-tools
+
   ];
 
   # List services that you want to enable:
@@ -212,9 +216,6 @@
   #users.extraGroups.vboxusers.members = [ "tom" ];
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "tom" ];
-
-  # android dev stuff
-  programs.adb.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

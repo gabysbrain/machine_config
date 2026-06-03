@@ -53,7 +53,7 @@
     ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks = {
+      settings = {
         "gitlab.com" = {
           hostname = "gitlab.com";
           identityFile = "~/keys/id_gitlab";
@@ -67,6 +67,7 @@
     yazi = {
       enable = true;
       enableZshIntegration = true;
+      shellWrapperName = "yy";
       plugins = {
         nord = pkgs.yaziPlugins.nord;
       };
