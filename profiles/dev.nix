@@ -41,9 +41,6 @@
     cargo
     rustc
 
-    # databases
-    dbeaver-bin
-
     # general
     gnumake
     cmake
