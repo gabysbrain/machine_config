@@ -7,10 +7,6 @@
     # git things
     git
     gh
-    glab
-
-    circleci-cli
-    go-jira
 
     # for nix dev
     niv
