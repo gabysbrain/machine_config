@@ -7,6 +7,7 @@
     # git things
     git
     gh
+    forgejo-cli
 
     # for nix dev
     niv
