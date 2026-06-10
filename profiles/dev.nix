@@ -52,8 +52,6 @@
     # deployment
     morph
 
-    chromium
-
     # R stuff
     #rstudio-with-my-packages
     #R-with-my-packages
