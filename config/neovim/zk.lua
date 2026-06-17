@@ -141,6 +141,7 @@ require('telekasten').setup({
 
 -- keybindings
 vim.api.nvim_set_keymap('n', '<leader>zf', '<cmd>lua require(\'telekasten\').find_notes()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>zn', '<cmd>lua require(\'telekasten\').new_note()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>zd', '<cmd>lua require(\'telekasten\').find_daily_notes()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>zg', '<cmd>lua require(\'telekasten\').search_notes()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>zz', '<cmd>lua require(\'telekasten\').follow_link()<CR>', { noremap = true })
