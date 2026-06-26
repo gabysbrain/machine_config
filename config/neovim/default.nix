@@ -164,6 +164,7 @@ in
     typescript-language-server
     eslint
     vscode-langservers-extracted
+    marksman
     nixd # nix
     rust-analyzer
     texlab
