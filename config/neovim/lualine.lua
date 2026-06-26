@@ -1,6 +1,9 @@
 local lualine = require('lualine')
 local lsp_progress = require('lsp-progress')
 
+-- need to initialize progress otherwise things fail
+lsp_progress.setup()
+
 local function lspStatus()
   if #vim.lsp.get_clients() > 0 then
     return lsp_progress.status()
