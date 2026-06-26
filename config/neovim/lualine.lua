@@ -6,7 +6,7 @@ lsp_progress.setup()
 
 local function lspStatus()
   if #vim.lsp.get_clients() > 0 then
-    return lsp_progress.status()
+    return lsp_progress.progress()
   end
 
   return ''
