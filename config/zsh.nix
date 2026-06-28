@@ -114,6 +114,12 @@ in
         cd "$(git rev-parse --show-toplevel 2>/dev/null)"
       }
 
+      function tmp {
+        [ "$1" = "view" ] && cd /tmp/workspaces && cd $(ls -t | fzf --preview 'ls -A {}') && return 0
+        r="/tmp/workspaces/$(xxd -l3 -ps /dev/urandom)"
+        mkdir -p -p "$r" && pushd "$r"
+      }
+
       # vim edit command line
       autoload edit-command-line
       zle -N edit-command-line
