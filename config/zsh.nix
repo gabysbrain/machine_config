@@ -104,6 +104,11 @@ in
       # commands
       nix-install() { nix-env -iA $1; }
 
+      # create a dir and navigate to it
+      function take { 
+        mkdir -p "$1" && cd "$1"
+      }
+
       # vim edit command line
       autoload edit-command-line
       zle -N edit-command-line
