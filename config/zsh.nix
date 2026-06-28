@@ -109,6 +109,11 @@ in
         mkdir -p "$1" && cd "$1"
       }
 
+      # go to project root
+      function r {
+        cd "$(git rev-parse --show-toplevel 2>/dev/null)"
+      }
+
       # vim edit command line
       autoload edit-command-line
       zle -N edit-command-line
