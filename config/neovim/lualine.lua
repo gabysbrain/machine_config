@@ -20,7 +20,7 @@ lsp_progress.setup({
       return msg and string.format("%s %s", name, msg) or name
     end
 
-    local sign = "" -- nf-fa-gear \uf013
+    local sign = "λ"
     local lsp_clients = vim.lsp.get_clients()
     local messages_map = {}
     for _, climsg in ipairs(client_messages) do
@@ -46,7 +46,8 @@ lsp_progress.setup({
         end
       end
       if #builder > 0 then
-        return sign .. " " .. table.concat(builder, ", ")
+        --return sign .. " " .. table.concat(builder, ", ")
+        return sign
       end
     end
     return ""
