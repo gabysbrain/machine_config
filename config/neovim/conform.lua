@@ -1,6 +1,6 @@
 require("conform").setup {
   formatters_by_ft = {
-    python = { "ruff check --select I --fix", "ruff format" },
+    python = { "ruff_organize_imports", "ruff_format" },
   },
   format_on_save = {
     lsp_format = "fallback",
