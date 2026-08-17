@@ -6,8 +6,7 @@
 
 {
   imports =
-    [ #./nixos/nvidia-fix.nix
-      ./nixos/common.nix
+    [ ./nixos/common.nix
       ./nixos/games.nix
       ./nixos/desktop.nix
       ./nixos/rgb.nix
