@@ -198,6 +198,7 @@
   #users.extraGroups.vboxusers.members = [ "tom" ];
 
   virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
   users.extraGroups.docker.members = [ "tom" ];
 
   # LLM stuff
