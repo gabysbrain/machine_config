@@ -165,7 +165,8 @@
         "homeage": "homeage",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "zwift": "zwift"
       }
     },
     "systems": {
@@ -180,6 +181,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "zwift": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785479625,
+        "narHash": "sha256-KFoUpCua36urRThy+GPnU8SP1WxqEuRtaL6Cc5KI8Iw=",
+        "owner": "netbrain",
+        "repo": "zwift",
+        "rev": "b7d5d721d67e2ef521ab33cb9206ea4b2eeeecc8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "netbrain",
+        "repo": "zwift",
         "type": "github"
       }
     }

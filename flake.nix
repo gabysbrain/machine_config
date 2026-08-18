@@ -14,6 +14,9 @@
     agenix.inputs.home-manager.follows = "home-manager";
     homeage.url = "github:jordanisaacs/homeage";
     homeage.inputs.nixpkgs.follows = "nixpkgs";
+
+    zwift.url = "github:netbrain/zwift";
+    zwift.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -25,6 +28,7 @@
       home-manager,
       agenix,
       homeage,
+      zwift,
     }@inputs:
     let
       extra-pkgs-overlay = final: prev: {
@@ -94,6 +98,7 @@
             )
             ./katana-configuration.nix
             agenix.nixosModules.default
+            zwift.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
