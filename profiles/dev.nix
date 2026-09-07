@@ -17,41 +17,19 @@
     # node
     nodejs
 
-    # purescript
-    purescript
-    #spago
-
     # python
     (python313.withPackages (
       ps: with ps; [
-        numpy
-        pandas
+        mypy
+        ruff
       ]
     ))
-    isort
-    black
-    mypy
-    python313Packages.flake8
-    ruff
-
-    # go
-    go
-
-    # rust
-    gcc
-    cargo
-    rustc
 
     # general
     gnumake
-    cmake
     jq
     entr
     bat
-    universal-ctags
-
-    # deployment
-    morph
 
     # R stuff
     #rstudio-with-my-packages
