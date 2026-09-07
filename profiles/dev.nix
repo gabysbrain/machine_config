@@ -18,7 +18,7 @@
     nodejs
 
     # python
-    (python313.withPackages (
+    (python314.withPackages (
       ps: with ps; [
         mypy
       ]
