@@ -21,7 +21,6 @@
     (python313.withPackages (
       ps: with ps; [
         mypy
-        ruff
       ]
     ))
 
