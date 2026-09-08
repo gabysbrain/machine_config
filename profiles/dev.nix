@@ -11,7 +11,7 @@
 
     # for nix dev
     niv
-    #cachix
+    nvd
     nixos-shell
 
     # node
