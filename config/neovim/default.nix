@@ -54,7 +54,6 @@ in
       ${builtins.readFile ./barbar.lua}
       ${builtins.readFile ./todos.lua}
       EOF
-      ${builtins.readFile ./nerdtree.vim}
       ${builtins.readFile ./slime.vim}
       ${builtins.readFile ./telescope.vim}
       ${builtins.readFile ./quickfix.vim}
@@ -124,7 +123,6 @@ in
       tabular
       vim-buffergator
       nerdcommenter
-      nerdtree
       telescope-nvim
       telescope-fzf-native-nvim
       customPlugins.telescope-bibtex
