@@ -50,6 +50,7 @@ in
 
       " universal packages
       lua << EOF
+      ${builtins.readFile ./oil.lua}
       ${builtins.readFile ./lualine.lua}
       ${builtins.readFile ./barbar.lua}
       ${builtins.readFile ./todos.lua}
@@ -150,6 +151,8 @@ in
 
       telekasten-nvim
       calendar-vim
+
+      oil-nvim
     ];
   };
   home.packages = with pkgs; [
