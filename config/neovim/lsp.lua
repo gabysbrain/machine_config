@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.lsp.enable({
   'ts_ls', 'eslint', 'gopls', 'hls', 'lua_ls', 'marksman', 'nixd',
-  'pyright', 'rust_analyzer', 'texlab', 'svelte',
+  'pyright', 'rust_analyzer', 'texlab', 'svelte', 'zls'
 })
 
 -- specific language configs
