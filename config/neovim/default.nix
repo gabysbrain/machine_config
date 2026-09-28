@@ -114,9 +114,9 @@ in
           sql
           julia
           vim
+          zig
         ]
       ))
-      vim-polyglot
       customPlugins.vim-criticmarkup
       lualine-nvim
       barbar-nvim
