@@ -158,6 +158,26 @@
         "type": "github"
       }
     },
+    "personal-scripts": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790717017,
+        "narHash": "sha256-mQSLvbDM42wSDvXk9GSX3KnedIQRdvoccjUz34T66F4=",
+        "owner": "gabysbrain",
+        "repo": "personal_scripts",
+        "rev": "10b3a1e484b6a8b47e5f4ed80d35b513aa24b589",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gabysbrain",
+        "repo": "personal_scripts",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -166,6 +186,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "personal-scripts": "personal-scripts",
         "zwift": "zwift"
       }
     },

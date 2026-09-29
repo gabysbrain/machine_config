@@ -15,6 +15,9 @@
     homeage.url = "github:jordanisaacs/homeage";
     homeage.inputs.nixpkgs.follows = "nixpkgs";
 
+    personal-scripts.url = "github:gabysbrain/personal_scripts";
+    personal-scripts.inputs.nixpkgs.follows = "nixpkgs";
+
     zwift.url = "github:netbrain/zwift";
     zwift.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -28,6 +31,7 @@
       home-manager,
       agenix,
       homeage,
+      personal-scripts,
       zwift,
     }@inputs:
     let
@@ -64,7 +68,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit homeage; };
+              home-manager.extraSpecialArgs = { inherit homeage personal-scripts; };
             }
           ];
         };
