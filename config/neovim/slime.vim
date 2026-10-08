@@ -1,7 +1,8 @@
 " slime/julia stuff
 let g:slime_target = "tmux"
 let g:slime_default_config = { "socket_name": "default", "target_pane": "" }
-let g:slime_paste_file = tempname()
+" Use bracketed paste mode to prevent REPL auto-indenting each line
+let g:slime_bracketed_paste = 1
 let g:slime_cell_delimiter = "#%%"
 
 " convenient keyboard shortcuts
