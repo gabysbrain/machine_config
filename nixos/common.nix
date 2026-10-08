@@ -17,6 +17,8 @@
   # firewall config
   networking.firewall.enable = true;
 
+  environment.defaultPackages = [];
+
   environment.systemPackages = with pkgs; [
     nox
     nix-output-monitor
@@ -27,6 +29,9 @@
     dig
 
     agenix.packages.x86_64-linux.default
+
+    rsync
+    strace
   ];
 
   programs.zsh = {
