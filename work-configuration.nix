@@ -21,7 +21,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.torsneyw =
-    { pkgs, nixosConfig, homeage, personal-scripts, ... }:
+    { pkgs, nixosConfig, homeage, personal-scripts, pi, ... }:
     {
       home.stateVersion = "24.11";
 
@@ -33,6 +33,7 @@
         # FIXME: not sure why this breaks in home-config/common...
         homeage.homeManagerModules.homeage
         personal-scripts.homeManagerModules.default
+        pi.homeManagerModules.coding-agent
       ];
     };
 

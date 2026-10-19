@@ -14,6 +14,9 @@
     homeage.url = "github:jordanisaacs/homeage";
     homeage.inputs.nixpkgs.follows = "nixpkgs";
 
+    pi.url = "github:lukasl-dev/pi.nix";
+    pi.inputs.nixpkgs.follows = "nixpkgs";
+
     personal-scripts.url = "github:gabysbrain/personal_scripts";
     personal-scripts.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -30,6 +33,7 @@
       home-manager,
       agenix,
       homeage,
+      pi,
       personal-scripts,
       zwift,
     }@inputs:
@@ -45,6 +49,7 @@
       overlays = [
         extra-pkgs-overlay
         my-overrides
+        pi.overlays.default
       ];
     in
     {
@@ -67,7 +72,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit homeage personal-scripts; };
+              home-manager.extraSpecialArgs = { inherit homeage personal-scripts pi; };
             }
           ];
         };
