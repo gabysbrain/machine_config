@@ -1,6 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pi, ... }:
 
 {
+  imports = [
+    pi.homeManagerModules.coding-agent
+  ];
+
+  programs.pi.coding-agent.enable = true;
+
   home.packages = with pkgs; [
     (callPackage ../pkgs/agg { })
 

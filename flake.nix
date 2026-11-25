@@ -91,7 +91,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit homeage; };
+              home-manager.extraSpecialArgs = { inherit homeage pi; };
             }
           ];
         };
@@ -111,7 +111,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit homeage; };
+              home-manager.extraSpecialArgs = { inherit homeage pi; };
             }
           ];
         };
